@@ -160,14 +160,7 @@ public abstract class Item implements Cloneable {
     public static Item get(int id, int meta, int count, byte[] tags) {
         ItemRegistry registry = Server.getInstance().getItemRegistry();
         Identifier identifier = registry.fromLegacy(id);
-        Item item = registry.getItem(identifier);
-        item.setDamage(meta);
-        item.setCount(count);
-        if (tags.length != 0) {
-            item.setCompoundTag(tags);
-        }
-
-        return item;
+        return get(identifier, meta, count, tags);
     }
 
     public static Item fromString(String str) {
@@ -613,11 +606,16 @@ public abstract class Item implements Cloneable {
     }
 
     public int getDamage() {
-        return meta;
+        return meta == 0xffff ? 0 : meta;
     }
 
     public void setDamage(int meta) {
         this.meta = meta & 0xffff;
+        this.onDamageChange(this.meta);
+    }
+
+    protected void onDamageChange(int newDamage) {
+
     }
 
     public int getMaxStackSize() {

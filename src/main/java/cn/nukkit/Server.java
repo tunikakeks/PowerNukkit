@@ -9,6 +9,7 @@ import cn.nukkit.event.HandlerList;
 import cn.nukkit.event.server.BatchPacketsEvent;
 import cn.nukkit.event.server.PlayerDataSerializeEvent;
 import cn.nukkit.event.server.QueryRegenerateEvent;
+import cn.nukkit.event.server.RegistriesClosedEvent;
 import cn.nukkit.inventory.CraftingManager;
 import cn.nukkit.inventory.Recipe;
 import cn.nukkit.item.Item;
@@ -408,7 +409,7 @@ public class Server {
         this.properties.setProperty("generator-settings", "");
         this.properties.setProperty("level-name", "world");
         this.properties.setProperty("level-seed", "");
-        this.properties.setProperty("level-type", "DEFAULT");
+        this.properties.setProperty("level-type", "NORMAL");
         this.properties.setProperty("allow-nether", "true");
         this.properties.setProperty("enable-query", "true");
         this.properties.setProperty("enable-rcon", "false");
@@ -484,7 +485,9 @@ public class Server {
         int logLevel = (Nukkit.DEBUG + 3) * 100;
         for (org.apache.logging.log4j.Level level : org.apache.logging.log4j.Level.values()) {
             if (level.intLevel() == logLevel) {
-                Nukkit.setLogLevel(level);
+                if (level.intLevel() > Nukkit.getLogLevel().intLevel()) {
+                    Nukkit.setLogLevel(level);
+                }
                 break;
             }
         }
@@ -539,6 +542,8 @@ public class Server {
             this.packManager.closeRegistration();
         } catch (RegistryException e) {
             throw new IllegalStateException("Unable to close registries", e);
+        } finally {
+            this.pluginManager.callEvent(new RegistriesClosedEvent(this.packManager));
         }
 
         Identifier defaultStorageId = Identifier.fromString(this.getConfig().get(
@@ -597,8 +602,8 @@ public class Server {
             Level defaultLevel = this.levelManager.getLevel(defaultName);
             if (defaultLevel == null) {
                 long seed;
-                String seedString = this.getProperty("level-seed", null);
-                if (seedString != null) {
+                String seedString = this.getProperty("level-seed", "");
+                if (!seedString.isEmpty()) {
                     try {
                         seed = Long.parseLong(seedString);
                     } catch (NumberFormatException e) {
@@ -608,9 +613,12 @@ public class Server {
                     seed = System.currentTimeMillis();
                 }
 
+                String type = (type = this.getLevelType().toLowerCase()).equals("default") ? "normal" : type;
+                Identifier typeIdentifier = Identifier.fromString(type);
+
                 defaultLevel = this.loadLevel().id(defaultName)
                         .seed(seed)
-                        .generator(GeneratorIds.NORMAL)
+                        .generator(this.generatorRegistry.isRegistered(typeIdentifier) ? typeIdentifier : this.generatorRegistry.getFallback())
                         .load().join();
             }
             this.levelManager.setDefaultLevel(defaultLevel);
@@ -1028,10 +1036,7 @@ public class Server {
 
             this.levelManager.tick(this.tickCounter);
 
-            String message = "TPS: " + NukkitMath.round(getTicksPerSecondAverage(), 4);
-
             for (Player player : new ArrayList<>(this.players.values())) {
-                player.sendTip(message + ", Chunk: (" + player.getChunkX() + ", " + player.getChunkZ() + ")");
                 player.checkNetwork();
             }
 
@@ -1196,7 +1201,7 @@ public class Server {
     }
 
     public String getLevelType() {
-        return this.getProperty("level-type", "DEFAULT");
+        return this.getProperty("level-type", "NORMAL");
     }
 
     public boolean getGenerateStructures() {
@@ -2008,6 +2013,7 @@ public class Server {
         BlockEntity.registerBlockEntity(BlockEntity.SHULKER_BOX, BlockEntityShulkerBox.class);
         BlockEntity.registerBlockEntity(BlockEntity.BANNER, BlockEntityBanner.class);
         BlockEntity.registerBlockEntity(BlockEntity.MUSIC, BlockEntityMusic.class);
+        BlockEntity.registerBlockEntity(BlockEntity.CAMPFIRE, BlockEntityCampfire.class);
     }
 
     public boolean isNetherAllowed() {

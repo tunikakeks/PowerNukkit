@@ -327,13 +327,9 @@ public abstract class Block extends BlockPosition implements Metadatable, Clonea
     }
 
     public Item[] getDrops(Item item) {
-        if (this.getId() != AIR) {
-            return new Item[0];
-        } else {
-            return new Item[]{
-                    this.toItem()
-            };
-        }
+        return new Item[]{
+                this.toItem()
+        };
     }
 
     public double getBreakTime(Item item, Player player) {
@@ -713,7 +709,7 @@ public abstract class Block extends BlockPosition implements Metadatable, Clonea
     }
 
     public Item toItem() {
-        return Item.get(this.id);
+        return Item.get(this.id, this.meta);
     }
 
     public boolean canSilkTouch() {

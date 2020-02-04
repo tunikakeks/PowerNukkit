@@ -10,23 +10,26 @@ Nukkit 1.X and 2.X.
 Click the link above to see the future.
 
 ### Added
-- This change log file
+- [#136] This change log file
 - [#128] Implementation for the lingering potion and area effect cloud entities
 
 ### Fixes
-Nothing yet.
+- [#131] Instant damage and instant health are now inverted when applied to undead entities
+- [#132] A collision detection issue on Area Effect Cloud which could make it wears off way quicker than it should
 
 ### Changed
-- The versioning convention now follows this pattern:<br>`upstream.major.minor.patch-PN`<br>[Click here for details.](https://github.com/GameModsBR/PowerNukkit/blob/7912aa4be68e94a52762361c2d5189b7bbc58d2a/pom.xml#L8-L14)
-- The codename to PowerNukkit to distinct from [NukkitX]'s implementation
-
-
-[Unreleased]: https://github.com/GameModsBR/PowerNukkit/compare/v2.0-PN...2.0-migration
-
-[NukkitX]: https://github.com/NukkitX/Nukkit
-
-[#128]: https://github.com/GameModsBR/PowerNukkit/pull/128
+- [#136] The versioning convention now follows this pattern:<br>`upstream.major.minor.patch-PN`<br>[Click here for details.](https://github.com/GameModsBR/PowerNukkit/blob/7912aa4be68e94a52762361c2d5189b7bbc58d2a/pom.xml#L8-L14)
+- [#136] The codename to PowerNukkit to distinct from [NukkitX]'s implementation
 
 ### 1.X to 2.X
 A lot has been changed from 1.X to 2.X, please refer to [this topic](https://nukkitx.com/threads/nukkit-2-0-alpha.602/)
 for details.
+
+[Unreleased]: https://github.com/GameModsBR/PowerNukkit/compare/477db9d7c3dfa4182c3e73d0aec9744ccd7fb658...2.0-migration
+
+[NukkitX]: https://github.com/NukkitX/Nukkit
+
+[#128]: https://github.com/GameModsBR/PowerNukkit/pull/128
+[#131]: https://github.com/GameModsBR/PowerNukkit/pull/131
+[#132]: https://github.com/GameModsBR/PowerNukkit/pull/132
+[#136]: https://github.com/GameModsBR/PowerNukkit/pull/136

@@ -1,4 +1,4 @@
-name: PowerNukkit v2.X Build Status
+name: PowerNukkit v2.X
 
 on: [pull_request,push]
 

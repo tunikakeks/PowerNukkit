@@ -1,7 +1,7 @@
 ![nukkit](.github/images/banner.png)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE)
-![PowerNukkit v2.X](https://github.com/GameModsBR/PowerNukkit/workflows/PowerNukkit%20v2.X/badge.svg?branch=2.0-migration)
+[![PowerNukkit v2.X](https://github.com/GameModsBR/PowerNukkit/workflows/PowerNukkit%20v2.X/badge.svg?branch=2.0-migration)](https://github.com/GameModsBR/PowerNukkit/actions?query=branch%3A2.0-migration)
 [![Discord](https://img.shields.io/discord/393465748535640064.svg)](https://discord.gg/5PzMkyK)
 
 Introduction

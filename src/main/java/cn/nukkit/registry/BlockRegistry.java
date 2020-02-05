@@ -495,25 +495,26 @@ public class BlockRegistry implements Registry {
         //list.put(NETHER_REACTOR, BlockNetherReactor::new); //247 Should not be removed
 
         //TODO: list.put(PISTON_EXTENSION, BlockPistonExtension::new); //250
-
         this.factoryMap.put(OBSERVER, BlockObserver::new); //251
 
+
         this.factoryMap.put(PRISMARINE_STAIRS, BlockStairsPrismarine::new); //257
-
         this.factoryMap.put(DARK_PRISMARINE_STAIRS, BlockStairsDarkPrismarine::new); //258
-
         this.factoryMap.put(PRISMARINE_BRICKS_STAIRS, BlockStairsPrismarineBricks::new); //259
-        this.factoryMap.put(DRIED_KELP_BLOCK,BlockDriedKelp::new); //UNK
+
         this.factoryMap.put(SPRUCE_STANDING_SIGN, BlockSignPost::new);
 
-        this.factoryMap.put(SMOOTH_STONE, BlockSmoothStone::new); // 437
+
 
         this.factoryMap.put(CAMPFIRE, BlockCampfire::new);
         
-        this.factoryMap.put(BARREL, BlockBarrel::new); // 457
+
         
         this.factoryMap.put(BLUE_ICE, BlockBlueIce::new); //266
 
+        this.factoryMap.put(DRIED_KELP_BLOCK,BlockDriedKelp::new); //394
+
+        this.factoryMap.put(BARRIER, BlockBarrier::new); //415
         this.factoryMap.put(GRANITE_STAIRS, BlockStairsGranite::new); //424
         this.factoryMap.put(DIORITE_STAIRS, BlockStairsDiorite::new); //425
         this.factoryMap.put(ANDESITE_STAIRS, BlockStairsAndesite::new); //426
@@ -526,11 +527,13 @@ public class BlockRegistry implements Registry {
         this.factoryMap.put(END_BRICK_STAIRS, BlockStairsEndStoneBrick::new); //433
         this.factoryMap.put(MOSSY_COBBLESTONE_STAIRS, BlockStairsCobblestone::new); //434
         this.factoryMap.put(NORMAL_STONE_STAIRS, BlockStairsStone::new); //435
+        this.factoryMap.put(SMOOTH_STONE, BlockSmoothStone::new); // 437
 
         this.factoryMap.put(RED_NETHER_BRICK_STAIRS, BlockStairsNetherBrick::new); //439
-
         this.factoryMap.put(SMOOTH_QUARTZ_STAIRS, BlockStairsQuartz::new); //440
 
-        this.factoryMap.put(BARRIER, BlockBarrier::new); //415
+
+        this.factoryMap.put(BARREL, BlockBarrel::new); // 457
+
     }
 }

@@ -15,6 +15,7 @@ Click the link above to see the future.
     - [#128] Lingering potion
     - [#128] Area effect cloud
 - Implementation for the blocks:
+    - [#146] Barrel
     - [#135] Barrier 
     - [#143] Blue Ice
 
@@ -40,3 +41,4 @@ for details.
 [#135]: https://github.com/GameModsBR/PowerNukkit/pull/135
 [#136]: https://github.com/GameModsBR/PowerNukkit/pull/136
 [#143]: https://github.com/GameModsBR/PowerNukkit/pull/143
+[#146]: https://github.com/GameModsBR/PowerNukkit/pull/146

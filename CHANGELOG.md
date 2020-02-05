@@ -22,6 +22,7 @@ Click the link above to see the future.
 ### Fixes
 - [#131] Instant damage and instant health are now inverted when applied to undead entities
 - [#132] A collision detection issue on Area Effect Cloud which could make it wears off way quicker than it should
+- [#147] Block entities not being saved before being serialized to the LevelDB format
 
 ### Changed
 - [#136] The versioning convention now follows this pattern:<br>`upstream.major.minor.patch-PN`<br>[Click here for details.](https://github.com/GameModsBR/PowerNukkit/blob/7912aa4be68e94a52762361c2d5189b7bbc58d2a/pom.xml#L8-L14)
@@ -42,3 +43,4 @@ for details.
 [#136]: https://github.com/GameModsBR/PowerNukkit/pull/136
 [#143]: https://github.com/GameModsBR/PowerNukkit/pull/143
 [#146]: https://github.com/GameModsBR/PowerNukkit/pull/146
+[#147]: https://github.com/GameModsBR/PowerNukkit/pull/147

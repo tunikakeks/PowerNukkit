@@ -11,8 +11,12 @@ Click the link above to see the future.
 
 ### Added
 - [#136] This change log file
-- [#128] Implementation for the lingering potion and area effect cloud entities
-- [#135] Implementation for the barrier block 
+-Implementation for the entities (without AI):
+    - [#128] Lingering potion
+    - [#128] Area effect cloud
+- Implementation for the blocks:
+    - [#135] Barrier 
+    - [#143] Blue Ice
 
 ### Fixes
 - [#131] Instant damage and instant health are now inverted when applied to undead entities
@@ -35,3 +39,4 @@ for details.
 [#132]: https://github.com/GameModsBR/PowerNukkit/pull/132
 [#135]: https://github.com/GameModsBR/PowerNukkit/pull/135
 [#136]: https://github.com/GameModsBR/PowerNukkit/pull/136
+[#143]: https://github.com/GameModsBR/PowerNukkit/pull/143

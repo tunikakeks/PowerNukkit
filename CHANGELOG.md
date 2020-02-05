@@ -18,6 +18,7 @@ Click the link above to see the future.
     - [#146] Barrel
     - [#135] Barrier 
     - [#143] Blue Ice
+    - [#162] Dried Kelp Block
     - [#149] Smooth Stone
     - [#160] Kelp
 
@@ -50,3 +51,4 @@ for details.
 [#149]: https://github.com/GameModsBR/PowerNukkit/pull/149
 [#155]: https://github.com/GameModsBR/PowerNukkit/pull/155
 [#160]: https://github.com/GameModsBR/PowerNukkit/pull/160
+[#162]: https://github.com/GameModsBR/PowerNukkit/pull/162

@@ -6497,22 +6497,22 @@ minecraft:seagrass;sea_grass_type=double_bot
 [2]
 
 minecraft:coral;coral_color=blue;dead_bit=1
-[]
+[8]
 
 minecraft:coral;coral_color=blue;dead_bit=0
 [0, 5, 6, 7]
 
 minecraft:coral;coral_color=pink;dead_bit=1
-[]
+[9]
 
 minecraft:coral;coral_color=purple;dead_bit=1
-[]
+[10]
 
 minecraft:coral;coral_color=red;dead_bit=1
-[]
+[11]
 
 minecraft:coral;coral_color=yellow;dead_bit=1
-[]
+[12]
 
 minecraft:coral;coral_color=pink;dead_bit=0
 [1]
@@ -6764,34 +6764,34 @@ minecraft:kelp;kelp_age=0
 [0]
 
 minecraft:kelp;kelp_age=18
-[]
+[18]
 
 minecraft:kelp;kelp_age=21
-[]
+[21]
 
 minecraft:kelp;kelp_age=24
-[]
+[24]
 
 minecraft:kelp;kelp_age=19
-[]
+[19]
 
 minecraft:kelp;kelp_age=22
-[]
+[22]
 
 minecraft:kelp;kelp_age=25
-[]
+[25]
 
 minecraft:kelp;kelp_age=23
-[]
+[23]
 
 minecraft:kelp;kelp_age=16
-[]
+[16]
 
 minecraft:kelp;kelp_age=17
-[]
+[17]
 
 minecraft:kelp;kelp_age=20
-[]
+[20]
 
 minecraft:kelp;kelp_age=1
 [1]
@@ -8942,79 +8942,79 @@ minecraft:jigsaw;facing_direction=5
 [5]
 
 minecraft:wood;wood_type=jungle;stripped_bit=0;pillar_axis=z
-[]
+[35]
 
 minecraft:wood;wood_type=jungle;stripped_bit=1;pillar_axis=z
-[]
+[43]
 
 minecraft:wood;wood_type=jungle;stripped_bit=0;pillar_axis=x
-[]
+[19]
 
 minecraft:wood;wood_type=jungle;stripped_bit=1;pillar_axis=x
-[]
+[27]
 
 minecraft:wood;wood_type=dark_oak;stripped_bit=0;pillar_axis=x
-[]
+[21]
 
 minecraft:wood;wood_type=dark_oak;stripped_bit=0;pillar_axis=z
-[]
+[37]
 
 minecraft:wood;wood_type=dark_oak;stripped_bit=1;pillar_axis=x
-[]
+[29]
 
 minecraft:wood;wood_type=dark_oak;stripped_bit=1;pillar_axis=z
-[]
+[45]
 
 minecraft:wood;wood_type=spruce;stripped_bit=1;pillar_axis=z
-[]
+[41]
 
 minecraft:wood;wood_type=spruce;stripped_bit=0;pillar_axis=z
-[]
+[33]
 
 minecraft:wood;wood_type=spruce;stripped_bit=1;pillar_axis=x
-[]
+[25]
 
 minecraft:wood;wood_type=spruce;stripped_bit=0;pillar_axis=x
-[]
+[17]
 
 minecraft:wood;wood_type=acacia;stripped_bit=1;pillar_axis=x
-[]
+[28]
 
 minecraft:wood;wood_type=acacia;stripped_bit=0;pillar_axis=z
-[]
+[36]
 
 minecraft:wood;wood_type=acacia;stripped_bit=0;pillar_axis=x
-[]
+[20]
 
 minecraft:wood;wood_type=acacia;stripped_bit=1;pillar_axis=z
-[]
+[44]
 
 minecraft:wood;wood_type=oak;stripped_bit=0;pillar_axis=z
-[]
+[32]
 
 minecraft:wood;wood_type=oak;stripped_bit=1;pillar_axis=z
-[]
+[40]
 
 minecraft:wood;wood_type=oak;stripped_bit=0;pillar_axis=x
-[]
+[16]
 
 minecraft:wood;wood_type=oak;stripped_bit=1;pillar_axis=x
-[]
+[24]
 
 minecraft:wood;wood_type=birch;stripped_bit=1;pillar_axis=z
-[]
+[42]
 
 minecraft:wood;wood_type=birch;stripped_bit=0;pillar_axis=x
-[]
+[18]
 
 minecraft:wood;wood_type=birch;stripped_bit=0;pillar_axis=z
-[]
+[34]
 
 minecraft:wood;wood_type=birch;stripped_bit=1;pillar_axis=x
-[]
+[26]
 
 minecraft:wood;wood_type=oak;stripped_bit=1;pillar_axis=y
-[8, 14, 15]
+[8]
 
 minecraft:wood;wood_type=spruce;stripped_bit=1;pillar_axis=y
 [9]
@@ -9026,28 +9026,28 @@ minecraft:wood;wood_type=jungle;stripped_bit=1;pillar_axis=y
 [11]
 
 minecraft:wood;wood_type=acacia;stripped_bit=0;pillar_axis=y
-[12, 14, 15, 4]
+[4]
 
 minecraft:wood;wood_type=acacia;stripped_bit=1;pillar_axis=y
 [12]
 
 minecraft:wood;wood_type=oak;stripped_bit=0;pillar_axis=y
-[12, 0, 6, 7]
+[0]
 
 minecraft:wood;wood_type=dark_oak;stripped_bit=1;pillar_axis=y
 [13]
 
 minecraft:wood;wood_type=dark_oak;stripped_bit=0;pillar_axis=y
-[13, 5]
+[5]
 
 minecraft:wood;wood_type=spruce;stripped_bit=0;pillar_axis=y
-[13, 1]
+[1]
 
 minecraft:wood;wood_type=birch;stripped_bit=0;pillar_axis=y
-[14, 2]
+[2]
 
 minecraft:wood;wood_type=jungle;stripped_bit=0;pillar_axis=y
-[15, 3]
+[3]
 
 minecraft:composter;composter_fill_level=0
 [0, 9, 10, 11, 12, 13, 14, 15]
@@ -9095,293 +9095,293 @@ minecraft:lit_blast_furnace;facing_direction=5
 [5]
 
 minecraft:light_block;block_light_level=4
-[]
+[4]
 
 minecraft:light_block;block_light_level=7
-[]
+[7]
 
 minecraft:light_block;block_light_level=9
-[]
+[9]
 
 minecraft:light_block;block_light_level=10
-[]
+[10]
 
 minecraft:light_block;block_light_level=8
-[]
+[8]
 
 minecraft:light_block;block_light_level=13
-[]
+[13]
 
 minecraft:light_block;block_light_level=11
-[]
+[11]
 
 minecraft:light_block;block_light_level=12
-[]
+[12]
 
 minecraft:light_block;block_light_level=15
-[]
+[15]
 
 minecraft:light_block;block_light_level=1
-[]
+[1]
 
 minecraft:light_block;block_light_level=2
-[]
+[2]
 
 minecraft:light_block;block_light_level=0
-[]
+[0]
 
 minecraft:light_block;block_light_level=5
-[]
+[5]
 
 minecraft:light_block;block_light_level=6
-[]
+[6]
 
 minecraft:light_block;block_light_level=3
-[]
+[3]
 
 minecraft:light_block;block_light_level=14
-[6, 7]
+[14]
 
 minecraft:wither_rose
-[]
+[0]
 
 minecraft:stickyPistonArmCollision;facing_direction=5
-[]
+[5]
 
 minecraft:stickyPistonArmCollision;facing_direction=1
-[]
+[1]
 
 minecraft:stickyPistonArmCollision;facing_direction=4
-[]
+[4]
 
 minecraft:stickyPistonArmCollision;facing_direction=2
-[]
+[2]
 
 minecraft:stickyPistonArmCollision;facing_direction=3
-[]
+[3]
 
 minecraft:stickyPistonArmCollision;facing_direction=0
-[]
+[0, 6, 7]
 
 minecraft:bee_nest;facing_direction=0;honey_level=0
-[]
+[0]
 
 minecraft:bee_nest;facing_direction=0;honey_level=1
-[]
+[8]
 
 minecraft:bee_nest;facing_direction=0;honey_level=2
-[]
+[16]
 
 minecraft:bee_nest;facing_direction=2;honey_level=5
-[]
+[42]
 
 minecraft:bee_nest;facing_direction=5;honey_level=2
-[]
+[21]
 
 minecraft:bee_nest;facing_direction=5;honey_level=3
-[]
+[29]
 
 minecraft:bee_nest;facing_direction=5;honey_level=4
-[]
+[37]
 
 minecraft:bee_nest;facing_direction=5;honey_level=5
-[]
+[45]
 
 minecraft:bee_nest;facing_direction=0;honey_level=3
-[]
+[24]
 
 minecraft:bee_nest;facing_direction=0;honey_level=4
-[]
+[32]
 
 minecraft:bee_nest;facing_direction=0;honey_level=5
-[]
+[40]
 
 minecraft:bee_nest;facing_direction=3;honey_level=4
-[]
+[35]
 
 minecraft:bee_nest;facing_direction=2;honey_level=1
-[]
+[10]
 
 minecraft:bee_nest;facing_direction=4;honey_level=3
-[]
+[28]
 
 minecraft:bee_nest;facing_direction=1;honey_level=2
-[]
+[17]
 
 minecraft:bee_nest;facing_direction=2;honey_level=2
-[]
+[18]
 
 minecraft:bee_nest;facing_direction=3;honey_level=5
-[]
+[43]
 
 minecraft:bee_nest;facing_direction=1;honey_level=3
-[]
+[25]
 
 minecraft:bee_nest;facing_direction=4;honey_level=4
-[]
+[36]
 
 minecraft:bee_nest;facing_direction=1;honey_level=4
-[]
+[33]
 
 minecraft:bee_nest;facing_direction=5;honey_level=0
-[]
+[5]
 
 minecraft:bee_nest;facing_direction=4;honey_level=5
-[]
+[44]
 
 minecraft:bee_nest;facing_direction=2;honey_level=3
-[]
+[26]
 
 minecraft:bee_nest;facing_direction=5;honey_level=1
-[]
+[13]
 
 minecraft:bee_nest;facing_direction=1;honey_level=5
-[]
+[41]
 
 minecraft:bee_nest;facing_direction=2;honey_level=4
-[]
+[34]
 
 minecraft:bee_nest;facing_direction=3;honey_level=0
-[]
+[3]
 
 minecraft:bee_nest;facing_direction=3;honey_level=1
-[]
+[11]
 
 minecraft:bee_nest;facing_direction=4;honey_level=0
-[]
+[4]
 
 minecraft:bee_nest;facing_direction=1;honey_level=0
-[]
+[1]
 
 minecraft:bee_nest;facing_direction=3;honey_level=2
-[]
+[19]
 
 minecraft:bee_nest;facing_direction=4;honey_level=1
-[]
+[12]
 
 minecraft:bee_nest;facing_direction=2;honey_level=0
-[]
+[2]
 
 minecraft:bee_nest;facing_direction=3;honey_level=3
-[]
+[27]
 
 minecraft:bee_nest;facing_direction=4;honey_level=2
-[]
+[20]
 
 minecraft:bee_nest;facing_direction=1;honey_level=1
-[]
+[9]
 
 minecraft:beehive;facing_direction=5;honey_level=4
-[]
+[37]
 
 minecraft:beehive;facing_direction=3;honey_level=5
-[]
+[43]
 
 minecraft:beehive;facing_direction=2;honey_level=2
-[]
+[18]
 
 minecraft:beehive;facing_direction=1;honey_level=3
-[]
+[25]
 
 minecraft:beehive;facing_direction=4;honey_level=4
-[]
+[36]
 
 minecraft:beehive;facing_direction=2;honey_level=5
-[]
+[42]
 
 minecraft:beehive;facing_direction=5;honey_level=2
-[]
+[21]
 
 minecraft:beehive;facing_direction=5;honey_level=5
-[]
+[45]
 
 minecraft:beehive;facing_direction=5;honey_level=0
-[]
+[5]
 
 minecraft:beehive;facing_direction=1;honey_level=4
-[]
+[33]
 
 minecraft:beehive;facing_direction=4;honey_level=5
-[]
+[44]
 
 minecraft:beehive;facing_direction=2;honey_level=3
-[]
+[26]
 
 minecraft:beehive;facing_direction=4;honey_level=0
-[]
+[4]
 
 minecraft:beehive;facing_direction=3;honey_level=1
-[]
+[11]
 
 minecraft:beehive;facing_direction=1;honey_level=2
-[]
+[17]
 
 minecraft:beehive;facing_direction=2;honey_level=1
-[]
+[10]
 
 minecraft:beehive;facing_direction=3;honey_level=4
-[]
+[35]
 
 minecraft:beehive;facing_direction=4;honey_level=3
-[]
+[28]
 
 minecraft:beehive;facing_direction=1;honey_level=5
-[]
+[41]
 
 minecraft:beehive;facing_direction=5;honey_level=1
-[]
+[13]
 
 minecraft:beehive;facing_direction=2;honey_level=4
-[]
+[34]
 
 minecraft:beehive;facing_direction=3;honey_level=2
-[]
+[19]
 
 minecraft:beehive;facing_direction=4;honey_level=1
-[]
+[12]
 
 minecraft:beehive;facing_direction=1;honey_level=0
-[]
+[1]
 
 minecraft:beehive;facing_direction=3;honey_level=0
-[]
+[3]
 
 minecraft:beehive;facing_direction=4;honey_level=2
-[]
+[20]
 
 minecraft:beehive;facing_direction=1;honey_level=1
-[]
+[9]
 
 minecraft:beehive;facing_direction=2;honey_level=0
-[]
+[2]
 
 minecraft:beehive;facing_direction=3;honey_level=3
-[]
+[27]
 
 minecraft:beehive;facing_direction=0;honey_level=4
-[]
+[32]
 
 minecraft:beehive;facing_direction=0;honey_level=5
-[]
+[40]
 
 minecraft:beehive;facing_direction=0;honey_level=0
-[]
+[0]
 
 minecraft:beehive;facing_direction=0;honey_level=3
-[]
+[24]
 
 minecraft:beehive;facing_direction=0;honey_level=1
-[]
+[8]
 
 minecraft:beehive;facing_direction=5;honey_level=3
-[]
+[29]
 
 minecraft:beehive;facing_direction=0;honey_level=2
-[]
+[16]
 
 minecraft:honey_block
-[]
+[0]
 
 minecraft:honeycomb_block
-[]
+[0]
 

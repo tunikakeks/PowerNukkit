@@ -18,6 +18,7 @@ Click the link above to see the future.
     - [#146] Barrel
     - [#135] Barrier 
     - [#143] Blue Ice
+    - [#149] Smooth Stone
 
 ### Fixes
 - [#131] Instant damage and instant health are now inverted when applied to undead entities
@@ -45,4 +46,5 @@ for details.
 [#143]: https://github.com/GameModsBR/PowerNukkit/pull/143
 [#146]: https://github.com/GameModsBR/PowerNukkit/pull/146
 [#147]: https://github.com/GameModsBR/PowerNukkit/pull/147
+[#149]: https://github.com/GameModsBR/PowerNukkit/pull/149
 [#155]: https://github.com/GameModsBR/PowerNukkit/pull/155

@@ -28,6 +28,7 @@ Click the link above to see the future.
 - [#147] Block entities not being saved before being serialized to the LevelDB format
 - [#155] The condition which ice blocks becomes water when broken
 - [#165] The dropped button's damage value when a button is broken
+- [#166] The stone_button break time and dropping without pickaxe
 
 ### Changed
 - [#136] The versioning convention now follows this pattern:<br>`upstream.major.minor.patch-PN`<br>[Click here for details.](https://github.com/GameModsBR/PowerNukkit/blob/7912aa4be68e94a52762361c2d5189b7bbc58d2a/pom.xml#L8-L14)
@@ -54,3 +55,4 @@ for details.
 [#160]: https://github.com/GameModsBR/PowerNukkit/pull/160
 [#162]: https://github.com/GameModsBR/PowerNukkit/pull/162
 [#165]: https://github.com/GameModsBR/PowerNukkit/pull/165
+[#166]: https://github.com/GameModsBR/PowerNukkit/pull/166

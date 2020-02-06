@@ -22,6 +22,7 @@ Click the link above to see the future.
     - [#149] Smooth Stone
     - [#160] Kelp
     - [#154] Acacia, Birch, Dark Oak, Jungle, Spruce Trapdoors
+    - [#163] Acacia, Birch, Dark Oak, Jungle, Spruce Buttons
 
 ### Fixes
 - [#131] Instant damage and instant health are now inverted when applied to undead entities
@@ -58,5 +59,6 @@ for details.
 [#158]: https://github.com/GameModsBR/PowerNukkit/pull/158
 [#160]: https://github.com/GameModsBR/PowerNukkit/pull/160
 [#162]: https://github.com/GameModsBR/PowerNukkit/pull/162
+[#163]: https://github.com/GameModsBR/PowerNukkit/pull/163
 [#165]: https://github.com/GameModsBR/PowerNukkit/pull/165
 [#166]: https://github.com/GameModsBR/PowerNukkit/pull/166

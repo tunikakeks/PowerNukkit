@@ -36,6 +36,7 @@ Click the link above to see the future.
 - [#158] Trapdoors behaving incorrectly when they receive redstone signal
 - [#169] Primed TNT stays white all the time and don't grow before exploding
 - [#169] Primed TNT Minecrart explodes randomly on interactions after being activated, never blinks or grow before exploding
+- [#177] The lever sound
 
 ### Changed
 - [#136] The versioning convention now follows this pattern:<br>`upstream.major.minor.patch-PN`<br>[Click here for details.](https://github.com/GameModsBR/PowerNukkit/blob/7912aa4be68e94a52762361c2d5189b7bbc58d2a/pom.xml#L8-L14)

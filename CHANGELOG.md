@@ -69,4 +69,5 @@ for details.
 [#165]: https://github.com/GameModsBR/PowerNukkit/pull/165
 [#166]: https://github.com/GameModsBR/PowerNukkit/pull/166
 [#169]: https://github.com/GameModsBR/PowerNukkit/pull/169
+[#177]: https://github.com/GameModsBR/PowerNukkit/pull/177
 [#180]: https://github.com/GameModsBR/PowerNukkit/pull/180

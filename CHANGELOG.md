@@ -15,15 +15,16 @@ Click the link above to see the future.
     - [#128] Lingering potion
     - [#128] Area effect cloud
 - Implementation for the blocks:
-    - [#146] Barrel
-    - [#135] Barrier 
-    - [#143] Blue Ice
-    - [#162] Dried Kelp Block
-    - [#149] Smooth Stone
-    - [#160] Kelp
     - [#154] Acacia, Birch, Dark Oak, Jungle, Spruce Trapdoors
     - [#163] Acacia, Birch, Dark Oak, Jungle, Spruce Buttons
     - [#164] Acacia, Birch, Dark Oak, Jungle, Spruce Pressure Plate
+    - [#146] Barrel
+    - [#135] Barrier 
+    - [#143] Blue Ice
+    - [#180] Lectern
+    - [#162] Dried Kelp Block
+    - [#149] Smooth Stone
+    - [#160] Kelp
 
 ### Fixes
 - [#131] Instant damage and instant health are now inverted when applied to undead entities
@@ -67,3 +68,4 @@ for details.
 [#165]: https://github.com/GameModsBR/PowerNukkit/pull/165
 [#166]: https://github.com/GameModsBR/PowerNukkit/pull/166
 [#169]: https://github.com/GameModsBR/PowerNukkit/pull/169
+[#180]: https://github.com/GameModsBR/PowerNukkit/pull/180

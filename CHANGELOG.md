@@ -15,9 +15,10 @@ Click the link above to see the future.
     - [#128] Lingering potion
     - [#128] Area effect cloud
 - Implementation for the blocks:
-    - [#154] Acacia, Birch, Dark Oak, Jungle, Spruce Trapdoors
     - [#163] Acacia, Birch, Dark Oak, Jungle, Spruce Buttons
     - [#164] Acacia, Birch, Dark Oak, Jungle, Spruce Pressure Plate
+    - [#179] Acacia, Birch, Dark Oak, Jungle, Oak, Spruce Stripped Logs
+    - [#154] Acacia, Birch, Dark Oak, Jungle, Spruce Trapdoors
     - [#146] Barrel
     - [#135] Barrier 
     - [#143] Blue Ice
@@ -70,4 +71,5 @@ for details.
 [#166]: https://github.com/GameModsBR/PowerNukkit/pull/166
 [#169]: https://github.com/GameModsBR/PowerNukkit/pull/169
 [#177]: https://github.com/GameModsBR/PowerNukkit/pull/177
+[#179]: https://github.com/GameModsBR/PowerNukkit/pull/179
 [#180]: https://github.com/GameModsBR/PowerNukkit/pull/180

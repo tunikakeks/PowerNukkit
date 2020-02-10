@@ -17,6 +17,7 @@ Click the link above to see the future.
 - Implementation for the blocks:
     - [#163] Acacia, Birch, Dark Oak, Jungle, Spruce Buttons
     - [#164] Acacia, Birch, Dark Oak, Jungle, Spruce Pressure Plate
+    - [#178] Acacia, Birch, Dark Oak, Jungle, Spruce Signs
     - [#179] Acacia, Birch, Dark Oak, Jungle, Oak, Spruce Stripped Logs
     - [#154] Acacia, Birch, Dark Oak, Jungle, Spruce Trapdoors
     - [#146] Barrel
@@ -73,5 +74,6 @@ for details.
 [#169]: https://github.com/GameModsBR/PowerNukkit/pull/169
 [#175]: https://github.com/GameModsBR/PowerNukkit/pull/175
 [#177]: https://github.com/GameModsBR/PowerNukkit/pull/177
+[#178]: https://github.com/GameModsBR/PowerNukkit/pull/178
 [#179]: https://github.com/GameModsBR/PowerNukkit/pull/179
 [#180]: https://github.com/GameModsBR/PowerNukkit/pull/180

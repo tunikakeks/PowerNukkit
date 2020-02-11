@@ -308,7 +308,7 @@ public class ItemRegistry implements Registry {
         registerVanilla(SPAWN_EGG, ItemSpawnEgg::new, 383);
         registerVanilla(EXPERIENCE_BOTTLE, ItemExpBottle::new, 384);
         registerVanilla(FIREBALL, ItemFireCharge::new, 385);
-        //TODO: registerVanilla(WRITABLE_BOOK, ItemBookAndQuill::new, 386);
+        registerVanilla(WRITABLE_BOOK, ItemBookWritable::new, 386);
         registerVanilla(WRITTEN_BOOK, ItemBookWritten::new, 387);
         registerVanilla(EMERALD, SimpleItem::new, 388);
         registerVanilla(FRAME, PlaceableItem.factory(BlockIds.FRAME), 389);

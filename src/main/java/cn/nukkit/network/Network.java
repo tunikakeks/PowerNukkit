@@ -289,5 +289,6 @@ public class Network {
         this.registerPacket(ProtocolInfo.ON_SCREEN_TEXTURE_ANIMATION_PACKET, OnScreenTextureAnimationPacket.class);
         this.registerPacket(ProtocolInfo.UPDATE_BLOCK_PROPERTIES_PACKET, UpdateBlockPropertiesPacket.class);
         this.registerPacket(ProtocolInfo.COMPLETED_USING_ITEM_PACKET, CompletedUsingItemPacket.class);
+        this.registerPacket(ProtocolInfo.BOOK_EDIT_PACKET, BookEditPacket.class);
     }
 }

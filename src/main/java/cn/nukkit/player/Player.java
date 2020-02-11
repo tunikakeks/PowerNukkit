@@ -3215,6 +3215,21 @@ public class Player extends Human implements CommandSender, InventoryHolder, Chu
                         }
                     }
                     break;
+                case ProtocolInfo.BOOK_EDIT_PACKET:
+                    BookEditPacket bookEditPacket = (BookEditPacket) packet;
+                    if (bookEditPacket.inventorySlot < 0 || bookEditPacket.inventorySlot > 8) {
+                        break;
+                    }
+
+                    Item oldBook = inventory.getItem(bookEditPacket.inventorySlot);
+
+                    if (!(oldBook instanceof ItemBookWritable)) {
+                        break;
+                    }
+
+                    //TODO Continue the migration
+
+                    break;
                 default:
                     break;
             }

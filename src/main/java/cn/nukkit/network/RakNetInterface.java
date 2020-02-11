@@ -179,10 +179,9 @@ public class RakNetInterface implements RakNetServerListener, AdvancedSourceInte
             }
             return null;
         }
-        int readableBytes = buffer.readableBytes();
-        ByteBuf byteBuf = ByteBufAllocator.DEFAULT.ioBuffer(1 + readableBytes);
+        ByteBuf byteBuf = ByteBufAllocator.DEFAULT.ioBuffer(1 + buffer.readableBytes());
         byteBuf.writeByte(0xfe);
-        byteBuf.writeBytes(buffer, 0, readableBytes);
+        byteBuf.writeBytes(buffer);
 
         session.send(byteBuf, immediate ? RakNetPriority.IMMEDIATE : RakNetPriority.MEDIUM,
                 RakNetReliability.RELIABLE_ORDERED, 0);

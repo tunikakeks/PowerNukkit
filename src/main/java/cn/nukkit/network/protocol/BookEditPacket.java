@@ -1,5 +1,6 @@
 package cn.nukkit.network.protocol;
 
+import cn.nukkit.utils.Binary;
 import io.netty.buffer.ByteBuf;
 import lombok.ToString;
 
@@ -31,11 +32,58 @@ public class BookEditPacket extends DataPacket {
 
     @Override
     protected void decode(ByteBuf buffer) {
-
+        type = buffer.readByte();
+        inventorySlot = buffer.readByte();
+        switch (type) {
+            case TYPE_REPLACE_PAGE:
+            case TYPE_ADD_PAGE:
+                pageNumber = buffer.readByte();
+                text = Binary.readString(buffer);
+                photoName = Binary.readString(buffer);
+                break;
+            case TYPE_DELETE_PAGE:
+                pageNumber = buffer.readByte();
+                break;
+            case TYPE_SWAP_PAGES:
+                pageNumber = buffer.readByte();
+                secondaryPageNumber = buffer.readByte();
+                break;
+            case TYPE_SIGN_BOOK:
+                title = Binary.readString(buffer);
+                author = Binary.readString(buffer);
+                xUID = Binary.readString(buffer);
+                break;
+            default:
+                // Instead of the exception, ignoring it.
+                //throw new IllegalStateException("Unknown book edit type " + type + "!");
+        }
     }
 
     @Override
     protected void encode(ByteBuf buffer) {
-        //TODO
+        buffer.writeByte(type);
+        buffer.writeByte(inventorySlot);
+        switch (type) {
+            case TYPE_REPLACE_PAGE:
+            case TYPE_ADD_PAGE:
+                buffer.writeByte(pageNumber);
+                Binary.writeString(buffer, text);
+                Binary.writeString(buffer, photoName);
+                break;
+            case TYPE_DELETE_PAGE:
+                buffer.writeByte(pageNumber);
+                break;
+            case TYPE_SWAP_PAGES:
+                buffer.writeByte(pageNumber);
+                buffer.writeByte(secondaryPageNumber);
+                break;
+            case TYPE_SIGN_BOOK:
+                Binary.writeString(buffer, title);
+                Binary.writeString(buffer, author);
+                Binary.writeString(buffer, xUID);
+            default:
+                // Just letting the packet corrupt and get ignored by the client
+                //throw new IllegalStateException("Unknown book edit type " + type + "!");
+        }
     }
 }

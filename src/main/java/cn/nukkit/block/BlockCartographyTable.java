@@ -36,13 +36,12 @@ public class BlockCartographyTable extends BlockSolid {
         return true;
     }
 
-    /* Require Cartography GUI
-
-
     @Override
     public boolean canBeActivated() {
         return true;
     }
+
+    /* Require Server-Side GUI function
 
     @Override
     public boolean onActivate(Item item, Player player) {

@@ -593,7 +593,7 @@ public class BlockRegistry implements Registry {
         //451: stonecutter_block
         this.factoryMap.put(SMOKER, BlockFurnace::new); //452
         this.factoryMap.put(LIT_SMOKER, BlockFurnaceBurning::new); //453
-        //454: cartography_table
+        this.factoryMap.put(CARTOGRAPHY_TABLE, BlockCartographyTable::new); //454
         //455: fletching_table
         //456: smithing_table
         this.factoryMap.put(BARREL, BlockBarrel::new); // 457

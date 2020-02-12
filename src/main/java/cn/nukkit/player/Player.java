@@ -134,6 +134,9 @@ public class Player extends Human implements CommandSender, InventoryHolder, Chu
     public static final int CRAFTING_ENCHANT = 3;
     public static final int CRAFTING_BEACON = 4;
 
+
+    public static final int CRAFTING_CARTOGRAPHY = 7;
+
     public static final float DEFAULT_SPEED = 0.1f;
     public static final float MAXIMUM_SPEED = 0.5f;
 

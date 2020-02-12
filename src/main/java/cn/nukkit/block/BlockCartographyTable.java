@@ -1,5 +1,6 @@
 package cn.nukkit.block;
 
+import cn.nukkit.inventory.CartographyRecipe;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.player.Player;
@@ -41,15 +42,15 @@ public class BlockCartographyTable extends BlockSolid {
         return true;
     }
 
-    /* Require Server-Side GUI function
+    /* Require Server-Side GUI function */
 
     @Override
     public boolean onActivate(Item item, Player player) {
         if(player != null) {
-            player.craftingType = Player.CRAFTING_CARTOGRAPHY;
+            player.addWindow(new CartographyRecipe(player.getUIInventory(), this), Player.CRAFTING_CARTOGRAPHY);
         }
         return true;
-    } */
+    }
 
     @Override
     public BlockColor getColor() {

@@ -2,7 +2,9 @@ package cn.nukkit.item;
 
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.ListTag;
+import cn.nukkit.nbt.tag.Tag;
 import cn.nukkit.utils.Identifier;
+import com.google.common.base.Preconditions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,36 +60,47 @@ public class ItemBookWritable extends Item {
      * Returns whether the given page exists in this book.
      */
     public boolean pageExists(int pageId) {
-        return pageId >= 0 && pageId < pagesTag.size()
+        return pageId >= 0 && pageId < getPagesTag().size();
     }
 
     /**
      * Returns a string containing the content of a page (which could be empty), or null if the page doesn't exist.
      */
     public String getPageText(int pageId) {
-        val pages = namedTag?.getList(TAG_PAGES, CompoundTag::class.java) ?: return null
-        if (pageId < 0 || pageId >= pages.size()) {
-            return null
+        CompoundTag namedTag = getNamedTag();
+        if (namedTag == null) {
+            return null;
         }
-        val page = pages[pageId] ?: return null
-        return page.getString(TAG_PAGE_TEXT) ?: ""
+        
+        ListTag<CompoundTag> pages = namedTag.getList(TAG_PAGES, CompoundTag.class);
+        if (pageId < 0 || pageId >= pages.size()) {
+            return null;
+        }
+        
+        CompoundTag page = pages.get(pageId);
+        if (page == null) {
+            return null;
+        }
+        
+        return page.getString(TAG_PAGE_TEXT);
     }
+    
     /**
      * Sets the text of a page in the book. Adds the page if the page does not yet exist.
      *
      * @return bool indicating whether the page was created or not.
      */
     public boolean setPageText(int pageId, String pageText) {
-        var created = false
+        boolean created = false;
         if (!pageExists(pageId)) {
-            addPage(pageId)
-            created = true
+            addPage(pageId);
+            created = true;
         }
-        val pagesTag = pagesTag
-        val page = pagesTag[pageId]
-        page.putString(TAG_PAGE_TEXT, pageText)
-        setNamedTagEntry(pagesTag)
-        return created
+        ListTag<CompoundTag> pagesTag = getPagesTag();
+        CompoundTag page = pagesTag.get(pageId);
+        page.putString(TAG_PAGE_TEXT, pageText);
+        setNamedTagEntry(pagesTag);
+        return created;
     }
 
     /**
@@ -95,17 +108,15 @@ public class ItemBookWritable extends Item {
      * Creates a new page for every page between the given ID and existing pages that doesn't yet exist.
      */
     public void addPage(int pageId) {
-        require(pageId >= 0) {
-            "Page number \"$pageId\" is out of range"
+        Preconditions.checkArgument(pageId >= 0, "Page number \"%d\" is out of range", pageId);
+        ListTag<CompoundTag> pageTag = getPagesTag();
+        for (int current = pageTag.size(); current <= pageId; current++) {
+            CompoundTag compound = new CompoundTag();
+            compound.putString(TAG_PAGE_TEXT, "");
+            compound.putString(TAG_PAGE_PHOTONAME, "");
+            pageTag.add(compound);
         }
-        val pageTag = pagesTag
-        for (current in pageTag.size()..pageId) {
-            val compound = CompoundTag()
-            compound.putString(TAG_PAGE_TEXT, "")
-            compound.putString(TAG_PAGE_PHOTONAME, "")
-            pageTag.add(compound)
-        }
-        setNamedTagEntry(pageTag)
+        setNamedTagEntry(pageTag);
     }
 
     /**
@@ -114,10 +125,10 @@ public class ItemBookWritable extends Item {
      * @return bool indicating success
      */
     public boolean deletePage(int pageId) {
-        val pagesTag = pagesTag
-        pagesTag.remove(pageId)
-        setNamedTagEntry(pagesTag)
-        return true
+        ListTag<CompoundTag> pagesTag = getPagesTag();
+        pagesTag.remove(pageId);
+        setNamedTagEntry(pagesTag);
+        return true;
     }
 
 
@@ -136,18 +147,16 @@ public class ItemBookWritable extends Item {
      * @return bool indicating success
      */
     public boolean insertPage(int pageId, String pageText) {
-        val pagesTag = pagesTag
-        val compound = CompoundTag()
-        compound.putString(TAG_PAGE_TEXT, pageText)
-        compound.putString(TAG_PAGE_PHOTONAME, "")
-        val list = pagesTag.all.toMutableList()
-        list.add(pageId, compound)
-        val newPagesTag = ListTag<CompoundTag>(TAG_PAGES)
-                list.forEach {
-            newPagesTag.add(it)
-        }
-        setNamedTagEntry(newPagesTag)
-        return true
+        ListTag<CompoundTag> pagesTag = getPagesTag();
+        CompoundTag compound = new CompoundTag();
+        compound.putString(TAG_PAGE_TEXT, pageText);
+        compound.putString(TAG_PAGE_PHOTONAME, "");
+        List<CompoundTag> list = pagesTag.getAll();
+        list.add(pageId, compound);
+        ListTag<CompoundTag> newPagesTag = new ListTag<>(TAG_PAGES);
+        list.forEach(newPagesTag::add);
+        setNamedTagEntry(newPagesTag);
+        return true;
     }
 
     /**
@@ -157,18 +166,27 @@ public class ItemBookWritable extends Item {
      */
     public boolean swapPages(int pageId1, int pageId2) {
         if (!pageExists(pageId1) || !pageExists(pageId2)) {
-            return false
+            return false;
         }
 
-        val pageContents1 = getPageText(pageId1) ?: ""
-        val pageContents2 = getPageText(pageId2) ?: ""
-        setPageText(pageId1, pageContents2)
-        setPageText(pageId2, pageContents1)
-        return true
+        String pageContents1 = getPageText(pageId1);
+        String pageContents2 = getPageText(pageId2);
+        setPageText(pageId1, pageContents2 != null? pageContents2 : "");
+        setPageText(pageId2, pageContents1 != null? pageContents1 : "");
+        return true;
     }
 
     @Override
     public int getMaxStackSize() {
         return 1;
+    }
+    
+    private void setNamedTagEntry(Tag tag) {
+        CompoundTag compoundTag = getNamedTag();
+        if (compoundTag == null) {
+            compoundTag = new CompoundTag();
+        }
+        compoundTag.put(tag.getName(), tag);
+        setNamedTag(compoundTag);
     }
 }

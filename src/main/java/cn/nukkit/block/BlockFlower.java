@@ -34,10 +34,14 @@ public class BlockFlower extends FloodableBlock {
         super(id);
     }
 
+    public boolean canPlantOn(Identifier id) {
+        return id == GRASS || id == DIRT || id == FARMLAND || id == PODZOL;
+    }
+
     @Override
     public boolean place(Item item, Block block, Block target, BlockFace face, Vector3f clickPos, Player player) {
         Block down = this.down();
-        if (down.getId() == GRASS || down.getId() == DIRT || down.getId() == FARMLAND || down.getId() == PODZOL) {
+        if (canPlantOn(down.getId())) {
             this.getLevel().setBlock(block, this, true);
 
             return true;

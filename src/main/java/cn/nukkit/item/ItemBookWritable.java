@@ -3,6 +3,8 @@ package cn.nukkit.item;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.ListTag;
 import cn.nukkit.nbt.tag.Tag;
+import cn.nukkit.network.protocol.BookEditPacket;
+import cn.nukkit.player.Player;
 import cn.nukkit.utils.Identifier;
 import com.google.common.base.Preconditions;
 
@@ -188,5 +190,76 @@ public class ItemBookWritable extends Item {
         }
         compoundTag.put(tag.getName(), tag);
         setNamedTag(compoundTag);
+    }
+
+    public void editBook(Player player, BookEditPacket packet) {
+        val newBook = oldBook.clone() as ItemWritableBook
+        val modifiedPages = mutableListOf<Int>()
+        var newWrittenBook: ItemBookWritten? = null
+
+        when (packet.type) {
+            TYPE_REPLACE_PAGE -> {
+                newBook.setPageText(packet.pageNumber, packet.text)
+                modifiedPages += packet.pageNumber
+            }
+            TYPE_ADD_PAGE -> {
+                newBook.insertPage(packet.pageNumber, packet.text)
+                modifiedPages += packet.pageNumber
+            }
+            TYPE_DELETE_PAGE -> {
+                if (newBook.pages.size > packet.pageNumber) {
+                    newBook.deletePage(packet.pageNumber)
+                }
+                modifiedPages += packet.pageNumber
+            }
+            TYPE_SWAP_PAGES -> {
+                newBook.swapPages(packet.pageNumber, packet.secondaryPageNumber)
+                modifiedPages += packet.pageNumber
+                modifiedPages += packet.secondaryPageNumber
+            }
+            TYPE_SIGN_BOOK -> {
+                newWrittenBook = NukkitItemStack.get(ItemID.WRITTEN_BOOK, 0, 1, newBook.compoundTag) as ItemBookWritten
+                newWrittenBook.writeBook(packet.author, packet.title, newBook.pagesTag)
+            }
+        }
+
+        val pilhaAntiga = Pilha(oldBook)
+        val pilhaNova = Pilha(newWrittenBook ?: newBook)
+
+        val evento = EventoJogadorEditouLivro(
+                player.toJogador(),
+                when (packet.type) {
+            TYPE_REPLACE_PAGE -> TipoDeEdicaoDeLivro.SUBSTITUIU_PAGINA
+            TYPE_ADD_PAGE -> TipoDeEdicaoDeLivro.ADICIONOU_PAGINA
+            TYPE_DELETE_PAGE -> TipoDeEdicaoDeLivro.APAGOU_PAGINA
+            TYPE_SWAP_PAGES -> TipoDeEdicaoDeLivro.PERMUTOU_PAGINA
+            TYPE_SIGN_BOOK -> TipoDeEdicaoDeLivro.ASSINOU_LIVRO
+                    else -> error("Tipo inesperado: ${packet.type}")
+        },
+        packet.inventorySlot,
+                checkNotNull(DadosLivro(pilhaAntiga)),
+                checkNotNull(DadosLivro(pilhaNova)),
+                pilhaAntiga,
+                pilhaNova,
+                newWrittenBook != null,
+                modifiedPages,
+                false
+            )
+        GerenciadorDeEventos.disparar(evento)
+        if (evento.cancelado) {
+            return
+        }
+
+        val resultado = if (evento.assinar) {
+            val pilha = Pilha(NukkitItemStack.get(ItemID.WRITTEN_BOOK, 0, 1, evento.pilhaNova.nukkitItemStack.compoundTag))
+            evento.dadosLivroNovo.aplicar(pilha)
+            pilha
+        } else {
+            val pilha = Pilha(NukkitItemStack.get(ItemID.BOOK_AND_QUILL, 0, 1, evento.pilhaNova.nukkitItemStack.compoundTag))
+            DadosLivro(null, null, null, evento.dadosLivroNovo.paginas).aplicar(pilha)
+            pilha
+        }
+
+        player.inventory.setItem(packet.inventorySlot, resultado.nukkitItemStack)
     }
 }

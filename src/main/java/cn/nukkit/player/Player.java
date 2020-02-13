@@ -3227,7 +3227,7 @@ public class Player extends Human implements CommandSender, InventoryHolder, Chu
                         break;
                     }
 
-                    //TODO Continue the migration
+                    ((ItemBookWritable) oldBook).editBook(this, bookEditPacket);
 
                     break;
                 default:

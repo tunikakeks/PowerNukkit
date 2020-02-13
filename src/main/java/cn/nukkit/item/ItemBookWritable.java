@@ -193,34 +193,34 @@ public class ItemBookWritable extends Item {
     }
 
     public void editBook(Player player, BookEditPacket packet) {
-        val newBook = oldBook.clone() as ItemWritableBook
-        val modifiedPages = mutableListOf<Int>()
-        var newWrittenBook: ItemBookWritten? = null
+        ItemBookWritable newBook = (ItemBookWritable) this.clone();
+        List<Integer> modifiedPages = new ArrayList<>();
+        ItemBookWritten newWrittenBook = null;
 
-        when (packet.type) {
-            TYPE_REPLACE_PAGE -> {
-                newBook.setPageText(packet.pageNumber, packet.text)
-                modifiedPages += packet.pageNumber
-            }
-            TYPE_ADD_PAGE -> {
-                newBook.insertPage(packet.pageNumber, packet.text)
-                modifiedPages += packet.pageNumber
-            }
-            TYPE_DELETE_PAGE -> {
-                if (newBook.pages.size > packet.pageNumber) {
-                    newBook.deletePage(packet.pageNumber)
+        switch (packet.type) {
+            case BookEditPacket.TYPE_REPLACE_PAGE:
+                newBook.setPageText(packet.pageNumber, packet.text);
+                modifiedPages.add(packet.pageNumber);
+                break;
+            case BookEditPacket.TYPE_ADD_PAGE:
+                newBook.insertPage(packet.pageNumber, packet.text);
+                modifiedPages.add(packet.pageNumber);
+                break;
+            case BookEditPacket.TYPE_DELETE_PAGE:
+                if (newBook.getPages().size() > packet.pageNumber) {
+                    newBook.deletePage(packet.pageNumber);
                 }
-                modifiedPages += packet.pageNumber
-            }
-            TYPE_SWAP_PAGES -> {
-                newBook.swapPages(packet.pageNumber, packet.secondaryPageNumber)
-                modifiedPages += packet.pageNumber
-                modifiedPages += packet.secondaryPageNumber
-            }
-            TYPE_SIGN_BOOK -> {
-                newWrittenBook = NukkitItemStack.get(ItemID.WRITTEN_BOOK, 0, 1, newBook.compoundTag) as ItemBookWritten
-                newWrittenBook.writeBook(packet.author, packet.title, newBook.pagesTag)
-            }
+                modifiedPages.add(packet.pageNumber);
+                break;
+            case BookEditPacket.TYPE_SWAP_PAGES:
+                newBook.swapPages(packet.pageNumber, packet.secondaryPageNumber);
+                modifiedPages.add(packet.pageNumber);
+                modifiedPages.add(packet.secondaryPageNumber);
+                break;
+            case BookEditPacket.TYPE_SIGN_BOOK:
+                newWrittenBook = (ItemBookWritten) Item.get(ItemIds.WRITTEN_BOOK, 0, 1, newBook.getCompoundTag());
+                newWrittenBook.writeBook(packet.author, packet.title, newBook.getPagesTag());
+                break;
         }
 
         val pilhaAntiga = Pilha(oldBook)

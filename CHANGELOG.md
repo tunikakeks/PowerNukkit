@@ -25,6 +25,7 @@ Click the link above to see the future.
     - [#143] Blue Ice
     - [#175] Honeycomb Block
     - [#180] Lectern
+    - [#195] Light Block
     - [#162] Dried Kelp Block
     - [#149] Smooth Stone
     - [#160] Kelp
@@ -78,4 +79,5 @@ for details.
 [#178]: https://github.com/GameModsBR/PowerNukkit/pull/178
 [#179]: https://github.com/GameModsBR/PowerNukkit/pull/179
 [#180]: https://github.com/GameModsBR/PowerNukkit/pull/180
+[#195]: https://github.com/GameModsBR/PowerNukkit/pull/195
 [#196]: https://github.com/GameModsBR/PowerNukkit/pull/196

@@ -40,6 +40,7 @@ Click the link above to see the future.
 - [#169] Primed TNT stays white all the time and don't grow before exploding
 - [#169] Primed TNT Minecrart explodes randomly on interactions after being activated, never blinks or grow before exploding
 - [#177] The lever sound
+- [#196] Issues related to explosion behaviour, water and waterlogging
 
 ### Changed
 - [#136] The versioning convention now follows this pattern:<br>`upstream.major.minor.patch-PN`<br>[Click here for details.](https://github.com/GameModsBR/PowerNukkit/blob/7912aa4be68e94a52762361c2d5189b7bbc58d2a/pom.xml#L8-L14)
@@ -77,3 +78,4 @@ for details.
 [#178]: https://github.com/GameModsBR/PowerNukkit/pull/178
 [#179]: https://github.com/GameModsBR/PowerNukkit/pull/179
 [#180]: https://github.com/GameModsBR/PowerNukkit/pull/180
+[#196]: https://github.com/GameModsBR/PowerNukkit/pull/196

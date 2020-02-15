@@ -881,10 +881,8 @@ public class Player extends Human implements CommandSender, InventoryHolder, Chu
         this.sleeping = pos.clone();
         this.teleport(new Location(pos.x + 0.5, pos.y + 0.5, pos.z + 0.5, this.yaw, this.pitch, this.level), null);
 
-        this.setPosData(PLAYER_BED_POSITION, pos);
+        this.setPosData(PLAYER_BED_POSITION, pos.asVector3i());
         this.setPlayerFlag(SLEEP, true);
-
-        this.setSpawn(pos.asVector3f());
 
         this.level.sleepTicks = 60;
 
@@ -1175,6 +1173,11 @@ public class Player extends Human implements CommandSender, InventoryHolder, Chu
     }
 
     @Override
+    public void addMovement(double x, double y, double z, double yaw, double pitch, double headYaw) {
+        this.sendPosition(new Vector3f(x, y, z), yaw, pitch, MovePlayerPacket.MODE_NORMAL, this.getViewers().toArray(new Player[0]));
+    }
+
+    @Override
     public boolean setMotion(Vector3f motion) {
         if (super.setMotion(motion)) {
             if (this.chunk != null) {
@@ -1377,7 +1380,7 @@ public class Player extends Human implements CommandSender, InventoryHolder, Chu
                     if (!to.equals(ev.getTo())) { //If plugins modify the destination
                         this.teleport(ev.getTo(), null);
                     } else {
-                        this.addMovement(this.x, this.y + this.getEyeHeight(), this.z, this.yaw, this.pitch, this.yaw);
+                        this.addMovement(this.x, this.y, this.z, this.yaw, this.pitch, this.yaw);
                     }
                     //Biome biome = Biome.biomes[level.getBiomeId(this.getFloorX(), this.getFloorZ())];
                     //sendTip(biome.getName() + " (" + biome.doesOverhang() + " " + biome.getBaseHeight() + "-" + biome.getHeightVariation() + ")");

@@ -14,6 +14,10 @@ Click the link above to see the future.
 -Implementation for the entities (without AI):
     - [#128] Lingering potion
     - [#128] Area effect cloud
+- Implementation for the items:
+    - [#198] Honey Bottle
+    - [#198] Honeycomb
+    - [#187] Shield
 - Implementation for the blocks:
     - [#163] Acacia, Birch, Dark Oak, Jungle, Spruce Buttons
     - [#164] Acacia, Birch, Dark Oak, Jungle, Spruce Pressure Plate
@@ -79,5 +83,7 @@ for details.
 [#178]: https://github.com/GameModsBR/PowerNukkit/pull/178
 [#179]: https://github.com/GameModsBR/PowerNukkit/pull/179
 [#180]: https://github.com/GameModsBR/PowerNukkit/pull/180
+[#187]: https://github.com/GameModsBR/PowerNukkit/pull/187
 [#195]: https://github.com/GameModsBR/PowerNukkit/pull/195
 [#196]: https://github.com/GameModsBR/PowerNukkit/pull/196
+[#198]: https://github.com/GameModsBR/PowerNukkit/pull/198

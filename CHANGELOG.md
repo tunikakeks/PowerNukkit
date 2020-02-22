@@ -27,12 +27,13 @@ Click the link above to see the future.
     - [#146] Barrel
     - [#135] Barrier 
     - [#143] Blue Ice
+    - [#162] Dried Kelp Block
     - [#175] Honeycomb Block
     - [#180] Lectern
     - [#195] Light Block
-    - [#162] Dried Kelp Block
     - [#149] Smooth Stone
     - [#160] Kelp
+    - [#142] Wood
 
 ### Fixes
 - [#131] Instant damage and instant health are now inverted when applied to undead entities
@@ -64,6 +65,7 @@ for details.
 [#132]: https://github.com/GameModsBR/PowerNukkit/pull/132
 [#135]: https://github.com/GameModsBR/PowerNukkit/pull/135
 [#136]: https://github.com/GameModsBR/PowerNukkit/pull/136
+[#142]: https://github.com/GameModsBR/PowerNukkit/pull/142
 [#143]: https://github.com/GameModsBR/PowerNukkit/pull/143
 [#146]: https://github.com/GameModsBR/PowerNukkit/pull/146
 [#147]: https://github.com/GameModsBR/PowerNukkit/pull/147

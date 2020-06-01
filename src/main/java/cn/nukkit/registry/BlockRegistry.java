@@ -608,7 +608,7 @@ public class BlockRegistry implements Registry {
         //466: composter
         this.factoryMap.put(LIT_BLAST_FURNACE, BlockFurnaceBurning::new); //467
         this.factoryMap.put(LIGHT_BLOCK, BlockLight::new); //468
-        //469: wither_rose
+        this.factoryMap.put(WITHER_ROSE, BlockWitherRose::new); //469
         //470: stickypistonarmcollision
         //471: bee_nest
         //472: beehive

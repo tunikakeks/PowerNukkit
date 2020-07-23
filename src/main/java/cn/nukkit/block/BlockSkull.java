@@ -7,12 +7,12 @@ package cn.nukkit.block;
 import cn.nukkit.Player;
 import cn.nukkit.blockentity.BlockEntity;
 import cn.nukkit.blockentity.BlockEntitySkull;
+import cn.nukkit.entity.EntityHuman;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemSkull;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.math.BlockFace;
-import cn.nukkit.nbt.tag.CompoundTag;
-import cn.nukkit.nbt.tag.Tag;
+import cn.nukkit.nbt.tag.*;
 import cn.nukkit.utils.BlockColor;
 
 
@@ -103,6 +103,32 @@ public class BlockSkull extends BlockTransparentMeta {
 
         // TODO: 2016/2/3 SPAWN WITHER
 
+
+        CompoundTag skin = null;
+        if (item.hasCompoundTag()) {
+            skin = item.getNamedTag().getCompoundPath("PowerNukkit/Skin");
+        }
+
+        if (skin == null) {
+            return true;
+        }
+        
+        EntityHuman entityHuman = new EntityHuman(getChunk(), new CompoundTag()
+                .putList(new ListTag<DoubleTag>("Pos")
+                        .add(new DoubleTag("", block.x))
+                        .add(new DoubleTag("", block.y))
+                        .add(new DoubleTag("", block.z)))
+                .putList(new ListTag<FloatTag>("Rotation")
+                        .add(new FloatTag("", 0))
+                        .add(new FloatTag("", 0)))
+                .putList(new ListTag<DoubleTag>("Motion")
+                        .add(new DoubleTag("", 0))
+                        .add(new DoubleTag("", 0))
+                        .add(new DoubleTag("", 0)))
+                .putCompound("Skin", skin.copy())
+        );
+        entityHuman.spawnTo(player);
+        
         return true;
     }
 

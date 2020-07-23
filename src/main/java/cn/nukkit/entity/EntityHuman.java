@@ -7,17 +7,13 @@ import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemID;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.nbt.tag.CompoundTag;
-import cn.nukkit.nbt.tag.ListTag;
-import cn.nukkit.nbt.tag.StringTag;
 import cn.nukkit.network.protocol.AddPlayerPacket;
 import cn.nukkit.network.protocol.RemoveEntityPacket;
 import cn.nukkit.network.protocol.SetEntityLinkPacket;
-import cn.nukkit.utils.*;
+import cn.nukkit.utils.Utils;
 
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 /**
  * author: MagicDroidX
@@ -94,115 +90,32 @@ public class EntityHuman extends EntityHumanType {
         this.setDataFlag(DATA_FLAGS, DATA_FLAG_GRAVITY);
 
         this.setDataProperty(new IntPositionEntityData(DATA_PLAYER_BED_POSITION, 0, 0, 0), false);
-
-        if (!(this instanceof Player)) {
-            if (this.namedTag.contains("NameTag")) {
-                this.setNameTag(this.namedTag.getString("NameTag"));
-            }
-
-            if (this.namedTag.contains("Skin") && this.namedTag.get("Skin") instanceof CompoundTag) {
-                CompoundTag skinTag = this.namedTag.getCompound("Skin");
-                if (!skinTag.contains("Transparent")) {
-                    skinTag.putBoolean("Transparent", false);
-                }
-                Skin newSkin = new Skin();
-                if (skinTag.contains("ModelId")) {
-                    newSkin.setSkinId(skinTag.getString("ModelId"));
-                }
-                if (skinTag.contains("Data")) {
-                    byte[] data = skinTag.getByteArray("Data");
-                    if (skinTag.contains("SkinImageWidth") && skinTag.contains("SkinImageHeight")) {
-                        int width = skinTag.getInt("SkinImageWidth");
-                        int height = skinTag.getInt("SkinImageHeight");
-                        newSkin.setSkinData(new SerializedImage(width, height, data));
-                    } else {
-                        newSkin.setSkinData(data);
-                    }
-                }
-                if (skinTag.contains("CapeId")) {
-                    newSkin.setCapeId(skinTag.getString("CapeId"));
-                }
-                if (skinTag.contains("CapeData")) {
-                    byte[] data = skinTag.getByteArray("CapeData");
-                    if (skinTag.contains("CapeImageWidth") && skinTag.contains("CapeImageHeight")) {
-                        int width = skinTag.getInt("CapeImageWidth");
-                        int height = skinTag.getInt("CapeImageHeight");
-                        newSkin.setCapeData(new SerializedImage(width, height, data));
-                    } else {
-                        newSkin.setCapeData(data);
-                    }
-                }
-                if (skinTag.contains("GeometryName")) {
-                    newSkin.setGeometryName(skinTag.getString("GeometryName"));
-                }
-                if (skinTag.contains("SkinResourcePatch")) {
-                    newSkin.setSkinResourcePatch(new String(skinTag.getByteArray("SkinResourcePatch"), StandardCharsets.UTF_8));
-                }
-                if (skinTag.contains("GeometryData")) {
-                    newSkin.setGeometryData(new String(skinTag.getByteArray("GeometryData"), StandardCharsets.UTF_8));
-                }
-                if (skinTag.contains("AnimationData")) {
-                    newSkin.setAnimationData(new String(skinTag.getByteArray("AnimationData"), StandardCharsets.UTF_8));
-                }
-                if (skinTag.contains("PremiumSkin")) {
-                    newSkin.setPremium(skinTag.getBoolean("PremiumSkin"));
-                }
-                if (skinTag.contains("PersonaSkin")) {
-                    newSkin.setPersona(skinTag.getBoolean("PersonaSkin"));
-                }
-                if (skinTag.contains("CapeOnClassicSkin")) {
-                    newSkin.setCapeOnClassic(skinTag.getBoolean("CapeOnClassicSkin"));
-                }
-                if (skinTag.contains("AnimatedImageData")) {
-                    ListTag<CompoundTag> list = skinTag.getList("AnimatedImageData", CompoundTag.class);
-                    for (CompoundTag animationTag : list.getAll()) {
-                        float frames = animationTag.getFloat("Frames");
-                        int type = animationTag.getInt("Type");
-                        byte[] image = animationTag.getByteArray("Image");
-                        int width = animationTag.getInt("ImageWidth");
-                        int height = animationTag.getInt("ImageHeight");
-                        newSkin.getAnimations().add(new SkinAnimation(new SerializedImage(width, height, image), type, frames));
-                    }
-                }
-                if (skinTag.contains("ArmSize")) {
-                    newSkin.setArmSize(skinTag.getString("ArmSize"));
-                }
-                if (skinTag.contains("SkinColor")) {
-                    newSkin.setSkinColor(skinTag.getString("SkinColor"));
-                }
-                if (skinTag.contains("PersonaPieces")) {
-                    ListTag<CompoundTag> pieces = skinTag.getList("PersonaPieces", CompoundTag.class);
-                    for (CompoundTag piece : pieces.getAll()) {
-                        newSkin.getPersonaPieces().add(new PersonaPiece(
-                                piece.getString("PieceId"),
-                                piece.getString("PieceType"),
-                                piece.getString("PackId"),
-                                piece.getBoolean("IsDefault"),
-                                piece.getString("ProductId")
-                        ));
-                    }
-                }
-                if (skinTag.contains("PieceTintColors")) {
-                    ListTag<CompoundTag> tintColors = skinTag.getList("PieceTintColors", CompoundTag.class);
-                    for (CompoundTag tintColor : tintColors.getAll()) {
-                        newSkin.getTintColors().add(new PersonaPieceTint(
-                                tintColor.getString("PieceType"),
-                                tintColor.getList("Colors", StringTag.class).getAll().stream()
-                                        .map(stringTag -> stringTag.data).collect(Collectors.toList())
-                        ));
-                    }
-                }
-                if (skinTag.contains("IsTrustedSkin")) {
-                    newSkin.setTrusted(skinTag.getBoolean("IsTrustedSkin"));
-                }
-                this.setSkin(newSkin);
-            }
-
-            this.uuid = Utils.dataToUUID(String.valueOf(this.getId()).getBytes(StandardCharsets.UTF_8), this.getSkin()
-                    .getSkinData().data, this.getNameTag().getBytes(StandardCharsets.UTF_8));
-        }
+        
+        initNameTag();
+        initSkin();
+        initUniqueId();
 
         super.initEntity();
+    }
+    
+    protected void initUniqueId() {
+        this.uuid = Utils.dataToUUID(String.valueOf(this.getId()).getBytes(StandardCharsets.UTF_8),this.getSkin()
+                .getSkinData().data, this.getNameTag().getBytes(StandardCharsets.UTF_8));
+    }
+    
+    protected void initNameTag() {
+        if (this.namedTag.contains("NameTag")) {
+            this.setNameTag(this.namedTag.getString("NameTag"));
+        }
+    }
+    
+    protected void initSkin() {
+        CompoundTag skinTag = this.namedTag.getCompound("Skin");
+        if (skinTag == null) {
+            return;
+        }
+        
+        this.setSkin(new Skin(skinTag));
     }
 
     @Override
@@ -215,60 +128,7 @@ public class EntityHuman extends EntityHumanType {
         super.saveNBT();
 
         if (skin != null) {
-            CompoundTag skinTag = new CompoundTag()
-                    .putByteArray("Data", this.getSkin().getSkinData().data)
-                    .putInt("SkinImageWidth", this.getSkin().getSkinData().width)
-                    .putInt("SkinImageHeight", this.getSkin().getSkinData().height)
-                    .putString("ModelId", this.getSkin().getSkinId())
-                    .putString("CapeId", this.getSkin().getCapeId())
-                    .putByteArray("CapeData", this.getSkin().getCapeData().data)
-                    .putInt("CapeImageWidth", this.getSkin().getCapeData().width)
-                    .putInt("CapeImageHeight", this.getSkin().getCapeData().height)
-                    .putByteArray("SkinResourcePatch", this.getSkin().getSkinResourcePatch().getBytes(StandardCharsets.UTF_8))
-                    .putByteArray("GeometryData", this.getSkin().getGeometryData().getBytes(StandardCharsets.UTF_8))
-                    .putByteArray("AnimationData", this.getSkin().getAnimationData().getBytes(StandardCharsets.UTF_8))
-                    .putBoolean("PremiumSkin", this.getSkin().isPremium())
-                    .putBoolean("PersonaSkin", this.getSkin().isPersona())
-                    .putBoolean("CapeOnClassicSkin", this.getSkin().isCapeOnClassic())
-                    .putString("ArmSize", this.getSkin().getArmSize())
-                    .putString("SkinColor", this.getSkin().getSkinColor())
-                    .putBoolean("IsTrustedSkin", this.getSkin().isTrusted());
-            List<SkinAnimation> animations = this.getSkin().getAnimations();
-            if (!animations.isEmpty()) {
-                ListTag<CompoundTag> animationsTag = new ListTag<>("AnimationImageData");
-                for (SkinAnimation animation : animations) {
-                    animationsTag.add(new CompoundTag()
-                            .putFloat("Frames", animation.frames)
-                            .putInt("Type", animation.type)
-                            .putInt("ImageWidth", animation.image.width)
-                            .putInt("ImageHeight", animation.image.height)
-                            .putByteArray("Image", animation.image.data));
-                }
-                skinTag.putList(animationsTag);
-            }
-            List<PersonaPiece> personaPieces = this.getSkin().getPersonaPieces();
-            if (!personaPieces.isEmpty()) {
-                ListTag<CompoundTag> piecesTag = new ListTag<>("PersonaPieces");
-                for (PersonaPiece piece : personaPieces) {
-                    piecesTag.add(new CompoundTag().putString("PieceId", piece.id)
-                            .putString("PieceType", piece.type)
-                            .putString("PackId", piece.packId)
-                            .putBoolean("IsDefault", piece.isDefault)
-                            .putString("ProductId", piece.productId));
-                }
-            }
-            List<PersonaPieceTint> tints = this.getSkin().getTintColors();
-            if (!tints.isEmpty()) {
-                ListTag<CompoundTag> tintsTag = new ListTag<>("PieceTintColors");
-                for (PersonaPieceTint tint : tints) {
-                    ListTag<StringTag> colors = new ListTag<>("Colors");
-                    colors.setAll(tint.colors.stream().map(s -> new StringTag("", s)).collect(Collectors.toList()));
-                    tintsTag.add(new CompoundTag()
-                            .putString("PieceType", tint.pieceType)
-                            .putList(colors));
-                }
-            }
-            this.namedTag.putCompound("Skin", skinTag);
+            this.namedTag.putCompound("Skin", skin.saveSkin());
         }
     }
 

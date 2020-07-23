@@ -1,16 +1,14 @@
 package cn.nukkit.nbt.tag;
 
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.nbt.stream.NBTInputStream;
 import cn.nukkit.nbt.stream.NBTOutputStream;
 
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.StringJoiner;
 
 public class CompoundTag extends Tag implements Cloneable {
     private final Map<String, Tag> tags;
@@ -131,6 +129,187 @@ public class CompoundTag extends Tag implements Cloneable {
 
     public boolean contains(String name) {
         return tags.containsKey(name);
+    }
+    
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public Tag getPath(String path) {
+        Tag current = this;
+        for (String name : path.split("/")) {
+            if (!(current instanceof CompoundTag)) {
+                return null;
+            }
+            current = ((CompoundTag) current).get(name);
+        }
+        return current;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public CompoundTag getCompoundPath(String path) {
+        Tag tag = getPath(path);
+        if (tag instanceof CompoundTag) {
+            return (CompoundTag) tag;
+        }
+        return null;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public ByteTag getBytePath(String path) {
+        Tag tag = getPath(path);
+        if (tag instanceof ByteTag) {
+            return (ByteTag) tag;
+        }
+        return null;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public ShortTag getShortPath(String path) {
+        Tag tag = getPath(path);
+        if (tag instanceof ShortTag) {
+            return (ShortTag) tag;
+        }
+        return null;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public IntTag getIntPath(String path) {
+        Tag tag = getPath(path);
+        if (tag instanceof IntTag) {
+            return (IntTag) tag;
+        }
+        return null;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public FloatTag getFloatPath(String path) {
+        Tag tag = getPath(path);
+        if (tag instanceof FloatTag) {
+            return (FloatTag) tag;
+        }
+        return null;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public DoubleTag getDoublePath(String path) {
+        Tag tag = getPath(path);
+        if (tag instanceof DoubleTag) {
+            return (DoubleTag) tag;
+        }
+        return null;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public ByteArrayTag getByteArrayPath(String path) {
+        Tag tag = getPath(path);
+        if (tag instanceof ByteArrayTag) {
+            return (ByteArrayTag) tag;
+        }
+        return null;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public IntArrayTag getIntArrayPath(String path) {
+        Tag tag = getPath(path);
+        if (tag instanceof IntArrayTag) {
+            return (IntArrayTag) tag;
+        }
+        return null;
+    }
+
+    @SuppressWarnings("unchecked")
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public <T extends Tag> ListTag<T> getListPath(String path) {
+        Tag tag = getPath(path);
+        if (tag instanceof ListTag<?>) {
+            return (ListTag<T>) tag;
+        }
+        return null;
+    }
+
+    @SuppressWarnings("unchecked")
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public <T extends Tag> ListTag<T> getPathList(String path, Class<T> type) {
+        Tag tag = getPath(path);
+        if ((tag instanceof ListTag<?>) &&
+                ((((ListTag<?>) tag).size() == 0) || ((ListTag<?>) tag).get(0).getClass().equals(type))) {
+            return (ListTag<T>) tag;
+        }
+        return null;
+    }
+    
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public boolean containsCompound(String path) {
+        return getPath(path) instanceof CompoundTag;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public boolean containsByte(String path) {
+        return getPath(path) instanceof ByteTag;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public boolean containsShort(String path) {
+        return getPath(path) instanceof ShortTag;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public boolean containsInt(String path) {
+        return getPath(path) instanceof IntTag;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public boolean containsFloat(String path) {
+        return getPath(path) instanceof FloatTag;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public boolean containsDouble(String path) {
+        return getPath(path) instanceof DoubleTag;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public boolean containsByteArray(String path) {
+        return getPath(path) instanceof ByteArrayTag;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public boolean containsIntArray(String path) {
+        return getPath(path) instanceof IntArrayTag;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public boolean containsList(String path) {
+        return getPath(path) instanceof ListTag<?>;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public boolean containsList(String name, byte type) {
+        Tag tag = tags.get(name);
+        if (!(tag instanceof ListTag<?>)) {
+            return false;
+        }
+        ListTag<?> list = (ListTag<?>) tag;
+        return list.type == type || list.type == 0;
     }
 
     public CompoundTag remove(String name) {

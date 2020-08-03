@@ -8,14 +8,14 @@
 
     <groupId>org.powernukkit</groupId>
     <artifactId>powernukkit</artifactId>
-    <version>1.1.1.0-PN</version>
+    <version>1.1.1.1-PN</version>
 
     <inceptionYear>2020</inceptionYear>
     <organization>
         <name>PowerNukkit</name>
         <url>https://powernukkit.org</url>
     </organization>
-    
+
     <issueManagement>
         <system>GitHub</system>
         <url>https://github.com/PowerNukkit/PowerNukkit-Natives/issues</url>
@@ -54,7 +54,7 @@
             <organizationUrl>https://github.com/Nukkit</organizationUrl>
         </developer>
     </developers>
-    
+
     <contributors>
         <contributor>
             <name>PowerNukkit contributors</name>

@@ -1,5 +1,7 @@
 package cn.nukkit.level.format.generic;
 
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.block.Block;
 import cn.nukkit.level.format.ChunkSection;
 import cn.nukkit.nbt.tag.CompoundTag;
@@ -58,6 +60,11 @@ public class EmptyChunkSection implements ChunkSection {
     @Override
     public int getFullBlock(int x, int y, int z) throws ChunkException {
         return 0;
+    }
+
+    @Override
+    public int[] getBlockState(int x, int y, int z, int layer) {
+        return new int[]{0,0};
     }
 
     @Override
@@ -226,5 +233,21 @@ public class EmptyChunkSection implements ChunkSection {
     @Override
     public EmptyChunkSection copy() {
         return this;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.3.1.0-PN")
+    @Override
+    public int getContentVersion() {
+        return BaseChunk.CONTENT_VERSION;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.3.1.0-PN")
+    @Override
+    public void setContentVersion(int contentVersion) {
+        if (contentVersion != getContentVersion()) {
+            throw new ChunkException("Tried to modify an empty Chunk");
+        }
     }
 }

@@ -1,12 +1,22 @@
 package cn.nukkit.level.format.generic;
 
 import cn.nukkit.Server;
+import cn.nukkit.api.DeprecationDetails;
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.block.Block;
+import cn.nukkit.block.BlockID;
+import cn.nukkit.block.BlockUnknown;
+import cn.nukkit.block.BlockWall;
 import cn.nukkit.blockentity.BlockEntity;
+import cn.nukkit.level.Level;
 import cn.nukkit.level.format.Chunk;
 import cn.nukkit.level.format.ChunkSection;
 import cn.nukkit.level.format.LevelProvider;
+import cn.nukkit.math.BlockFace;
 import cn.nukkit.utils.ChunkException;
+import cn.nukkit.utils.Faceable;
+import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -19,8 +29,51 @@ import java.util.Arrays;
  */
 
 public abstract class BaseChunk extends BaseFullChunk implements Chunk {
+    @PowerNukkitOnly("Needed for level backward compatibility")
+    @Since("1.3.0.0-PN")
+    public static final int CONTENT_VERSION = 2;
 
     protected ChunkSection[] sections;
+
+    @PowerNukkitOnly("Needed for level backward compatibility")
+    @Since("1.3.0.0-PN")
+    @Override
+    public void backwardCompatibilityUpdate(Level level) {
+        super.backwardCompatibilityUpdate(level);
+        
+        boolean updated = false;
+        for (ChunkSection section : sections) {
+            int contentVersion = section.getContentVersion();
+            if (contentVersion < 2) {
+                WallUpdater wallUpdater = new WallUpdater(level, section);
+                boolean sectionUpdated = walk(section, new GroupedUpdaters(
+                        wallUpdater,
+                        contentVersion < 1? new StemUpdater(level, section, BlockID.MELON_STEM, BlockID.MELON_BLOCK) : null,
+                        contentVersion < 1? new StemUpdater(level, section, BlockID.PUMPKIN_STEM, BlockID.PUMPKIN) : null
+                ));
+
+                updated = updated || sectionUpdated;
+                
+                int attempts = 0;
+                while (sectionUpdated) {
+                    if (attempts++ >= 5) {
+                        int x = getX() << 4 | 0x6;
+                        int y = section.getY() << 4 | 0x6;
+                        int z = getZ() << 4 | 0x6;
+                        Server.getInstance().getLogger().warning("The chunk section at x:"+x+", y:"+y+", z:"+z+" failed to complete the backward compatibility update 1 after "+attempts+" attempts");
+                        break;
+                    }
+                    sectionUpdated = walk(section, wallUpdater);
+                }
+                
+                section.setContentVersion(2);
+            }
+        }
+        
+        if (updated) {
+            setChanged();
+        }
+    }
 
     @Override
     public BaseChunk clone() {
@@ -51,6 +104,11 @@ public abstract class BaseChunk extends BaseFullChunk implements Chunk {
     @Override
     public int getFullBlock(int x, int y, int z, int layer) {
         return this.sections[y >> 4].getFullBlock(x, y & 0x0f, z, layer);
+    }
+
+    @Override
+    public int[] getBlockState(int x, int y, int z, int layer) {
+        return this.sections[y >> 4].getBlockState(x, y & 0x0f, z, layer);
     }
 
     @Override
@@ -86,11 +144,15 @@ public abstract class BaseChunk extends BaseFullChunk implements Chunk {
         }
     }
 
+    @Deprecated
+    @DeprecationDetails(reason = "Does not support hyper ids", since = "1.3.0.0-PN")
     @Override
     public boolean setFullBlockId(int x, int y, int z, int fullId) {
         return this.setFullBlockId(x, y, z, 0, fullId);
     }
 
+    @Deprecated
+    @DeprecationDetails(reason = "Does not support hyper ids", since = "1.3.0.0-PN")
     @Override
     public boolean setFullBlockId(int x, int y, int z, int layer, int fullId) {
         int Y = y >> 4;
@@ -327,5 +389,112 @@ public abstract class BaseChunk extends BaseFullChunk implements Chunk {
     @Override
     public LevelProvider getProvider() {
         return this.provider;
+    }
+
+    private boolean walk(ChunkSection section, Updater updater) {
+        int offsetX = getX() << 4;
+        int offsetZ = getZ() << 4;
+        int offsetY = section.getY() << 4;
+        boolean updated = false;
+        for (int x = 0; x <= 0xF; x++) {
+            for (int z = 0; z <= 0xF; z++) {
+                for (int y = 0; y <= 0xF; y++) {
+                    int[] state = section.getBlockState(x, y, z, 0);
+                    updated |= updater.update(offsetX, offsetY, offsetZ, x, y, z, state[0], state[1]);
+                }
+            }
+        }
+        return updated;
+    }
+
+
+    @FunctionalInterface
+    private interface Updater {
+        boolean update(int offsetX, int offsetY, int offsetZ, int x, int y, int z, int blockId, int meta);
+    }
+
+    @RequiredArgsConstructor
+    private static class WallUpdater implements Updater {
+        private final Level level;
+        private final ChunkSection section;
+
+        @Override
+        public boolean update(int offsetX, int offsetY, int offsetZ, int x, int y, int z, int blockId, int meta) {
+            if (blockId != BlockID.COBBLE_WALL) {
+                return false;
+            }
+
+            int levelX = offsetX + x;
+            int levelY = offsetY + y;
+            int levelZ = offsetZ + z;
+            Block block = Block.get(blockId, meta, level, levelX, levelY, levelZ, 0);
+            if (block instanceof BlockUnknown) {
+                // Block was on an invalid state, clearing the state but keeping the material type
+                block = Block.get(blockId, meta & 0xF, level, levelX, levelY, levelZ, 0);
+                if (block instanceof BlockUnknown) {
+                    Server.getInstance().getLogger()
+                            .warning("Failed to update the block X:"+levelX+", Y:"+levelY+", Z:"+levelZ+" at "+level
+                                    +", could not cast it to BlockWall.");
+                    return false;
+                }
+            }
+            
+            BlockWall blockWall = (BlockWall) block;
+            if (blockWall.autoConfigureState()) {
+                section.setBlockData(x, y, z, 0, blockWall.getDamage());
+                return true;
+            }
+
+            return false;
+        }
+    }
+
+    @RequiredArgsConstructor
+    private static class StemUpdater implements Updater {
+        private final Level level;
+        private final ChunkSection section;
+        private final int stemId;
+        private final int productId;
+
+        @Override
+        public boolean update(int offsetX, int offsetY, int offsetZ, int x, int y, int z, int blockId, int meta) {
+            if (blockId != stemId) {
+                return false;
+            }
+
+            for (BlockFace blockFace : BlockFace.Plane.HORIZONTAL) {
+                int sideId = level.getBlockIdAt(
+                        offsetX + x + blockFace.getXOffset(),
+                        offsetY + y,
+                        offsetZ + z + blockFace.getZOffset()
+                );
+                if (sideId == productId) {
+                    Block blockStem = Block.get(blockId, meta, level, offsetX + x, offsetY + y, offsetZ + z, 0);
+                    ((Faceable) blockStem).setBlockFace(blockFace);
+                    section.setBlockData(x, y, z, 0, blockStem.getDamage());
+                    return true;
+                }
+            }
+
+            return false;
+        }
+    }
+
+    private static class GroupedUpdaters implements Updater {
+        private final Updater[] updaters;
+
+        public GroupedUpdaters(Updater... updaters) {
+            this.updaters = updaters;
+        }
+
+        @Override
+        public boolean update(int offsetX, int offsetY, int offsetZ, int x, int y, int z, int blockId, int meta) {
+            for (Updater updater : updaters) {
+                if (updater != null && updater.update(offsetX, offsetY, offsetZ, x, y, z, blockId, meta)) {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

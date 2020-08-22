@@ -1,12 +1,13 @@
 package cn.nukkit.block;
 
+import cn.nukkit.api.PowerNukkitDifference;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.utils.BlockColor;
 
 /**
- * Created on 2015/12/7 by xtypr.
- * Package cn.nukkit.block in project Nukkit .
+ * @author xtypr
+ * @since 2015/12/7
  */
 public class BlockBricksNether extends BlockSolid {
 
@@ -35,14 +36,14 @@ public class BlockBricksNether extends BlockSolid {
 
     @Override
     public double getResistance() {
-        return 10;
+        return 6;
     }
 
     @Override
     public Item[] getDrops(Item item) {
         if (item.isPickaxe() && item.getTier() >= ItemTool.TIER_WOODEN) {
             return new Item[]{
-                    Item.get(Item.NETHER_BRICKS, 0, 1)
+                    toItem()
             };
         } else {
             return new Item[0];
@@ -52,5 +53,11 @@ public class BlockBricksNether extends BlockSolid {
     @Override
     public BlockColor getColor() {
         return BlockColor.NETHERRACK_BLOCK_COLOR;
+    }
+
+    @PowerNukkitDifference(since = "1.4.0.0-PN", info = "Will return false as expected")
+    @Override
+    public boolean canHarvestWithHand() {
+        return false;
     }
 }

@@ -31,7 +31,10 @@ import java.util.Arrays;
 public abstract class BaseChunk extends BaseFullChunk implements Chunk {
     @PowerNukkitOnly("Needed for level backward compatibility")
     @Since("1.3.0.0-PN")
-    public static final int CONTENT_VERSION = 2;
+    @Deprecated @DeprecationDetails(
+            toBeRemovedAt = "1.5.0.0-PN", replaceWith = "getCurrentContentVersion()",
+            since = "1.3.1.2-PN", reason = "Constants becomes hardcoded number in compiled files")
+    public static final int CONTENT_VERSION = Integer.valueOf(5);
 
     protected ChunkSection[] sections;
 
@@ -47,6 +50,7 @@ public abstract class BaseChunk extends BaseFullChunk implements Chunk {
             if (contentVersion < 2) {
                 WallUpdater wallUpdater = new WallUpdater(level, section);
                 boolean sectionUpdated = walk(section, new GroupedUpdaters(
+                        new MesaBiomeUpdater(section),
                         wallUpdater,
                         contentVersion < 1? new StemUpdater(level, section, BlockID.MELON_STEM, BlockID.MELON_BLOCK) : null,
                         contentVersion < 1? new StemUpdater(level, section, BlockID.PUMPKIN_STEM, BlockID.PUMPKIN) : null
@@ -65,9 +69,17 @@ public abstract class BaseChunk extends BaseFullChunk implements Chunk {
                     }
                     sectionUpdated = walk(section, wallUpdater);
                 }
-                
-                section.setContentVersion(2);
+
+                contentVersion = 4;
+            } else if (contentVersion < 3) {
+                updated |= walk(section, new MesaBiomeUpdater(section));
+                contentVersion = 4;
             }
+            if (contentVersion < 5) {
+                updated |= walk(section, new BeehiveUpdater(section));
+                contentVersion = 5;
+            }
+            section.setContentVersion(contentVersion);
         }
         
         if (updated) {
@@ -493,6 +505,33 @@ public abstract class BaseChunk extends BaseFullChunk implements Chunk {
                 if (updater != null && updater.update(offsetX, offsetY, offsetZ, x, y, z, blockId, meta)) {
                     return true;
                 }
+            }
+            return false;
+        }
+    }
+
+    @RequiredArgsConstructor
+    private static class MesaBiomeUpdater implements Updater {
+        private final ChunkSection section;
+        @Override
+        public boolean update(int offsetX, int offsetY, int offsetZ, int x, int y, int z, int blockId, int meta) {
+            if (blockId == 44 && meta == 48) {
+                section.setBlock(x, y, z, BlockID.RED_SANDSTONE, 0);
+                return true;
+            }
+            return false;
+        }
+    }
+    
+    @RequiredArgsConstructor
+    private static class BeehiveUpdater implements Updater {
+        private final ChunkSection section;
+        @Override
+        public boolean update(int offsetX, int offsetY, int offsetZ, int x, int y, int z, int blockId, int meta) {
+            if (blockId == BlockID.BEEHIVE || blockId == BlockID.BEE_NEST) {
+                BlockFace face = BlockFace.fromIndex(meta & 0b111);
+                section.setBlockData(x, y, z, 0, ((meta & ~0b111) >> 1) | face.getHorizontalIndex());
+                return true;
             }
             return false;
         }

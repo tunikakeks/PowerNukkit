@@ -1,5 +1,8 @@
 package cn.nukkit.item;
 
+/**
+ * @author good777LUCKY
+ */
 public class ItemSuperFertilizer extends Item {
 
     public ItemSuperFertilizer() {

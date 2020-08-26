@@ -87,7 +87,7 @@ public class BlockSapling extends BlockFlowable {
             this.grow();
 
             return true;
-        } else if (item.getId() == Item.SUPER_FERTILIZER) {
+        } else if (item.getId() == Item.RAPID_FERTILIZER) {
             if (player != null && (player.gamemode & 0x01) == 0) {
                 item.count--;
             }

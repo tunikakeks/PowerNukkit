@@ -56,7 +56,7 @@ public class ItemCompound extends Item {
             case 14:
                 return "Boron Trioxide";
             case 15:
-                return ""; // ?
+                return "Soap";
             case 16:
                 return "Polyethylene";
             case 17:

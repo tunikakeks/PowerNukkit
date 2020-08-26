@@ -27,6 +27,21 @@ public class ItemMedicine extends Item {
         super(MEDICINE, meta, count, "Medicine");
     }
     
+    protected static String getName(int meta) {
+        switch (meta) {
+            case 1:
+                return "Eye Drops";
+            case 2:
+                return "Tonic";
+            case 3:
+                return "Antidote";
+            case 4:
+                return "Elixir";
+            default:
+                return "Medicine
+        }
+    }
+    
     @Override
     public int getMaxStackSize() {
         return 1;

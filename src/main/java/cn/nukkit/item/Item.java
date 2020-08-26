@@ -290,6 +290,8 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[TOTEM] = ItemTotem.class; //450
             list[BLEACH] = ItemBleach.class; //451
             
+            list[ICE_BOMB] = ItemIceBomb.class; //453
+            
             list[TRIDENT] = ItemTrident.class; //455
 
             list[BEETROOT] = ItemBeetroot.class; //457

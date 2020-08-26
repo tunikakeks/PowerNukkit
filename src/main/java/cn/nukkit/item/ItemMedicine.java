@@ -38,7 +38,7 @@ public class ItemMedicine extends Item {
             case 4:
                 return "Elixir";
             default:
-                return "Medicine
+                return "Medicine";
         }
     }
     

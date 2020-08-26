@@ -284,7 +284,8 @@ public class Item implements Cloneable, BlockID, ItemID {
 
             list[SHULKER_SHELL] = ItemShulkerShell.class; //445
             list[BANNER] = ItemBanner.class; //446
-
+            
+            list[RAPID_FERTILIZER] = ItemSuperFertilizer.class; //449
             list[TOTEM] = ItemTotem.class; //450
 
             list[TRIDENT] = ItemTrident.class; //455

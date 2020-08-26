@@ -313,7 +313,8 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[ACACIA_SIGN] = ItemAcaciaSign.class; //475
             list[DARKOAK_SIGN] = ItemDarkOakSign.class; //476
             list[SWEET_BERRIES] = ItemSweetBerries.class; //477
-
+            
+            list[COMPOUND] = ItemCompound.class; //499
             list[RECORD_13] = ItemRecord13.class; //500
             list[RECORD_CAT] = ItemRecordCat.class; //501
             list[RECORD_BLOCKS] = ItemRecordBlocks.class; //502

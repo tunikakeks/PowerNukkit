@@ -29,13 +29,13 @@ public class ItemMedicine extends Item {
     
     protected static String getName(int meta) {
         switch (meta) {
-            case 1:
+            case 0:
                 return "Eye Drops";
-            case 2:
+            case 1:
                 return "Tonic";
-            case 3:
+            case 2:
                 return "Antidote";
-            case 4:
+            case 3:
                 return "Elixir";
             default:
                 return "Medicine";

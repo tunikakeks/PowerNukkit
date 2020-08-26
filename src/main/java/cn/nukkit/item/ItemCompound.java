@@ -79,6 +79,28 @@ public class ItemCompound extends Item {
                 return "Calcium Chloride";
             case 26:
                 return "Water";
+            case 27:
+                return "Glue";
+            case 28:
+                return "Hypochlorite"; // ?
+            case 29:
+                return "Crude Oil";
+            case 30:
+                return "Latex";
+            case 31:
+                return "Potassium Iodide";
+            case 32:
+                return "Sodium Fluoride";
+            case 33:
+                return "Benzene";
+            case 34:
+                return "Ink"; // Invalid Natural Compound
+            case 35:
+                return "Hydrogen Peroxide";
+            case 36:
+                return "Ammonia";
+            case 37:
+                return "Sodium Hypochlorite";
             default:
                 return "Compound";
         }

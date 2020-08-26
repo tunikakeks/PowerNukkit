@@ -287,7 +287,8 @@ public class Item implements Cloneable, BlockID, ItemID {
             
             list[RAPID_FERTILIZER] = ItemSuperFertilizer.class; //449
             list[TOTEM] = ItemTotem.class; //450
-
+            list[BLEACH] = ItemBleach.class; //451
+            
             list[TRIDENT] = ItemTrident.class; //455
 
             list[BEETROOT] = ItemBeetroot.class; //457

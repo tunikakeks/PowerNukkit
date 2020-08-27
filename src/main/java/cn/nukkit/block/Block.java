@@ -316,9 +316,9 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[ITEM_FRAME_BLOCK] = BlockItemFrame.class; //199
             list[CHORUS_FLOWER] = BlockChorusFlower.class; //200
             list[PURPUR_BLOCK] = BlockPurpur.class; //201
-
+            list[COLORED_TORCH_RG] = BlockTorchColoredRG.class; //202
             list[PURPUR_STAIRS] = BlockStairsPurpur.class; //203
-            
+            list[COLORED_TORCH_BP] = BlockTorchColoredBP.class; //204
             list[UNDYED_SHULKER_BOX] = BlockUndyedShulkerBox.class; //205
             list[END_BRICKS] = BlockBricksEndStone.class; //206
             list[ICE_FROSTED] = BlockIceFrosted.class; //207

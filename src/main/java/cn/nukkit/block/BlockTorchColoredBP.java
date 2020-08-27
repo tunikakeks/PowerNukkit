@@ -25,7 +25,7 @@ public class BlockTorchColoredBP extends BlockTorch {
     
     @Override
     public String getName() {
-        return "Colored Torch";
+        return (this.getDamage() & 0x8) == 0 ? "Blue Torch" : "Purple Torch";
     }
     
     @Override

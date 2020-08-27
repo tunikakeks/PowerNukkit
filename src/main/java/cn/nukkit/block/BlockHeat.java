@@ -15,7 +15,7 @@ public class BlockHeat extends BlockSolid {
     
     @Override
     public int getId() {
-        return HEAT_BLOCK;
+        return CHEMICAL_HEAT;
     }
     
     @Override

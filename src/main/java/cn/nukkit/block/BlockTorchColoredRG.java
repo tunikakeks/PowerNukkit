@@ -3,6 +3,8 @@ package cn.nukkit.block;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.BooleanBlockProperty;
 
+import javax.annotation.Nonnull;
+
 /**
  * @author good777LUCKY
  */

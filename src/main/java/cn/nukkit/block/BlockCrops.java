@@ -61,7 +61,8 @@ public abstract class BlockCrops extends BlockFlowable {
                 if (player != null && (player.gamemode & 0x01) == 0) {
                     item.count--;
                 }
-            } else if (item.getId() == Item.RAPID_FERTILIZER) { // Super Fertilizer
+            }
+        } else if (item.getId() == Item.RAPID_FERTILIZER) { // Super Fertilizer
             if (this.getDamage() < 7) {
                 BlockCrops block = (BlockCrops) this.clone();
                 block.setDamage(7);

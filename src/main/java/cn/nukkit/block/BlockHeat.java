@@ -56,7 +56,7 @@ public class BlockHeat extends BlockSolid {
     
     @Override
     public BlockColor getColor() {
-        return BlockColor.STONE_BLOCK_COLOR; // TODO: Check Color
+        return BlockColor.STONE_BLOCK_COLOR;
     }
     
     // TODO: Melt Ice and Snow without light

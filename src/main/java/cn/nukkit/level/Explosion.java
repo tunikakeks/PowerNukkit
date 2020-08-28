@@ -106,7 +106,7 @@ public class Explosion {
                             }
                             Block block = this.level.getBlock(vBlock);
 
-                            if (block.getId() != 0 && (this.underwater && !(block instanceof BlockLiquid)) {
+                            if (block.getId() != 0 && (this.underwater && !(block instanceof BlockLiquid))) {
                                 Block layer1 = block.getLevelBlockAtLayer(1);
                                 double resistance = Math.max(block.getResistance(), layer1.getResistance());
                                 blastForce -= (resistance / 5 + 0.3d) * this.stepLen;

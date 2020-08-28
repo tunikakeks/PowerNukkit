@@ -4,6 +4,9 @@ import cn.nukkit.Player;
 import cn.nukkit.item.Item;
 import cn.nukkit.math.BlockFace;
 
+/**
+ * @author good777LUCKY
+ */
 public class BlockGlowStick extends BlockTransparentMeta {
 
     public BlockGlowStick() {

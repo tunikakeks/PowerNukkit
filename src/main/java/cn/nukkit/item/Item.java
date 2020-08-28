@@ -284,10 +284,13 @@ public class Item implements Cloneable, BlockID, ItemID {
 
             list[SHULKER_SHELL] = ItemShulkerShell.class; //445
             list[BANNER] = ItemBanner.class; //446
-
-            list[TOTEM] = ItemTotem.class; //450
+            list[MEDICINE] = ItemMedicine.class; //447
             
+            list[RAPID_FERTILIZER] = ItemSuperFertilizer.class; //449
+            list[TOTEM] = ItemTotem.class; //450
+            list[BLEACH] = ItemBleach.class; //451
             list[IRON_NUGGET] = ItemNuggetIron.class; //452
+            list[ICE_BOMB] = ItemIceBomb.class; //453
             
             list[TRIDENT] = ItemTrident.class; //455
 
@@ -310,7 +313,8 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[ACACIA_SIGN] = ItemAcaciaSign.class; //475
             list[DARKOAK_SIGN] = ItemDarkOakSign.class; //476
             list[SWEET_BERRIES] = ItemSweetBerries.class; //477
-
+            
+            list[COMPOUND] = ItemCompound.class; //499
             list[RECORD_13] = ItemRecord13.class; //500
             list[RECORD_CAT] = ItemRecordCat.class; //501
             list[RECORD_BLOCKS] = ItemRecordBlocks.class; //502

@@ -1,6 +1,8 @@
 package cn.nukkit.block;
 
 import cn.nukkit.Player;
+import cn.nukkit.blockproperty.BlockProperties;
+import cn.nukkit.blockproperty.BooleanBlockProperty;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.item.Item;
 import cn.nukkit.level.Level;
@@ -19,21 +21,34 @@ import javax.annotation.Nullable;
  * @author xtypr
  * @since 2015/12/8
  */
-public class BlockTNT extends BlockSolid {
-
+public class BlockTNT extends BlockSolidMeta {
+    protected static final BooleanBlockProperty EXPLODE_BIT = new BooleanBlockProperty("explode_bit", false);
+    protected static final BooleanBlockProperty ALLOW_UNDERWATER_BIT = new BooleanBlockProperty("allow_underwater_bit", false);
+    public static final BlockProperties PROPERTIES = new BlockProperties(
+        ALLOW_UNDERWATER_BIT,
+        EXPLODE_BIT
+    );
+    
     public BlockTNT() {
+        this(0);
     }
-
-    @Override
-    public String getName() {
-        return "TNT";
-    }
-
+    
     @Override
     public int getId() {
         return TNT;
     }
-
+    
+    @Nonnull
+    @Override
+    public BlockProperties getProperties() {
+        return PROPERTIES;
+    }
+    
+    @Override
+    public String getName() {
+        return "TNT";
+    }
+    
     @Override
     public double getHardness() {
         return 0;
@@ -122,7 +137,23 @@ public class BlockTNT extends BlockSolid {
         }
         return false;
     }
-
+    
+    public boolean isUnderwaterAllowed() {
+        return getBooleanValue(ALLOW_UNDERWATER_BIT);
+    }
+    
+    public void setUnderwaterAllowed(boolean underwater) {
+        setBooleanValue(ALLOW_UNDERWATER_BIT, underwater);
+    }
+    
+    public boolean isExplode() {
+        return getBooleanValue(EXPLODE_BIT);
+    }
+    
+    public void setExplode(boolean explode) {
+        setBooleanValue(EXPLODE_BIT, explode);
+    }
+    
     @Override
     public BlockColor getColor() {
         return BlockColor.TNT_BLOCK_COLOR;

@@ -4,7 +4,7 @@ import cn.nukkit.Player;
 import cn.nukkit.item.Item;
 import cn.nukkit.math.BlockFace;
 
-public class BlockGlowStick extends BlockThin {
+public class BlockGlowStick extends BlockTransparentMeta {
 
     public BlockGlowStick() {
         this(0);

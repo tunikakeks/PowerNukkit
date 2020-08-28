@@ -140,7 +140,7 @@ public class BlockTNT extends BlockSolidMeta {
     
     @Override
     public boolean onBreak(Item item) {
-        if (isUnderwaterAllowed) {
+        if (isUnderwaterAllowed()) {
             this.prime();
         }
         return super.onBreak(item);

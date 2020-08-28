@@ -172,7 +172,7 @@ public class EntityPrimedTNT extends Entity implements EntityExplosive {
         if (event.isCancelled()) {
             return;
         }
-        Explosion explosion = new Explosion(this, event.getForce(), this);
+        Explosion explosion = new Explosion(this, event.getForce(), this, this.allowUnderwater);
         if (event.isBlockBreaking()) {
             explosion.explodeA();
         }

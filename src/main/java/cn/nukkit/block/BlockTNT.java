@@ -97,7 +97,8 @@ public class BlockTNT extends BlockSolidMeta {
                 .putList(new ListTag<FloatTag>("Rotation")
                         .add(new FloatTag("", 0))
                         .add(new FloatTag("", 0)))
-                .putShort("Fuse", fuse);
+                .putShort("Fuse", fuse)
+                .putBoolean("AllowUnderwater", isUnderwaterAllowed());
         Entity tnt = Entity.createEntity("PrimedTnt",
                 this.getLevel().getChunk(this.getFloorX() >> 4, this.getFloorZ() >> 4),
                 nbt, source

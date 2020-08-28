@@ -42,7 +42,7 @@ public class BlockCamera extends BlockSolidMeta {
     @Override
     public boolean place(Item item, Block block, Block target, BlockFace face, double fx, double fy, double fz, Player player) {
         //TODO: Add Block face?
-        return super.place();
+        return super.place(item, block, target, face, fx, fy, fz, player);
     }
     
     @Override

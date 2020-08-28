@@ -25,7 +25,7 @@ public class BlockTorchColoredRG extends BlockTorch {
     
     @Override
     public String getName() {
-        return (this.getColor()) ? "Red Torch" : "Green Torch";
+        return (this.getColorBit()) ? "Red Torch" : "Green Torch";
     }
     
     @Override

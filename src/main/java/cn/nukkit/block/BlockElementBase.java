@@ -3,7 +3,7 @@ package cn.nukkit.block;
 /**
  * @author good777LUCKY
  */
-public class BlockElementBase extends BlockSolid {
+public abstract class BlockElementBase extends BlockSolid {
 
     public BlockElementBase() {
         // Does Nothing

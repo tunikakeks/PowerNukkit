@@ -283,7 +283,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[ACACIA_WOOD_STAIRS] = BlockStairsAcacia.class; //163
             list[DARK_OAK_WOOD_STAIRS] = BlockStairsDarkOak.class; //164
             list[SLIME_BLOCK] = BlockSlime.class; //165
-
+            list[GLOW_STICK] = BlockGlowStick.class; //166
             list[IRON_TRAPDOOR] = BlockTrapdoorIron.class; //167
             list[PRISMARINE] = BlockPrismarine.class; //168
             list[SEA_LANTERN] = BlockSeaLantern.class; //169

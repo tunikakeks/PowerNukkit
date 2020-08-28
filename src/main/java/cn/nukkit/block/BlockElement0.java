@@ -17,6 +17,11 @@ public class BlockElement0 extends BlockElementBase {
     }
     
     @Override
+    public String getName() {
+        return "???";
+    }
+    
+    @Override
     public BlockColor getColor() {
         return BlockColor.BLACK_BLOCK_COLOR;
     }

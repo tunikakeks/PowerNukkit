@@ -358,6 +358,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[UNDERWATER_TORCH] = BlockTorchUnderwater.class; //239
             list[CHORUS_PLANT] = BlockChorusPlant.class; //240
             list[STAINED_GLASS] = BlockGlassStained.class; //241
+            list[CAMERA] = BlockCamera.class; //242
             list[PODZOL] = BlockPodzol.class; //243
             list[BEETROOT_BLOCK] = BlockBeetroot.class; //244
             list[STONECUTTER] = BlockStonecutter.class; //245

@@ -33,6 +33,10 @@ public class BlockTNT extends BlockSolidMeta {
         this(0);
     }
     
+    public BlockTNT(int meta) {
+        super(meta);
+    }
+    
     @Override
     public int getId() {
         return TNT;

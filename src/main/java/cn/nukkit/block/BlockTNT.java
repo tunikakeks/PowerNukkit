@@ -30,6 +30,7 @@ public class BlockTNT extends BlockSolidMeta {
     );
     
     public BlockTNT() {
+        this(0);
     }
     
     @Override
@@ -52,35 +53,35 @@ public class BlockTNT extends BlockSolidMeta {
     public double getHardness() {
         return 0;
     }
-
+    
     @Override
     public double getResistance() {
         return 0;
     }
-
+    
     @Override
     public boolean canBeActivated() {
         return true;
     }
-
+    
     @Override
     public int getBurnChance() {
         return 15;
     }
-
+    
     @Override
     public int getBurnAbility() {
         return 100;
     }
-
+    
     public void prime() {
         this.prime(80);
     }
-
+    
     public void prime(int fuse) {
         prime(fuse, null);
     }
-
+    
     public void prime(int fuse, Entity source) {
         this.getLevel().setBlock(this, Block.get(BlockID.AIR), true);
         double mot = (new NukkitRandom()).nextSignedFloat() * Math.PI * 2;
@@ -107,7 +108,7 @@ public class BlockTNT extends BlockSolidMeta {
         tnt.spawnToAll();
         this.level.addSound(this, Sound.RANDOM_FUSE);
     }
-
+    
     @Override
     public int onUpdate(int type) {
         if (!this.level.getServer().isRedstoneEnabled()) {
@@ -120,7 +121,7 @@ public class BlockTNT extends BlockSolidMeta {
 
         return 0;
     }
-
+    
     @Override
     public boolean onActivate(@Nonnull Item item, @Nullable Player player) {
         if (item.getId() == Item.FLINT_STEEL) {
@@ -135,6 +136,14 @@ public class BlockTNT extends BlockSolidMeta {
             return true;
         }
         return false;
+    }
+    
+    @Override
+    public boolean onBreak(Item item) {
+        if (isUnderwaterAllowed) {
+            this.prime();
+        }
+        return super.onBreak(item);
     }
     
     public boolean isUnderwaterAllowed() {

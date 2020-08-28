@@ -25,7 +25,7 @@ public class BlockTorchColoredRG extends BlockTorch {
     
     @Override
     public String getName() {
-        return (this.getDamage() & 0x8) == 0 ? "Red Torch" : "Green Torch";
+        return (this.getColor()) ? "Red Torch" : "Green Torch";
     }
     
     @Override
@@ -37,5 +37,13 @@ public class BlockTorchColoredRG extends BlockTorch {
     @Override
     public BlockProperties getProperties() {
         return PROPERTIES;
+    }
+    
+    public boolean getColor() {
+        return getBooleanValue(COLOR_BIT);
+    }
+    
+    public void setColor(boolean color) {
+        setBooleanValue(COLOR_BIT, color);
     }
 }

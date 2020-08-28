@@ -30,7 +30,6 @@ public class BlockTNT extends BlockSolidMeta {
     );
     
     public BlockTNT() {
-        this(0);
     }
     
     @Override
@@ -46,7 +45,7 @@ public class BlockTNT extends BlockSolidMeta {
     
     @Override
     public String getName() {
-        return "TNT";
+        return (isUnderwaterAllowed()) ? "Underwater TNT" : "TNT";
     }
     
     @Override

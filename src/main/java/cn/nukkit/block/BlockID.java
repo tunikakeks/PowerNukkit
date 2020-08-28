@@ -103,7 +103,6 @@ public interface BlockID {
     int STONE_PRESSURE_PLATE = 70;
     int IRON_DOOR_BLOCK = 71;
     int WOODEN_PRESSURE_PLATE = 72;
-
     int REDSTONE_ORE = 73;
     int GLOWING_REDSTONE_ORE = 74;
     int LIT_REDSTONE_ORE = 74;
@@ -231,7 +230,7 @@ public interface BlockID {
     int DARK_OAK_WOOD_STAIRS = 164;
     int DARK_OAK_WOODEN_STAIRS = 164;
     int SLIME_BLOCK = 165;
-
+    int GLOW_STICK = 166;
     int IRON_TRAPDOOR = 167;
     int PRISMARINE = 168;
     int SEA_LANTERN = 169;

@@ -39,11 +39,11 @@ public class BlockTorchColoredRG extends BlockTorch {
         return PROPERTIES;
     }
     
-    public boolean getColor() {
+    public boolean getColorBit() {
         return getBooleanValue(COLOR_BIT);
     }
     
-    public void setColor(boolean color) {
+    public void setColorBit(boolean color) {
         setBooleanValue(COLOR_BIT, color);
     }
 }

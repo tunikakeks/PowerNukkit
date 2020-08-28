@@ -25,7 +25,7 @@ public class BlockTorchColoredBP extends BlockTorch {
     
     @Override
     public String getName() {
-        return (this.getColor()) ? "Blue Torch" : "Purple Torch";
+        return (this.getColorBit()) ? "Blue Torch" : "Purple Torch";
     }
     
     @Override
@@ -39,11 +39,11 @@ public class BlockTorchColoredBP extends BlockTorch {
         return PROPERTIES;
     }
     
-    public boolean getColor() {
+    public boolean getColorBit() {
         return getBooleanValue(COLOR_BIT);
     }
     
-    public void setColor(boolean color) {
+    public void setColorBit(boolean color) {
         setBooleanValue(COLOR_BIT, color);
     }
 }

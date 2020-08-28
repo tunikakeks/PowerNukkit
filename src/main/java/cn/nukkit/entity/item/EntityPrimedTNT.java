@@ -54,8 +54,9 @@ public class EntityPrimedTNT extends Entity implements EntityExplosive {
         return false;
     }
 
+    protected boolean allowUnderwater;
     protected int fuse;
-
+    
     protected Entity source;
 
     public EntityPrimedTNT(FullChunk chunk, CompoundTag nbt) {
@@ -85,7 +86,12 @@ public class EntityPrimedTNT extends Entity implements EntityExplosive {
         } else {
             fuse = 80;
         }
-
+        if (this.namedTag.contains("AllowUnderwater")) {
+            this.allowUnderwater = this.namedTag.getBoolean("AllowUnderwater");
+        } else {
+            this.allowUnderwater = false;
+        }
+        
         this.setDataFlag(DATA_FLAGS, DATA_FLAG_IGNITED, true);
         this.setDataProperty(new IntEntityData(DATA_FUSE_LENGTH, fuse));
 
@@ -100,6 +106,7 @@ public class EntityPrimedTNT extends Entity implements EntityExplosive {
     public void saveNBT() {
         super.saveNBT();
         namedTag.putByte("Fuse", fuse);
+        namedTag.putBoolean("AllowUnderwater", this.allowUnderwater);
     }
 
     public boolean onUpdate(int currentTick) {

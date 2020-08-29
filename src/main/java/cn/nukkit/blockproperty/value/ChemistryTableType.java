@@ -11,7 +11,7 @@ public enum ChemistryTableType {
     
     ELEMENT_CONSTRUCTOR("Element Constructor"),
     
-    LAB_TABLE("Lab Table")
+    LAB_TABLE("Lab Table");
     
     private final String englishName;
     

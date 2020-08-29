@@ -10,8 +10,6 @@ import cn.nukkit.item.ItemTool;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.utils.BlockColor;
 
-import javax.annotation.Nonnull;
-
 import static cn.nukkit.blockproperty.CommonBlockProperties.DIRECTION;
 
 /**
@@ -65,7 +63,18 @@ public class BlockChemistryTable extends BlockSolidMeta {
     }
     
     @Override
-    public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, Player player) {
+    public boolean canBeActivated() {
+        return true;
+    }
+    
+    @Override
+    public boolean onActivate(Item item, Player player) {
+        //TODO: Add UI
+        return true;
+    }
+    
+    @Override
+    public boolean place(Item item, Block block, Block target, BlockFace face, double fx, double fy, double fz, Player player) {
         if (player == null) {
             setBlockFace(BlockFace.SOUTH);
         } else {

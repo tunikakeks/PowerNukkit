@@ -354,7 +354,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[BLACK_GLAZED_TERRACOTTA] = BlockTerracottaGlazedBlack.class; //235
             list[CONCRETE] = BlockConcrete.class; //236
             list[CONCRETE_POWDER] = BlockConcretePowder.class; //237
-            
+            list[CHEMISTRY_TABLE] = BlockChemistryTable.class; //238
             list[UNDERWATER_TORCH] = BlockTorchUnderwater.class; //239
             list[CHORUS_PLANT] = BlockChorusPlant.class; //240
             list[STAINED_GLASS] = BlockGlassStained.class; //241

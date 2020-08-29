@@ -5,6 +5,7 @@ import cn.nukkit.block.Block;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.event.entity.CreatureSpawnEvent;
 import cn.nukkit.event.entity.CreatureSpawnEvent.SpawnReason;
+import cn.nukkit.item.ItemID;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.math.BlockFace;
@@ -27,7 +28,7 @@ public class ItemCamera extends Item {
     }
     
     public ItemCamera(Integer meta, int count) {
-        super(CAMERA, meta, count, "Camera");
+        super(ItemID.CAMERA, meta, count, "Camera");
     }
     
     @Override
@@ -53,14 +54,14 @@ public class ItemCamera extends Item {
                         .add(new DoubleTag("", 0))
                         .add(new DoubleTag("", 0)))
                 .putList(new ListTag<FloatTag>("Rotation")
-                        .add(new FloatTag("", player.getYaw() + 180))
+                        .add(new FloatTag("", (float)player.getYaw() + 180f))
                         .add(new FloatTag("", 0)));
         
         if (this.hasCustomName()) {
             nbt.putString("CustomName", this.getCustomName());
         }
         
-        CreatureSpawnEvent ev = new CreatureSpawnEvent("Camera", block, nbt, SpawnReason.CAMERA);
+        CreatureSpawnEvent ev = new CreatureSpawnEvent(62, block, nbt, SpawnReason.CAMERA);
         level.getServer().getPluginManager().callEvent(ev);
         
         if (ev.isCancelled()) {

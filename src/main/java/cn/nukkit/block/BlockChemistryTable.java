@@ -1,11 +1,13 @@
 package cn.nukkit.block;
 
+import cn.nukkit.Player;
 import cn.nukkit.blockproperty.ArrayBlockProperty;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.BlockProperty;
 import cn.nukkit.blockproperty.value.ChemistryTableType;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
+import cn.nukkit.math.BlockFace;
 import cn.nukkit.utils.BlockColor;
 
 import javax.annotation.Nonnull;
@@ -60,6 +62,16 @@ public class BlockChemistryTable extends BlockSolidMeta {
     @Override
     public String getName() {
         return getChemistryTableType().getEnglishName();
+    }
+    
+    @Override
+    public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, Player player) {
+        if (player == null) {
+            setBlockFace(BlockFace.SOUTH);
+        } else {
+            setBlockFace(player.getDirection().getOpposite());
+        }
+        return true;
     }
     
     public ChemistryTableType getChemistryTableType() {

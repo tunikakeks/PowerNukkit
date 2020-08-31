@@ -217,6 +217,7 @@ public interface ItemID {
     int SHULKER_SHELL = 445;
     int BANNER = 446;
     int TOTEM = 450;
+    
     int IRON_NUGGET = 452;
 
     int TRIDENT = 455;
@@ -266,27 +267,28 @@ public interface ItemID {
 
     int HONEYCOMB = 736;
     int HONEY_BOTTLE = 737;
+
+    int LODESTONECOMPASS = 741;
+    int LODESTONE_COMPASS = 741;
+    int NETHERITE_INGOT = 742;
+    int NETHERITE_SWORD = 743;
+    int NETHERITE_SHOVEL = 744;
+    int NETHERITE_PICKAXE = 745;
+    int NETHERITE_AXE = 746;
+    int NETHERITE_HOE = 747;
+    int NETHERITE_HELMET = 748;
+    int NETHERITE_CHESTPLATE = 749;
+    int NETHERITE_LEGGINGS = 750;
+    int NETHERITE_BOOTS = 751;
+    int NETHERITE_SCRAP = 752;
+    int CRIMSON_SIGN = 753;
+    int WARPED_SIGN = 754;
+    int CRIMSON_DOOR = 755;
+    int WARPED_DOOR = 756;
+    int WARPED_FUNGUS_ON_A_STICK = 757;
+    int CHAIN = 758;
+    int RECORD_PIGSTEP = 759;
+    int NETHER_SPROUTS = 760;
     
-    //int LODESTONECOMPASS = 741;
-    //int NETHERITE_INGOT = 742;
-    //int NETHERITE_SWORD = 743;
-    //int NETHERITE_SHOVEL = 744;
-    //int NETHERITE_PICKAXE = 745;
-    //int NETHERITE_AXE = 746;
-    //int NETHERITE_HOE = 747;
-    //int NETHERITE_HELMET = 748;
-    //int NETHERITE_CHESTPLATE = 749;
-    //int NETHERITE_LEGGINGS = 750;
-    //int NETHERITE_BOOTS = 751;
-    //int NETHERITE_SCRAP = 752;
-    //int CRIMSON_SIGN = 753;
-    //int WARPED_SIGN = 754;
-    //int CRIMSON_DOOR = 755;
-    //int WARPED_DOOR = 756;
-    //int WARPED_FUNGUS_ON_A_STICK = 757;
-    //int CHAIN = 758;
-    //int RECORD_PIGSTEP = 759;
-    //int NETHER_SPROUTS = 760;
-    
-    //int SOUL_CAMPFIRE = 801;
+    int SOUL_CAMPFIRE = 801;
 }

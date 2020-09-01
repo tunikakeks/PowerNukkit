@@ -74,5 +74,54 @@ public class SmithingInventory extends FakeBlockUIComponent {
         return setResult(item, true);
     }
     
+    @Override
+    public void onSlotChange(int index, Item before, boolean send) {
+        try {
+            if (index > 1) {
+                return;
+            }
+            Item inputItem = getInput();
+            Item materialItem = getMaterial();
+            if (!inputItem.isNull() && !materialItem.isNull() && (inputItem.getNetheriteResult().getId() == 0) && materialItem.getId() != ItemID.NETHERITE_INGOT) {
+                setResult(Item.get(0));
+                return;
+            }
     
+            if (inputItem.isNull()) {
+                Item air = inputItem;
+                inputItem = materialItem;
+                materialItem = air;
+            }
+    
+            if (inputItem.isNull()) {
+                setResult(Item.get(0));
+                return;
+            }
+            
+            Item result = getNetheriteResult(inputItem);
+            CompoundTag tag = inputItem.getNamedTag();
+            if (tag == null) tag = new CompoundTag(); 
+            
+            result.setCompoundTag(tag);
+            result.setDamage(inputItem.getDamage());
+            setResult(result);
+        } finally {
+            super.onSlotChange(index, before, send);
+        }
+    }
+    
+    public Item getNetheriteResult(Item before) {
+        if (before.getId() == ItemID.DIAMOND_SWORD) return Item.get(ItemID.NETHERITE_SWORD);
+        if (before.getId() == ItemID.DIAMOND_PICKAXE) return Item.get(ItemID.NETHERITE_PICKAXE);
+        if (before.getId() == ItemID.DIAMOND_AXE) return Item.get(ItemID.NETHERITE_AXE);
+        if (before.getId() == ItemID.DIAMOND_SHOVEL) return Item.get(ItemID.NETHERITE_SHOVEL);
+        if (before.getId() == ItemID.DIAMOND_HOE) return Item.get(ItemID.NETHERITE_HOE);
+        
+        if (before.getId() == ItemID.DIAMOND_HELMAT) return Item.get(ItemID.NETHERITE_HELMAT);
+        if (before.getId() == ItemID.DIAMOND_CHESTPLATE) return Item.get(ItemID.NETHERITE_CHESTPLATE);
+        if (before.getId() == ItemID.DIAMOND_LEGGINGS) return Item.get(ItemID.NETHERITE_LEGGINGS);
+        if (before.getId() == ItemID.DIAMOND_BOOTS) return Item.get(ItemID.NETHERITE_BOOTS);
+        
+        return(Item.get(0));
+    }
 }

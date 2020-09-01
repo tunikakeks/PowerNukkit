@@ -37,4 +37,42 @@ public class SmithingInventory extends FakeBlockUIComponent {
         super.onOpen(who);
         who.craftingType = Player.CRAFTING_SMITHING;
     }
+    
+    public Item getInput() {
+        return getItem(SLOT_INPUT);
+    }
+    
+    public Item getMaterial() {
+        return getItem(SLOT_MATERIAL);
+    }
+    
+    public Item getResult() {
+        return getItem(SLOT_RESULT);
+    }
+    
+    public boolean setInput(Item item, boolean send) {
+        return setItem(SLOT_INPUT, item, send);
+    }
+    
+    public boolean setInput(Item item) {
+        return setFirstItem(item, true);
+    }
+    
+    public boolean setMaterial(Item item, boolean send) {
+        return setItem(SLOT_MATERIAL, item, send);
+    }
+    
+    public boolean setMaterial(Item item) {
+        return setSecondItem(item, true);
+    }
+    
+    public boolean setResult(Item item, boolean send) {
+        return setItem(SLOT_RESULT, item, send);
+    }
+    
+    public boolean setResult(Item item) {
+        return setResult(item, true);
+    }
+    
+    
 }

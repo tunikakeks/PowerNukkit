@@ -1,0 +1,72 @@
+body {
+    font-size: .938em;
+}
+
+#home-section {
+    height: 4em;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.25);
+    position: relative;
+    z-index: 101;
+    border-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+    background-color: #333;
+}
+
+#pn-top-gh-logo {
+    height: 2.667em;
+}
+
+#site-logo {
+    height: 2em;
+}
+
+.pn-header-follow-us.pn-pc {
+    position: absolute;
+    margin-left: 4em;
+    z-index: 1000;
+}
+
+.pn-header-follow-us.pn-mobile {
+    display: none;
+    position: absolute;
+    margin-left: 4em;
+    z-index: 1000;
+}
+
+.border-bottom-dashed {
+    border-bottom-style: dashed !important;
+}
+
+@media (max-width: 385px) {
+    .pn-header-follow-us.pn-pc {
+        display: none;
+    }
+
+    .pn-header-follow-us.pn-mobile {
+        display: block;
+    }
+}
+
+@media (max-width: 295px) {
+    .pn-header-follow-us.pn-mobile {
+        display: none;
+    }
+}
+
+.site-footer .endorsement {
+    background-color: #467596;
+}
+.site-footer .endorsement p {
+    color: #CCCCCC;
+}
+.site-footer .endorsement a {
+    color: #EEEEEE;
+}
+.site-footer .endorsement a:hover {
+    color: #32dbc6;
+}
+
+.site-footer .dark-footer {
+    background: #333333;
+}

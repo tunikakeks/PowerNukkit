@@ -2535,6 +2535,7 @@ public class Server {
         //Projectile
         Entity.registerEntity("AreaEffectCloud", EntityAreaEffectCloud.class);
         Entity.registerEntity("Egg", EntityEgg.class);
+        Entity.registerEntity("IceBomb", EntityIceBomb.class);
         Entity.registerEntity("LingeringPotion", EntityPotionLingering.class);
         Entity.registerEntity("ThrownExpBottle", EntityExpBottle.class);
         Entity.registerEntity("ThrownPotion", EntityPotion.class);

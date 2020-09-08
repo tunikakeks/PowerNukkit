@@ -10,7 +10,7 @@ public interface EntityNPC extends EntityLiving {
 
     public static final int NETWORK_ID = 51;
     
-    public EntityNpc(FullChunk chunk, CompoundTag nbt) {
+    public EntityNPC(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
     }
     

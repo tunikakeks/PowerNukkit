@@ -11,7 +11,7 @@ import cn.nukkit.nbt.tag.CompoundTag;
  *
  * @author good777LUCKY
  */
-public interface EntityNPC extends EntityLiving implements EntityInteractable {
+public class EntityNPC extends EntityLiving implements EntityInteractable {
 
     public static final int NETWORK_ID = 51;
     

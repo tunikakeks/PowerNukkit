@@ -72,6 +72,7 @@ public class EntityCamera extends Entity implements EntityInteractable {
                 return true;
             }
         }
+        return false;
     }
     
     @Override
@@ -95,6 +96,32 @@ public class EntityCamera extends Entity implements EntityInteractable {
         if (this.closed) {
             return false;
         }
-        // TODO: Add Functionality
+        
+        int tickDiff = currentTick - lastUpdate;
+        boolean hasUpdated = super.onUpdate(currentTick);
+        
+        if (closed || tickDiff <= 0 && !justCreated) {
+            return hasUpdated;
+        }
+        
+        this.timing.startTiming();
+        lastUpdate = currentTick;
+        boolean hasUpdate = entityBaseTick(tickDiff);
+        
+        if (isAlive() && !onGround) {
+            motionY -= getGravity();
+            move(motionX, motionY, motionZ);
+            float friction = 1 - getDrag();
+            motionX *= friction;
+            motionY *= 1 - getDrag();
+            motionZ *= friction;
+            updateMovement();
+            hasUpdate = true;
+        }
+        
+        this.timing.stopTiming();
+        
+        return hasUpdate || !onGround || Math.abs(motionX) > 0.00001 || Math.abs(motionY) > 0.00001 || Math.abs(motionZ) > 0.00001;
+        // TODO: Add Camera Functionality
     }
 }

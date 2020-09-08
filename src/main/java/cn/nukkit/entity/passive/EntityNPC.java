@@ -1,5 +1,6 @@
 package cn.nukkit.entity.passive;
 
+import cn.nukkit.entity.EntityInteractable;
 import cn.nukkit.entity.EntityLiving;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.nbt.tag.CompoundTag;
@@ -10,7 +11,7 @@ import cn.nukkit.nbt.tag.CompoundTag;
  *
  * @author good777LUCKY
  */
-public interface EntityNPC extends EntityLiving {
+public interface EntityNPC extends EntityLiving implements EntityInteractable {
 
     public static final int NETWORK_ID = 51;
     
@@ -31,6 +32,16 @@ public interface EntityNPC extends EntityLiving {
     @Override
     public float getHeight() {
         return 2.1f;
+    }
+    
+    @Override
+    public boolean canDoInteraction() {
+        return true;
+    }
+    
+    @Override
+    public String getInteractButtonText() {
+        return "action.interact.edit";
     }
     
     @Override

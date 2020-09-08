@@ -1,5 +1,8 @@
 package cn.nukkit.entity.passive;
 
+import cn.nukkit.level.format.FullChunk;
+import cn.nukkit.nbt.tag.CompoundTag;
+
 /**
  * @author Pub4Game
  * @since 21.06.2016

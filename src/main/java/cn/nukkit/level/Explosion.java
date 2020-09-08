@@ -1,5 +1,6 @@
 package cn.nukkit.level;
 
+import cn.nukkit.api.PowerNukkitDifference;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
 import cn.nukkit.block.BlockLiquid;
@@ -20,7 +21,6 @@ import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemBlock;
 import cn.nukkit.level.particle.HugeExplodeSeedParticle;
 import cn.nukkit.math.*;
-import cn.nukkit.network.protocol.LevelSoundEventPacket;
 import cn.nukkit.utils.Hash;
 import it.unimi.dsi.fastutil.longs.LongArraySet;
 
@@ -132,6 +132,7 @@ public class Explosion {
         return true;
     }
 
+    @PowerNukkitDifference(info = "Using new method to play sounds", since = "1.4.0.0-PN")
     public boolean explodeB() {
 
         LongArraySet updateBlocks = new LongArraySet();
@@ -241,7 +242,7 @@ public class Explosion {
         }
 
         this.level.addParticle(new HugeExplodeSeedParticle(this.source));
-        this.level.addLevelSoundEvent(source, LevelSoundEventPacket.SOUND_EXPLODE);
+        this.level.addSound(source, Sound.RANDOM_EXPLODE);
 
         return true;
     }

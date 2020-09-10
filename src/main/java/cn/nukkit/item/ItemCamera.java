@@ -29,7 +29,7 @@ public class ItemCamera extends Item {
     
     public ItemCamera(Integer meta, int count) {
         super(ItemID.CAMERA, meta, count, "Camera");
-        this.block = Block.get(BlockId.CAMERA);
+        this.block = Block.get(BlockID.CAMERA);
     }
     
     @Override

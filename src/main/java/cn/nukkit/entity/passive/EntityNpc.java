@@ -49,7 +49,7 @@ public class EntityNpc extends EntityLiving implements EntityNPC, EntityInteract
     @Override
     public void initEntity() {
         super.initEntity();
-        this.setMaxHealth(Float.MAX_VALUE);
+        this.setMaxHealth(Integer.MAX_VALUE); // Should be Float max value
         this.setHealth(20);
         this.setNameTagVisible(true);
         this.setNameTagAlwaysVisible(true);

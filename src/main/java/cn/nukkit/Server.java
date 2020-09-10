@@ -2255,6 +2255,14 @@ public class Server {
         this.redstoneEnabled = redstoneEnabled;
     }
 
+    public boolean isEducationEditionEnabled() {
+        return educationEditionEnabled;
+    }
+
+    public void setEducationEditionEnabled(boolean educationEditionEnabled) {
+        this.educationEditionEnabled = educationEditionEnabled;
+    }
+
     public Network getNetwork() {
         return network;
     }

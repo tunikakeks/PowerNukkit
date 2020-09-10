@@ -6,7 +6,7 @@ public abstract class AbstractChemistryPack implements ResourcePack {
     
     @Override
     public String getPackName() {
-        return "Chemistry"
+        return "Chemistry";
     }
     
     @Override

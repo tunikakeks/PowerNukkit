@@ -169,6 +169,8 @@ public class Server {
 
     private boolean redstoneEnabled = true;
 
+    private boolean educationEditionEnabled = false;
+
     private RCON rcon;
 
     private EntityMetadataStore entityMetadata;

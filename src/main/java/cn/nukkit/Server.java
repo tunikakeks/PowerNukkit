@@ -560,6 +560,7 @@ public class Server {
         this.alwaysTickPlayers = this.getConfig("level-settings.always-tick-players", false);
         this.baseTickRate = this.getConfig("level-settings.base-tick-rate", 1);
         this.redstoneEnabled = this.getConfig("level-settings.tick-redstone", true);
+        this.educationEditionEnabled = this.getConfig("level-settings.education-edition", false);
 
         this.scheduler = new ServerScheduler();
 

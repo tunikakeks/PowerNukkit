@@ -8,7 +8,7 @@ import cn.nukkit.nbt.tag.CompoundTag;
 /**
  * @author good777LUCKY
  */
-public class EntityNpc extends EntityLiving implements EntityInteractable {
+public class EntityNpc extends EntityLiving implements EntityNPC, EntityInteractable {
 
     public static final int NETWORK_ID = 51;
     

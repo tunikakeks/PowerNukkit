@@ -4,6 +4,7 @@ import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
 import cn.nukkit.entity.Entity;
+import cn.nukkit.entity.EntityCamera;
 import cn.nukkit.event.entity.CreatureSpawnEvent;
 import cn.nukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import cn.nukkit.level.Level;
@@ -62,7 +63,7 @@ public class ItemCamera extends Item {
             nbt.putString("CustomName", this.getCustomName());
         }
         
-        CreatureSpawnEvent ev = new CreatureSpawnEvent(62, block, nbt, SpawnReason.CAMERA);
+        CreatureSpawnEvent ev = new CreatureSpawnEvent(EntityCamera.NETWORK_ID, block, nbt, SpawnReason.CAMERA);
         level.getServer().getPluginManager().callEvent(ev);
         
         if (ev.isCancelled()) {

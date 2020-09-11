@@ -4,6 +4,7 @@ import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockFence;
 import cn.nukkit.entity.Entity;
+import cn.nukkit.entity.EntityBalloon;
 import cn.nukkit.event.entity.CreatureSpawnEvent;
 import cn.nukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import cn.nukkit.level.Level;
@@ -72,7 +73,7 @@ public class ItemBalloon extends Item {
                         .add(new FloatTag("", 0)))
                 .putByte("Color", this.getDamage() & 0xf);
         
-        CreatureSpawnEvent ev = new CreatureSpawnEvent(107, block, nbt, SpawnReason.BALLOON);
+        CreatureSpawnEvent ev = new CreatureSpawnEvent(EntityBalloon.NETWORK_ID, block, nbt, SpawnReason.BALLOON);
         level.getServer().getPluginManager().callEvent(ev);
         
         if (ev.isCancelled()) {

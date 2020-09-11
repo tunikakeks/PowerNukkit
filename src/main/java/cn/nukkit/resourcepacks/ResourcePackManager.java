@@ -32,6 +32,9 @@ public class ResourcePackManager {
             ResourcePack behaviorPack = new ChemistryBehaviorPack();
             loadedResourcePacks.add(behaviorPack);
             this.resourcePacksById.put(behaviorPack.getPackId(), behaviorPack);
+            
+            Server.getInstance().getLogger().info(Server.getInstance().getLanguage()
+                .translateString("nukkit.resources.chemistry.success"));
         }
         
         for (File pack : path.listFiles()) {

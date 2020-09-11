@@ -68,7 +68,7 @@ public class ItemBalloon extends Item {
                         .add(new DoubleTag("", 0)))
                 .putList(new ListTag<FloatTag>("Rotation")
                         .add(new FloatTag("", 0))
-                        .add(new FloatTag("", 0)));
+                        .add(new FloatTag("", 0)))
                 .putByte("Color", this.getDamage() & 0xf);
         
         CreatureSpawnEvent ev = new CreatureSpawnEvent(107, block, nbt, SpawnReason.BALLOON);

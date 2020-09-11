@@ -21,6 +21,19 @@ public class ResourcePackManager {
         }
 
         List<ResourcePack> loadedResourcePacks = new ArrayList<>();
+        
+        if (Server.isEducationEditionEnabled()) {
+            // Chemistry Resource Pack
+            ResourcePack resourcePack = new ChemistryResourcePack();
+            loadedResourcePacks.add(resourcePack);
+            this.resourcePacksById.put(resourcePack.getPackId(), resourcePack);
+            
+            // Chemistry Behavior Pack
+            ResourcePack behaviorPack = new ChemistryBehaviorPack();
+            loadedResourcePacks.add(behaviorPack);
+            this.resourcePacksById.put(behaviorPack.getPackId(), behaviorPack);
+        }
+        
         for (File pack : path.listFiles()) {
             try {
                 ResourcePack resourcePack = null;

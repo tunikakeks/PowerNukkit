@@ -177,6 +177,10 @@ public class CreatureSpawnEvent extends Event implements Cancellable {
         /**
          * When a Camera is spawned by a Camera item
          */
-        CAMERA
+        CAMERA,
+        /*
+         * When a Balloon is spawned by a Balloon item
+         */
+        BALLOON
     }
 }

@@ -2466,6 +2466,8 @@ public class Server {
     private void registerEntities() {
         Entity.registerEntity("Lightning", EntityLightning.class);
         Entity.registerEntity("Arrow", EntityArrow.class);
+        Entity.registerEntity("Balloon", EntityBalloon.class);
+        Entity.registerEntity("Camera", EntityCamera.class);
         Entity.registerEntity("EnderPearl", EntityEnderPearl.class);
         Entity.registerEntity("FallingSand", EntityFallingBlock.class);
         Entity.registerEntity("Firework", EntityFirework.class);

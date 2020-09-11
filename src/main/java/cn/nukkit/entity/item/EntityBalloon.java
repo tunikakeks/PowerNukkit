@@ -13,7 +13,7 @@ import cn.nukkit.nbt.tag.CompoundTag;
 /**
  * @author good777LUCKY
  */
-public class EntityBalloon extends Entity implements EntityInteractable {
+public class EntityBalloon extends Entity {
 
     public static final int NETWORK_ID = 107;
     
@@ -78,22 +78,6 @@ public class EntityBalloon extends Entity implements EntityInteractable {
     public void saveNBT() {
         super.saveNBT();
         this.namedTag.putByte("Color", this.dataProperties.getByte(DATA_COLOR));
-    }
-    
-    @Override
-    public boolean canDoInteraction() {
-        return true;
-    }
-    
-    @Override
-    public String getInteractButtonText() {
-        return "action.interact.balloon";
-    }
-    
-    @Override
-    public boolean onInteract(Player player, Item item, Vector3 clickedPos) {
-        // TODO: Add Functionality
-        return true;
     }
     
     // TODO: Add Balloon Functionality

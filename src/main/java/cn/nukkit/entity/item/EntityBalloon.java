@@ -26,6 +26,13 @@ public class EntityBalloon extends Entity implements EntityInteractable {
         
         this.setMaxHealth(1);
         this.setHealth(1);
+        
+        this.setDataFlag(DATA_FLAGS, DATA_FLAG_GRAVITY, false);
+        if (this.namedTag.contains("Color")) {
+            this.dataProperties.putByte(DATA_COLOR, this.namedTag.getByte("Color"));
+        } else {
+            this.dataProperties.putByte(DATA_COLOR, 0);
+        }
     }
     
     @Override
@@ -50,12 +57,12 @@ public class EntityBalloon extends Entity implements EntityInteractable {
     
     @Override
     protected float getGravity() {
-        return -1.6f; // Lift Force
+        return -1.6f; // Should be Lift Force, balloon doesn't have gravity
     }
     
     @Override
     protected float getDrag() {
-        return 0.02f;
+        return 0.02f; // TODO: Correct value
     }
     
     @Override
@@ -64,6 +71,12 @@ public class EntityBalloon extends Entity implements EntityInteractable {
         // TODO: Add Functionality
         this.close();
         return true;
+    }
+    
+    @Override
+    public void saveNBT() {
+        super.saveNBT();
+        this.namedTag.putByte("Color", this.dataProperties.getByte(DATA_COLOR));
     }
     
     @Override

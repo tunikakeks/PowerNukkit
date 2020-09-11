@@ -22,7 +22,7 @@ public class ResourcePackManager {
 
         List<ResourcePack> loadedResourcePacks = new ArrayList<>();
         
-        if (Server.isEducationEditionEnabled()) {
+        if (Server.getInstance().isEducationEditionEnabled()) {
             // Chemistry Resource Pack
             ResourcePack resourcePack = new ChemistryResourcePack();
             loadedResourcePacks.add(resourcePack);

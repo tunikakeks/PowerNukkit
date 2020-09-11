@@ -1,5 +1,7 @@
 package cn.nukkit.item;
 
+import cn.nukkit.utils.DyeColor;
+
 /**
  * @author good777LUCKY
  */
@@ -14,6 +16,10 @@ public class ItemBalloon extends Item {
     }
     
     public ItemBalloon(Integer meta, int count) {
-        super(BALLOON, meta, count, "Balloon");
+        super(BALLOON, meta, count, DyeColor.getByWoolData(meta).getName() + " Balloon");
+    }
+    
+    public DyeColor getDyeColor() {
+        return DyeColor.getByDyeData(meta);
     }
 }

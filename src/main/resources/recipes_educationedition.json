@@ -15067,6 +15067,104 @@
             "uuid" : "85939755-ba10-4d9d-a4cc-efb7a8e943c4"
         },
         {
+            "id" : "ct_cerium_recipeId",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 23
+                },
+                "B" : {
+                    "id" : 50
+                }
+            },
+            "output" : [
+                {
+                    "id" : 204
+                }
+            ],
+            "shape" : [
+                "A",
+                "B"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "ct_mercuric_recipeId",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 22
+                },
+                "B" : {
+                    "id" : 50
+                }
+            },
+            "output" : [
+                {
+                    "id" : 202
+                }
+            ],
+            "shape" : [
+                "A",
+                "B"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "ct_potassium_recipeId",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 21
+                },
+                "B" : {
+                    "id" : 50
+                }
+            },
+            "output" : [
+                {
+                    "id" : 204,
+                    "damage" : 8
+                }
+            ],
+            "shape" : [
+                "A",
+                "B"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "ct_tungsten_recipeId",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 24
+                },
+                "B" : {
+                    "id" : 50
+                }
+            },
+            "output" : [
+                {
+                    "id" : 202,
+                    "damage" : 8
+                }
+            ],
+            "shape" : [
+                "A",
+                "B"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
             "id" : "dark_oak_stairs_dark_oak_recipeId",
             "type" : 1,
             "input" : {
@@ -32951,6 +33049,30 @@
             ],
             "block" : "crafting_table",
             "priority" : 50
+        },
+        {
+            "id" : "ot_recipeId",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : -22
+                },
+                "B" : {
+                    "id" : 46
+                }
+            },
+            "output" : [
+                {
+                    "id" : 46,
+                    "damage" : 2
+                }
+            ],
+            "shape" : [
+                "A",
+                "B"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
         },
         {
             "id" : "paper_sulphur_charge_0_recipeId",

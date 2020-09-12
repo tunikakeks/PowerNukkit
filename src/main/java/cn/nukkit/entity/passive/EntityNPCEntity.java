@@ -12,7 +12,7 @@ public class EntityNPCEntity extends EntityLiving implements EntityNPC, EntityIn
 
     public static final int NETWORK_ID = 51;
     
-    public EntityNpcEntity(FullChunk chunk, CompoundTag nbt) {
+    public EntityNPCEntity(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
     }
     

@@ -409,7 +409,7 @@ public class Item implements Cloneable, BlockID, ItemID {
         clearCreativeItems();
 
         Config config = new Config(Config.JSON);
-        if (Server.getInstance().isEducationEditionEnabled()) {
+        if (true/*Server.getInstance().isEducationEditionEnabled()*/) {
             config.load(Server.class.getClassLoader().getResourceAsStream("creativeitems_educationedition.json"));
         } else {
             config.load(Server.class.getClassLoader().getResourceAsStream("creativeitems.json"));

@@ -1,7 +1,11 @@
 package cn.nukkit.entity.projectile;
 
+import cn.nukkit.block.Block;
+import cn.nukkit.block.BlockID;
+import cn.nukkit.block.BlockWater;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.level.format.FullChunk;
+import cn.nukkit.math.Vector3;
 import cn.nukkit.nbt.tag.CompoundTag;
 
 /**
@@ -62,12 +66,24 @@ public class EntityIceBomb extends EntityProjectile {
         if (this.age > 1200) {
             this.kill();
             hasUpdate = true;
-        }
-        
-        if (this.isCollided) {
-            this.kill();
-            // TODO: Add Functionality
-            hasUpdate = true;
+        } else {
+            for (Block block : this.getCollisionBlocks()) {
+                if (block instanceof BlockWater) {
+                    Vector3 hitVec = this.floor();
+                    for (int y = -1; y <= 1; y++) {
+                        for (int x = -1; x <= 1; x++) {
+                            for (int z = -1; z <= 1; z++) {
+                                Vector3 block = hitVec.add(x, y, z);
+                                if (this.level.getBlock(block) instanceof BlockWater) {
+                                    this.level.setBlock(block, Block.get(BlockID.ICE), true);
+                                }
+                            }
+                        }
+                    }
+                    this.kill();
+                    hasUpdate = true;
+                }
+            }
         }
         
         this.timing.stopTiming();

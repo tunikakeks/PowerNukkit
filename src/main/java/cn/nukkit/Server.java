@@ -2526,7 +2526,7 @@ public class Server {
         Entity.registerEntity("Llama", EntityLlama.class);
         Entity.registerEntity("Mooshroom", EntityMooshroom.class);
         Entity.registerEntity("Mule", EntityMule.class);
-        Entity.registerEntity("NPC", EntityNpc.class);
+        Entity.registerEntity("NPC", EntityNPCEntity.class);
         Entity.registerEntity("Ocelot", EntityOcelot.class);
         Entity.registerEntity("Panda", EntityPanda.class);
         Entity.registerEntity("Parrot", EntityParrot.class);

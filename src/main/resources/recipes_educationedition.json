@@ -10818,7 +10818,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -10852,7 +10852,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -10886,7 +10886,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -10920,7 +10920,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -10954,7 +10954,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -10988,7 +10988,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11022,7 +11022,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11056,7 +11056,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11089,7 +11089,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11123,7 +11123,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11157,7 +11157,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11191,7 +11191,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11224,7 +11224,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11258,7 +11258,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11292,7 +11292,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11326,7 +11326,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11360,7 +11360,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11394,7 +11394,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11428,7 +11428,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -11462,7 +11462,7 @@
                 },
                 "D" : {
                     "id" : 420,
-                    "damage" : 32767
+                    "damage" : -1
                 }
             },
             "output" : [
@@ -13750,7 +13750,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -13771,7 +13771,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -13792,7 +13792,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -13813,7 +13813,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -13834,7 +13834,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -13855,7 +13855,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -13876,7 +13876,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -13897,7 +13897,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -13918,7 +13918,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -13939,7 +13939,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -13960,7 +13960,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -13981,7 +13981,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -14002,7 +14002,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -14023,7 +14023,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -14044,7 +14044,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 355,
@@ -14065,7 +14065,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14086,7 +14086,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14107,7 +14107,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14128,7 +14128,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14149,7 +14149,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14170,7 +14170,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14191,7 +14191,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14212,7 +14212,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14233,7 +14233,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14254,7 +14254,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14275,7 +14275,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14296,7 +14296,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14317,7 +14317,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14338,7 +14338,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14359,7 +14359,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 171,
@@ -14380,7 +14380,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14402,7 +14402,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14424,7 +14424,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14446,7 +14446,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14468,7 +14468,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14490,7 +14490,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446
@@ -14511,7 +14511,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14533,7 +14533,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14555,7 +14555,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14577,7 +14577,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14599,7 +14599,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14621,7 +14621,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14643,7 +14643,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14665,7 +14665,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14687,7 +14687,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 446,
@@ -14709,7 +14709,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14730,7 +14730,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14751,7 +14751,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14772,7 +14772,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14793,7 +14793,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14814,7 +14814,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14835,7 +14835,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14856,7 +14856,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14877,7 +14877,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14898,7 +14898,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14919,7 +14919,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14940,7 +14940,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14961,7 +14961,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -14982,7 +14982,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -15003,7 +15003,7 @@
             "input" : [
                 {
                     "id" : 451,
-                    "damage" : 32767
+                    "damage" : -1
                 },
                 {
                     "id" : 35,
@@ -34093,6 +34093,650 @@
             ],
             "block" : "crafting_table",
             "priority" : 50
+        },
+        {
+            "type" : 4,
+            "uuid" : "00000000-0000-0000-0000-000000000001"
+        },
+        {
+            "id" : "phld_glowstick_1",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 1
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 1
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_10",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 10
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 10
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_11",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 11
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 11
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_12",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 12
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 12
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_13",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 13
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 13
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_14",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 14
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 14
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_17",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 17
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 3
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_18",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 18
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 4
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_19",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 19
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 15
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_2",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 2
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 2
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_5",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 5
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 5
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_6",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 6
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 6
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_8",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 8
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 8
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_glowstick_9",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 16
+                },
+                "B" : {
+                    "id" : 499,
+                    "damage" : 35
+                },
+                "C" : {
+                    "id" : 351,
+                    "damage" : 9
+                },
+                "D" : {
+                    "id" : 499,
+                    "damage" : 10
+                }
+            },
+            "output" : [
+                {
+                    "id" : 166,
+                    "damage" : 9
+                }
+            ],
+            "shape" : [
+                "ABA",
+                "ACA",
+                "ADA"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_sparkler_0",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 23
+                },
+                "B" : {
+                    "id" : -23
+                },
+                "C" : {
+                    "id" : 280,
+                    "damage" : -1
+                }
+            },
+            "output" : [
+                {
+                    "id" : 442,
+                    "damage" : 4
+                }
+            ],
+            "shape" : [
+                "A",
+                "B",
+                "C"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_sparkler_1",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 24
+                },
+                "B" : {
+                    "id" : -23
+                },
+                "C" : {
+                    "id" : 280,
+                    "damage" : -1
+                }
+            },
+            "output" : [
+                {
+                    "id" : 442,
+                    "damage" : 2
+                }
+            ],
+            "shape" : [
+                "A",
+                "B",
+                "C"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_sparkler_2",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 25
+                },
+                "B" : {
+                    "id" : -23
+                },
+                "C" : {
+                    "id" : 280,
+                    "damage" : -1
+                }
+            },
+            "output" : [
+                {
+                    "id" : 442,
+                    "damage" : 14
+                }
+            ],
+            "shape" : [
+                "A",
+                "B",
+                "C"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_sparkler_3",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 21
+                },
+                "B" : {
+                    "id" : -23
+                },
+                "C" : {
+                    "id" : 280,
+                    "damage" : -1
+                }
+            },
+            "output" : [
+                {
+                    "id" : 442,
+                    "damage" : 5
+                }
+            ],
+            "shape" : [
+                "A",
+                "B",
+                "C"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
+        },
+        {
+            "id" : "phld_sparkler_4",
+            "type" : 7,
+            "input" : {
+                "A" : {
+                    "id" : 499,
+                    "damage" : 22
+                },
+                "B" : {
+                    "id" : -23
+                },
+                "C" : {
+                    "id" : 280,
+                    "damage" : -1
+                }
+            },
+            "output" : [
+                {
+                    "id" : 442,
+                    "damage" : 1
+                }
+            ],
+            "shape" : [
+                "A",
+                "B",
+                "C"
+            ],
+            "block" : "crafting_table",
+            "priority" : 0
         },
         {
             "type" : 4,

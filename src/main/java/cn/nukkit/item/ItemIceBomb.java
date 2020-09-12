@@ -1,5 +1,9 @@
 package cn.nukkit.item;
 
+import cn.nukkit.Player;
+import cn.nukkit.entity.Entity;
+import cn.nukkit.entity.projectile.EntityIceBomb;
+
 /**
  * @author good777LUCKY
  */
@@ -32,5 +36,15 @@ public class ItemIceBomb extends ProjectileItem {
         return 1.5f;
     }
     
-    // TODO: Add CoolDown
+    @Override
+    protected Entity correctProjectile(Player player, Entity projectile) {
+        if (projectile instanceof EntityIceBomb) {
+            if (player.getServer().getTick() - player.getLastIceBombThrowingTick() < 10) {
+                projectile.kill();
+                return null;
+            }
+            return projectile;
+        }
+        return null;
+    }
 }

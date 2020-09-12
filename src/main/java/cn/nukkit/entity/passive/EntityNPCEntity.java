@@ -8,11 +8,11 @@ import cn.nukkit.nbt.tag.CompoundTag;
 /**
  * @author good777LUCKY
  */
-public class EntityNpc extends EntityLiving implements EntityNPC, EntityInteractable {
+public class EntityNPCEntity extends EntityLiving implements EntityNPC, EntityInteractable {
 
     public static final int NETWORK_ID = 51;
     
-    public EntityNpc(FullChunk chunk, CompoundTag nbt) {
+    public EntityNpcEntity(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
     }
     

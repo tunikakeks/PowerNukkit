@@ -2472,6 +2472,7 @@ public class Server {
         Entity.registerEntity("FallingSand", EntityFallingBlock.class);
         Entity.registerEntity("Firework", EntityFirework.class);
         Entity.registerEntity("Item", EntityItem.class);
+        Entity.registerEntity("LeashKnot", EntityLeashKnot.class);
         Entity.registerEntity("Painting", EntityPainting.class);
         Entity.registerEntity("PrimedTnt", EntityPrimedTNT.class);
         Entity.registerEntity("Snowball", EntitySnowball.class);

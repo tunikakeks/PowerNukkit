@@ -1,6 +1,7 @@
 package cn.nukkit.entity.item;
 
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.EntityInteractable;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
@@ -8,6 +9,7 @@ import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
 import cn.nukkit.item.Item;
 import cn.nukkit.level.format.FullChunk;
+import cn.nukkit.level.particle.SmokeParticle;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.network.protocol.CameraPacket;
@@ -71,7 +73,7 @@ public class EntityCamera extends Entity implements EntityInteractable {
             Entity damager = entityDamageByEntityEvent.getDamager();
             if (damager instanceof Player) {
                 Player damagerPlayer = (Player) damager;
-                //this.level.addParticle(new );
+                this.level.addParticle(new SmokeParticle(this));
                 this.close();
                 return true;
             }
@@ -93,6 +95,7 @@ public class EntityCamera extends Entity implements EntityInteractable {
     public boolean onInteract(Player player, Item item, Vector3 clickedPos) {
         if (this.target == null) {
             this.target = player;
+            this.fuse = 99;
             
             CameraPacket pk = new CameraPacket();
             pk.cameraUniqueId = this.getId();
@@ -119,13 +122,24 @@ public class EntityCamera extends Entity implements EntityInteractable {
         lastUpdate = currentTick;
         boolean hasUpdate = entityBaseTick(tickDiff);
         
-        if (isAlive() && !onGround) {
-            motionY -= getGravity();
-            move(motionX, motionY, motionZ);
-            float friction = 1 - getDrag();
-            motionX *= friction;
-            motionY *= 1 - getDrag();
-            motionZ *= friction;
+        if (isAlive()) {
+            if (!onGround) {
+                motionY -= getGravity();
+                move(motionX, motionY, motionZ);
+                float friction = 1 - getDrag();
+                motionX *= friction;
+                motionY *= 1 - getDrag();
+                motionZ *= friction;
+            }
+            
+            if (this.target != null) {
+                this.yaw = Math.toDegrees(Math.atan2(this.target.z - this.z, this.target.x - this.x)) - 90;
+                this.fuse -= tickDiff;
+                if (this.fuse <= 0) {
+                    this.close();
+                }
+            }
+            
             updateMovement();
             hasUpdate = true;
         }
@@ -133,6 +147,5 @@ public class EntityCamera extends Entity implements EntityInteractable {
         this.timing.stopTiming();
         
         return hasUpdate || !onGround || Math.abs(motionX) > 0.00001 || Math.abs(motionY) > 0.00001 || Math.abs(motionZ) > 0.00001;
-        // TODO: Add Camera Functionality
     }
 }

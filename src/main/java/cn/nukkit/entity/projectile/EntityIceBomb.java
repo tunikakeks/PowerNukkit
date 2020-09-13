@@ -80,9 +80,9 @@ public class EntityIceBomb extends EntityProjectile {
                             }
                         }
                     }
-                    this.kill();
-                    hasUpdate = true;
                 }
+                this.kill();
+                hasUpdate = true;
             }
         }
         

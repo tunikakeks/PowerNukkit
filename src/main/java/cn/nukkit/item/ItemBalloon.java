@@ -8,6 +8,7 @@ import cn.nukkit.entity.item.EntityBalloon;
 import cn.nukkit.event.entity.CreatureSpawnEvent;
 import cn.nukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import cn.nukkit.level.Level;
+import cn.nukkit.level.Sound;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.nbt.tag.CompoundTag;
@@ -59,7 +60,22 @@ public class ItemBalloon extends Item {
             return false;
         }
         
-        CompoundTag nbt = new CompoundTag()
+        CompoundTag nbtLeashKnot = new CompoundTag()
+                .putList(new ListTag<DoubleTag>("Pos")
+                        .add(new DoubleTag("", block.getX() + 0.5))
+                        .add(new DoubleTag("", block.getY() + 0.25))
+                        .add(new DoubleTag("", block.getZ() + 0.5)))
+                .putList(new ListTag<DoubleTag>("Motion")
+                        .add(new DoubleTag("", 0))
+                        .add(new DoubleTag("", 0))
+                        .add(new DoubleTag("", 0)))
+                .putList(new ListTag<FloatTag>("Rotation")
+                        .add(new FloatTag("", 0))
+                        .add(new FloatTag("", 0)));
+        
+        Entity entityLeashKnot = Entity.createEntity("LeashKnot", chunk, nbtLeashKnot);
+        
+        CompoundTag nbtBalloon = new CompoundTag()
                 .putList(new ListTag<DoubleTag>("Pos")
                         .add(new DoubleTag("", block.getX() + 0.5))
                         .add(new DoubleTag("", target.getBoundingBox() == null ? block.getY() + 1.385f : target.getBoundingBox().getMaxY() + 0.885f)) // TODO: Correct Value
@@ -71,22 +87,25 @@ public class ItemBalloon extends Item {
                 .putList(new ListTag<FloatTag>("Rotation")
                         .add(new FloatTag("", 0))
                         .add(new FloatTag("", 0)))
-                .putByte("Color", this.getDamage() & 0xf);
+                .putByte("Color", this.getDamage() & 0xf)
+                .putLong("balloon_attached", entityLeashKnot.getId());
         
-        CreatureSpawnEvent ev = new CreatureSpawnEvent(EntityBalloon.NETWORK_ID, block, nbt, SpawnReason.BALLOON);
+        CreatureSpawnEvent ev = new CreatureSpawnEvent(EntityBalloon.NETWORK_ID, block, nbtBalloon, SpawnReason.BALLOON);
         level.getServer().getPluginManager().callEvent(ev);
         
         if (ev.isCancelled()) {
             return false;
         } 
         
-        Entity entity = Entity.createEntity("Balloon", chunk, nbt);
+        Entity entityBalloon = Entity.createEntity("Balloon", chunk, nbtBalloon);
         
         if (entity != null) {
             if (!player.isCreative()) {
                 player.getInventory().decreaseCount(player.getInventory().getHeldItemIndex());
             }
-            entity.spawnToAll();
+            entityLeashKnot.spawnToAll();
+            level.addSound(block, Sound.LEASHKNOT_PLACE);
+            entityBalloon.spawnToAll();
             return true;
         }
         

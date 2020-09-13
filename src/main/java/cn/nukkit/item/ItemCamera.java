@@ -4,7 +4,7 @@ import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
 import cn.nukkit.entity.Entity;
-import cn.nukkit.entity.item.EntityCamera;
+import cn.nukkit.entity.item.EntityTripodCamera;
 import cn.nukkit.event.entity.CreatureSpawnEvent;
 import cn.nukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import cn.nukkit.level.Level;
@@ -63,14 +63,14 @@ public class ItemCamera extends Item {
             nbt.putString("CustomName", this.getCustomName());
         }
         
-        CreatureSpawnEvent ev = new CreatureSpawnEvent(EntityCamera.NETWORK_ID, block, nbt, SpawnReason.CAMERA);
+        CreatureSpawnEvent ev = new CreatureSpawnEvent(EntityTripodCamera.NETWORK_ID, block, nbt, SpawnReason.CAMERA);
         level.getServer().getPluginManager().callEvent(ev);
         
         if (ev.isCancelled()) {
             return false;
         }
         
-        Entity entity = Entity.createEntity("Camera", chunk, nbt);
+        Entity entity = Entity.createEntity("TripodCamera", chunk, nbt);
         
         if (entity != null) {
             if (!player.isCreative()) {

@@ -192,6 +192,12 @@ implements <a href="../../../../../cn/nukkit/level/format/LevelProvider.html" ti
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/generic/BaseLevelProvider.html#BaseLevelProvider-cn.nukkit.level.Level-java.lang.String-">BaseLevelProvider</a></span>(<a href="../../../../../cn/nukkit/level/Level.html" title="class in cn.nukkit.level">Level</a>&nbsp;level,
                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/generic/BaseLevelProvider.html#BaseLevelProvider-cn.nukkit.level.Level-java.lang.String-cn.nukkit.nbt.tag.CompoundTag-cn.nukkit.math.Vector3-">BaseLevelProvider</a></span>(<a href="../../../../../cn/nukkit/level/Level.html" title="class in cn.nukkit.level">Level</a>&nbsp;level,
+                 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path,
+                 <a href="../../../../../cn/nukkit/nbt/tag/CompoundTag.html" title="class in cn.nukkit.nbt.tag">CompoundTag</a>&nbsp;levelData,
+                 <a href="../../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;spawn)</code>&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -525,16 +531,32 @@ implements <a href="../../../../../cn/nukkit/level/format/LevelProvider.html" ti
 <a name="BaseLevelProvider-cn.nukkit.level.Level-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>BaseLevelProvider</h4>
-<pre>public&nbsp;BaseLevelProvider(<a href="../../../../../cn/nukkit/level/Level.html" title="class in cn.nukkit.level">Level</a>&nbsp;level,
-                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)
-                  throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<pre><a href="../../../../../cn/nukkit/api/PowerNukkitDifference.html" title="annotation in cn.nukkit.api">@PowerNukkitDifference</a>(<a href="../../../../../cn/nukkit/api/PowerNukkitDifference.html#since--">since</a>="1.4.0.0-PN",
+                       <a href="../../../../../cn/nukkit/api/PowerNukkitDifference.html#info--">info</a>="Fixed resource leak")
+public&nbsp;BaseLevelProvider(<a href="../../../../../cn/nukkit/level/Level.html" title="class in cn.nukkit.level">Level</a>&nbsp;level,
+                                                                                                                       <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)
+                                                                                                                throws <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="BaseLevelProvider-cn.nukkit.level.Level-java.lang.String-cn.nukkit.nbt.tag.CompoundTag-cn.nukkit.math.Vector3-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>BaseLevelProvider</h4>
+<pre><a href="../../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+public&nbsp;BaseLevelProvider(<a href="../../../../../cn/nukkit/level/Level.html" title="class in cn.nukkit.level">Level</a>&nbsp;level,
+                                                                      <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path,
+                                                                      <a href="../../../../../cn/nukkit/nbt/tag/CompoundTag.html" title="class in cn.nukkit.nbt.tag">CompoundTag</a>&nbsp;levelData,
+                                                                      <a href="../../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;spawn)</pre>
 </li>
 </ul>
 </li>
@@ -1006,7 +1028,9 @@ implements <a href="../../../../../cn/nukkit/level/format/LevelProvider.html" ti
 <ul class="blockList">
 <li class="blockList">
 <h4>saveLevelData</h4>
-<pre>public&nbsp;void&nbsp;saveLevelData()</pre>
+<pre><a href="../../../../../cn/nukkit/api/PowerNukkitDifference.html" title="annotation in cn.nukkit.api">@PowerNukkitDifference</a>(<a href="../../../../../cn/nukkit/api/PowerNukkitDifference.html#since--">since</a>="1.4.0.0-PN",
+                       <a href="../../../../../cn/nukkit/api/PowerNukkitDifference.html#info--">info</a>="Fixed resource leak")
+public&nbsp;void&nbsp;saveLevelData()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../cn/nukkit/level/format/LevelProvider.html#saveLevelData--">saveLevelData</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../cn/nukkit/level/format/LevelProvider.html" title="interface in cn.nukkit.level.format">LevelProvider</a></code></dd>

@@ -5,7 +5,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172727144-3"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-172727144-3"); </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GrindstoneInventory (PowerNukkit 1.4.0.0-PN-SNAPSHOT API)</title>
-<meta name="date" content="2020-09-12">
+<meta name="date" content="2020-09-13">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
 </head>
@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -129,7 +129,8 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public class <span class="typeNameLabel">GrindstoneInventory</span>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public class <span class="typeNameLabel">GrindstoneInventory</span>
 extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="class in cn.nukkit.inventory">FakeBlockUIComponent</a></pre>
 </li>
 </ul>
@@ -224,52 +225,64 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#getResult--">getResult</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#getResultExperience--">getResultExperience</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#getSecondItem--">getSecondItem</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#onClose-cn.nukkit.Player-">onClose</a></span>(<a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;who)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#onOpen-cn.nukkit.Player-">onOpen</a></span>(<a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;who)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#onSlotChange-int-cn.nukkit.item.Item-boolean-">onSlotChange</a></span>(int&nbsp;index,
             <a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;before,
             boolean&nbsp;send)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#recalculateResultExperience--">recalculateResultExperience</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#setFirstItem-cn.nukkit.item.Item-">setFirstItem</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#setFirstItem-cn.nukkit.item.Item-boolean-">setFirstItem</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
             boolean&nbsp;send)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#setItem-int-cn.nukkit.item.Item-boolean-">setItem</a></span>(int&nbsp;index,
        <a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
        boolean&nbsp;send)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#setResult-cn.nukkit.item.Item-">setResult</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#setResult-cn.nukkit.item.Item-boolean-">setResult</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
          boolean&nbsp;send)</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#setResultExperience-int-">setResultExperience</a></span>(int&nbsp;returnLevels)</code>&nbsp;</td>
+</tr>
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#setSecondItem-cn.nukkit.item.Item-">setSecondItem</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/GrindstoneInventory.html#setSecondItem-cn.nukkit.item.Item-boolean-">setSecondItem</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
              boolean&nbsp;send)</code>&nbsp;</td>
@@ -330,7 +343,8 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <ul class="blockListLast">
 <li class="blockList">
 <h4>OFFSET</h4>
-<pre>public static final&nbsp;int OFFSET</pre>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public static final&nbsp;int OFFSET</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#cn.nukkit.inventory.GrindstoneInventory.OFFSET">Constant Field Values</a></dd>
@@ -351,8 +365,9 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <ul class="blockListLast">
 <li class="blockList">
 <h4>GrindstoneInventory</h4>
-<pre>public&nbsp;GrindstoneInventory(<a href="../../../cn/nukkit/inventory/PlayerUIInventory.html" title="class in cn.nukkit.inventory">PlayerUIInventory</a>&nbsp;playerUI,
-                           <a href="../../../cn/nukkit/level/Position.html" title="class in cn.nukkit.level">Position</a>&nbsp;position)</pre>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;GrindstoneInventory(<a href="../../../cn/nukkit/inventory/PlayerUIInventory.html" title="class in cn.nukkit.inventory">PlayerUIInventory</a>&nbsp;playerUI,
+                                            <a href="../../../cn/nukkit/level/Position.html" title="class in cn.nukkit.level">Position</a>&nbsp;position)</pre>
 </li>
 </ul>
 </li>
@@ -414,7 +429,8 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <ul class="blockList">
 <li class="blockList">
 <h4>getFirstItem</h4>
-<pre>public&nbsp;<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;getFirstItem()</pre>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;getFirstItem()</pre>
 </li>
 </ul>
 <a name="getSecondItem--">
@@ -423,7 +439,8 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <ul class="blockList">
 <li class="blockList">
 <h4>getSecondItem</h4>
-<pre>public&nbsp;<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;getSecondItem()</pre>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;getSecondItem()</pre>
 </li>
 </ul>
 <a name="getResult--">
@@ -432,7 +449,8 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <ul class="blockList">
 <li class="blockList">
 <h4>getResult</h4>
-<pre>public&nbsp;<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;getResult()</pre>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;getResult()</pre>
 </li>
 </ul>
 <a name="setFirstItem-cn.nukkit.item.Item-boolean-">
@@ -441,8 +459,9 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <ul class="blockList">
 <li class="blockList">
 <h4>setFirstItem</h4>
-<pre>public&nbsp;boolean&nbsp;setFirstItem(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
-                            boolean&nbsp;send)</pre>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;boolean&nbsp;setFirstItem(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
+                                             boolean&nbsp;send)</pre>
 </li>
 </ul>
 <a name="setFirstItem-cn.nukkit.item.Item-">
@@ -451,7 +470,8 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <ul class="blockList">
 <li class="blockList">
 <h4>setFirstItem</h4>
-<pre>public&nbsp;boolean&nbsp;setFirstItem(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</pre>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;boolean&nbsp;setFirstItem(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</pre>
 </li>
 </ul>
 <a name="setSecondItem-cn.nukkit.item.Item-boolean-">
@@ -460,8 +480,9 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <ul class="blockList">
 <li class="blockList">
 <h4>setSecondItem</h4>
-<pre>public&nbsp;boolean&nbsp;setSecondItem(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
-                             boolean&nbsp;send)</pre>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;boolean&nbsp;setSecondItem(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
+                                              boolean&nbsp;send)</pre>
 </li>
 </ul>
 <a name="setSecondItem-cn.nukkit.item.Item-">
@@ -470,7 +491,8 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <ul class="blockList">
 <li class="blockList">
 <h4>setSecondItem</h4>
-<pre>public&nbsp;boolean&nbsp;setSecondItem(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</pre>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;boolean&nbsp;setSecondItem(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</pre>
 </li>
 </ul>
 <a name="setResult-cn.nukkit.item.Item-boolean-">
@@ -479,8 +501,9 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <ul class="blockList">
 <li class="blockList">
 <h4>setResult</h4>
-<pre>public&nbsp;boolean&nbsp;setResult(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
-                         boolean&nbsp;send)</pre>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;boolean&nbsp;setResult(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
+                                          boolean&nbsp;send)</pre>
 </li>
 </ul>
 <a name="setResult-cn.nukkit.item.Item-">
@@ -489,7 +512,8 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <ul class="blockList">
 <li class="blockList">
 <h4>setResult</h4>
-<pre>public&nbsp;boolean&nbsp;setResult(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</pre>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;boolean&nbsp;setResult(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</pre>
 </li>
 </ul>
 <a name="onSlotChange-int-cn.nukkit.item.Item-boolean-">
@@ -507,6 +531,17 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../../cn/nukkit/inventory/PlayerUIComponent.html#onSlotChange-int-cn.nukkit.item.Item-boolean-">onSlotChange</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/inventory/PlayerUIComponent.html" title="class in cn.nukkit.inventory">PlayerUIComponent</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="recalculateResultExperience--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>recalculateResultExperience</h4>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+public&nbsp;void&nbsp;recalculateResultExperience()</pre>
 </li>
 </ul>
 <a name="getItem-int-">
@@ -527,7 +562,7 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <a name="setItem-int-cn.nukkit.item.Item-boolean-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setItem</h4>
 <pre>public&nbsp;boolean&nbsp;setItem(int&nbsp;index,
@@ -539,6 +574,28 @@ extends <a href="../../../cn/nukkit/inventory/FakeBlockUIComponent.html" title="
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../../cn/nukkit/inventory/PlayerUIComponent.html#setItem-int-cn.nukkit.item.Item-boolean-">setItem</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/inventory/PlayerUIComponent.html" title="class in cn.nukkit.inventory">PlayerUIComponent</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="getResultExperience--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResultExperience</h4>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+public&nbsp;int&nbsp;getResultExperience()</pre>
+</li>
+</ul>
+<a name="setResultExperience-int-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setResultExperience</h4>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+public&nbsp;void&nbsp;setResultExperience(int&nbsp;returnLevels)</pre>
 </li>
 </ul>
 </li>

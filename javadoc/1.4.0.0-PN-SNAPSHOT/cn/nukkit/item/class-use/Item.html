@@ -5,7 +5,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172727144-3"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-172727144-3"); </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Uses of Class cn.nukkit.item.Item (PowerNukkit 1.4.0.0-PN-SNAPSHOT API)</title>
-<meta name="date" content="2020-09-12">
+<meta name="date" content="2020-09-13">
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../../script.js"></script>
 </head>
@@ -241,6 +241,12 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">Player.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/Player.html#giveItem-cn.nukkit.item.Item...-">giveItem</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>...&nbsp;items)</code>
+<div class="block">Adds the items to the main player inventory and drops on the floor any excess.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">Player.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/Player.html#startFishing-cn.nukkit.item.Item-">startFishing</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;fishingRod)</code>&nbsp;</td>
 </tr>
@@ -5959,29 +5965,34 @@
                         <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;targetItem)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/inventory/transaction/action/CraftingTakeResultExperienceAction.html#CraftingTakeResultExperienceAction-cn.nukkit.item.Item-cn.nukkit.item.Item-int-">CraftingTakeResultExperienceAction</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;sourceItem,
+                                  <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;targetItem,
+                                  int&nbsp;experience)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/inventory/transaction/action/CraftingTransferMaterialAction.html#CraftingTransferMaterialAction-cn.nukkit.item.Item-cn.nukkit.item.Item-int-">CraftingTransferMaterialAction</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;sourceItem,
                               <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;targetItem,
                               int&nbsp;slot)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/inventory/transaction/action/CreativeInventoryAction.html#CreativeInventoryAction-cn.nukkit.item.Item-cn.nukkit.item.Item-int-">CreativeInventoryAction</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;source,
                        <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;target,
                        int&nbsp;action)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/inventory/transaction/action/DropItemAction.html#DropItemAction-cn.nukkit.item.Item-cn.nukkit.item.Item-">DropItemAction</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;source,
               <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;target)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/inventory/transaction/action/EnchantingAction.html#EnchantingAction-cn.nukkit.item.Item-cn.nukkit.item.Item-int-">EnchantingAction</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;source,
                 <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;target,
                 int&nbsp;type)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/inventory/transaction/action/InventoryAction.html#InventoryAction-cn.nukkit.item.Item-cn.nukkit.item.Item-">InventoryAction</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;sourceItem,
                <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;targetItem)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/inventory/transaction/action/SlotChangeAction.html#SlotChangeAction-cn.nukkit.inventory.Inventory-int-cn.nukkit.item.Item-cn.nukkit.item.Item-">SlotChangeAction</a></span>(<a href="../../../../cn/nukkit/inventory/Inventory.html" title="interface in cn.nukkit.inventory">Inventory</a>&nbsp;inventory,
                 int&nbsp;inventorySlot,
                 <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;sourceItem,

@@ -2467,7 +2467,6 @@ public class Server {
         Entity.registerEntity("Lightning", EntityLightning.class);
         Entity.registerEntity("Arrow", EntityArrow.class);
         Entity.registerEntity("Balloon", EntityBalloon.class);
-        Entity.registerEntity("Camera", EntityCamera.class);
         Entity.registerEntity("EnderPearl", EntityEnderPearl.class);
         Entity.registerEntity("FallingSand", EntityFallingBlock.class);
         Entity.registerEntity("Firework", EntityFirework.class);
@@ -2476,6 +2475,7 @@ public class Server {
         Entity.registerEntity("Painting", EntityPainting.class);
         Entity.registerEntity("PrimedTnt", EntityPrimedTNT.class);
         Entity.registerEntity("Snowball", EntitySnowball.class);
+        Entity.registerEntity("TripodCamera", EntityTripodCamera.class);
         //Monsters
         Entity.registerEntity("Blaze", EntityBlaze.class);
         Entity.registerEntity("CaveSpider", EntityCaveSpider.class);

@@ -10,6 +10,7 @@ import cn.nukkit.item.Item;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.nbt.tag.CompoundTag;
+import cn.nukkit.network.protocol.CameraPacket;
 
 /**
  * @author good777LUCKY
@@ -17,6 +18,9 @@ import cn.nukkit.nbt.tag.CompoundTag;
 public class EntityCamera extends Entity implements EntityInteractable {
 
     public static final int NETWORK_ID = 62;
+    
+    protected Player target;
+    protected int fuse;
     
     public EntityCamera(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
@@ -87,7 +91,14 @@ public class EntityCamera extends Entity implements EntityInteractable {
     
     @Override
     public boolean onInteract(Player player, Item item, Vector3 clickedPos) {
-        // TODO: Add Functionality
+        if (this.target == null) {
+            this.target = player;
+            
+            CameraPacket pk = new CameraPacket();
+            pk.cameraUniqueId = this.getId();
+            pk.playerUniqueId = player.getId();
+            Server.broadcastPacket(this.getViewers().values(), pk);
+        }
         return true;
     }
     

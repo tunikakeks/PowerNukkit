@@ -4,6 +4,7 @@ import cn.nukkit.entity.Entity;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
 import cn.nukkit.level.format.FullChunk;
+import cn.nukkit.nbt.tag.CompoundTag;
 
 public class EntityLeashKnot extends Entity {
 

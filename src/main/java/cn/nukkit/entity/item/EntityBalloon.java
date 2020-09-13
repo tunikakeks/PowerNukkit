@@ -14,6 +14,10 @@ public class EntityBalloon extends Entity {
 
     public static final int NETWORK_ID = 107;
     
+    protected long balloonAttached;
+    protected float balloonMaxHeight = 256.0f;
+    protected boolean balloonShouldDrop = false;
+    
     public EntityBalloon(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
     }
@@ -74,8 +78,32 @@ public class EntityBalloon extends Entity {
     @Override
     public void saveNBT() {
         super.saveNBT();
+        
         this.namedTag.putByte("Color", this.dataProperties.getByte(DATA_COLOR));
+        this.namedTag.putLong("balloon_attached", balloonAttached);
+        this.namedTag.putFloat("balloon_max_height", balloonMaxHeight);
+        this.namedTag.putBoolean("balloon_should_drop", balloonShouldDrop);
     }
     
-    // TODO: Add Balloon Functionality
+    @Override
+    public boolean onUpdate(int currentTick) {
+        if (this.closed) {
+            return false;
+        }
+        
+        int tickDiff = currentTick - this.lastUpdate;
+        if (tickDiff <= 0 && !this.justCreated) {
+            return true;
+        }
+        
+        this.lastUpdate = currentTick;
+        
+        this.timing.startTiming();
+        
+        boolean hasUpdate = this.entityBaseTick(tickDiff);
+        
+        this.timing.stopTiming();
+        
+        return hasUpdate || !this.onGround || Math.abs(this.motionX) > 0.00001 || Math.abs(this.motionY) > 0.00001 || Math.abs(this.motionZ) > 0.00001;
+    }
 }

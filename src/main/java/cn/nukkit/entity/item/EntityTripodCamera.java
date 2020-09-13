@@ -4,27 +4,26 @@ import cn.nukkit.Player;
 import cn.nukkit.Server;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.EntityInteractable;
-import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
 import cn.nukkit.item.Item;
 import cn.nukkit.level.format.FullChunk;
-import cn.nukkit.level.particle.SmokeParticle;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.network.protocol.CameraPacket;
+import cn.nukkit.network.protocol.EntityEventPacket;
 
 /**
  * @author good777LUCKY
  */
-public class EntityCamera extends Entity implements EntityInteractable {
+public class EntityTripodCamera extends Entity implements EntityInteractable {
 
     public static final int NETWORK_ID = 62;
     
     protected Player target;
     protected int fuse;
     
-    public EntityCamera(FullChunk chunk, CompoundTag nbt) {
+    public EntityTripodCamera(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
     }
     
@@ -43,7 +42,7 @@ public class EntityCamera extends Entity implements EntityInteractable {
     
     @Override
     public String getName() {
-        return "Camera";
+        return "Tripod Camera";
     }
     
     @Override
@@ -68,17 +67,15 @@ public class EntityCamera extends Entity implements EntityInteractable {
     
     @Override
     public boolean attack(EntityDamageEvent source) {
-        if (source instanceof EntityDamageByEntityEvent) {
-            EntityDamageByEntityEvent entityDamageByEntityEvent = (EntityDamageByEntityEvent) source;
-            Entity damager = entityDamageByEntityEvent.getDamager();
-            if (damager instanceof Player) {
-                Player damagerPlayer = (Player) damager;
-                this.level.addParticle(new SmokeParticle(this));
-                this.close();
-                return true;
-            }
-        }
-        return false;
+        DamageCause cause = source.getCause(); // TODO
+        
+        EntityEventPacket pk = new EntityEventPacket();
+        pk.eid = this.getId();
+        pk.event = 61; // DEATH_SMOKE_CLOUD
+        Server.broadcastPacket(this.getViewers().values(), pk);
+        
+        this.close();
+        return true;
     }
     
     @Override

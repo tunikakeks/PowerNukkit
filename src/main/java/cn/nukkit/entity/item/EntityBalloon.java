@@ -15,8 +15,8 @@ public class EntityBalloon extends Entity {
     public static final int NETWORK_ID = 107;
     
     protected long balloonAttached;
-    protected float balloonMaxHeight = 256.0f;
-    protected boolean balloonShouldDrop = false;
+    protected float balloonMaxHeight;
+    protected boolean balloonShouldDrop;
     
     public EntityBalloon(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
@@ -34,6 +34,21 @@ public class EntityBalloon extends Entity {
             this.dataProperties.putByte(DATA_COLOR, this.namedTag.getByte("Color"));
         } else {
             this.dataProperties.putByte(DATA_COLOR, 0);
+        }
+        if (this.namedTag.contains("balloon_attached")) {
+            this.balloonAttached = this.namedTag.getLong("balloon_attached");
+        } else {
+            this.balloonAttached = -1L; // Not Attached
+        }
+        if (this.namedTag.contains("balloon_max_height")) {
+            this.balloonMaxHeight = this.namedTag.getFloat("balloon_max_height");
+        } else {
+            this.balloonMaxHeight = 256f;
+        }
+        if (this.namedTag.contains("balloon_should_drop")) {
+            this.balloonShouldDrop = this.namedTag.getBoolean("balloon_should_drop");
+        } else {
+            balloonShouldDrop = false;
         }
     }
     
@@ -101,6 +116,13 @@ public class EntityBalloon extends Entity {
         this.timing.startTiming();
         
         boolean hasUpdate = this.entityBaseTick(tickDiff);
+        
+        if (this.isAlive()) {
+            if (this.y >= balloonMaxHeight) {
+                this.close();
+            }
+            // TODO: Add Functionality
+        }
         
         this.timing.stopTiming();
         

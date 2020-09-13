@@ -37,7 +37,7 @@ public class EntityBalloon extends Entity {
         }
         if (this.namedTag.contains("balloon_attached")) {
             this.balloonAttached = this.namedTag.getLong("balloon_attached");
-            this.dataProperties.putLong(DATA_LEAD_HOLDER_EID, this.balloonAttached);
+            this.dataProperties.putLong(DATA_BALLOON_ATTACHED_ENTITY, this.balloonAttached); // TODO: Or DATA_LEAD_HOLDER_EID?
             this.setDataFlag(DATA_FLAGS, DATA_FLAG_LEASHED, true);
         } else {
             this.balloonAttached = -1L; // Not Attached

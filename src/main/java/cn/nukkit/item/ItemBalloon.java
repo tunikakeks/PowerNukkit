@@ -99,7 +99,7 @@ public class ItemBalloon extends Item {
         
         Entity entityBalloon = Entity.createEntity("Balloon", chunk, nbtBalloon);
         
-        if (entity != null) {
+        if (entityBalloon != null || entityLeashKnot != null) {
             if (!player.isCreative()) {
                 player.getInventory().decreaseCount(player.getInventory().getHeldItemIndex());
             }

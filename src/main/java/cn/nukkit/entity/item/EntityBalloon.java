@@ -130,4 +130,13 @@ public class EntityBalloon extends Entity {
         
         return hasUpdate || !this.onGround || Math.abs(this.motionX) > 0.00001 || Math.abs(this.motionY) > 0.00001 || Math.abs(this.motionZ) > 0.00001;
     }
+    
+    @Override
+    public void close() {
+        super.close();
+        
+        if (this.balloonAttached != -1L) {
+            this.level.getEntity(this.balloonAttached).close();
+        }
+    }
 }

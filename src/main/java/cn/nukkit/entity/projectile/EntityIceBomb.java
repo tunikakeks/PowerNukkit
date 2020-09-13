@@ -73,9 +73,9 @@ public class EntityIceBomb extends EntityProjectile {
                     for (int y = -1; y <= 1; y++) {
                         for (int x = -1; x <= 1; x++) {
                             for (int z = -1; z <= 1; z++) {
-                                Vector3 block = hitVec.add(x, y, z);
-                                if (this.level.getBlock(block) instanceof BlockWater) {
-                                    this.level.setBlock(block, Block.get(BlockID.ICE), true);
+                                Vector3 changeBlock = hitVec.add(x, y, z);
+                                if (this.level.getBlock(changeBlock) instanceof BlockWater) {
+                                    this.level.setBlock(changeBlock, Block.get(BlockID.ICE), true);
                                 }
                             }
                         }

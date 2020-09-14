@@ -123,6 +123,18 @@ public class EntityBalloon extends Entity {
             if (this.y >= balloonMaxHeight) {
                 this.close();
             }
+            
+            motionY -= getGravity();
+            
+            move(motionX, motionY, motionZ);
+            
+            float friction = 1 - getDrag();
+            
+            motionX *= friction;
+            motionY *= 1 - getDrag();
+            motionZ *= friction;
+            
+            updateMovement();
             // TODO: Add Functionality
         }
         

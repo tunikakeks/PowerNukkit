@@ -33,13 +33,14 @@ public class EntityLeashKnot extends Entity {
     @Override
     public void initEntity() {
         super.initEntity();
+        this.level.addLevelSoundEvent(this, LevelSoundEventPacket.SOUND_LEASHKNOT_PLACE, -1, NETWORK_ID);
     }
     
     @Override
     public boolean attack(EntityDamageEvent source) {
         DamageCause cause = source.getCause(); // TODO
         
-        level.addLevelSoundEvent(this, LevelSoundEventPacket.SOUND_LEASHKNOT_BREAK, -1, NETWORK_ID);
+        this.level.addLevelSoundEvent(this, LevelSoundEventPacket.SOUND_LEASHKNOT_BREAK, -1, NETWORK_ID);
         
         this.close();
         return true;

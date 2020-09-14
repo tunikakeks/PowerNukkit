@@ -33,9 +33,6 @@ public class EntityLeashKnot extends Entity {
     @Override
     public void initEntity() {
         super.initEntity();
-        
-        this.setMaxHealth(1);
-        this.setHealth(1);
     }
     
     @Override

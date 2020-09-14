@@ -8,7 +8,6 @@ import cn.nukkit.entity.item.EntityBalloon;
 import cn.nukkit.event.entity.CreatureSpawnEvent;
 import cn.nukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import cn.nukkit.level.Level;
-import cn.nukkit.level.Sound;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.nbt.tag.CompoundTag;
@@ -104,7 +103,6 @@ public class ItemBalloon extends Item {
                 player.getInventory().decreaseCount(player.getInventory().getHeldItemIndex());
             }
             entityLeashKnot.spawnToAll();
-            level.addSound(block, Sound.LEASHKNOT_PLACE);
             entityBalloon.spawnToAll();
             return true;
         }

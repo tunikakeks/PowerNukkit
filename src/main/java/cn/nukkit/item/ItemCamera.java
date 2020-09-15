@@ -59,10 +59,6 @@ public class ItemCamera extends Item {
                         .add(new FloatTag("", (float)player.getYaw() + 180f))
                         .add(new FloatTag("", 0)));
         
-        if (this.hasCustomName()) {
-            nbt.putString("CustomName", this.getCustomName());
-        }
-        
         CreatureSpawnEvent ev = new CreatureSpawnEvent(EntityTripodCamera.NETWORK_ID, block, nbt, SpawnReason.CAMERA);
         level.getServer().getPluginManager().callEvent(ev);
         

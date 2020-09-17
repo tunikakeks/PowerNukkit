@@ -2,6 +2,7 @@ package cn.nukkit.entity.item;
 
 import cn.nukkit.Player;
 import cn.nukkit.entity.Entity;
+import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
 import cn.nukkit.level.format.FullChunk;
@@ -88,7 +89,13 @@ public class EntityBalloon extends Entity {
     public boolean attack(EntityDamageEvent source) {
         DamageCause cause = source.getCause();
         // TODO: Add Functionality
-        this.close();
+        if (source instanceof EntityDamageByEntityEvent) {
+            Entity damager = ((EntityDamageByEntityEvent) source).getDamager();
+            
+            double deltaX = this.x - damager.x;
+            double deltaZ = this.z - damager.z;
+            this.knockBack(damager, source.getDamage(), deltaX, deltaZ, 0.1);
+        }
         return true;
     }
     
@@ -141,6 +148,24 @@ public class EntityBalloon extends Entity {
         this.timing.stopTiming();
         
         return hasUpdate || !this.onGround || Math.abs(this.motionX) > 0.00001 || Math.abs(this.motionY) > 0.00001 || Math.abs(this.motionZ) > 0.00001;
+    }
+    
+    public void knockBack(Entity attacker, double damage, double x, double z, double base) {
+        double f = Math.sqrt(x * x + z * z);
+        if (f <= 0) {
+            return;
+        }
+        
+        f = 1 / f;
+        
+        Vector3 motion = new Vector3(this.motionX, this.motionY, this.motionZ);
+        
+        motion.x /= 2d;
+        motion.z /= 2d;
+        motion.x += x * f * base;
+        motion.z += z * f * base;
+        
+        this.setMotion(motion);
     }
     
     @Override

@@ -76,7 +76,7 @@ public class ItemBalloon extends Item {
         
         CompoundTag nbtBalloon = new CompoundTag()
                 .putList(new ListTag<DoubleTag>("Pos")
-                        .add(new DoubleTag("", target.getX()))
+                        .add(new DoubleTag("", target.getX() + 1.0))
                         .add(new DoubleTag("", target.getY() + 1.75))
                         .add(new DoubleTag("", target.getZ() + 0.5)))
                 .putList(new ListTag<DoubleTag>("Motion")

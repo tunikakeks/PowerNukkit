@@ -132,7 +132,7 @@ public class EntityBalloon extends Entity {
                 this.close();
             }
             
-            motionY -= getGravity();
+            motionY -= getGravity() * 0.1f;
             
             move(motionX, motionY, motionZ);
             

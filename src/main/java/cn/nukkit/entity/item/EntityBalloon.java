@@ -138,9 +138,8 @@ public class EntityBalloon extends Entity {
             
             float friction = 1 - getDrag();
             
-            motionX *= friction;
+            // No fiction for X and Z
             motionY *= friction;
-            motionZ *= friction;
             
             updateMovement();
             // TODO: Add Functionality

@@ -287,11 +287,14 @@ extends <a href="../../../../cn/nukkit/entity/Entity.html" title="class in cn.nu
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#onCollideWithBlock--">onCollideWithBlock</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#onCollideWithBlock-cn.nukkit.level.Position-cn.nukkit.math.Vector3-">onCollideWithBlock</a></span>(<a href="../../../../cn/nukkit/level/Position.html" title="class in cn.nukkit.level">Position</a>&nbsp;position,
+                  <a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;motion)</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#onCollideWithBlock-cn.nukkit.block.Block-">onCollideWithBlock</a></span>(<a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;collisionBlock)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#onCollideWithBlock-cn.nukkit.level.Position-cn.nukkit.math.Vector3-cn.nukkit.block.Block-">onCollideWithBlock</a></span>(<a href="../../../../cn/nukkit/level/Position.html" title="class in cn.nukkit.level">Position</a>&nbsp;position,
+                  <a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;motion,
+                  <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;collisionBlock)</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -347,7 +350,7 @@ extends <a href="../../../../cn/nukkit/entity/Entity.html" title="class in cn.nu
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;cn.nukkit.math.<a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a></h3>
-<code><a href="../../../../cn/nukkit/math/Vector3.html#asBlockVector3--">asBlockVector3</a>, <a href="../../../../cn/nukkit/math/Vector3.html#asVector3f--">asVector3f</a>, <a href="../../../../cn/nukkit/math/Vector3.html#cross-cn.nukkit.math.Vector3-">cross</a>, <a href="../../../../cn/nukkit/math/Vector3.html#distance-cn.nukkit.math.Vector3-">distance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#distanceSquared-cn.nukkit.math.Vector3-">distanceSquared</a>, <a href="../../../../cn/nukkit/math/Vector3.html#dot-cn.nukkit.math.Vector3-">dot</a>, <a href="../../../../cn/nukkit/math/Vector3.html#down--">down</a>, <a href="../../../../cn/nukkit/math/Vector3.html#down-int-">down</a>, <a href="../../../../cn/nukkit/math/Vector3.html#east--">east</a>, <a href="../../../../cn/nukkit/math/Vector3.html#east-int-">east</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getChunkX--">getChunkX</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getChunkZ--">getChunkZ</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getFloorX--">getFloorX</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getFloorY--">getFloorY</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getFloorZ--">getFloorZ</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getForward--">getForward</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getIntermediateWithXValue-cn.nukkit.math.Vector3-double-">getIntermediateWithXValue</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getIntermediateWithYValue-cn.nukkit.math.Vector3-double-">getIntermediateWithYValue</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getIntermediateWithZValue-cn.nukkit.math.Vector3-double-">getIntermediateWithZValue</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getRight--">getRight</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getSouth--">getSouth</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getUp--">getUp</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getWest--">getWest</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getX--">getX</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getY--">getY</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getZ--">getZ</a>, <a href="../../../../cn/nukkit/math/Vector3.html#length--">length</a>, <a href="../../../../cn/nukkit/math/Vector3.html#lengthSquared--">lengthSquared</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance--">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-double-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-double-double-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-cn.nukkit.math.Vector2-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-cn.nukkit.math.Vector3-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#normalize--">normalize</a>, <a href="../../../../cn/nukkit/math/Vector3.html#north--">north</a>, <a href="../../../../cn/nukkit/math/Vector3.html#north-int-">north</a>, <a href="../../../../cn/nukkit/math/Vector3.html#rawHashCode--">rawHashCode</a>, <a href="../../../../cn/nukkit/math/Vector3.html#south--">south</a>, <a href="../../../../cn/nukkit/math/Vector3.html#south-int-">south</a>, <a href="../../../../cn/nukkit/math/Vector3.html#up--">up</a>, <a href="../../../../cn/nukkit/math/Vector3.html#up-int-">up</a>, <a href="../../../../cn/nukkit/math/Vector3.html#west--">west</a>, <a href="../../../../cn/nukkit/math/Vector3.html#west-int-">west</a></code></li>
+<code><a href="../../../../cn/nukkit/math/Vector3.html#asBlockVector3--">asBlockVector3</a>, <a href="../../../../cn/nukkit/math/Vector3.html#asVector3f--">asVector3f</a>, <a href="../../../../cn/nukkit/math/Vector3.html#cross-cn.nukkit.math.Vector3-">cross</a>, <a href="../../../../cn/nukkit/math/Vector3.html#distance-cn.nukkit.math.Vector3-">distance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#distanceSquared-cn.nukkit.math.Vector3-">distanceSquared</a>, <a href="../../../../cn/nukkit/math/Vector3.html#dot-cn.nukkit.math.Vector3-">dot</a>, <a href="../../../../cn/nukkit/math/Vector3.html#down--">down</a>, <a href="../../../../cn/nukkit/math/Vector3.html#down-int-">down</a>, <a href="../../../../cn/nukkit/math/Vector3.html#east--">east</a>, <a href="../../../../cn/nukkit/math/Vector3.html#east-int-">east</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getAxis-cn.nukkit.math.BlockFace.Axis-">getAxis</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getChunkX--">getChunkX</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getChunkZ--">getChunkZ</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getFloorX--">getFloorX</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getFloorY--">getFloorY</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getFloorZ--">getFloorZ</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getForward--">getForward</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getIntermediateWithXValue-cn.nukkit.math.Vector3-double-">getIntermediateWithXValue</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getIntermediateWithYValue-cn.nukkit.math.Vector3-double-">getIntermediateWithYValue</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getIntermediateWithZValue-cn.nukkit.math.Vector3-double-">getIntermediateWithZValue</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getRight--">getRight</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getSouth--">getSouth</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getUp--">getUp</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getWest--">getWest</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getX--">getX</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getY--">getY</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getZ--">getZ</a>, <a href="../../../../cn/nukkit/math/Vector3.html#length--">length</a>, <a href="../../../../cn/nukkit/math/Vector3.html#lengthSquared--">lengthSquared</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance--">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-double-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-double-double-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-cn.nukkit.math.Vector2-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-cn.nukkit.math.Vector3-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#normalize--">normalize</a>, <a href="../../../../cn/nukkit/math/Vector3.html#north--">north</a>, <a href="../../../../cn/nukkit/math/Vector3.html#north-int-">north</a>, <a href="../../../../cn/nukkit/math/Vector3.html#rawHashCode--">rawHashCode</a>, <a href="../../../../cn/nukkit/math/Vector3.html#south--">south</a>, <a href="../../../../cn/nukkit/math/Vector3.html#south-int-">south</a>, <a href="../../../../cn/nukkit/math/Vector3.html#up--">up</a>, <a href="../../../../cn/nukkit/math/Vector3.html#up-int-">up</a>, <a href="../../../../cn/nukkit/math/Vector3.html#west--">west</a>, <a href="../../../../cn/nukkit/math/Vector3.html#west-int-">west</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -586,22 +589,29 @@ protected&nbsp;void&nbsp;updateMotion()</pre>
 <pre>public&nbsp;void&nbsp;inaccurate(float&nbsp;modifier)</pre>
 </li>
 </ul>
-<a name="onCollideWithBlock--">
+<a name="onCollideWithBlock-cn.nukkit.level.Position-cn.nukkit.math.Vector3-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>onCollideWithBlock</h4>
-<pre>protected&nbsp;void&nbsp;onCollideWithBlock()</pre>
+<pre><a href="../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+protected&nbsp;void&nbsp;onCollideWithBlock(<a href="../../../../cn/nukkit/level/Position.html" title="class in cn.nukkit.level">Position</a>&nbsp;position,
+                                                                               <a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;motion)</pre>
 </li>
 </ul>
-<a name="onCollideWithBlock-cn.nukkit.block.Block-">
+<a name="onCollideWithBlock-cn.nukkit.level.Position-cn.nukkit.math.Vector3-cn.nukkit.block.Block-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>onCollideWithBlock</h4>
-<pre>protected&nbsp;boolean&nbsp;onCollideWithBlock(<a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;collisionBlock)</pre>
+<pre><a href="../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+protected&nbsp;boolean&nbsp;onCollideWithBlock(<a href="../../../../cn/nukkit/level/Position.html" title="class in cn.nukkit.level">Position</a>&nbsp;position,
+                                                                                  <a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;motion,
+                                                                                  <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;collisionBlock)</pre>
 </li>
 </ul>
 <a name="addHitEffect--">
@@ -610,7 +620,8 @@ protected&nbsp;void&nbsp;updateMotion()</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>addHitEffect</h4>
-<pre>protected&nbsp;void&nbsp;addHitEffect()</pre>
+<pre><a href="../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+protected&nbsp;void&nbsp;addHitEffect()</pre>
 </li>
 </ul>
 </li>

@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -326,30 +326,26 @@ extends <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html" 
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityArrow.html#isCritical--">isCritical</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityArrow.html#onCollideWithBlock-cn.nukkit.block.Block-">onCollideWithBlock</a></span>(<a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;collisionBlock)</code>&nbsp;</td>
-</tr>
-<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityArrow.html#onUpdate-int-">onUpdate</a></span>(int&nbsp;currentTick)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityArrow.html#saveNBT--">saveNBT</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityArrow.html#setCritical--">setCritical</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityArrow.html#setCritical-boolean-">setCritical</a></span>(boolean&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityArrow.html#setPickupMode-int-">setPickupMode</a></span>(int&nbsp;pickupMode)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityArrow.html#updateMotion--">updateMotion</a></span>()</code>&nbsp;</td>
 </tr>
@@ -359,7 +355,7 @@ extends <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html" 
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;cn.nukkit.entity.projectile.<a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html" title="class in cn.nukkit.entity.projectile">EntityProjectile</a></h3>
-<code><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#attack-cn.nukkit.event.entity.EntityDamageEvent-">attack</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#canCollideWith-cn.nukkit.entity.Entity-">canCollideWith</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#getDamage--">getDamage</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#inaccurate-float-">inaccurate</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#onCollideWithBlock--">onCollideWithBlock</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#onCollideWithEntity-cn.nukkit.entity.Entity-">onCollideWithEntity</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#updateRotation--">updateRotation</a></code></li>
+<code><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#attack-cn.nukkit.event.entity.EntityDamageEvent-">attack</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#canCollideWith-cn.nukkit.entity.Entity-">canCollideWith</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#getDamage--">getDamage</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#inaccurate-float-">inaccurate</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#onCollideWithBlock-cn.nukkit.level.Position-cn.nukkit.math.Vector3-">onCollideWithBlock</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#onCollideWithBlock-cn.nukkit.level.Position-cn.nukkit.math.Vector3-cn.nukkit.block.Block-">onCollideWithBlock</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#onCollideWithEntity-cn.nukkit.entity.Entity-">onCollideWithEntity</a>, <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#updateRotation--">updateRotation</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.entity.Entity">
@@ -394,7 +390,7 @@ extends <a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html" 
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;cn.nukkit.math.<a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a></h3>
-<code><a href="../../../../cn/nukkit/math/Vector3.html#asBlockVector3--">asBlockVector3</a>, <a href="../../../../cn/nukkit/math/Vector3.html#asVector3f--">asVector3f</a>, <a href="../../../../cn/nukkit/math/Vector3.html#cross-cn.nukkit.math.Vector3-">cross</a>, <a href="../../../../cn/nukkit/math/Vector3.html#distance-cn.nukkit.math.Vector3-">distance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#distanceSquared-cn.nukkit.math.Vector3-">distanceSquared</a>, <a href="../../../../cn/nukkit/math/Vector3.html#dot-cn.nukkit.math.Vector3-">dot</a>, <a href="../../../../cn/nukkit/math/Vector3.html#down--">down</a>, <a href="../../../../cn/nukkit/math/Vector3.html#down-int-">down</a>, <a href="../../../../cn/nukkit/math/Vector3.html#east--">east</a>, <a href="../../../../cn/nukkit/math/Vector3.html#east-int-">east</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getChunkX--">getChunkX</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getChunkZ--">getChunkZ</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getFloorX--">getFloorX</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getFloorY--">getFloorY</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getFloorZ--">getFloorZ</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getForward--">getForward</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getIntermediateWithXValue-cn.nukkit.math.Vector3-double-">getIntermediateWithXValue</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getIntermediateWithYValue-cn.nukkit.math.Vector3-double-">getIntermediateWithYValue</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getIntermediateWithZValue-cn.nukkit.math.Vector3-double-">getIntermediateWithZValue</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getRight--">getRight</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getSouth--">getSouth</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getUp--">getUp</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getWest--">getWest</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getX--">getX</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getY--">getY</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getZ--">getZ</a>, <a href="../../../../cn/nukkit/math/Vector3.html#length--">length</a>, <a href="../../../../cn/nukkit/math/Vector3.html#lengthSquared--">lengthSquared</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance--">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-double-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-double-double-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-cn.nukkit.math.Vector2-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-cn.nukkit.math.Vector3-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#normalize--">normalize</a>, <a href="../../../../cn/nukkit/math/Vector3.html#north--">north</a>, <a href="../../../../cn/nukkit/math/Vector3.html#north-int-">north</a>, <a href="../../../../cn/nukkit/math/Vector3.html#rawHashCode--">rawHashCode</a>, <a href="../../../../cn/nukkit/math/Vector3.html#south--">south</a>, <a href="../../../../cn/nukkit/math/Vector3.html#south-int-">south</a>, <a href="../../../../cn/nukkit/math/Vector3.html#up--">up</a>, <a href="../../../../cn/nukkit/math/Vector3.html#up-int-">up</a>, <a href="../../../../cn/nukkit/math/Vector3.html#west--">west</a>, <a href="../../../../cn/nukkit/math/Vector3.html#west-int-">west</a></code></li>
+<code><a href="../../../../cn/nukkit/math/Vector3.html#asBlockVector3--">asBlockVector3</a>, <a href="../../../../cn/nukkit/math/Vector3.html#asVector3f--">asVector3f</a>, <a href="../../../../cn/nukkit/math/Vector3.html#cross-cn.nukkit.math.Vector3-">cross</a>, <a href="../../../../cn/nukkit/math/Vector3.html#distance-cn.nukkit.math.Vector3-">distance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#distanceSquared-cn.nukkit.math.Vector3-">distanceSquared</a>, <a href="../../../../cn/nukkit/math/Vector3.html#dot-cn.nukkit.math.Vector3-">dot</a>, <a href="../../../../cn/nukkit/math/Vector3.html#down--">down</a>, <a href="../../../../cn/nukkit/math/Vector3.html#down-int-">down</a>, <a href="../../../../cn/nukkit/math/Vector3.html#east--">east</a>, <a href="../../../../cn/nukkit/math/Vector3.html#east-int-">east</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getAxis-cn.nukkit.math.BlockFace.Axis-">getAxis</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getChunkX--">getChunkX</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getChunkZ--">getChunkZ</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getFloorX--">getFloorX</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getFloorY--">getFloorY</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getFloorZ--">getFloorZ</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getForward--">getForward</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getIntermediateWithXValue-cn.nukkit.math.Vector3-double-">getIntermediateWithXValue</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getIntermediateWithYValue-cn.nukkit.math.Vector3-double-">getIntermediateWithYValue</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getIntermediateWithZValue-cn.nukkit.math.Vector3-double-">getIntermediateWithZValue</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getRight--">getRight</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getSouth--">getSouth</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getUp--">getUp</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getWest--">getWest</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getX--">getX</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getY--">getY</a>, <a href="../../../../cn/nukkit/math/Vector3.html#getZ--">getZ</a>, <a href="../../../../cn/nukkit/math/Vector3.html#length--">length</a>, <a href="../../../../cn/nukkit/math/Vector3.html#lengthSquared--">lengthSquared</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance--">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-double-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-double-double-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-cn.nukkit.math.Vector2-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#maxPlainDistance-cn.nukkit.math.Vector3-">maxPlainDistance</a>, <a href="../../../../cn/nukkit/math/Vector3.html#normalize--">normalize</a>, <a href="../../../../cn/nukkit/math/Vector3.html#north--">north</a>, <a href="../../../../cn/nukkit/math/Vector3.html#north-int-">north</a>, <a href="../../../../cn/nukkit/math/Vector3.html#rawHashCode--">rawHashCode</a>, <a href="../../../../cn/nukkit/math/Vector3.html#south--">south</a>, <a href="../../../../cn/nukkit/math/Vector3.html#south-int-">south</a>, <a href="../../../../cn/nukkit/math/Vector3.html#up--">up</a>, <a href="../../../../cn/nukkit/math/Vector3.html#up-int-">up</a>, <a href="../../../../cn/nukkit/math/Vector3.html#west--">west</a>, <a href="../../../../cn/nukkit/math/Vector3.html#west-int-">west</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -739,19 +735,6 @@ protected&nbsp;void&nbsp;updateMotion()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#addHitEffect--">addHitEffect</a></code>&nbsp;in class&nbsp;<code><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html" title="class in cn.nukkit.entity.projectile">EntityProjectile</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="onCollideWithBlock-cn.nukkit.block.Block-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onCollideWithBlock</h4>
-<pre>protected&nbsp;boolean&nbsp;onCollideWithBlock(<a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;collisionBlock)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#onCollideWithBlock-cn.nukkit.block.Block-">onCollideWithBlock</a></code>&nbsp;in class&nbsp;<code><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html" title="class in cn.nukkit.entity.projectile">EntityProjectile</a></code></dd>
 </dl>
 </li>
 </ul>

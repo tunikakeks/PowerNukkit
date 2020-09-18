@@ -259,6 +259,8 @@ public class Server {
 
     private final Set<String> ignoredPackets = new HashSet<>();
 
+    private boolean safeSpawn;
+
     /**
      * Minimal initializer for testing
      */
@@ -562,6 +564,7 @@ public class Server {
         this.alwaysTickPlayers = this.getConfig("level-settings.always-tick-players", false);
         this.baseTickRate = this.getConfig("level-settings.base-tick-rate", 1);
         this.redstoneEnabled = this.getConfig("level-settings.tick-redstone", true);
+        this.safeSpawn = this.getConfig().getBoolean("settings.safe-spawn",true);
         this.educationEditionEnabled = this.getConfig("level-settings.education-edition", false);
 
         this.scheduler = new ServerScheduler();
@@ -2603,6 +2606,7 @@ public class Server {
         BlockEntity.registerBlockEntity(BlockEntity.MOVING_BLOCK, BlockEntityMovingBlock.class);
         BlockEntity.registerBlockEntity(BlockEntity.NETHER_REACTOR, BlockEntityNetherReactor.class);
         BlockEntity.registerBlockEntity(BlockEntity.LODESTONE, BlockEntityLodestone.class);
+        BlockEntity.registerBlockEntity(BlockEntity.TARGET, BlockEntityTarget.class);
     }
 
     public boolean isNetherAllowed() {
@@ -2620,6 +2624,12 @@ public class Server {
     @Since("1.3.0.0-PN")
     public boolean isIgnoredPacket(Class<? extends DataPacket> clazz) {
         return this.ignoredPackets.contains(clazz.getSimpleName());
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public boolean isSafeSpawn(){
+        return safeSpawn;
     }
 
     public static Server getInstance() {

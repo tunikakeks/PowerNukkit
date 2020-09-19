@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":9,"i2":9,"i3":9,"i4":10,"i5":10,"i6":9,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":6,"i13":10,"i14":10,"i15":10,"i16":10,"i17":9,"i18":10,"i19":10,"i20":10};
+var methods = {"i0":10,"i1":9,"i2":9,"i3":9,"i4":10,"i5":10,"i6":9,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":6,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":9,"i19":10,"i20":10,"i21":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -452,31 +452,37 @@ extends <a href="../../../cn/nukkit/level/Position.html" title="class in cn.nukk
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntity.html#isMovable--">isMovable</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntity.html#onBreak--">onBreak</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntity.html#isObservable--">isObservable</a></span>()</code>
+<div class="block">Indicates if an observer blocks that are looking at this block should blink when <a href="../../../cn/nukkit/blockentity/BlockEntity.html#setDirty--"><code>setDirty()</code></a> is called.</div>
+</td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntity.html#onBreak-boolean-">onBreak</a></span>(boolean&nbsp;isSilkTouch)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntity.html#onBreak--">onBreak</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i16" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntity.html#onBreak-boolean-">onBreak</a></span>(boolean&nbsp;isSilkTouch)</code>&nbsp;</td>
+</tr>
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntity.html#onUpdate--">onUpdate</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntity.html#registerBlockEntity-java.lang.String-java.lang.Class-">registerBlockEntity</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="../../../cn/nukkit/blockentity/BlockEntity.html" title="class in cn.nukkit.blockentity">BlockEntity</a>&gt;&nbsp;c)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntity.html#saveNBT--">saveNBT</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntity.html#scheduleUpdate--">scheduleUpdate</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntity.html#setDirty--">setDirty</a></span>()</code>&nbsp;</td>
 </tr>
@@ -1266,6 +1272,18 @@ protected&nbsp;long lastUpdate</pre>
 <li class="blockList">
 <h4>setDirty</h4>
 <pre>public&nbsp;void&nbsp;setDirty()</pre>
+</li>
+</ul>
+<a name="isObservable--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isObservable</h4>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+public&nbsp;boolean&nbsp;isObservable()</pre>
+<div class="block">Indicates if an observer blocks that are looking at this block should blink when <a href="../../../cn/nukkit/blockentity/BlockEntity.html#setDirty--"><code>setDirty()</code></a> is called.</div>
 </li>
 </ul>
 <a name="getName--">

@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -282,33 +282,39 @@ implements <a href="../../../cn/nukkit/inventory/InventoryHolder.html" title="in
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityHopper.html#isOnTransferCooldown--">isOnTransferCooldown</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityHopper.html#isObservable--">isObservable</a></span>()</code>
+<div class="block">Indicates if an observer blocks that are looking at this block should blink when <a href="../../../cn/nukkit/blockentity/BlockEntity.html#setDirty--"><code>BlockEntity.setDirty()</code></a> is called.</div>
+</td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityHopper.html#isOnTransferCooldown--">isOnTransferCooldown</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityHopper.html#onBreak--">onBreak</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityHopper.html#onUpdate--">onUpdate</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityHopper.html#pickupItems--">pickupItems</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityHopper.html#pullItems--">pullItems</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityHopper.html#pushItems--">pushItems</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityHopper.html#saveNBT--">saveNBT</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityHopper.html#setItem-int-cn.nukkit.item.Item-">setItem</a></span>(int&nbsp;index,
        <a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</code>
@@ -316,14 +322,14 @@ implements <a href="../../../cn/nukkit/inventory/InventoryHolder.html" title="in
  Sets or stores this item into this container.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityHopper.html#setName-java.lang.String-">setName</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">设置或更改这个事物的名字。<br>
  Changes the name of this object, or names it.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityHopper.html#setTransferCooldown-int-">setTransferCooldown</a></span>(int&nbsp;transferCooldown)</code>&nbsp;</td>
 </tr>
@@ -634,6 +640,23 @@ implements <a href="../../../cn/nukkit/inventory/InventoryHolder.html" title="in
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../../cn/nukkit/blockentity/BlockEntity.html#onUpdate--">onUpdate</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/blockentity/BlockEntity.html" title="class in cn.nukkit.blockentity">BlockEntity</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="isObservable--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isObservable</h4>
+<pre><a href="../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+ <a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;boolean&nbsp;isObservable()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../cn/nukkit/blockentity/BlockEntity.html#isObservable--">BlockEntity</a></code></span></div>
+<div class="block">Indicates if an observer blocks that are looking at this block should blink when <a href="../../../cn/nukkit/blockentity/BlockEntity.html#setDirty--"><code>BlockEntity.setDirty()</code></a> is called.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../cn/nukkit/blockentity/BlockEntity.html#isObservable--">isObservable</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/blockentity/BlockEntity.html" title="class in cn.nukkit.blockentity">BlockEntity</a></code></dd>
 </dl>
 </li>
 </ul>

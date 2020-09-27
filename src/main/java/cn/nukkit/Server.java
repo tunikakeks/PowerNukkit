@@ -1299,7 +1299,7 @@ public class Server {
                 }
             } catch (Exception e) {
                 log.error(this.getLanguage().translateString("nukkit.level.tickError",
-                        new String[]{level.getFolderName(), Utils.getExceptionMessage(e)}));
+                        level.getFolderName(), Utils.getExceptionMessage(e)), e);
             }
         }
     }

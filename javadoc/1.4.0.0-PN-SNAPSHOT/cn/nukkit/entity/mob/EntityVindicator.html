@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -274,6 +274,10 @@ extends <a href="../../../../cn/nukkit/entity/mob/EntityMob.html" title="class i
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/mob/EntityVindicator.html#initEntity--">initEntity</a></span>()</code>&nbsp;</td>
 </tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/mob/EntityVindicator.html#isPreventingSleep-cn.nukkit.Player-">isPreventingSleep</a></span>(<a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.entity.mob.EntityMob">
@@ -459,13 +463,26 @@ extends <a href="../../../../cn/nukkit/entity/mob/EntityMob.html" title="class i
 <a name="getDrops--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getDrops</h4>
 <pre>public&nbsp;<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>[]&nbsp;getDrops()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../../../cn/nukkit/entity/EntityLiving.html#getDrops--">getDrops</a></code>&nbsp;in class&nbsp;<code><a href="../../../../cn/nukkit/entity/EntityLiving.html" title="class in cn.nukkit.entity">EntityLiving</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="isPreventingSleep-cn.nukkit.Player-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isPreventingSleep</h4>
+<pre>public&nbsp;boolean&nbsp;isPreventingSleep(<a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../cn/nukkit/entity/Entity.html#isPreventingSleep-cn.nukkit.Player-">isPreventingSleep</a></code>&nbsp;in class&nbsp;<code><a href="../../../../cn/nukkit/entity/Entity.html" title="class in cn.nukkit.entity">Entity</a></code></dd>
 </dl>
 </li>
 </ul>

@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -295,14 +295,18 @@ extends <a href="../../../../cn/nukkit/entity/mob/EntityMob.html" title="class i
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/mob/EntityCreeper.html#isPowered--">isPowered</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/mob/EntityCreeper.html#onStruckByLightning-cn.nukkit.entity.Entity-">onStruckByLightning</a></span>(<a href="../../../../cn/nukkit/entity/Entity.html" title="class in cn.nukkit.entity">Entity</a>&nbsp;entity)</code>&nbsp;</td>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/mob/EntityCreeper.html#isPreventingSleep-cn.nukkit.Player-">isPreventingSleep</a></span>(<a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/mob/EntityCreeper.html#setPowered-boolean-">setPowered</a></span>(boolean&nbsp;powered)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/mob/EntityCreeper.html#onStruckByLightning-cn.nukkit.entity.Entity-">onStruckByLightning</a></span>(<a href="../../../../cn/nukkit/entity/Entity.html" title="class in cn.nukkit.entity">Entity</a>&nbsp;entity)</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/mob/EntityCreeper.html#setPowered-boolean-">setPowered</a></span>(boolean&nbsp;powered)</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/mob/EntityCreeper.html#setPowered-cn.nukkit.entity.weather.EntityLightningStrike-">setPowered</a></span>(<a href="../../../../cn/nukkit/entity/weather/EntityLightningStrike.html" title="interface in cn.nukkit.entity.weather">EntityLightningStrike</a>&nbsp;bolt)</code>&nbsp;</td>
 </tr>
@@ -583,13 +587,26 @@ extends <a href="../../../../cn/nukkit/entity/mob/EntityMob.html" title="class i
 <a name="getDrops--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getDrops</h4>
 <pre>public&nbsp;<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>[]&nbsp;getDrops()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../../../cn/nukkit/entity/EntityLiving.html#getDrops--">getDrops</a></code>&nbsp;in class&nbsp;<code><a href="../../../../cn/nukkit/entity/EntityLiving.html" title="class in cn.nukkit.entity">EntityLiving</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="isPreventingSleep-cn.nukkit.Player-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isPreventingSleep</h4>
+<pre>public&nbsp;boolean&nbsp;isPreventingSleep(<a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../cn/nukkit/entity/Entity.html#isPreventingSleep-cn.nukkit.Player-">isPreventingSleep</a></code>&nbsp;in class&nbsp;<code><a href="../../../../cn/nukkit/entity/Entity.html" title="class in cn.nukkit.entity">Entity</a></code></dd>
 </dl>
 </li>
 </ul>

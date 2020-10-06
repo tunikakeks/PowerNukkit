@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":42,"i9":42,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":42,"i17":42,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":42,"i29":10,"i30":42,"i31":42,"i32":42,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":42,"i40":42,"i41":10,"i42":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":42,"i9":42,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":42,"i17":42,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":42,"i27":10,"i28":42,"i29":42,"i30":42,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":42,"i38":42,"i39":10,"i40":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -51,7 +51,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../cn/nukkit/level/format/anvil/Chunk.html" title="class in cn.nukkit.level.format.anvil"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../cn/nukkit/level/format/anvil/RegionLoader.html" title="class in cn.nukkit.level.format.anvil"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../cn/nukkit/level/format/anvil/LayerStorage.html" title="class in cn.nukkit.level.format.anvil"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?cn/nukkit/level/format/anvil/ChunkSection.html" target="_top">Frames</a></li>
@@ -327,30 +327,22 @@ implements <a href="../../../../../cn/nukkit/level/format/ChunkSection.html" tit
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#getMaximumLayer--">getMaximumLayer</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i20" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#getOrSetStorage-int-">getOrSetStorage</a></span>(int&nbsp;layer)</code>&nbsp;</td>
-</tr>
-<tr id="i21" class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#getSkyLightArray--">getSkyLightArray</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#getStorageIfExists-int-">getStorageIfExists</a></span>(int&nbsp;layer)</code>&nbsp;</td>
-</tr>
-<tr id="i23" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#getY--">getY</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#hasBlocks--">hasBlocks</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#isEmpty--">isEmpty</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#scanBlocks-cn.nukkit.level.format.LevelProvider-int-int-cn.nukkit.math.BlockVector3-cn.nukkit.math.BlockVector3-java.util.function.BiPredicate-">scanBlocks</a></span>(<a href="../../../../../cn/nukkit/level/format/LevelProvider.html" title="interface in cn.nukkit.level.format">LevelProvider</a>&nbsp;provider,
           int&nbsp;offsetX,
@@ -359,14 +351,14 @@ implements <a href="../../../../../cn/nukkit/level/format/ChunkSection.html" tit
           <a href="../../../../../cn/nukkit/math/BlockVector3.html" title="class in cn.nukkit.math">BlockVector3</a>&nbsp;max,
           <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BiPredicate.html?is-external=true" title="class or interface in java.util.function">BiPredicate</a>&lt;<a href="../../../../../cn/nukkit/math/BlockVector3.html" title="class in cn.nukkit.math">BlockVector3</a>,<a href="../../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a>&gt;&nbsp;condition)</code>&nbsp;</td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setBlock-int-int-int-int-">setBlock</a></span>(int&nbsp;x,
         int&nbsp;y,
         int&nbsp;z,
         int&nbsp;blockId)</code>&nbsp;</td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setBlock-int-int-int-int-int-">setBlock</a></span>(int&nbsp;x,
         int&nbsp;y,
@@ -376,7 +368,7 @@ implements <a href="../../../../../cn/nukkit/level/format/ChunkSection.html" tit
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setBlockAtLayer-int-int-int-int-int-">setBlockAtLayer</a></span>(int&nbsp;x,
                int&nbsp;y,
@@ -384,7 +376,7 @@ implements <a href="../../../../../cn/nukkit/level/format/ChunkSection.html" tit
                int&nbsp;layer,
                int&nbsp;blockId)</code>&nbsp;</td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setBlockAtLayer-int-int-int-int-int-int-">setBlockAtLayer</a></span>(int&nbsp;x,
                int&nbsp;y,
@@ -395,7 +387,7 @@ implements <a href="../../../../../cn/nukkit/level/format/ChunkSection.html" tit
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setBlockData-int-int-int-int-">setBlockData</a></span>(int&nbsp;x,
             int&nbsp;y,
@@ -404,7 +396,7 @@ implements <a href="../../../../../cn/nukkit/level/format/ChunkSection.html" tit
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setBlockData-int-int-int-int-int-">setBlockData</a></span>(int&nbsp;x,
             int&nbsp;y,
@@ -414,14 +406,14 @@ implements <a href="../../../../../cn/nukkit/level/format/ChunkSection.html" tit
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setBlockId-int-int-int-int-">setBlockId</a></span>(int&nbsp;x,
           int&nbsp;y,
           int&nbsp;z,
           int&nbsp;id)</code>&nbsp;</td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setBlockId-int-int-int-int-int-">setBlockId</a></span>(int&nbsp;x,
           int&nbsp;y,
@@ -429,21 +421,21 @@ implements <a href="../../../../../cn/nukkit/level/format/ChunkSection.html" tit
           int&nbsp;layer,
           int&nbsp;id)</code>&nbsp;</td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setBlockLight-int-int-int-int-">setBlockLight</a></span>(int&nbsp;x,
              int&nbsp;y,
              int&nbsp;z,
              int&nbsp;level)</code>&nbsp;</td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setBlockSkyLight-int-int-int-int-">setBlockSkyLight</a></span>(int&nbsp;x,
                 int&nbsp;y,
                 int&nbsp;z,
                 int&nbsp;level)</code>&nbsp;</td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setBlockStateAtLayer-int-int-int-int-cn.nukkit.blockstate.BlockState-">setBlockStateAtLayer</a></span>(int&nbsp;x,
                     int&nbsp;y,
@@ -451,11 +443,11 @@ implements <a href="../../../../../cn/nukkit/level/format/ChunkSection.html" tit
                     int&nbsp;layer,
                     <a href="../../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a>&nbsp;state)</code>&nbsp;</td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setContentVersion-int-">setContentVersion</a></span>(int&nbsp;contentVersion)</code>&nbsp;</td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setFullBlockId-int-int-int-int-">setFullBlockId</a></span>(int&nbsp;x,
               int&nbsp;y,
@@ -464,7 +456,7 @@ implements <a href="../../../../../cn/nukkit/level/format/ChunkSection.html" tit
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#setFullBlockId-int-int-int-int-int-">setFullBlockId</a></span>(int&nbsp;x,
               int&nbsp;y,
@@ -474,11 +466,11 @@ implements <a href="../../../../../cn/nukkit/level/format/ChunkSection.html" tit
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../cn/nukkit/nbt/tag/CompoundTag.html" title="class in cn.nukkit.nbt.tag">CompoundTag</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#toNBT--">toNBT</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#writeTo-cn.nukkit.utils.BinaryStream-">writeTo</a></span>(<a href="../../../../../cn/nukkit/utils/BinaryStream.html" title="class in cn.nukkit.utils">BinaryStream</a>&nbsp;stream)</code>&nbsp;</td>
 </tr>
@@ -1190,7 +1182,13 @@ public&nbsp;<a href="../../../../../cn/nukkit/nbt/tag/CompoundTag.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>compressStorageLayers</h4>
-<pre>public&nbsp;void&nbsp;compressStorageLayers()</pre>
+<pre><a href="../../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+public&nbsp;void&nbsp;compressStorageLayers()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../cn/nukkit/level/format/ChunkSection.html#compressStorageLayers--">compressStorageLayers</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../cn/nukkit/level/format/ChunkSection.html" title="interface in cn.nukkit.level.format">ChunkSection</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="compress--">
@@ -1200,24 +1198,6 @@ public&nbsp;<a href="../../../../../cn/nukkit/nbt/tag/CompoundTag.html" title="c
 <li class="blockList">
 <h4>compress</h4>
 <pre>public&nbsp;boolean&nbsp;compress()</pre>
-</li>
-</ul>
-<a name="getOrSetStorage-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getOrSetStorage</h4>
-<pre>protected&nbsp;<a href="../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a>&nbsp;getOrSetStorage(int&nbsp;layer)</pre>
-</li>
-</ul>
-<a name="getStorageIfExists-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getStorageIfExists</h4>
-<pre>protected&nbsp;<a href="../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a>&nbsp;getStorageIfExists(int&nbsp;layer)</pre>
 </li>
 </ul>
 <a name="scanBlocks-cn.nukkit.level.format.LevelProvider-int-int-cn.nukkit.math.BlockVector3-cn.nukkit.math.BlockVector3-java.util.function.BiPredicate-">
@@ -1339,7 +1319,7 @@ public&nbsp;void&nbsp;setContentVersion(int&nbsp;contentVersion)</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../cn/nukkit/level/format/anvil/Chunk.html" title="class in cn.nukkit.level.format.anvil"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../cn/nukkit/level/format/anvil/RegionLoader.html" title="class in cn.nukkit.level.format.anvil"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../cn/nukkit/level/format/anvil/LayerStorage.html" title="class in cn.nukkit.level.format.anvil"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?cn/nukkit/level/format/anvil/ChunkSection.html" target="_top">Frames</a></li>

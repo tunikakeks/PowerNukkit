@@ -109,11 +109,63 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
-<td class="colLast"><span class="typeNameLabel">ChunkSection.</span><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#getOrSetStorage-int-">getOrSetStorage</a></span>(int&nbsp;layer)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">LayerStorage.</span><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/LayerStorage.html#createBlockStorage-int-">createBlockStorage</a></span>(int&nbsp;contentVersion)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
-<td class="colLast"><span class="typeNameLabel">ChunkSection.</span><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/ChunkSection.html#getStorageIfExists-int-">getStorageIfExists</a></span>(int&nbsp;layer)</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
+<td class="colLast"><span class="typeNameLabel">SingleLayerStorage.</span><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/SingleLayerStorage.html#getOrSetStorage-java.util.function.Consumer-java.util.function.IntSupplier-int-">getOrSetStorage</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html?is-external=true" title="class or interface in java.util.function">Consumer</a>&lt;<a href="../../../../../../../cn/nukkit/level/format/anvil/LayerStorage.html" title="class in cn.nukkit.level.format.anvil">LayerStorage</a>&gt;&nbsp;setLayerStorage,
+               <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/IntSupplier.html?is-external=true" title="class or interface in java.util.function">IntSupplier</a>&nbsp;contentVersion,
+               int&nbsp;layer)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
+<td class="colLast"><span class="typeNameLabel">LayerStorage.</span><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/LayerStorage.html#getOrSetStorage-java.util.function.Consumer-java.util.function.IntSupplier-int-">getOrSetStorage</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html?is-external=true" title="class or interface in java.util.function">Consumer</a>&lt;<a href="../../../../../../../cn/nukkit/level/format/anvil/LayerStorage.html" title="class in cn.nukkit.level.format.anvil">LayerStorage</a>&gt;&nbsp;setLayerStorage,
+               <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/IntSupplier.html?is-external=true" title="class or interface in java.util.function">IntSupplier</a>&nbsp;contentVersion,
+               int&nbsp;layer)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
+<td class="colLast"><span class="typeNameLabel">MultiLayerStorage.</span><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/MultiLayerStorage.html#getOrSetStorage-java.util.function.Consumer-java.util.function.IntSupplier-int-">getOrSetStorage</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html?is-external=true" title="class or interface in java.util.function">Consumer</a>&lt;<a href="../../../../../../../cn/nukkit/level/format/anvil/LayerStorage.html" title="class in cn.nukkit.level.format.anvil">LayerStorage</a>&gt;&nbsp;setLayerStorage,
+               <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/IntSupplier.html?is-external=true" title="class or interface in java.util.function">IntSupplier</a>&nbsp;contentVersion,
+               int&nbsp;layer)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
+<td class="colLast"><span class="typeNameLabel">SingleLayerStorage.</span><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/SingleLayerStorage.html#getStorageOrEmpty-int-">getStorageOrEmpty</a></span>(int&nbsp;layer)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
+<td class="colLast"><span class="typeNameLabel">LayerStorage.</span><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/LayerStorage.html#getStorageOrEmpty-int-">getStorageOrEmpty</a></span>(int&nbsp;layer)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
+<td class="colLast"><span class="typeNameLabel">MultiLayerStorage.</span><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/MultiLayerStorage.html#getStorageOrEmpty-int-">getStorageOrEmpty</a></span>(int&nbsp;layer)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
+<td class="colLast"><span class="typeNameLabel">SingleLayerStorage.</span><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/SingleLayerStorage.html#getStorageOrNull-int-">getStorageOrNull</a></span>(int&nbsp;layer)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
+<td class="colLast"><span class="typeNameLabel">LayerStorage.</span><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/LayerStorage.html#getStorageOrNull-int-">getStorageOrNull</a></span>(int&nbsp;layer)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></code></td>
+<td class="colLast"><span class="typeNameLabel">MultiLayerStorage.</span><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/MultiLayerStorage.html#getStorageOrNull-int-">getStorageOrNull</a></span>(int&nbsp;layer)</code>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing constructors, and an explanation">
+<caption><span>Constructors in <a href="../../../../../../../cn/nukkit/level/format/anvil/package-summary.html">cn.nukkit.level.format.anvil</a> with parameters of type <a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/MultiLayerStorage.html#MultiLayerStorage-cn.nukkit.level.format.anvil.util.BlockStorage...-">MultiLayerStorage</a></span>(<a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a>...&nbsp;storages)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/SingleLayerStorage.html#SingleLayerStorage-cn.nukkit.level.format.anvil.util.BlockStorage-">SingleLayerStorage</a></span>(<a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a>&nbsp;storage)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -122,6 +174,19 @@
 <!--   -->
 </a>
 <h3>Uses of <a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a> in <a href="../../../../../../../cn/nukkit/level/format/anvil/util/package-summary.html">cn.nukkit.level.format.anvil.util</a></h3>
+<table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing subclasses, and an explanation">
+<caption><span>Subclasses of <a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a> in <a href="../../../../../../../cn/nukkit/level/format/anvil/util/package-summary.html">cn.nukkit.level.format.anvil.util</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Class and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cn/nukkit/level/format/anvil/util/ImmutableBlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">ImmutableBlockStorage</a></span></code>&nbsp;</td>
+</tr>
+</tbody>
+</table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
 <caption><span>Methods in <a href="../../../../../../../cn/nukkit/level/format/anvil/util/package-summary.html">cn.nukkit.level.format.anvil.util</a> that return <a href="../../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>

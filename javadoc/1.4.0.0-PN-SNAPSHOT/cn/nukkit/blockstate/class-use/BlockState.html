@@ -232,7 +232,15 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
+<td class="colLast"><span class="typeNameLabel">ZeroMutableBlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/ZeroMutableBlockState.html#getCurrentState--">getCurrentState</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">LongMutableBlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/LongMutableBlockState.html#getCurrentState--">getCurrentState</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
+<td class="colLast"><span class="typeNameLabel">ByteMutableBlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/ByteMutableBlockState.html#getCurrentState--">getCurrentState</a></span>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
@@ -253,71 +261,76 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
+<td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#of-int-byte-">of</a></span>(int&nbsp;blockId,
+  byte&nbsp;blockData)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#of-int-int-">of</a></span>(int&nbsp;blockId,
   int&nbsp;blockData)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#of-int-long-">of</a></span>(int&nbsp;blockId,
   long&nbsp;blockData)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#of-int-java.lang.Number-">of</a></span>(int&nbsp;blockId,
   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Number.html?is-external=true" title="class or interface in java.lang">Number</a>&nbsp;blockData)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#onlyWithProperties-cn.nukkit.blockproperty.BlockProperty...-">onlyWithProperties</a></span>(<a href="../../../../cn/nukkit/blockproperty/BlockProperty.html" title="class in cn.nukkit.blockproperty">BlockProperty</a>&lt;?&gt;...&nbsp;properties)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#onlyWithProperties-java.lang.String...-">onlyWithProperties</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>...&nbsp;propertyNames)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#onlyWithProperty-cn.nukkit.blockproperty.BlockProperty-">onlyWithProperty</a></span>(<a href="../../../../cn/nukkit/blockproperty/BlockProperty.html" title="class in cn.nukkit.blockproperty">BlockProperty</a>&lt;?&gt;&nbsp;property)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>&lt;T extends <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;<br><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#onlyWithProperty-cn.nukkit.blockproperty.BlockProperty-T-">onlyWithProperty</a></span>(<a href="../../../../cn/nukkit/blockproperty/BlockProperty.html" title="class in cn.nukkit.blockproperty">BlockProperty</a>&lt;T&gt;&nbsp;property,
                 T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#onlyWithProperty-java.lang.String-">onlyWithProperty</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#onlyWithProperty-java.lang.String-java.io.Serializable-">onlyWithProperty</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                 <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#withBlockId-int-">withBlockId</a></span>(int&nbsp;blockId)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#withData-java.math.BigInteger-">withData</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html?is-external=true" title="class or interface in java.math">BigInteger</a>&nbsp;data)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#withData-int-">withData</a></span>(int&nbsp;data)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#withData-long-">withData</a></span>(long&nbsp;data)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#withData-java.lang.Number-">withData</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Number.html?is-external=true" title="class or interface in java.lang">Number</a>&nbsp;data)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>&lt;E extends <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;<br><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#withProperty-cn.nukkit.blockproperty.BlockProperty-E-">withProperty</a></span>(<a href="../../../../cn/nukkit/blockproperty/BlockProperty.html" title="class in cn.nukkit.blockproperty">BlockProperty</a>&lt;E&gt;&nbsp;property,
             E&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BlockState.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/blockstate/BlockState.html#withProperty-java.lang.String-java.io.Serializable-">withProperty</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propertyName,
             <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&nbsp;value)</code>&nbsp;</td>
@@ -808,6 +821,16 @@
              int&nbsp;y,
              int&nbsp;z)</code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
+<td class="colLast"><span class="typeNameLabel">BlockStorage.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#setBlockState-int-cn.nukkit.blockstate.BlockState-">setBlockState</a></span>(int&nbsp;index,
+             <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a>&nbsp;state)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
+<td class="colLast"><span class="typeNameLabel">ImmutableBlockStorage.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/level/format/anvil/util/ImmutableBlockStorage.html#setBlockState-int-cn.nukkit.blockstate.BlockState-">setBlockState</a></span>(int&nbsp;index,
+             <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a>&nbsp;state)</code>&nbsp;</td>
+</tr>
 </tbody>
 </table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
@@ -823,6 +846,16 @@
                    int&nbsp;y,
                    int&nbsp;z,
                    <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a>&nbsp;state)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
+<td class="colLast"><span class="typeNameLabel">BlockStorage.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#setBlockState-int-cn.nukkit.blockstate.BlockState-">setBlockState</a></span>(int&nbsp;index,
+             <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a>&nbsp;state)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
+<td class="colLast"><span class="typeNameLabel">ImmutableBlockStorage.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/level/format/anvil/util/ImmutableBlockStorage.html#setBlockState-int-cn.nukkit.blockstate.BlockState-">setBlockState</a></span>(int&nbsp;index,
+             <a href="../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a>&nbsp;state)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>

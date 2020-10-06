@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":42,"i5":10,"i6":42,"i7":10,"i8":10,"i9":42,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":42,"i19":42,"i20":10,"i21":10,"i22":42,"i23":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":42,"i5":10,"i6":42,"i7":10,"i8":10,"i9":42,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":42,"i20":42,"i21":10,"i22":10,"i23":10,"i24":42,"i25":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -51,7 +51,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../../../cn/nukkit/level/format/anvil/util/NibbleArray.html" title="class in cn.nukkit.level.format.anvil.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../cn/nukkit/level/format/anvil/util/ImmutableBlockStorage.html" title="class in cn.nukkit.level.format.anvil.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?cn/nukkit/level/format/anvil/util/BlockStorage.html" target="_top">Frames</a></li>
@@ -108,6 +108,10 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../../../cn/nukkit/level/format/anvil/util/ImmutableBlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">ImmutableBlockStorage</a></dd>
+</dl>
 <hr>
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/ParametersAreNonnullByDefault.html?is-external=true" title="class or interface in javax.annotation">@ParametersAreNonnullByDefault</a>
@@ -254,18 +258,22 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#hasBlockIds--">hasBlockIds</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i15" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../cn/nukkit/level/format/anvil/util/ImmutableBlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">ImmutableBlockStorage</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#immutableCopy--">immutableCopy</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#isPaletteUpdateDelayed--">isPaletteUpdateDelayed</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#iterateStates-cn.nukkit.utils.functional.BlockPositionDataConsumer-">iterateStates</a></span>(<a href="../../../../../../cn/nukkit/utils/functional/BlockPositionDataConsumer.html" title="interface in cn.nukkit.utils.functional">BlockPositionDataConsumer</a>&lt;<a href="../../../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a>&gt;&nbsp;consumer)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#recheckBlocks--">recheckBlocks</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#setBlock-int-int-int-int-int-">setBlock</a></span>(int&nbsp;x,
         int&nbsp;y,
@@ -275,7 +283,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#setBlockData-int-int-int-int-">setBlockData</a></span>(int&nbsp;x,
             int&nbsp;y,
@@ -284,21 +292,26 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#setBlockId-int-int-int-int-">setBlockId</a></span>(int&nbsp;x,
           int&nbsp;y,
           int&nbsp;z,
           int&nbsp;id)</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#setBlockState-int-cn.nukkit.blockstate.BlockState-">setBlockState</a></span>(int&nbsp;index,
+             <a href="../../../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a>&nbsp;state)</code>&nbsp;</td>
+</tr>
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#setBlockState-int-int-int-cn.nukkit.blockstate.BlockState-">setBlockState</a></span>(int&nbsp;x,
              int&nbsp;y,
              int&nbsp;z,
              <a href="../../../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a>&nbsp;state)</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#setFullBlock-int-int-int-int-">setFullBlock</a></span>(int&nbsp;x,
             int&nbsp;y,
@@ -307,7 +320,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html#writeTo-cn.nukkit.utils.BinaryStream-">writeTo</a></span>(<a href="../../../../../../cn/nukkit/utils/BinaryStream.html" title="class in cn.nukkit.utils">BinaryStream</a>&nbsp;stream)</code>&nbsp;</td>
 </tr>
@@ -535,6 +548,16 @@ public&nbsp;int&nbsp;getAndSetFullBlock(int&nbsp;x,
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
+<a name="setBlockState-int-cn.nukkit.blockstate.BlockState-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setBlockState</h4>
+<pre>protected&nbsp;<a href="../../../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a>&nbsp;setBlockState(int&nbsp;index,
+                                   <a href="../../../../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a>&nbsp;state)</pre>
+</li>
+</ul>
 <a name="delayPaletteUpdates--">
 <!--   -->
 </a>
@@ -576,7 +599,9 @@ public&nbsp;<a href="../../../../../../cn/nukkit/blockstate/BlockState.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>recheckBlocks</h4>
-<pre>public&nbsp;void&nbsp;recheckBlocks()</pre>
+<pre><a href="../../../../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+ <a href="../../../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;void&nbsp;recheckBlocks()</pre>
 </li>
 </ul>
 <a name="copy--">
@@ -585,7 +610,21 @@ public&nbsp;<a href="../../../../../../cn/nukkit/blockstate/BlockState.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>copy</h4>
-<pre>public&nbsp;<a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a>&nbsp;copy()</pre>
+<pre><a href="../../../../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+ <a href="../../../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;<a href="../../../../../../cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">BlockStorage</a>&nbsp;copy()</pre>
+</li>
+</ul>
+<a name="immutableCopy--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>immutableCopy</h4>
+<pre><a href="../../../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+ <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public&nbsp;<a href="../../../../../../cn/nukkit/level/format/anvil/util/ImmutableBlockStorage.html" title="class in cn.nukkit.level.format.anvil.util">ImmutableBlockStorage</a>&nbsp;immutableCopy()</pre>
 </li>
 </ul>
 <a name="hasBlockIds--">
@@ -695,7 +734,7 @@ public&nbsp;boolean&nbsp;hasBlockDataHuge()</pre>
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../../../cn/nukkit/level/format/anvil/util/NibbleArray.html" title="class in cn.nukkit.level.format.anvil.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../cn/nukkit/level/format/anvil/util/ImmutableBlockStorage.html" title="class in cn.nukkit.level.format.anvil.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?cn/nukkit/level/format/anvil/util/BlockStorage.html" target="_top">Frames</a></li>

@@ -112,5 +112,6 @@ cn.nukkit.scheduler
 cn.nukkit.timings
 cn.nukkit.utils
 cn.nukkit.utils.bugreport
+cn.nukkit.utils.collection
 cn.nukkit.utils.functional
 co.aikar.timings

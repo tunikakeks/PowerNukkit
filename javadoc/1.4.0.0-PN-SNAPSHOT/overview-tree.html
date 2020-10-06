@@ -188,6 +188,7 @@
 <li><a href="cn/nukkit/timings/package-tree.html">cn.nukkit.timings</a>, </li>
 <li><a href="cn/nukkit/utils/package-tree.html">cn.nukkit.utils</a>, </li>
 <li><a href="cn/nukkit/utils/bugreport/package-tree.html">cn.nukkit.utils.bugreport</a>, </li>
+<li><a href="cn/nukkit/utils/collection/package-tree.html">cn.nukkit.utils.collection</a>, </li>
 <li><a href="cn/nukkit/utils/functional/package-tree.html">cn.nukkit.utils.functional</a>, </li>
 <li><a href="co/aikar/timings/package-tree.html">co.aikar.timings</a></li>
 </ul>
@@ -197,6 +198,15 @@
 <ul>
 <li type="circle">java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang"><span class="typeNameLink">Object</span></a>
 <ul>
+<li type="circle">java.util.<a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractCollection.html?is-external=true" title="class or interface in java.util"><span class="typeNameLink">AbstractCollection</span></a>&lt;E&gt; (implements java.util.<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;E&gt;)
+<ul>
+<li type="circle">java.util.<a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractSet.html?is-external=true" title="class or interface in java.util"><span class="typeNameLink">AbstractSet</span></a>&lt;E&gt; (implements java.util.<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;E&gt;)
+<ul>
+<li type="circle">cn.nukkit.utils.collection.<a href="cn/nukkit/utils/collection/ConvertingSetWrapper.html" title="class in cn.nukkit.utils.collection"><span class="typeNameLink">ConvertingSetWrapper</span></a>&lt;V1,V2&gt;</li>
+</ul>
+</li>
+</ul>
+</li>
 <li type="circle">java.util.concurrent.<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/AbstractExecutorService.html?is-external=true" title="class or interface in java.util.concurrent"><span class="typeNameLink">AbstractExecutorService</span></a> (implements java.util.concurrent.<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html?is-external=true" title="class or interface in java.util.concurrent">ExecutorService</a>)
 <ul>
 <li type="circle">java.util.concurrent.<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html?is-external=true" title="class or interface in java.util.concurrent"><span class="typeNameLink">ThreadPoolExecutor</span></a>
@@ -208,6 +218,7 @@
 </li>
 <li type="circle">java.util.<a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractMap.html?is-external=true" title="class or interface in java.util"><span class="typeNameLink">AbstractMap</span></a>&lt;K,V&gt; (implements java.util.<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;K,V&gt;)
 <ul>
+<li type="circle">cn.nukkit.utils.collection.<a href="cn/nukkit/utils/collection/ConvertingMapWrapper.html" title="class in cn.nukkit.utils.collection"><span class="typeNameLink">ConvertingMapWrapper</span></a>&lt;K,V1,V2&gt;</li>
 <li type="circle">java.util.<a href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util"><span class="typeNameLink">HashMap</span></a>&lt;K,V&gt; (implements java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a>, java.util.<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;K,V&gt;, java.io.<a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>)
 <ul>
 <li type="circle">cn.nukkit.command.data.<a href="cn/nukkit/command/data/CommandArgs.html" title="class in cn.nukkit.command.data"><span class="typeNameLink">CommandArgs</span></a></li>
@@ -640,7 +651,11 @@
 <li type="circle">cn.nukkit.blockstate.<a href="cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate"><span class="typeNameLink">BlockState</span></a> (implements cn.nukkit.blockstate.<a href="cn/nukkit/blockstate/IBlockState.html" title="interface in cn.nukkit.blockstate">IBlockState</a>, java.io.<a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>)</li>
 <li type="circle">cn.nukkit.blockstate.<a href="cn/nukkit/blockstate/BlockStateRegistry.html" title="class in cn.nukkit.blockstate"><span class="typeNameLink">BlockStateRegistry</span></a></li>
 <li type="circle">cn.nukkit.blockstate.<a href="cn/nukkit/blockstate/BlockStateRepair.html" title="class in cn.nukkit.blockstate"><span class="typeNameLink">BlockStateRepair</span></a></li>
-<li type="circle">cn.nukkit.level.format.anvil.util.<a href="cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util"><span class="typeNameLink">BlockStorage</span></a></li>
+<li type="circle">cn.nukkit.level.format.anvil.util.<a href="cn/nukkit/level/format/anvil/util/BlockStorage.html" title="class in cn.nukkit.level.format.anvil.util"><span class="typeNameLink">BlockStorage</span></a>
+<ul>
+<li type="circle">cn.nukkit.level.format.anvil.util.<a href="cn/nukkit/level/format/anvil/util/ImmutableBlockStorage.html" title="class in cn.nukkit.level.format.anvil.util"><span class="typeNameLink">ImmutableBlockStorage</span></a></li>
+</ul>
+</li>
 <li type="circle">cn.nukkit.utils.<a href="cn/nukkit/utils/BlockUpdateEntry.html" title="class in cn.nukkit.utils"><span class="typeNameLink">BlockUpdateEntry</span></a> (implements java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&lt;T&gt;)</li>
 <li type="circle">cn.nukkit.scheduler.<a href="cn/nukkit/scheduler/BlockUpdateScheduler.html" title="class in cn.nukkit.scheduler"><span class="typeNameLink">BlockUpdateScheduler</span></a></li>
 <li type="circle">cn.nukkit.math.<a href="cn/nukkit/math/BlockVector3.html" title="class in cn.nukkit.math"><span class="typeNameLink">BlockVector3</span></a> (implements java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a>)</li>
@@ -1466,6 +1481,12 @@
 <li type="circle">cn.nukkit.plugin.<a href="cn/nukkit/plugin/JavaPluginLoader.html" title="class in cn.nukkit.plugin"><span class="typeNameLink">JavaPluginLoader</span></a> (implements cn.nukkit.plugin.<a href="cn/nukkit/plugin/PluginLoader.html" title="interface in cn.nukkit.plugin">PluginLoader</a>)</li>
 <li type="circle">cn.nukkit.timings.<a href="cn/nukkit/timings/JsonUtil.html" title="class in cn.nukkit.timings"><span class="typeNameLink">JsonUtil</span></a></li>
 <li type="circle">cn.nukkit.timings.<a href="cn/nukkit/timings/JsonUtil.JSONPair.html" title="class in cn.nukkit.timings"><span class="typeNameLink">JsonUtil.JSONPair</span></a></li>
+<li type="circle">cn.nukkit.level.format.anvil.<a href="cn/nukkit/level/format/anvil/LayerStorage.html" title="class in cn.nukkit.level.format.anvil"><span class="typeNameLink">LayerStorage</span></a> (implements java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a>)
+<ul>
+<li type="circle">cn.nukkit.level.format.anvil.<a href="cn/nukkit/level/format/anvil/MultiLayerStorage.html" title="class in cn.nukkit.level.format.anvil"><span class="typeNameLink">MultiLayerStorage</span></a></li>
+<li type="circle">cn.nukkit.level.format.anvil.<a href="cn/nukkit/level/format/anvil/SingleLayerStorage.html" title="class in cn.nukkit.level.format.anvil"><span class="typeNameLink">SingleLayerStorage</span></a></li>
+</ul>
+</li>
 <li type="circle">cn.nukkit.level.<a href="cn/nukkit/level/Level.html" title="class in cn.nukkit.level"><span class="typeNameLink">Level</span></a> (implements cn.nukkit.level.<a href="cn/nukkit/level/ChunkManager.html" title="interface in cn.nukkit.level">ChunkManager</a>, cn.nukkit.metadata.<a href="cn/nukkit/metadata/Metadatable.html" title="interface in cn.nukkit.metadata">Metadatable</a>)</li>
 <li type="circle">cn.nukkit.level.format.<a href="cn/nukkit/level/format/LevelProviderManager.html" title="class in cn.nukkit.level.format"><span class="typeNameLink">LevelProviderManager</span></a></li>
 <li type="circle">cn.nukkit.timings.<a href="cn/nukkit/timings/LevelTimings.html" title="class in cn.nukkit.timings"><span class="typeNameLink">LevelTimings</span></a></li>
@@ -1492,8 +1513,10 @@
 <li type="circle">cn.nukkit.blockstate.<a href="cn/nukkit/blockstate/MutableBlockState.html" title="class in cn.nukkit.blockstate"><span class="typeNameLink">MutableBlockState</span></a> (implements cn.nukkit.blockstate.<a href="cn/nukkit/blockstate/IMutableBlockState.html" title="interface in cn.nukkit.blockstate">IMutableBlockState</a>)
 <ul>
 <li type="circle">cn.nukkit.blockstate.<a href="cn/nukkit/blockstate/BigIntegerMutableBlockState.html" title="class in cn.nukkit.blockstate"><span class="typeNameLink">BigIntegerMutableBlockState</span></a></li>
+<li type="circle">cn.nukkit.blockstate.<a href="cn/nukkit/blockstate/ByteMutableBlockState.html" title="class in cn.nukkit.blockstate"><span class="typeNameLink">ByteMutableBlockState</span></a></li>
 <li type="circle">cn.nukkit.blockstate.<a href="cn/nukkit/blockstate/IntMutableBlockState.html" title="class in cn.nukkit.blockstate"><span class="typeNameLink">IntMutableBlockState</span></a></li>
 <li type="circle">cn.nukkit.blockstate.<a href="cn/nukkit/blockstate/LongMutableBlockState.html" title="class in cn.nukkit.blockstate"><span class="typeNameLink">LongMutableBlockState</span></a></li>
+<li type="circle">cn.nukkit.blockstate.<a href="cn/nukkit/blockstate/ZeroMutableBlockState.html" title="class in cn.nukkit.blockstate"><span class="typeNameLink">ZeroMutableBlockState</span></a></li>
 </ul>
 </li>
 <li type="circle">cn.nukkit.nbt.stream.<a href="cn/nukkit/nbt/stream/NBTInputStream.html" title="class in cn.nukkit.nbt.stream"><span class="typeNameLink">NBTInputStream</span></a> (implements java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a>, java.io.<a href="https://docs.oracle.com/javase/8/docs/api/java/io/DataInput.html?is-external=true" title="class or interface in java.io">DataInput</a>)</li>
@@ -2981,6 +3004,7 @@
 <li type="circle">cn.nukkit.blockproperty.value.<a href="cn/nukkit/blockproperty/value/DirtType.html" title="enum in cn.nukkit.blockproperty.value"><span class="typeNameLink">DirtType</span></a></li>
 <li type="circle">cn.nukkit.blockproperty.value.<a href="cn/nukkit/blockproperty/value/CrackState.html" title="enum in cn.nukkit.blockproperty.value"><span class="typeNameLink">CrackState</span></a></li>
 <li type="circle">cn.nukkit.blockproperty.value.<a href="cn/nukkit/blockproperty/value/StructureVoidType.html" title="enum in cn.nukkit.blockproperty.value"><span class="typeNameLink">StructureVoidType</span></a></li>
+<li type="circle">cn.nukkit.blockproperty.value.<a href="cn/nukkit/blockproperty/value/StoneType.html" title="enum in cn.nukkit.blockproperty.value"><span class="typeNameLink">StoneType</span></a></li>
 <li type="circle">cn.nukkit.blockproperty.value.<a href="cn/nukkit/blockproperty/value/StoneSlab2Type.html" title="enum in cn.nukkit.blockproperty.value"><span class="typeNameLink">StoneSlab2Type</span></a></li>
 <li type="circle">cn.nukkit.blockproperty.value.<a href="cn/nukkit/blockproperty/value/StoneSlab1Type.html" title="enum in cn.nukkit.blockproperty.value"><span class="typeNameLink">StoneSlab1Type</span></a></li>
 <li type="circle">cn.nukkit.math.<a href="cn/nukkit/math/CompassRoseDirection.html" title="enum in cn.nukkit.math"><span class="typeNameLink">CompassRoseDirection</span></a></li>

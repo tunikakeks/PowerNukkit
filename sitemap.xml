@@ -19,10 +19,10 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/help-doc</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/index-all</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/index-all</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/overview-frame</loc>
@@ -166,10 +166,10 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/API.Usage</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/API</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/DeprecationDetails</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/DeprecationDetails</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/API</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/PowerNukkitDifference</loc>
@@ -178,19 +178,19 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/PowerNukkitOnly</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/Since</loc>
-    </url>
-    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/package-frame</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/package-summary</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/Since</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/package-tree</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/package-use</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/api/package-summary</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/Block</loc>
@@ -2956,36 +2956,6 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/timings/package-use</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/FullServerTickTiming</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/Timing</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/Timings</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/TimingsExport</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/TimingsHistory</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/TimingsManager</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/package-frame</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/package-summary</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/package-tree</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/package-use</loc>
-    </url>
-    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/utils/BannerPattern.Type</loc>
     </url>
     <url>
@@ -3155,6 +3125,36 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/utils/package-use</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/FullServerTickTiming</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/Timing</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/Timings</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/TimingsExport</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/TimingsHistory</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/TimingsManager</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/package-frame</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/package-summary</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/package-tree</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/package-use</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/api/API.Definition</loc>
@@ -6391,30 +6391,6 @@
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/potion/package-use</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/AbstractResourcePack</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/ResourcePack</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/ResourcePackManager</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/ZippedResourcePack</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/package-frame</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/package-summary</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/package-tree</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/package-use</loc>
-    </url>
-    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/scheduler/AsyncPool</loc>
     </url>
     <url>
@@ -6455,6 +6431,30 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/scheduler/package-use</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/AbstractResourcePack</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/ResourcePack</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/ResourcePackManager</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/ZippedResourcePack</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/package-frame</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/package-summary</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/package-tree</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/package-use</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/timings/JsonUtil.JSONPair</loc>
@@ -7486,10 +7486,10 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/class-use/BlockSolidMeta</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/class-use/BlockSoulSand</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/class-use/BlockSponge</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/class-use/BlockSponge</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/class-use/BlockSoulSand</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/class-use/BlockSpruceSignPost</loc>
@@ -11542,24 +11542,6 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/timings/class-use/LevelTimings</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/FullServerTickTiming</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/Timing</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/Timings</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/TimingsExport</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/TimingsHistory</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/TimingsManager</loc>
-    </url>
-    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/utils/bugreport/BugReportGenerator</loc>
     </url>
     <url>
@@ -11735,6 +11717,24 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/utils/class-use/ZlibThreadLocal</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/FullServerTickTiming</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/Timing</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/Timings</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/TimingsExport</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/TimingsHistory</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/TimingsManager</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/api/class-use/API.Definition</loc>
@@ -17179,18 +17179,6 @@
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/potion/class-use/Potion</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/class-use/AbstractResourcePack</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/class-use/ResourcePack</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/class-use/ResourcePackManager</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/class-use/ZippedResourcePack</loc>
-    </url>
-    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/scheduler/class-use/AsyncPool</loc>
     </url>
     <url>
@@ -17219,6 +17207,18 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/scheduler/class-use/TaskHandler</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/class-use/AbstractResourcePack</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/class-use/ResourcePack</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/class-use/ResourcePackManager</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/resourcepacks/class-use/ZippedResourcePack</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/timings/class-use/JsonUtil.JSONPair</loc>
@@ -18271,6 +18271,9 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/inventory/class-use/InventoryMoveItemEvent.Action</loc>
     </url>
     <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/inventory/class-use/InventoryMoveItemEvent</loc>
+    </url>
+    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/inventory/class-use/InventoryOpenEvent</loc>
     </url>
     <url>
@@ -18284,9 +18287,6 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/inventory/class-use/StartBrewEvent</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/inventory/class-use/InventoryMoveItemEvent</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/level/class-use/ChunkEvent</loc>
@@ -18343,6 +18343,9 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/player/class-use/PlayerBedEnterEvent</loc>
     </url>
     <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/player/class-use/PlayerBedLeaveEvent</loc>
+    </url>
+    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/player/class-use/PlayerBlockPickEvent</loc>
     </url>
     <url>
@@ -18377,9 +18380,6 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/player/class-use/PlayerEditBookEvent</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/player/class-use/PlayerBedLeaveEvent</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/player/class-use/PlayerEvent</loc>
@@ -22579,6 +22579,9 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/biome/impl/mushroom/package-summary</loc>
     </url>
     <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/biome/impl/mushroom/package-tree</loc>
+    </url>
+    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/biome/impl/mushroom/package-use</loc>
     </url>
     <url>
@@ -22757,9 +22760,6 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/format/anvil/class-use/Chunk</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/biome/impl/mushroom/package-tree</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/format/anvil/class-use/ChunkSection</loc>
@@ -24190,6 +24190,27 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/d/package-use</loc>
     </url>
     <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/NoiseF</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/PerlinF</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/SimplexF</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/package-frame</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/package-summary</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/package-tree</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/package-use</loc>
+    </url>
+    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/vanilla/d/NoiseGeneratorImprovedD</loc>
     </url>
     <url>
@@ -24236,27 +24257,6 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/vanilla/f/package-use</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/NoiseF</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/PerlinF</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/SimplexF</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/package-frame</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/package-summary</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/package-tree</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/package-use</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/object/mushroom/class-use/BigMushroom</loc>
@@ -24889,6 +24889,15 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/d/class-use/SimplexD</loc>
     </url>
     <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/class-use/NoiseF</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/class-use/PerlinF</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/class-use/SimplexF</loc>
+    </url>
+    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/vanilla/d/class-use/NoiseGeneratorImprovedD</loc>
     </url>
     <url>
@@ -24911,15 +24920,6 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/vanilla/f/class-use/NoiseGeneratorSimplexF</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/class-use/NoiseF</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/class-use/PerlinF</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/noise/nukkit/f/class-use/SimplexF</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/level/generator/populator/impl/tree/class-use/DarkOakTreePopulator</loc>

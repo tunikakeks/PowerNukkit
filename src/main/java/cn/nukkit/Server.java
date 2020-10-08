@@ -2556,6 +2556,7 @@ public class Server {
         Entity.registerEntity("ThrownPotion", EntityPotion.class);
         Entity.registerEntity("ThrownTrident", EntityThrownTrident.class);
         Entity.registerEntity("XpOrb", EntityXPOrb.class);
+        Entity.registerEntity("EnderEye", EntityEnderEye.class);
 
         Entity.registerEntity("Human", EntityHuman.class, true);
         //Vehicle

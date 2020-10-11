@@ -76,10 +76,10 @@
         <loc>https://devs.powernukkit.org/assets/fonts/flaticon/font/flaticon</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/AdventureSettings.Type</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/Achievement</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/Achievement</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/AdventureSettings.Type</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/AdventureSettings</loc>
@@ -1225,10 +1225,10 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/BlockTrapdoorIron</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/BlockTrapdoorSpruce</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/BlockTrapdoorJungle</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/BlockTrapdoorJungle</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/BlockTrapdoorSpruce</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/BlockTrappedChest</loc>
@@ -1252,6 +1252,9 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/BlockVine</loc>
     </url>
     <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/BlockWall.WallConnectionType</loc>
+    </url>
+    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/BlockWall.WallType</loc>
     </url>
     <url>
@@ -1268,9 +1271,6 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/BlockWaterLily</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/BlockWall.WallConnectionType</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/block/BlockWaterStill</loc>
@@ -4237,6 +4237,9 @@
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/block/BlockStairsBrickBlackstonePolished</loc>
     </url>
     <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/block/BlockStairsCobblestone</loc>
+    </url>
+    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/block/BlockStairsCrimson</loc>
     </url>
     <url>
@@ -4244,9 +4247,6 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/block/BlockStairsDarkPrismarine</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/block/BlockStairsCobblestone</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/block/BlockStairsDiorite</loc>
@@ -5123,6 +5123,9 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/inventory/DispenserInventory</loc>
+    </url>
+    <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/inventory/DoubleChestInventory</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/inventory/DropperInventory</loc>
@@ -6680,9 +6683,6 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/co/aikar/timings/package-use</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/inventory/DoubleChestInventory</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/co/aikar/timings/class-use/FullServerTickTiming</loc>
@@ -9163,10 +9163,10 @@
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/player/PlayerLoginEvent</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/player/PlayerMessageEvent</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/player/PlayerMapInfoRequestEvent</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/player/PlayerMapInfoRequestEvent</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/player/PlayerMessageEvent</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.3.1.5-PN/cn/nukkit/event/player/PlayerMouseOverEntityEvent</loc>
@@ -11908,6 +11908,9 @@
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/block/class-use/BlockButton</loc>
     </url>
     <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/block/class-use/BlockButtonAcacia</loc>
+    </url>
+    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/block/class-use/BlockButtonBirch</loc>
     </url>
     <url>
@@ -11921,9 +11924,6 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/block/class-use/BlockButtonJungle</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/block/class-use/BlockButtonAcacia</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/block/class-use/BlockButtonSpruce</loc>
@@ -13450,10 +13450,10 @@
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/command/class-use/FormattedCommandAlias</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/command/class-use/PluginIdentifiableCommand</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/command/class-use/PluginCommand</loc>
     </url>
     <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/command/class-use/PluginCommand</loc>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/command/class-use/PluginIdentifiableCommand</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/command/class-use/RemoteConsoleCommandSender</loc>
@@ -21529,6 +21529,9 @@
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/level/generator/task/LightPopulationTask</loc>
     </url>
     <url>
+        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/level/generator/task/PopulationTask</loc>
+    </url>
+    <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/level/generator/task/package-frame</loc>
     </url>
     <url>
@@ -21776,9 +21779,6 @@
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/network/protocol/class-use/BlockEventPacket</loc>
-    </url>
-    <url>
-        <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/level/generator/task/PopulationTask</loc>
     </url>
     <url>
         <loc>https://devs.powernukkit.org/javadoc/1.4.0.0-PN-SNAPSHOT/cn/nukkit/network/protocol/class-use/BlockPickRequestPacket</loc>

@@ -5,7 +5,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172727144-3"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-172727144-3"); </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BlockWaterLily (PowerNukkit 1.4.0.0-PN-SNAPSHOT API)</title>
-<meta name="date" content="2020-10-14">
+<meta name="date" content="2020-10-18">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
 </head>
@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -248,52 +248,56 @@ extends <a href="../../../cn/nukkit/block/BlockFlowable.html" title="class in cn
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#canPassThrough--">canPassThrough</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#canBeFlowedInto--">canBeFlowedInto</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#canPassThrough--">canPassThrough</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/utils/BlockColor.html" title="class in cn.nukkit.utils">BlockColor</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#getColor--">getColor</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#getId--">getId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#getMaxX--">getMaxX</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#getMaxY--">getMaxY</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#getMaxZ--">getMaxZ</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#getMinX--">getMinX</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#getMinZ--">getMinZ</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#getName--">getName</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/blockproperty/BlockProperties.html" title="class in cn.nukkit.blockproperty">BlockProperties</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#getProperties--">getProperties</a></span>()</code>
 <div class="block">A backward-compatibility properties definition that accepts any values that can be stored in the amount of bits
  specified by <a href="../../../cn/nukkit/block/Block.html#DATA_BITS"><code>Block.DATA_BITS</code></a>.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#onUpdate-int-">onUpdate</a></span>(int&nbsp;type)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -306,11 +310,11 @@ extends <a href="../../../cn/nukkit/block/BlockFlowable.html" title="class in cn
 <div class="block">Place and initialize a this block correctly in the world.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../cn/nukkit/math/AxisAlignedBB.html" title="interface in cn.nukkit.math">AxisAlignedBB</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#recalculateBoundingBox--">recalculateBoundingBox</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWaterLily.html#toItem--">toItem</a></span>()</code>&nbsp;</td>
 </tr>
@@ -320,7 +324,7 @@ extends <a href="../../../cn/nukkit/block/BlockFlowable.html" title="class in cn
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;cn.nukkit.block.<a href="../../../cn/nukkit/block/BlockFlowable.html" title="class in cn.nukkit.block">BlockFlowable</a></h3>
-<code><a href="../../../cn/nukkit/block/BlockFlowable.html#breaksWhenMoved--">breaksWhenMoved</a>, <a href="../../../cn/nukkit/block/BlockFlowable.html#canBeFlowedInto--">canBeFlowedInto</a>, <a href="../../../cn/nukkit/block/BlockFlowable.html#getHardness--">getHardness</a>, <a href="../../../cn/nukkit/block/BlockFlowable.html#getResistance--">getResistance</a>, <a href="../../../cn/nukkit/block/BlockFlowable.html#isSolid--">isSolid</a>, <a href="../../../cn/nukkit/block/BlockFlowable.html#sticksToPiston--">sticksToPiston</a></code></li>
+<code><a href="../../../cn/nukkit/block/BlockFlowable.html#breaksWhenMoved--">breaksWhenMoved</a>, <a href="../../../cn/nukkit/block/BlockFlowable.html#getHardness--">getHardness</a>, <a href="../../../cn/nukkit/block/BlockFlowable.html#getResistance--">getResistance</a>, <a href="../../../cn/nukkit/block/BlockFlowable.html#isSolid--">isSolid</a>, <a href="../../../cn/nukkit/block/BlockFlowable.html#sticksToPiston--">sticksToPiston</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.block.BlockTransparentMeta">
@@ -642,13 +646,26 @@ public&nbsp;<a href="../../../cn/nukkit/blockproperty/BlockProperties.html" titl
 <a name="canPassThrough--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>canPassThrough</h4>
 <pre>public&nbsp;boolean&nbsp;canPassThrough()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../../cn/nukkit/block/BlockFlowable.html#canPassThrough--">canPassThrough</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/block/BlockFlowable.html" title="class in cn.nukkit.block">BlockFlowable</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="canBeFlowedInto--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>canBeFlowedInto</h4>
+<pre>public&nbsp;boolean&nbsp;canBeFlowedInto()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../cn/nukkit/block/BlockFlowable.html#canBeFlowedInto--">canBeFlowedInto</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/block/BlockFlowable.html" title="class in cn.nukkit.block">BlockFlowable</a></code></dd>
 </dl>
 </li>
 </ul>

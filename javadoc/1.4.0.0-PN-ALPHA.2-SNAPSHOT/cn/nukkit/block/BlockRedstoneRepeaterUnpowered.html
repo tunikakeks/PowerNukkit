@@ -5,7 +5,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172727144-3"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-172727144-3"); </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BlockRedstoneRepeaterUnpowered (PowerNukkit 1.4.0.0-PN-ALPHA.2-SNAPSHOT API)</title>
-<meta name="date" content="2020-12-05">
+<meta name="date" content="2020-12-06">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
 </head>
@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -76,7 +76,7 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.cn.nukkit.block.BlockRedstoneDiode">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.cn.nukkit.block.BlockRedstoneRepeater">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
@@ -125,7 +125,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class in cn.nukkit.block">cn.nukkit.block.BlockRedstoneDiode</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html" title="class in cn.nukkit.block">cn.nukkit.block.BlockRedstoneRepeater</a></li>
+<li>
+<ul class="inheritance">
 <li>cn.nukkit.block.BlockRedstoneRepeaterUnpowered</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -155,7 +160,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">BlockRedstoneRepeaterUnpowered</span>
-extends <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class in cn.nukkit.block">BlockRedstoneDiode</a></pre>
+extends <a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html" title="class in cn.nukkit.block">BlockRedstoneRepeater</a></pre>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>10.4.2017</dd>
@@ -189,6 +194,13 @@ extends <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class 
 <!--   -->
 </a>
 <h3>Field Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.cn.nukkit.block.BlockRedstoneRepeater">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;cn.nukkit.block.<a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html" title="class in cn.nukkit.block">BlockRedstoneRepeater</a></h3>
+<code><a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html#PROPERTIES">PROPERTIES</a>, <a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html#REPEATER_DELAY">REPEATER_DELAY</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.cn.nukkit.block.BlockRedstoneDiode">
 <!--   -->
@@ -240,9 +252,6 @@ extends <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class 
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockRedstoneRepeaterUnpowered.html#BlockRedstoneRepeaterUnpowered--">BlockRedstoneRepeaterUnpowered</a></span>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockRedstoneRepeaterUnpowered.html#BlockRedstoneRepeaterUnpowered-int-">BlockRedstoneRepeaterUnpowered</a></span>(int&nbsp;meta)</code>&nbsp;</td>
-</tr>
 </table>
 </li>
 </ul>
@@ -259,53 +268,35 @@ extends <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class 
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockRedstoneRepeaterUnpowered.html#getDelay--">getDelay</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockRedstoneRepeaterUnpowered.html#getFacing--">getFacing</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockRedstoneRepeaterUnpowered.html#getId--">getId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockRedstoneRepeaterUnpowered.html#getName--">getName</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockRedstoneRepeaterUnpowered.html#getPowered--">getPowered</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockRedstoneRepeaterUnpowered.html#getUnpowered--">getUnpowered</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockRedstoneRepeaterUnpowered.html#isAlternateInput-cn.nukkit.block.Block-">isAlternateInput</a></span>(<a href="../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block)</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockRedstoneRepeaterUnpowered.html#isLocked--">isLocked</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockRedstoneRepeaterUnpowered.html#onActivate-cn.nukkit.item.Item-cn.nukkit.Player-">onActivate</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
-          <a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code><a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockRedstoneRepeaterUnpowered.html#toItem--">toItem</a></span>()</code>&nbsp;</td>
-</tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.block.BlockRedstoneRepeater">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;cn.nukkit.block.<a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html" title="class in cn.nukkit.block">BlockRedstoneRepeater</a></h3>
+<code><a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html#getDelay--">getDelay</a>, <a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html#getFacing--">getFacing</a>, <a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html#getProperties--">getProperties</a>, <a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html#isAlternateInput-cn.nukkit.block.Block-">isAlternateInput</a>, <a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html#isLocked--">isLocked</a>, <a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html#onActivate-cn.nukkit.item.Item-cn.nukkit.Player-">onActivate</a>, <a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a>, <a href="../../../cn/nukkit/block/BlockRedstoneRepeater.html#toItem--">toItem</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.block.BlockRedstoneDiode">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;cn.nukkit.block.<a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class in cn.nukkit.block">BlockRedstoneDiode</a></h3>
-<code><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#calculateInputStrength--">calculateInputStrength</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#canBeActivated--">canBeActivated</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#canBeFlowedInto--">canBeFlowedInto</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#canPassThrough--">canPassThrough</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getBlockFace--">getBlockFace</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getColor--">getColor</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getMaxY--">getMaxY</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getPowerOnSide-cn.nukkit.math.Vector3-cn.nukkit.math.BlockFace-">getPowerOnSide</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getPowerOnSides--">getPowerOnSides</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getRedstoneSignal--">getRedstoneSignal</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getStrongPower-cn.nukkit.math.BlockFace-">getStrongPower</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getWaterloggingLevel--">getWaterloggingLevel</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getWeakPower-cn.nukkit.math.BlockFace-">getWeakPower</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#isDiode-cn.nukkit.block.Block-">isDiode</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#isFacingTowardsRepeater--">isFacingTowardsRepeater</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#isPowered--">isPowered</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#isPowerSource--">isPowerSource</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#onBreak-cn.nukkit.item.Item-">onBreak</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#onUpdate-int-">onUpdate</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#recalculateBoundingBox--">recalculateBoundingBox</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#shouldBePowered--">shouldBePowered</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#updateState--">updateState</a></code></li>
+<code><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#calculateInputStrength--">calculateInputStrength</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#canBeActivated--">canBeActivated</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#canBeFlowedInto--">canBeFlowedInto</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#canPassThrough--">canPassThrough</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getBlockFace--">getBlockFace</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getColor--">getColor</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getMaxY--">getMaxY</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getPowerOnSide-cn.nukkit.math.Vector3-cn.nukkit.math.BlockFace-">getPowerOnSide</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getPowerOnSides--">getPowerOnSides</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getRedstoneSignal--">getRedstoneSignal</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getStrongPower-cn.nukkit.math.BlockFace-">getStrongPower</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getWaterloggingLevel--">getWaterloggingLevel</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getWeakPower-cn.nukkit.math.BlockFace-">getWeakPower</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#isDiode-cn.nukkit.block.Block-">isDiode</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#isFacingTowardsRepeater--">isFacingTowardsRepeater</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#isPowered--">isPowered</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#isPowerSource--">isPowerSource</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#isSupportValid-cn.nukkit.block.Block-">isSupportValid</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#onBreak-cn.nukkit.item.Item-">onBreak</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#onUpdate-int-">onUpdate</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#recalculateBoundingBox--">recalculateBoundingBox</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#shouldBePowered--">shouldBePowered</a>, <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#updateState--">updateState</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.block.BlockFlowable">
@@ -320,13 +311,6 @@ extends <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class 
 </a>
 <h3>Methods inherited from class&nbsp;cn.nukkit.block.<a href="../../../cn/nukkit/block/BlockTransparentMeta.html" title="class in cn.nukkit.block">BlockTransparentMeta</a></h3>
 <code><a href="../../../cn/nukkit/block/BlockTransparentMeta.html#isTransparent--">isTransparent</a></code></li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.block.BlockMeta">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;cn.nukkit.block.<a href="../../../cn/nukkit/block/BlockMeta.html" title="class in cn.nukkit.block">BlockMeta</a></h3>
-<code><a href="../../../cn/nukkit/block/BlockMeta.html#getProperties--">getProperties</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.block.Block">
@@ -408,19 +392,10 @@ extends <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class 
 <a name="BlockRedstoneRepeaterUnpowered--">
 <!--   -->
 </a>
-<ul class="blockList">
-<li class="blockList">
-<h4>BlockRedstoneRepeaterUnpowered</h4>
-<pre>public&nbsp;BlockRedstoneRepeaterUnpowered()</pre>
-</li>
-</ul>
-<a name="BlockRedstoneRepeaterUnpowered-int-">
-<!--   -->
-</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>BlockRedstoneRepeaterUnpowered</h4>
-<pre>public&nbsp;BlockRedstoneRepeaterUnpowered(int&nbsp;meta)</pre>
+<pre>public&nbsp;BlockRedstoneRepeaterUnpowered()</pre>
 </li>
 </ul>
 </li>
@@ -457,73 +432,6 @@ extends <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class 
 </dl>
 </li>
 </ul>
-<a name="onActivate-cn.nukkit.item.Item-cn.nukkit.Player-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onActivate</h4>
-<pre>public&nbsp;boolean&nbsp;onActivate(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                          <a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
-                          <a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../cn/nukkit/block/Block.html#onActivate-cn.nukkit.item.Item-cn.nukkit.Player-">onActivate</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getFacing--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getFacing</h4>
-<pre>public&nbsp;<a href="../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;getFacing()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getFacing--">getFacing</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class in cn.nukkit.block">BlockRedstoneDiode</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="isAlternateInput-cn.nukkit.block.Block-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isAlternateInput</h4>
-<pre>protected&nbsp;boolean&nbsp;isAlternateInput(<a href="../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#isAlternateInput-cn.nukkit.block.Block-">isAlternateInput</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class in cn.nukkit.block">BlockRedstoneDiode</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="toItem--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>toItem</h4>
-<pre>public&nbsp;<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;toItem()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../cn/nukkit/block/Block.html#toItem--">toItem</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getDelay--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getDelay</h4>
-<pre>protected&nbsp;int&nbsp;getDelay()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getDelay--">getDelay</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class in cn.nukkit.block">BlockRedstoneDiode</a></code></dd>
-</dl>
-</li>
-</ul>
 <a name="getPowered--">
 <!--   -->
 </a>
@@ -540,26 +448,13 @@ extends <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class 
 <a name="getUnpowered--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>getUnpowered</h4>
 <pre>protected&nbsp;<a href="../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;getUnpowered()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#getUnpowered--">getUnpowered</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class in cn.nukkit.block">BlockRedstoneDiode</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="isLocked--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>isLocked</h4>
-<pre>public&nbsp;boolean&nbsp;isLocked()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html#isLocked--">isLocked</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class in cn.nukkit.block">BlockRedstoneDiode</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -617,7 +512,7 @@ extends <a href="../../../cn/nukkit/block/BlockRedstoneDiode.html" title="class 
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.cn.nukkit.block.BlockRedstoneDiode">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.cn.nukkit.block.BlockRedstoneRepeater">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>

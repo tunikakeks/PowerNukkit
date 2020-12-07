@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":42,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":42,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -227,14 +227,18 @@ extends <a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.it
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/item/ItemBanner.html#getType--">getType</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/item/ItemBanner.html#removePattern-int-">removePattern</a></span>(int&nbsp;index)</code>&nbsp;</td>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/item/ItemBanner.html#hasPattern--">hasPattern</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/item/ItemBanner.html#setBaseColor-cn.nukkit.utils.DyeColor-">setBaseColor</a></span>(<a href="../../../cn/nukkit/utils/DyeColor.html" title="enum in cn.nukkit.utils">DyeColor</a>&nbsp;color)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/item/ItemBanner.html#removePattern-int-">removePattern</a></span>(int&nbsp;index)</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/item/ItemBanner.html#setBaseColor-cn.nukkit.utils.DyeColor-">setBaseColor</a></span>(<a href="../../../cn/nukkit/utils/DyeColor.html" title="enum in cn.nukkit.utils">DyeColor</a>&nbsp;color)</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/item/ItemBanner.html#setType-int-">setType</a></span>(int&nbsp;type)</code>&nbsp;</td>
 </tr>
@@ -386,6 +390,17 @@ extends <a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.it
 <li class="blockList">
 <h4>getPatternsSize</h4>
 <pre>public&nbsp;int&nbsp;getPatternsSize()</pre>
+</li>
+</ul>
+<a name="hasPattern--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hasPattern</h4>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+public&nbsp;boolean&nbsp;hasPattern()</pre>
 </li>
 </ul>
 <a name="correctNBT--">

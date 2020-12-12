@@ -9,7 +9,7 @@ import cn.nukkit.entity.EntityExplosive;
 import cn.nukkit.entity.data.IntEntityData;
 import cn.nukkit.event.entity.EntityExplosionPrimeEvent;
 import cn.nukkit.item.Item;
-import cn.nukkit.item.ItemID;
+import cn.nukkit.item.ItemBlock;
 import cn.nukkit.level.Explosion;
 import cn.nukkit.level.GameRule;
 import cn.nukkit.level.Sound;
@@ -115,7 +115,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract implements EntityE
     public void dropItem() {
         super.dropItem();
         
-        this.level.dropItem(this, Item.get(ItemID.TNT));
+        this.level.dropItem(this, new ItemBlock(Block.get(BlockID.TNT)));
     }
 
     @Override

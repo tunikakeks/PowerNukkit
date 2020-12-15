@@ -5,7 +5,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172727144-3"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-172727144-3"); </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Uses of Class cn.nukkit.Player (PowerNukkit 1.4.0.0-PN-ALPHA.2-SNAPSHOT API)</title>
-<meta name="date" content="2020-12-10">
+<meta name="date" content="2020-12-15">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
 </head>
@@ -338,14 +338,19 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">Server.</span><code><span class="memberNameLink"><a href="../../../cn/nukkit/Server.html#removePlayerListData-java.util.UUID-cn.nukkit.Player:A-">removePlayerListData</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html?is-external=true" title="class or interface in java.util">UUID</a>&nbsp;uuid,
-                    <a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>[]&nbsp;players)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Server.</span><code><span class="memberNameLink"><a href="../../../cn/nukkit/Server.html#removePlayerListData-java.util.UUID-cn.nukkit.Player-">removePlayerListData</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html?is-external=true" title="class or interface in java.util">UUID</a>&nbsp;uuid,
+                    <a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">Server.</span><code><span class="memberNameLink"><a href="../../../cn/nukkit/Server.html#sendFullPlayerListData-cn.nukkit.Player-">sendFullPlayerListData</a></span>(<a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Server.</span><code><span class="memberNameLink"><a href="../../../cn/nukkit/Server.html#removePlayerListData-java.util.UUID-cn.nukkit.Player:A-">removePlayerListData</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html?is-external=true" title="class or interface in java.util">UUID</a>&nbsp;uuid,
+                    <a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>[]&nbsp;players)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">Server.</span><code><span class="memberNameLink"><a href="../../../cn/nukkit/Server.html#sendFullPlayerListData-cn.nukkit.Player-">sendFullPlayerListData</a></span>(<a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">Player.</span><code><span class="memberNameLink"><a href="../../../cn/nukkit/Player.html#sendPosition-cn.nukkit.math.Vector3-double-double-int-cn.nukkit.Player:A-">sendPosition</a></span>(<a href="../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;pos,
             double&nbsp;yaw,
@@ -353,19 +358,19 @@
             int&nbsp;mode,
             <a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>[]&nbsp;targets)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">Server.</span><code><span class="memberNameLink"><a href="../../../cn/nukkit/Server.html#sendRecipeList-cn.nukkit.Player-">sendRecipeList</a></span>(<a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">Player.</span><code><span class="memberNameLink"><a href="../../../cn/nukkit/Player.html#showPlayer-cn.nukkit.Player-">showPlayer</a></span>(<a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">Player.</span><code><span class="memberNameLink"><a href="../../../cn/nukkit/Player.html#spawnTo-cn.nukkit.Player-">spawnTo</a></span>(<a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">Server.</span><code><span class="memberNameLink"><a href="../../../cn/nukkit/Server.html#updatePlayerListData-java.util.UUID-long-java.lang.String-cn.nukkit.entity.data.Skin-cn.nukkit.Player:A-">updatePlayerListData</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html?is-external=true" title="class or interface in java.util">UUID</a>&nbsp;uuid,
                     long&nbsp;entityId,
@@ -373,7 +378,7 @@
                     <a href="../../../cn/nukkit/entity/data/Skin.html" title="class in cn.nukkit.entity.data">Skin</a>&nbsp;skin,
                     <a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>[]&nbsp;players)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">Server.</span><code><span class="memberNameLink"><a href="../../../cn/nukkit/Server.html#updatePlayerListData-java.util.UUID-long-java.lang.String-cn.nukkit.entity.data.Skin-java.lang.String-cn.nukkit.Player:A-">updatePlayerListData</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html?is-external=true" title="class or interface in java.util">UUID</a>&nbsp;uuid,
                     long&nbsp;entityId,

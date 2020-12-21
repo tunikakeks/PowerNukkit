@@ -13,6 +13,7 @@ import cn.nukkit.level.generator.populator.impl.PopulatorBedrock;
 import cn.nukkit.level.generator.populator.impl.PopulatorCaves;
 import cn.nukkit.level.generator.populator.impl.PopulatorGroundCover;
 import cn.nukkit.level.generator.populator.impl.PopulatorOre;
+import cn.nukkit.level.generator.populator.impl.PopulatorSpring;
 import cn.nukkit.level.generator.populator.type.Populator;
 import cn.nukkit.math.MathHelper;
 import cn.nukkit.math.NukkitRandom;
@@ -206,8 +207,10 @@ public class Normal extends Generator {
                         new OreType(Block.get(BlockID.STONE, BlockStone.DIORITE), 10, 33, 0, 80),
                         new OreType(Block.get(BlockID.STONE, BlockStone.ANDESITE), 10, 33, 0, 80)
                 }),
-                new PopulatorCaves()//,
-                //new PopulatorRavines()
+                new PopulatorCaves(),
+                //new PopulatorRavines(),
+                new PopulatorSpring(Block.get(BlockID.WATER), 50, 8, 255),
+                new PopulatorSpring(Block.get(BlockID.LAVA), 20, 16, 255)
         );
     }
 

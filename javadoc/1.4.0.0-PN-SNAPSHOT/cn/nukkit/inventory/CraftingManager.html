@@ -5,7 +5,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172727144-3"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-172727144-3"); </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CraftingManager (PowerNukkit 1.4.0.0-PN-SNAPSHOT API)</title>
-<meta name="date" content="2020-10-29">
+<meta name="date" content="2020-12-22">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
 </head>
@@ -19,8 +19,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -179,7 +179,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../cn/nukkit/network/protocol/BatchPacket.html" title="class in cn.nukkit.network.protocol">BatchPacket</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#packet">packet</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#packet">packet</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html?is-external=true" title="class or interface in java.util">Comparator</a>&lt;<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&gt;</code></td>
@@ -232,106 +234,110 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static <a href="../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#getCraftingPacket--">getCraftingPacket</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>,<a href="../../../cn/nukkit/inventory/FurnaceRecipe.html" title="class in cn.nukkit.inventory">FurnaceRecipe</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#getFurnaceRecipes--">getFurnaceRecipes</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../cn/nukkit/inventory/Recipe.html" title="interface in cn.nukkit.inventory">Recipe</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#getRecipes--">getRecipes</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/inventory/BlastFurnaceRecipe.html" title="class in cn.nukkit.inventory">BlastFurnaceRecipe</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#matchBlastFurnaceRecipe-cn.nukkit.item.Item-">matchBlastFurnaceRecipe</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;input)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/inventory/BrewingRecipe.html" title="class in cn.nukkit.inventory">BrewingRecipe</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#matchBrewingRecipe-cn.nukkit.item.Item-cn.nukkit.item.Item-">matchBrewingRecipe</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;input,
                   <a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;potion)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/inventory/CampfireRecipe.html" title="class in cn.nukkit.inventory">CampfireRecipe</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#matchCampfireRecipe-cn.nukkit.item.Item-">matchCampfireRecipe</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;input)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/inventory/CartographyRecipe.html" title="class in cn.nukkit.inventory">CartographyRecipe</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#matchCartographyRecipe-java.util.List-cn.nukkit.item.Item-java.util.List-">matchCartographyRecipe</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&gt;&nbsp;inputList,
                       <a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;primaryOutput,
                       <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&gt;&nbsp;extraOutputList)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/inventory/ContainerRecipe.html" title="class in cn.nukkit.inventory">ContainerRecipe</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#matchContainerRecipe-cn.nukkit.item.Item-cn.nukkit.item.Item-">matchContainerRecipe</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;input,
                     <a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;potion)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/inventory/FurnaceRecipe.html" title="class in cn.nukkit.inventory">FurnaceRecipe</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#matchFurnaceRecipe-cn.nukkit.item.Item-">matchFurnaceRecipe</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;input)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/inventory/CraftingRecipe.html" title="interface in cn.nukkit.inventory">CraftingRecipe</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#matchRecipe-java.util.List-cn.nukkit.item.Item-java.util.List-">matchRecipe</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&gt;&nbsp;inputList,
            <a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;primaryOutput,
            <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&gt;&nbsp;extraOutputList)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/inventory/SmokerRecipe.html" title="class in cn.nukkit.inventory">SmokerRecipe</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#matchSmokerRecipe-cn.nukkit.item.Item-">matchSmokerRecipe</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;input)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/inventory/StonecutterRecipe.html" title="class in cn.nukkit.inventory">StonecutterRecipe</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#matchStonecutterRecipe-cn.nukkit.item.Item-">matchStonecutterRecipe</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;output)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#rebuildPacket--">rebuildPacket</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#registerBlastFurnaceRecipe-cn.nukkit.inventory.BlastFurnaceRecipe-">registerBlastFurnaceRecipe</a></span>(<a href="../../../cn/nukkit/inventory/BlastFurnaceRecipe.html" title="class in cn.nukkit.inventory">BlastFurnaceRecipe</a>&nbsp;recipe)</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#registerBrewingRecipe-cn.nukkit.inventory.BrewingRecipe-">registerBrewingRecipe</a></span>(<a href="../../../cn/nukkit/inventory/BrewingRecipe.html" title="class in cn.nukkit.inventory">BrewingRecipe</a>&nbsp;recipe)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#registerCampfireRecipe-cn.nukkit.inventory.CampfireRecipe-">registerCampfireRecipe</a></span>(<a href="../../../cn/nukkit/inventory/CampfireRecipe.html" title="class in cn.nukkit.inventory">CampfireRecipe</a>&nbsp;recipe)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#registerCartographyRecipe-cn.nukkit.inventory.CartographyRecipe-">registerCartographyRecipe</a></span>(<a href="../../../cn/nukkit/inventory/CartographyRecipe.html" title="class in cn.nukkit.inventory">CartographyRecipe</a>&nbsp;recipe)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#registerContainerRecipe-cn.nukkit.inventory.ContainerRecipe-">registerContainerRecipe</a></span>(<a href="../../../cn/nukkit/inventory/ContainerRecipe.html" title="class in cn.nukkit.inventory">ContainerRecipe</a>&nbsp;recipe)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#registerFurnaceRecipe-cn.nukkit.inventory.FurnaceRecipe-">registerFurnaceRecipe</a></span>(<a href="../../../cn/nukkit/inventory/FurnaceRecipe.html" title="class in cn.nukkit.inventory">FurnaceRecipe</a>&nbsp;recipe)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#registerRecipe-cn.nukkit.inventory.Recipe-">registerRecipe</a></span>(<a href="../../../cn/nukkit/inventory/Recipe.html" title="interface in cn.nukkit.inventory">Recipe</a>&nbsp;recipe)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#registerShapedRecipe-cn.nukkit.inventory.ShapedRecipe-">registerShapedRecipe</a></span>(<a href="../../../cn/nukkit/inventory/ShapedRecipe.html" title="class in cn.nukkit.inventory">ShapedRecipe</a>&nbsp;recipe)</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#registerShapelessRecipe-cn.nukkit.inventory.ShapelessRecipe-">registerShapelessRecipe</a></span>(<a href="../../../cn/nukkit/inventory/ShapelessRecipe.html" title="class in cn.nukkit.inventory">ShapelessRecipe</a>&nbsp;recipe)</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#registerSmokerRecipe-cn.nukkit.inventory.SmokerRecipe-">registerSmokerRecipe</a></span>(<a href="../../../cn/nukkit/inventory/SmokerRecipe.html" title="class in cn.nukkit.inventory">SmokerRecipe</a>&nbsp;recipe)</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/inventory/CraftingManager.html#registerStonecutterRecipe-cn.nukkit.inventory.StonecutterRecipe-">registerStonecutterRecipe</a></span>(<a href="../../../cn/nukkit/inventory/StonecutterRecipe.html" title="class in cn.nukkit.inventory">StonecutterRecipe</a>&nbsp;recipe)</code>&nbsp;</td>
 </tr>
@@ -372,7 +378,14 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>packet</h4>
-<pre>public static&nbsp;<a href="../../../cn/nukkit/network/protocol/BatchPacket.html" title="class in cn.nukkit.network.protocol">BatchPacket</a> packet</pre>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+ <a href="../../../cn/nukkit/api/DeprecationDetails.html" title="annotation in cn.nukkit.api">@DeprecationDetails</a>(<a href="../../../cn/nukkit/api/DeprecationDetails.html#since--">since</a>="1.3.2.0-PN",
+                    <a href="../../../cn/nukkit/api/DeprecationDetails.html#by--">by</a>="Cloudburst Nukkit",
+                    <a href="../../../cn/nukkit/api/DeprecationDetails.html#reason--">reason</a>="Field signature change from BatchPacket to DataPacket",
+                    <a href="../../../cn/nukkit/api/DeprecationDetails.html#replaceWith--">replaceWith</a>="getCraftingPacket() to be safer",
+                    <a href="../../../cn/nukkit/api/DeprecationDetails.html#toBeRemovedAt--">toBeRemovedAt</a>="1.4.0.0-PN")
+public static&nbsp;<a href="../../../cn/nukkit/network/protocol/BatchPacket.html" title="class in cn.nukkit.network.protocol">BatchPacket</a> packet</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
 <a name="shapedRecipes">
@@ -499,6 +512,17 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getCraftingPacket--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCraftingPacket</h4>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../cn/nukkit/api/Since.html#value--">value</a>="1.3.2.0-PN")
+public static&nbsp;<a href="../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a>&nbsp;getCraftingPacket()</pre>
+</li>
+</ul>
 <a name="rebuildPacket--">
 <!--   -->
 </a>

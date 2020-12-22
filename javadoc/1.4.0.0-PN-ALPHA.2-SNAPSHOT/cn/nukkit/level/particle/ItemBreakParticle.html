@@ -5,7 +5,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172727144-3"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-172727144-3"); </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ItemBreakParticle (PowerNukkit 1.4.0.0-PN-ALPHA.2-SNAPSHOT API)</title>
-<meta name="date" content="2020-12-20">
+<meta name="date" content="2020-12-22">
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../../script.js"></script>
 </head>
@@ -19,6 +19,12 @@
     catch(err) {
     }
 //-->
+var methods = {"i0":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
 </script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
@@ -70,15 +76,15 @@
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.cn.nukkit.level.particle.GenericParticle">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.cn.nukkit.level.particle.Particle">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#methods.inherited.from.class.cn.nukkit.level.particle.GenericParticle">Method</a></li>
+<li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li>Method</li>
+<li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
 <a name="skip.navbar.top">
@@ -101,12 +107,7 @@
 <li><a href="../../../../cn/nukkit/level/particle/Particle.html" title="class in cn.nukkit.level.particle">cn.nukkit.level.particle.Particle</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../cn/nukkit/level/particle/GenericParticle.html" title="class in cn.nukkit.level.particle">cn.nukkit.level.particle.GenericParticle</a></li>
-<li>
-<ul class="inheritance">
 <li>cn.nukkit.level.particle.ItemBreakParticle</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -124,7 +125,7 @@
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">ItemBreakParticle</span>
-extends <a href="../../../../cn/nukkit/level/particle/GenericParticle.html" title="class in cn.nukkit.level.particle">GenericParticle</a></pre>
+extends <a href="../../../../cn/nukkit/level/particle/Particle.html" title="class in cn.nukkit.level.particle">Particle</a></pre>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2015/11/21</dd>
@@ -143,13 +144,6 @@ extends <a href="../../../../cn/nukkit/level/particle/GenericParticle.html" titl
 <!--   -->
 </a>
 <h3>Field Summary</h3>
-<ul class="blockList">
-<li class="blockList"><a name="fields.inherited.from.class.cn.nukkit.level.particle.GenericParticle">
-<!--   -->
-</a>
-<h3>Fields inherited from class&nbsp;cn.nukkit.level.particle.<a href="../../../../cn/nukkit/level/particle/GenericParticle.html" title="class in cn.nukkit.level.particle">GenericParticle</a></h3>
-<code><a href="../../../../cn/nukkit/level/particle/GenericParticle.html#data">data</a>, <a href="../../../../cn/nukkit/level/particle/GenericParticle.html#id">id</a></code></li>
-</ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.cn.nukkit.level.particle.Particle">
 <!--   -->
@@ -190,13 +184,17 @@ extends <a href="../../../../cn/nukkit/level/particle/GenericParticle.html" titl
 <!--   -->
 </a>
 <h3>Method Summary</h3>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.level.particle.GenericParticle">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;cn.nukkit.level.particle.<a href="../../../../cn/nukkit/level/particle/GenericParticle.html" title="class in cn.nukkit.level.particle">GenericParticle</a></h3>
-<code><a href="../../../../cn/nukkit/level/particle/GenericParticle.html#encode--">encode</a></code></li>
-</ul>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr id="i0" class="altColor">
+<td class="colFirst"><code><a href="../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/level/particle/ItemBreakParticle.html#encode--">encode</a></span>()</code>&nbsp;</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.level.particle.Particle">
 <!--   -->
@@ -240,6 +238,27 @@ extends <a href="../../../../cn/nukkit/level/particle/GenericParticle.html" titl
 <h4>ItemBreakParticle</h4>
 <pre>public&nbsp;ItemBreakParticle(<a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;pos,
                          <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</pre>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method.detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="encode--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>encode</h4>
+<pre>public&nbsp;<a href="../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a>[]&nbsp;encode()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../cn/nukkit/level/particle/Particle.html#encode--">encode</a></code>&nbsp;in class&nbsp;<code><a href="../../../../cn/nukkit/level/particle/Particle.html" title="class in cn.nukkit.level.particle">Particle</a></code></dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -296,15 +315,15 @@ extends <a href="../../../../cn/nukkit/level/particle/GenericParticle.html" titl
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.cn.nukkit.level.particle.GenericParticle">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.cn.nukkit.level.particle.Particle">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#methods.inherited.from.class.cn.nukkit.level.particle.GenericParticle">Method</a></li>
+<li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li>Method</li>
+<li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
 <a name="skip.navbar.bottom">

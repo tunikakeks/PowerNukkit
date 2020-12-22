@@ -5,7 +5,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172727144-3"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-172727144-3"); </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Uses of Class cn.nukkit.network.protocol.DataPacket (PowerNukkit 1.4.0.0-PN-ALPHA.2-SNAPSHOT API)</title>
-<meta name="date" content="2020-12-20">
+<meta name="date" content="2020-12-22">
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../../../script.js"></script>
 </head>
@@ -100,22 +100,26 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="#cn.nukkit.inventory">cn.nukkit.inventory</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="#cn.nukkit.level">cn.nukkit.level</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="#cn.nukkit.level.particle">cn.nukkit.level.particle</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="#cn.nukkit.network">cn.nukkit.network</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="#cn.nukkit.network.protocol">cn.nukkit.network.protocol</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="#co.aikar.timings">co.aikar.timings</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -137,7 +141,9 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">Player.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/Player.html#batchDataPacket-cn.nukkit.network.protocol.DataPacket-">batchDataPacket</a></span>(<a href="../../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a>&nbsp;packet)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Player.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/Player.html#batchDataPacket-cn.nukkit.network.protocol.DataPacket-">batchDataPacket</a></span>(<a href="../../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a>&nbsp;packet)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -178,9 +184,7 @@
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">Player.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/Player.html#directDataPacket-cn.nukkit.network.protocol.DataPacket-">directDataPacket</a></span>(<a href="../../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a>&nbsp;packet)</code>
-<div class="block">0 is true
- -1 is false
- other is identifer</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -303,6 +307,24 @@
 </tbody>
 </table>
 </li>
+<li class="blockList"><a name="cn.nukkit.inventory">
+<!--   -->
+</a>
+<h3>Uses of <a href="../../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a> in <a href="../../../../../cn/nukkit/inventory/package-summary.html">cn.nukkit.inventory</a></h3>
+<table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
+<caption><span>Methods in <a href="../../../../../cn/nukkit/inventory/package-summary.html">cn.nukkit.inventory</a> that return <a href="../../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a></code></td>
+<td class="colLast"><span class="typeNameLabel">CraftingManager.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/inventory/CraftingManager.html#getCraftingPacket--">getCraftingPacket</a></span>()</code>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
 <li class="blockList"><a name="cn.nukkit.level">
 <!--   -->
 </a>
@@ -348,21 +370,25 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a>[]</code></td>
-<td class="colLast"><span class="typeNameLabel">DestroyBlockParticle.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/particle/DestroyBlockParticle.html#encode--">encode</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">ItemBreakParticle.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/particle/ItemBreakParticle.html#encode--">encode</a></span>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a>[]</code></td>
+<td class="colLast"><span class="typeNameLabel">DestroyBlockParticle.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/particle/DestroyBlockParticle.html#encode--">encode</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a>[]</code></td>
 <td class="colLast"><span class="typeNameLabel">FloatingTextParticle.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/particle/FloatingTextParticle.html#encode--">encode</a></span>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a>[]</code></td>
 <td class="colLast"><span class="typeNameLabel">BoneMealParticle.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/particle/BoneMealParticle.html#encode--">encode</a></span>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a>[]</code></td>
 <td class="colLast"><span class="typeNameLabel">SpellParticle.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/particle/SpellParticle.html#encode--">encode</a></span>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../cn/nukkit/network/protocol/DataPacket.html" title="class in cn.nukkit.network.protocol">DataPacket</a>[]</code></td>
 <td class="colLast"><span class="typeNameLabel">MobSpawnParticle.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/level/particle/MobSpawnParticle.html#encode--">encode</a></span>()</code>&nbsp;</td>
 </tr>

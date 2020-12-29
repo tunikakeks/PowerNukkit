@@ -12,7 +12,7 @@ import static cn.nukkit.block.BlockID.AIR;
 import static cn.nukkit.block.BlockID.STONE;
 
 /**
- * @author good777LUCKY
+ * @author GoodLucky777
  */
 public class PopulatorSpring extends Populator {
 

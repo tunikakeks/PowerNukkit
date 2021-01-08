@@ -5299,6 +5299,10 @@
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">Entity.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/Entity.html#inEndPortal">inEndPortal</a></span></code>&nbsp;</td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="typeNameLabel">Entity.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/Entity.html#noClip">noClip</a></span></code>&nbsp;</td>
+</tr>
 </tbody>
 </table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
@@ -5322,7 +5326,15 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="typeNameLabel">Entity.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/Entity.html#isNoClip--">isNoClip</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">Entity.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/Entity.html#isPreventingSleep-cn.nukkit.Player-">isPreventingSleep</a></span>(<a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="typeNameLabel">Entity.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/Entity.html#isSpinAttacking--">isSpinAttacking</a></span>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -5331,6 +5343,18 @@
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">EntityLiving.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/EntityLiving.html#preAttack-cn.nukkit.Player-">preAttack</a></span>(<a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">Entity.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/Entity.html#setNoClip-boolean-">setNoClip</a></span>(boolean&nbsp;noClip)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">Entity.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/Entity.html#setSpinAttacking--">setSpinAttacking</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">Entity.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/Entity.html#setSpinAttacking-boolean-">setSpinAttacking</a></span>(boolean&nbsp;value)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -5460,6 +5484,19 @@
 <!--   -->
 </a>
 <h3>Uses of <a href="../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">PowerNukkitOnly</a> in <a href="../../../../cn/nukkit/entity/projectile/package-summary.html">cn.nukkit.entity.projectile</a></h3>
+<table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing fields, and an explanation">
+<caption><span>Fields in <a href="../../../../cn/nukkit/entity/projectile/package-summary.html">cn.nukkit.entity.projectile</a> with annotations of type <a href="../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">PowerNukkitOnly</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityProjectile.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#hasAge">hasAge</a></span></code>&nbsp;</td>
+</tr>
+</tbody>
+</table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
 <caption><span>Methods in <a href="../../../../cn/nukkit/entity/projectile/package-summary.html">cn.nukkit.entity.projectile</a> with annotations of type <a href="../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">PowerNukkitOnly</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
@@ -5480,12 +5517,60 @@
 <td class="colLast"><span class="typeNameLabel">EntityProjectile.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#afterCollisionWithEntity-cn.nukkit.entity.Entity-">afterCollisionWithEntity</a></span>(<a href="../../../../cn/nukkit/entity/Entity.html" title="class in cn.nukkit.entity">Entity</a>&nbsp;entity)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#canReturnToShooter--">canReturnToShooter</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a></code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#getCollisionPos--">getCollisionPos</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><span class="typeNameLabel">EntitySnowball.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntitySnowball.html#getResultDamage-cn.nukkit.entity.Entity-">getResultDamage</a></span>(<a href="../../../../cn/nukkit/entity/Entity.html" title="class in cn.nukkit.entity">Entity</a>&nbsp;entity)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#getFavoredSlot--">getFavoredSlot</a></span>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#getImpalingLevel--">getImpalingLevel</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#getLoyaltyLevel--">getLoyaltyLevel</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><span class="typeNameLabel">EntitySnowball.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntitySnowball.html#getResultDamage-cn.nukkit.entity.Entity-">getResultDamage</a></span>(<a href="../../../../cn/nukkit/entity/Entity.html" title="class in cn.nukkit.entity">Entity</a>&nbsp;entity)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
 <td class="colLast"><span class="typeNameLabel">EntityProjectile.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#getResultDamage-cn.nukkit.entity.Entity-">getResultDamage</a></span>(<a href="../../../../cn/nukkit/entity/Entity.html" title="class in cn.nukkit.entity">Entity</a>&nbsp;entity)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#getRiptideLevel--">getRiptideLevel</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../cn/nukkit/math/BlockVector3.html" title="class in cn.nukkit.math">BlockVector3</a></code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#getStuckToBlockPos--">getStuckToBlockPos</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#getTridentRope--">getTridentRope</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityProjectile.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#hasAge--">hasAge</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#hasChanneling--">hasChanneling</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#isCreative--">isCreative</a></span>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#isPlayer--">isPlayer</a></span>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
@@ -5493,10 +5578,59 @@
                   <a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;motion)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#onCollideWithBlock-cn.nukkit.level.Position-cn.nukkit.math.Vector3-">onCollideWithBlock</a></span>(<a href="../../../../cn/nukkit/level/Position.html" title="class in cn.nukkit.level">Position</a>&nbsp;position,
+                  <a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;motion)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">EntityProjectile.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#onCollideWithBlock-cn.nukkit.level.Position-cn.nukkit.math.Vector3-cn.nukkit.block.Block-">onCollideWithBlock</a></span>(<a href="../../../../cn/nukkit/level/Position.html" title="class in cn.nukkit.level">Position</a>&nbsp;position,
                   <a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;motion,
                   <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;collisionBlock)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityProjectile.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityProjectile.html#setAge-boolean-">setAge</a></span>(boolean&nbsp;hasAge)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#setChanneling-boolean-">setChanneling</a></span>(boolean&nbsp;hasChanneling)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#setCollisionPos-cn.nukkit.math.Vector3-">setCollisionPos</a></span>(<a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;collisionPos)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#setCreative-boolean-">setCreative</a></span>(boolean&nbsp;isCreative)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#setFavoredSlot-int-">setFavoredSlot</a></span>(int&nbsp;favoredSlot)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#setImpalingLevel-int-">setImpalingLevel</a></span>(int&nbsp;impalingLevel)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#setLoyaltyLevel-int-">setLoyaltyLevel</a></span>(int&nbsp;loyaltyLevel)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#setPlayer-boolean-">setPlayer</a></span>(boolean&nbsp;player)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#setRiptideLevel-int-">setRiptideLevel</a></span>(int&nbsp;riptideLevel)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#setStuckToBlockPos-cn.nukkit.math.BlockVector3-">setStuckToBlockPos</a></span>(<a href="../../../../cn/nukkit/math/BlockVector3.html" title="class in cn.nukkit.math">BlockVector3</a>&nbsp;stuckToBlockPos)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="typeNameLabel">EntityThrownTrident.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/projectile/EntityThrownTrident.html#setTridentRope-boolean-">setTridentRope</a></span>(boolean&nbsp;tridentRope)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
@@ -5586,6 +5720,19 @@
 <!--   -->
 </a>
 <h3>Uses of <a href="../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">PowerNukkitOnly</a> in <a href="../../../../cn/nukkit/event/player/package-summary.html">cn.nukkit.event.player</a></h3>
+<table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing classes, and an explanation">
+<caption><span>Classes in <a href="../../../../cn/nukkit/event/player/package-summary.html">cn.nukkit.event.player</a> with annotations of type <a href="../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">PowerNukkitOnly</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Class and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/event/player/PlayerToggleSpinAttackEvent.html" title="class in cn.nukkit.event.player">PlayerToggleSpinAttackEvent</a></span></code>&nbsp;</td>
+</tr>
+</tbody>
+</table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing constructors, and an explanation">
 <caption><span>Constructors in <a href="../../../../cn/nukkit/event/player/package-summary.html">cn.nukkit.event.player</a> with annotations of type <a href="../../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">PowerNukkitOnly</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>

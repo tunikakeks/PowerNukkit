@@ -5,7 +5,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172727144-3"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-172727144-3"); </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BlockDoor (PowerNukkit 1.4.0.0-PN-SNAPSHOT API)</title>
-<meta name="date" content="2021-01-08">
+<meta name="date" content="2021-01-10">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
 </head>
@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":42,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":42,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":42,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":42,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -140,7 +140,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../cn/nukkit/block/BlockID.html" title="interface in cn.nukkit.block">BlockID</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html" title="interface in cn.nukkit.blockstate">IBlockState</a>, <a href="../../../cn/nukkit/blockstate/IMutableBlockState.html" title="interface in cn.nukkit.blockstate">IMutableBlockState</a>, <a href="../../../cn/nukkit/math/AxisAlignedBB.html" title="interface in cn.nukkit.math">AxisAlignedBB</a>, <a href="../../../cn/nukkit/metadata/Metadatable.html" title="interface in cn.nukkit.metadata">Metadatable</a>, <a href="../../../cn/nukkit/utils/Faceable.html" title="interface in cn.nukkit.utils">Faceable</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a></dd>
+<dd><a href="../../../cn/nukkit/block/BlockID.html" title="interface in cn.nukkit.block">BlockID</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html" title="interface in cn.nukkit.blockstate">IBlockState</a>, <a href="../../../cn/nukkit/blockstate/IMutableBlockState.html" title="interface in cn.nukkit.blockstate">IMutableBlockState</a>, <a href="../../../cn/nukkit/math/AxisAlignedBB.html" title="interface in cn.nukkit.math">AxisAlignedBB</a>, <a href="../../../cn/nukkit/metadata/Metadatable.html" title="interface in cn.nukkit.metadata">Metadatable</a>, <a href="../../../cn/nukkit/utils/Faceable.html" title="interface in cn.nukkit.utils">Faceable</a>, <a href="../../../cn/nukkit/utils/RedstoneComponent.html" title="interface in cn.nukkit.utils">RedstoneComponent</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang">Cloneable</a></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
@@ -148,9 +148,11 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public abstract class <span class="typeNameLabel">BlockDoor</span>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitDifference.html" title="annotation in cn.nukkit.api">@PowerNukkitDifference</a>(<a href="../../../cn/nukkit/api/PowerNukkitDifference.html#info--">info</a>="Implements RedstoneComponent.",
+                       <a href="../../../cn/nukkit/api/PowerNukkitDifference.html#since--">since</a>="1.4.0.0-PN")
+public abstract class <span class="typeNameLabel">BlockDoor</span>
 extends <a href="../../../cn/nukkit/block/BlockTransparentMeta.html" title="class in cn.nukkit.block">BlockTransparentMeta</a>
-implements <a href="../../../cn/nukkit/utils/Faceable.html" title="interface in cn.nukkit.utils">Faceable</a></pre>
+implements <a href="../../../cn/nukkit/utils/RedstoneComponent.html" title="interface in cn.nukkit.utils">RedstoneComponent</a>, <a href="../../../cn/nukkit/utils/Faceable.html" title="interface in cn.nukkit.utils">Faceable</a></pre>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>MagicDroidX (Nukkit Project)</dd>
@@ -309,58 +311,68 @@ implements <a href="../../../cn/nukkit/utils/Faceable.html" title="interface in 
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#getManualOverride--">getManualOverride</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/blockproperty/BlockProperties.html" title="class in cn.nukkit.blockproperty">BlockProperties</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#getProperties--">getProperties</a></span>()</code>
 <div class="block">A backward-compatibility properties definition that accepts any values that can be stored in the amount of bits
  specified by <a href="../../../cn/nukkit/block/Block.html#DATA_BITS"><code>Block.DATA_BITS</code></a>.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#getWaterloggingLevel--">getWaterloggingLevel</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#isOpen--">isOpen</a></span>()</code>&nbsp;</td>
-</tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#isRightHinged--">isRightHinged</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#isGettingPower--">isGettingPower</a></span>()</code>
+<div class="block">Check if a block is getting powered threw a block or directly.</div>
+</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#isSolid--">isSolid</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#isOpen--">isOpen</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#isRightHinged--">isRightHinged</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#isSolid--">isSolid</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#isSolid-cn.nukkit.math.BlockFace-">isSolid</a></span>(<a href="../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;side)</code>
 <div class="block">Check if blocks can be attached in the given side.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#isTop--">isTop</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#isTop-int-">isTop</a></span>(int&nbsp;meta)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#onActivate-cn.nukkit.item.Item-cn.nukkit.Player-">onActivate</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
           <a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#onBreak-cn.nukkit.item.Item-">onBreak</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#onUpdate-int-">onUpdate</a></span>(int&nbsp;type)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -373,43 +385,52 @@ implements <a href="../../../cn/nukkit/utils/Faceable.html" title="interface in 
 <div class="block">Place and initialize a this block correctly in the world.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#playCloseSound--">playCloseSound</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#playOpenCloseSound--">playOpenCloseSound</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#playOpenSound--">playOpenSound</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../cn/nukkit/math/AxisAlignedBB.html" title="interface in cn.nukkit.math">AxisAlignedBB</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#recalculateBoundingBox--">recalculateBoundingBox</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#setManualOverride-boolean-">setManualOverride</a></span>(boolean&nbsp;val)</code>&nbsp;</td>
+</tr>
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#setOpen-boolean-">setOpen</a></span>(boolean&nbsp;open)</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#setOpen-cn.nukkit.Player-boolean-">setOpen</a></span>(<a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player,
+       boolean&nbsp;open)</code>&nbsp;</td>
+</tr>
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#setRightHinged-boolean-">setRightHinged</a></span>(boolean&nbsp;rightHinged)</code>&nbsp;</td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#setTop-boolean-">setTop</a></span>(boolean&nbsp;top)</code>&nbsp;</td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#sticksToPiston--">sticksToPiston</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockDoor.html#toggle-cn.nukkit.Player-">toggle</a></span>(<a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
@@ -455,6 +476,13 @@ implements <a href="../../../cn/nukkit/utils/Faceable.html" title="interface in 
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
 <code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.utils.RedstoneComponent">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;cn.nukkit.utils.<a href="../../../cn/nukkit/utils/RedstoneComponent.html" title="interface in cn.nukkit.utils">RedstoneComponent</a></h3>
+<code><a href="../../../cn/nukkit/utils/RedstoneComponent.html#updateAllAroundRedstone-cn.nukkit.math.BlockFace...-">updateAllAroundRedstone</a>, <a href="../../../cn/nukkit/utils/RedstoneComponent.html#updateAllAroundRedstone-java.util.List-">updateAllAroundRedstone</a>, <a href="../../../cn/nukkit/utils/RedstoneComponent.html#updateAllAroundRedstone-cn.nukkit.level.Position-cn.nukkit.math.BlockFace...-">updateAllAroundRedstone</a>, <a href="../../../cn/nukkit/utils/RedstoneComponent.html#updateAllAroundRedstone-cn.nukkit.level.Position-java.util.List-">updateAllAroundRedstone</a>, <a href="../../../cn/nukkit/utils/RedstoneComponent.html#updateAroundRedstone-cn.nukkit.math.BlockFace...-">updateAroundRedstone</a>, <a href="../../../cn/nukkit/utils/RedstoneComponent.html#updateAroundRedstone-java.util.List-">updateAroundRedstone</a>, <a href="../../../cn/nukkit/utils/RedstoneComponent.html#updateAroundRedstone-cn.nukkit.level.Position-cn.nukkit.math.BlockFace...-">updateAroundRedstone</a>, <a href="../../../cn/nukkit/utils/RedstoneComponent.html#updateAroundRedstone-cn.nukkit.level.Position-java.util.List-">updateAroundRedstone</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.math.AxisAlignedBB">
@@ -578,7 +606,7 @@ public static final&nbsp;int DOOR_HINGE_BIT</pre>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
  <a href="../../../cn/nukkit/api/DeprecationDetails.html" title="annotation in cn.nukkit.api">@DeprecationDetails</a>(<a href="../../../cn/nukkit/api/DeprecationDetails.html#reason--">reason</a>="Was removed from the game",
                     <a href="../../../cn/nukkit/api/DeprecationDetails.html#since--">since</a>="1.4.0.0-PN",
-                    <a href="../../../cn/nukkit/api/DeprecationDetails.html#replaceWith--">replaceWith</a>="Level.isBlockPowered(block.getLocation())")
+                    <a href="../../../cn/nukkit/api/DeprecationDetails.html#replaceWith--">replaceWith</a>="#isGettingPower()")
 public static final&nbsp;int DOOR_POWERED_BIT</pre>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
@@ -730,6 +758,47 @@ public&nbsp;int&nbsp;onUpdate(int&nbsp;type)</pre>
 </dl>
 </li>
 </ul>
+<a name="setManualOverride-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setManualOverride</h4>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+public&nbsp;void&nbsp;setManualOverride(boolean&nbsp;val)</pre>
+</li>
+</ul>
+<a name="getManualOverride--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getManualOverride</h4>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+public&nbsp;boolean&nbsp;getManualOverride()</pre>
+</li>
+</ul>
+<a name="isGettingPower--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isGettingPower</h4>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+ <a href="../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
+public&nbsp;boolean&nbsp;isGettingPower()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../cn/nukkit/block/Block.html#isGettingPower--">Block</a></code></span></div>
+<div class="block">Check if a block is getting powered threw a block or directly.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../cn/nukkit/block/Block.html#isGettingPower--">isGettingPower</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>if the gets powered.</dd>
+</dl>
+</li>
+</ul>
 <a name="place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">
 <!--   -->
 </a>
@@ -838,16 +907,22 @@ public&nbsp;void&nbsp;playCloseSound()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>toggle</h4>
-<pre>public&nbsp;boolean&nbsp;toggle(<a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</pre>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitDifference.html" title="annotation in cn.nukkit.api">@PowerNukkitDifference</a>(<a href="../../../cn/nukkit/api/PowerNukkitDifference.html#info--">info</a>="Just call the #setOpen() method.",
+                       <a href="../../../cn/nukkit/api/PowerNukkitDifference.html#since--">since</a>="1.4.0.0-PN")
+public&nbsp;boolean&nbsp;toggle(<a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</pre>
 </li>
 </ul>
-<a name="isOpen--">
+<a name="setOpen-cn.nukkit.Player-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>isOpen</h4>
-<pre>public&nbsp;boolean&nbsp;isOpen()</pre>
+<h4>setOpen</h4>
+<pre><a href="../../../cn/nukkit/api/PowerNukkitDifference.html" title="annotation in cn.nukkit.api">@PowerNukkitDifference</a>(<a href="../../../cn/nukkit/api/PowerNukkitDifference.html#info--">info</a>="Using direct values, instead of toggling (fixes a redstone bug, that the door won\'t open). Also adding possibility to detect, whether a player or redstone recently opened/closed the door.",
+                       <a href="../../../cn/nukkit/api/PowerNukkitDifference.html#since--">since</a>="1.4.0.0-PN")
+ <a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
+public&nbsp;boolean&nbsp;setOpen(<a href="../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player,
+                                                                                                                                                                                                                                                                                                                boolean&nbsp;open)</pre>
 </li>
 </ul>
 <a name="setOpen-boolean-">
@@ -859,6 +934,15 @@ public&nbsp;void&nbsp;playCloseSound()</pre>
 <pre><a href="../../../cn/nukkit/api/PowerNukkitOnly.html" title="annotation in cn.nukkit.api">@PowerNukkitOnly</a>
  <a href="../../../cn/nukkit/api/Since.html" title="annotation in cn.nukkit.api">@Since</a>(<a href="../../../cn/nukkit/api/Since.html#value--">value</a>="1.4.0.0-PN")
 public&nbsp;void&nbsp;setOpen(boolean&nbsp;open)</pre>
+</li>
+</ul>
+<a name="isOpen--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isOpen</h4>
+<pre>public&nbsp;boolean&nbsp;isOpen()</pre>
 </li>
 </ul>
 <a name="isTop--">

@@ -5,7 +5,7 @@
 <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172727144-3"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "UA-172727144-3"); </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Uses of Class cn.nukkit.math.BlockFace (PowerNukkit 1.4.0.0-PN-SNAPSHOT API)</title>
-<meta name="date" content="2021-01-08">
+<meta name="date" content="2021-01-10">
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../../script.js"></script>
 </head>
@@ -551,7 +551,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><span class="typeNameLabel">BlockLectern.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockLectern.html#getStrongPower-cn.nukkit.math.BlockFace-">getStrongPower</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;side)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">BlockLectern.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockLectern.html#getStrongPower-cn.nukkit.math.BlockFace-">getStrongPower</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
@@ -1922,7 +1922,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">BlockBarrel.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockBarrel.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
+<td class="colLast"><span class="typeNameLabel">BlockRedstone.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockRedstone.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;target,
      <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face,
@@ -1932,6 +1932,17 @@
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="typeNameLabel">BlockBarrel.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockBarrel.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
+     <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
+     <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;target,
+     <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face,
+     double&nbsp;fx,
+     double&nbsp;fy,
+     double&nbsp;fz,
+     <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockRoots.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockRoots.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -1942,7 +1953,7 @@
      double&nbsp;fz,
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockPistonBase.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockPistonBase.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -1953,7 +1964,7 @@
      double&nbsp;fz,
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockFlowerPot.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockFlowerPot.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -1964,7 +1975,7 @@
      double&nbsp;fz,
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockBubbleColumn.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockBubbleColumn.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -1975,7 +1986,7 @@
      double&nbsp;fz,
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockBrewingStand.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockBrewingStand.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -1986,7 +1997,7 @@
      double&nbsp;fz,
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockSponge.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockSponge.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -1997,7 +2008,7 @@
      double&nbsp;fz,
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockEnchantingTable.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockEnchantingTable.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -2008,7 +2019,7 @@
      double&nbsp;fz,
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockSeagrass.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockSeagrass.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -2019,7 +2030,7 @@
      double&nbsp;fz,
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockLeaves.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockLeaves.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -2030,7 +2041,7 @@
      double&nbsp;fz,
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockTerracottaGlazed.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockTerracottaGlazed.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -2041,7 +2052,7 @@
      double&nbsp;fz,
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockHayBale.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockHayBale.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -2052,7 +2063,7 @@
      double&nbsp;fz,
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockLantern.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockLantern.html#place-cn.nukkit.item.Item-cn.nukkit.block.Block-cn.nukkit.block.Block-cn.nukkit.math.BlockFace-double-double-double-cn.nukkit.Player-">place</a></span>(<a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
      <a href="../../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a>&nbsp;block,
@@ -2063,108 +2074,108 @@
      double&nbsp;fz,
      <a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockBell.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockBell.html#ring-cn.nukkit.entity.Entity-cn.nukkit.event.block.BellRingEvent.RingCause-cn.nukkit.math.BlockFace-">ring</a></span>(<a href="../../../../cn/nukkit/entity/Entity.html" title="class in cn.nukkit.entity">Entity</a>&nbsp;causeEntity,
     <a href="../../../../cn/nukkit/event/block/BellRingEvent.RingCause.html" title="enum in cn.nukkit.event.block">BellRingEvent.RingCause</a>&nbsp;cause,
     <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;hitFace)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockPumpkin.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockPumpkin.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockStonecutterBlock.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockStonecutterBlock.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockBell.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockBell.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockFenceGate.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockFenceGate.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockDoor.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockDoor.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockStairs.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockStairs.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockTorch.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockTorch.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>
 <div class="block">Sets the direction that the flame is pointing.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockWallSign.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockWallSign.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockStemPumpkin.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockStemPumpkin.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockButton.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockButton.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockObserver.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockObserver.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockLectern.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockLectern.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockHopper.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockHopper.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockGrindstone.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockGrindstone.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockBeehive.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockBeehive.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockTrapdoor.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockTrapdoor.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockSignPost.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockSignPost.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockCampfire.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockCampfire.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockCropsStem.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockCropsStem.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockBed.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockBed.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockBarrel.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockBarrel.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockStemMelon.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockStemMelon.html#setBlockFace-cn.nukkit.math.BlockFace-">setBlockFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockWallBase.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockWallBase.html#setConnection-cn.nukkit.math.BlockFace-cn.nukkit.block.BlockWall.WallConnectionType-">setConnection</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;blockFace,
              <a href="../../../../cn/nukkit/block/BlockWall.WallConnectionType.html" title="enum in cn.nukkit.block">BlockWall.WallConnectionType</a>&nbsp;type)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">BlockTripWireHook.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/block/BlockTripWireHook.html#setFace-cn.nukkit.math.BlockFace-">setFace</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
 </tr>
@@ -2342,35 +2353,41 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a></code></td>
-<td class="colLast"><span class="typeNameLabel">PumpkinDispenseBehavior.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/dispenser/PumpkinDispenseBehavior.html#dispense-cn.nukkit.block.BlockDispenser-cn.nukkit.math.BlockFace-cn.nukkit.item.Item-">dispense</a></span>(<a href="../../../../cn/nukkit/block/BlockDispenser.html" title="class in cn.nukkit.block">BlockDispenser</a>&nbsp;block,
+<td class="colLast"><span class="typeNameLabel">DropperDispenseBehavior.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/dispenser/DropperDispenseBehavior.html#dispense-cn.nukkit.block.BlockDispenser-cn.nukkit.math.BlockFace-cn.nukkit.item.Item-">dispense</a></span>(<a href="../../../../cn/nukkit/block/BlockDispenser.html" title="class in cn.nukkit.block">BlockDispenser</a>&nbsp;block,
         <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face,
         <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a></code></td>
+<td class="colLast"><span class="typeNameLabel">PumpkinDispenseBehavior.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/dispenser/PumpkinDispenseBehavior.html#dispense-cn.nukkit.block.BlockDispenser-cn.nukkit.math.BlockFace-cn.nukkit.item.Item-">dispense</a></span>(<a href="../../../../cn/nukkit/block/BlockDispenser.html" title="class in cn.nukkit.block">BlockDispenser</a>&nbsp;block,
+        <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face,
+        <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a></code></td>
 <td class="colLast"><span class="typeNameLabel">EmptyBucketDispenseBehavior.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/dispenser/EmptyBucketDispenseBehavior.html#dispense-cn.nukkit.block.BlockDispenser-cn.nukkit.math.BlockFace-cn.nukkit.item.Item-">dispense</a></span>(<a href="../../../../cn/nukkit/block/BlockDispenser.html" title="class in cn.nukkit.block">BlockDispenser</a>&nbsp;block,
         <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face,
         <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a></code></td>
 <td class="colLast"><span class="typeNameLabel">DispenseBehavior.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/dispenser/DispenseBehavior.html#dispense-cn.nukkit.block.BlockDispenser-cn.nukkit.math.BlockFace-cn.nukkit.item.Item-">dispense</a></span>(<a href="../../../../cn/nukkit/block/BlockDispenser.html" title="class in cn.nukkit.block">BlockDispenser</a>&nbsp;block,
         <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face,
         <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a></code></td>
 <td class="colLast"><span class="typeNameLabel">FireChargeDispenseBehavior.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/dispenser/FireChargeDispenseBehavior.html#dispense-cn.nukkit.block.BlockDispenser-cn.nukkit.math.BlockFace-cn.nukkit.item.Item-">dispense</a></span>(<a href="../../../../cn/nukkit/block/BlockDispenser.html" title="class in cn.nukkit.block">BlockDispenser</a>&nbsp;block,
         <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face,
         <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a></code></td>
 <td class="colLast"><span class="typeNameLabel">ProjectileDispenseBehavior.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/dispenser/ProjectileDispenseBehavior.html#dispense-cn.nukkit.block.BlockDispenser-cn.nukkit.math.BlockFace-cn.nukkit.item.Item-">dispense</a></span>(<a href="../../../../cn/nukkit/block/BlockDispenser.html" title="class in cn.nukkit.block">BlockDispenser</a>&nbsp;source,
         <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face,
         <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a></code></td>
 <td class="colLast"><span class="typeNameLabel">ShulkerBoxDispenseBehavior.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/dispenser/ShulkerBoxDispenseBehavior.html#dispense-cn.nukkit.block.BlockDispenser-cn.nukkit.math.BlockFace-cn.nukkit.item.Item-">dispense</a></span>(<a href="../../../../cn/nukkit/block/BlockDispenser.html" title="class in cn.nukkit.block">BlockDispenser</a>&nbsp;block,
         <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face,
@@ -2792,7 +2809,9 @@
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">Level.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/level/Level.html#updateAroundRedstone-cn.nukkit.math.Vector3-cn.nukkit.math.BlockFace-">updateAroundRedstone</a></span>(<a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;pos,
-                    <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>&nbsp;</td>
+                    <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;face)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a></code></td>
@@ -3133,6 +3152,67 @@ the order they are declared.</div>
 <td class="colFirst"><code>static <a href="../../../../cn/nukkit/utils/Rail.Orientation.html" title="enum in cn.nukkit.utils">Rail.Orientation</a></code></td>
 <td class="colLast"><span class="typeNameLabel">Rail.Orientation.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/utils/Rail.Orientation.html#straightOrCurved-cn.nukkit.math.BlockFace-cn.nukkit.math.BlockFace-">straightOrCurved</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;f1,
                 <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&nbsp;f2)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><span class="typeNameLabel">RedstoneComponent.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/utils/RedstoneComponent.html#updateAllAroundRedstone-cn.nukkit.math.BlockFace...-">updateAllAroundRedstone</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>...&nbsp;ignoredFaces)</code>
+<div class="block">Send a redstone update to all blocks around this block.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><span class="typeNameLabel">RedstoneComponent.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/utils/RedstoneComponent.html#updateAllAroundRedstone-cn.nukkit.level.Position-cn.nukkit.math.BlockFace...-">updateAllAroundRedstone</a></span>(<a href="../../../../cn/nukkit/level/Position.html" title="class in cn.nukkit.level">Position</a>&nbsp;pos,
+                       <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>...&nbsp;ignoredFaces)</code>
+<div class="block">Send a redstone update to all blocks around the given position and also around the blocks of those updated blocks.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><span class="typeNameLabel">RedstoneComponent.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/utils/RedstoneComponent.html#updateAroundRedstone-cn.nukkit.math.BlockFace...-">updateAroundRedstone</a></span>(<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>...&nbsp;ignoredFaces)</code>
+<div class="block">Send a redstone update to all blocks around this block.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><span class="typeNameLabel">RedstoneComponent.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/utils/RedstoneComponent.html#updateAroundRedstone-cn.nukkit.level.Position-cn.nukkit.math.BlockFace...-">updateAroundRedstone</a></span>(<a href="../../../../cn/nukkit/level/Position.html" title="class in cn.nukkit.level">Position</a>&nbsp;pos,
+                    <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>...&nbsp;ignoredFaces)</code>
+<div class="block">Send a redstone update to all blocks around the given position.</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
+<caption><span>Method parameters in <a href="../../../../cn/nukkit/utils/package-summary.html">cn.nukkit.utils</a> with type arguments of type <a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><span class="typeNameLabel">RedstoneComponent.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/utils/RedstoneComponent.html#updateAllAroundRedstone-java.util.List-">updateAllAroundRedstone</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&gt;&nbsp;ignoredFaces)</code>
+<div class="block">Send a redstone update to all blocks around this block and also around the blocks of those updated blocks.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><span class="typeNameLabel">RedstoneComponent.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/utils/RedstoneComponent.html#updateAllAroundRedstone-cn.nukkit.level.Position-java.util.List-">updateAllAroundRedstone</a></span>(<a href="../../../../cn/nukkit/level/Position.html" title="class in cn.nukkit.level">Position</a>&nbsp;pos,
+                       <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&gt;&nbsp;ignoredFaces)</code>
+<div class="block">Send a redstone update to all blocks around the given position and also around the blocks of those updated blocks.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><span class="typeNameLabel">RedstoneComponent.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/utils/RedstoneComponent.html#updateAroundRedstone-java.util.List-">updateAroundRedstone</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&gt;&nbsp;ignoredFaces)</code>
+<div class="block">Send a redstone update to all blocks around this block.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><span class="typeNameLabel">RedstoneComponent.</span><code><span class="memberNameLink"><a href="../../../../cn/nukkit/utils/RedstoneComponent.html#updateAroundRedstone-cn.nukkit.level.Position-java.util.List-">updateAroundRedstone</a></span>(<a href="../../../../cn/nukkit/level/Position.html" title="class in cn.nukkit.level">Position</a>&nbsp;pos,
+                    <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../cn/nukkit/math/BlockFace.html" title="enum in cn.nukkit.math">BlockFace</a>&gt;&nbsp;ignoredFaces)</code>
+<div class="block">Send a redstone update to all blocks around the given position.</div>
+</td>
 </tr>
 </tbody>
 </table>

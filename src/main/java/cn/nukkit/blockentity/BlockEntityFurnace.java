@@ -31,6 +31,7 @@ public class BlockEntityFurnace extends BlockEntitySpawnable implements Inventor
     protected int burnDuration;
     protected int cookTime;
     protected int maxTime;
+    protected int speedMultiplier;
 
     public BlockEntityFurnace(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
@@ -252,7 +253,11 @@ public class BlockEntityFurnace extends BlockEntitySpawnable implements Inventor
     }
 
     protected int getSpeedMultiplier() {
-        return 1;
+        return speedMultiplier;
+    }
+
+    public void setSpeedMultiplier(int speedMultiplier) {
+        this.speedMultiplier = speedMultiplier;
     }
 
     @Override

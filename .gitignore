@@ -9,8 +9,6 @@ tmp/
 *.tmp
 *.bak
 *.swp
-*.idea
-*.xml
 *~.nib
 local.properties
 .settings/

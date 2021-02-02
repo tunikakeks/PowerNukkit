@@ -57,7 +57,7 @@ public class ItemCrossbow extends ItemTool {
     }
     
     public int getChargeTick() {
-        int quickChargeLevel = this.getEnchantmentLevel(Enchantment.ID_TRIDENT_QUICK_CHARGE);
+        int quickChargeLevel = this.getEnchantmentLevel(Enchantment.ID_CROSSBOW_QUICK_CHARGE);
         return 25 - (quickChargeLevel == 0 ? 0 : quickChargeLevel * 5);
     }
     

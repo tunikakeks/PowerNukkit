@@ -72,6 +72,9 @@ public abstract class Enchantment implements Cloneable {
     public static final int ID_TRIDENT_RIPTIDE = 30;
     public static final int ID_TRIDENT_LOYALTY = 31;
     public static final int ID_TRIDENT_CHANNELING = 32;
+    @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int ID_CROSSBOW_MULTISHOT = 33;
+    @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int ID_CROSSBOW_PIERCING = 34;
+    @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int ID_CROSSBOW_QUICK_CHARGE = 35;
     public static final int ID_SOUL_SPEED = 36;
 
     public static void init() {
@@ -110,6 +113,9 @@ public abstract class Enchantment implements Cloneable {
         enchantments[ID_TRIDENT_RIPTIDE]  = new EnchantmentTridentRiptide();
         enchantments[ID_TRIDENT_LOYALTY]  = new EnchantmentTridentLoyalty();
         enchantments[ID_TRIDENT_CHANNELING]  = new EnchantmentTridentChanneling();
+        enchantments[ID_CROSSBOW_MULTISHOT]  = new EnchantmentCrossbowMultishot();
+        enchantments[ID_CROSSBOW_PIERCING]  = new EnchantmentCrossbowPiercing();
+        enchantments[ID_CROSSBOW_QUICK_CHARGE]  = new EnchantmentCrossbowQuickCharge();
         enchantments[ID_SOUL_SPEED]  = new EnchantmentSoulSpeed();
     }
 

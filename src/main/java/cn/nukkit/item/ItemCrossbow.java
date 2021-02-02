@@ -39,12 +39,16 @@ public class ItemCrossbow extends ItemTool {
     
     @Override
     public boolean onUse(Player player, int ticksUsed) {
+        if (ticksUsed < getChargeTick()) {
+            return true;
+        }
+        
         return true;
     }
     
     @Override
     public boolean onClickAir(Player player, Vector3 directionVector) {
-        return true;
+        return !shoot();
     }
     
     @Override
@@ -55,5 +59,21 @@ public class ItemCrossbow extends ItemTool {
     public int getChargeTick() {
         int quickChargeLevel = this.getEnchantmentLevel(Enchantment.ID_TRIDENT_QUICK_CHARGE);
         return 25 - (quickChargeLevel == 0 ? 0 : quickChargeLevel * 5);
+    }
+    
+    public boolean isLoaded() {
+        return true;
+    }
+    
+    public boolean shoot() {
+        if (!isLoaded()) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public boolean launchProjectile() {
+        return true;
     }
 }

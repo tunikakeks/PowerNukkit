@@ -20,12 +20,12 @@ public class EntityShootCrossbowEvent extends EntityEvent implements Cancellable
     
     private final Item crossbow;
     
-    private EntityProjectile projectile;
+    private EntityProjectile[] projectiles;
     
-    public EntityShootCrossbowEvent(EntityLiving shooter, Item crossbow, EntityProjectile projectile) {
+    public EntityShootCrossbowEvent(EntityLiving shooter, Item crossbow, EntityProjectile[] projectiles) {
         this.entity = shooter;
         this.crossbow = crossbow;
-        this.projectile = projectile;
+        this.projectiles = projectiles;
     }
     
     @Override
@@ -37,17 +37,33 @@ public class EntityShootCrossbowEvent extends EntityEvent implements Cancellable
         return this.crossbow;
     }
     
-    public EntityProjectile getProjectile() {
-        return this.projectile;
+    public EntityProjectile getProjectile(int array) {
+        return this.projectiles[array];
     }
     
-    public void setProjectile(Entity projectile) {
-        if (projectile != this.projectile) {
-            if (this.projectile.getViewers().size() == 0) {
-                this.projectile.kill();
-                this.projectile.close();
+    public EntityProjectile[] getProjectiles() {
+        return this.projectiles;
+    }
+    
+    public void setProjectile(EntityProjectile projectile, int array) {
+        if (projectile != this.projectile[array]) {
+            if (this.projectile[array].getViewers().size() == 0) {
+                this.projectile[array].kill();
+                this.projectile[array].close();
             }
-            this.projectile = (EntityProjectile) projectile;
+            this.projectile[array] = projectile;
+        }
+    }
+    
+    public void setProjectiles(EntityProjectile[] projectiles) {
+        for (int i = 0; i < this.projectiles.length; i++) {
+            if (projectiles[i] != this.projectiles[i]) {
+                if (this.projectiles[i].getViewers().size() == 0) {
+                    this.projectiles[i].kill();
+                    this.projectiles[i].close();
+                }
+                this.projectiles[i] = projectiles[i];
+            }
         }
     }
 }

@@ -34,7 +34,7 @@ public class EntityShootCrossbowEvent extends EntityEvent implements Cancellable
     }
     
     public Item getCrossbow() {
-        return this.bow;
+        return this.crossbow;
     }
     
     public EntityProjectile getProjectile() {

@@ -38,12 +38,21 @@ public class ItemCrossbow extends ItemTool {
     }
     
     @Override
+    public boolean onUse(Player player, int ticksUsed) {
+        return true
+    }
+    
+    @Override
     public boolean onClickAir(Player player, Vector3 directionVector) {
-        return player.isCreative();
+        return true;
     }
     
     @Override
     public boolean onRelease(Player player, int ticksUsed) {
         return true;
+    }
+    
+    public int getChargeTick() {
+        return 25;
     }
 }

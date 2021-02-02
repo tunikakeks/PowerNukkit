@@ -8,7 +8,7 @@ import cn.nukkit.item.enchantment.Enchantment;
 public class EnchantmentCrossbowMultishot extends EnchantmentCrossbow {
 
     public EnchantmentCrossbowMultishot() {
-        super(Enchantment.ID_CROSSBOW_MULTISHOT, "multishot", 1);
+        super(Enchantment.ID_CROSSBOW_MULTISHOT, "multishot", 2);
     }
     
     @Override

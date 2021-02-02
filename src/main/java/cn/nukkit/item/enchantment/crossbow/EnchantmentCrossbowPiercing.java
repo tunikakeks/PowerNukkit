@@ -8,7 +8,7 @@ import cn.nukkit.item.enchantment.Enchantment;
 public class EnchantmentCrossbowPiercing extends EnchantmentCrossbow {
 
     public EnchantmentCrossbowPiercing() {
-        super(Enchantment.ID_CROSSBOW_PIERCING, "piercing", 4);
+        super(Enchantment.ID_CROSSBOW_PIERCING, "piercing", 10);
     }
     
     @Override

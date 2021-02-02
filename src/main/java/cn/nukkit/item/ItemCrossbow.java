@@ -39,7 +39,7 @@ public class ItemCrossbow extends ItemTool {
     
     @Override
     public boolean onUse(Player player, int ticksUsed) {
-        return true
+        return true;
     }
     
     @Override

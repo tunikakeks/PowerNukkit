@@ -1,6 +1,5 @@
 package cn.nukkit.event.entity;
 
-import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.EntityLiving;
 import cn.nukkit.entity.projectile.EntityProjectile;
 import cn.nukkit.event.Cancellable;
@@ -46,7 +45,7 @@ public class EntityShootCrossbowEvent extends EntityEvent implements Cancellable
     }
     
     public void setProjectile(EntityProjectile projectile, int array) {
-        if (projectile != this.projectilex[array]) {
+        if (projectile != this.projectiles[array]) {
             if (this.projectiles[array].getViewers().size() == 0) {
                 this.projectiles[array].kill();
                 this.projectiles[array].close();

@@ -196,10 +196,21 @@ public class ItemCrossbow extends ItemTool {
             return false;
         }
         
+        for (int i = 0; i < entityShootCrossbowEvent.getProjectilesCount(); i++) {
+            launchProjectile(entityShootCrossbowEvent.getProjectile(i));
+        }
         return true;
     }
     
     public boolean launchProjectile(@Nonnull EntityProjectile projectile) {
+        ProjectileLaunchEvent projectileLaunchEvent = new ProjectileLaunchEvent(projectile);
+        Server.getInstance().getPluginManager().callEvent(projectileLaunchEvent);
+        if (projectileLaunchEvent.isCancelled()) {
+            projectile.kill();
+            return false;
+        }
+        
+        projectile.spawnToAll();
         return true;
     }
 }

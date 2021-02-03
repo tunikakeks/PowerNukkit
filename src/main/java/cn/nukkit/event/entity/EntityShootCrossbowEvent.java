@@ -44,6 +44,10 @@ public class EntityShootCrossbowEvent extends EntityEvent implements Cancellable
         return this.projectiles;
     }
     
+    public int getProjectilesCount() {
+        return this.projectiles.length;
+    }
+    
     public void setProjectile(EntityProjectile projectile, int array) {
         if (projectile != this.projectiles[array]) {
             if (this.projectiles[array].getViewers().size() == 0) {
@@ -63,6 +67,12 @@ public class EntityShootCrossbowEvent extends EntityEvent implements Cancellable
                 }
                 this.projectiles[i] = projectiles[i];
             }
+        }
+    }
+    
+    public void killProjectiles() {
+        for (int i = 0; i < this.projectiles.length; i++) {
+            this.projectiles[i].kill();
         }
     }
 }

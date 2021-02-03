@@ -49,7 +49,7 @@ public class ItemCrossbow extends ItemTool {
             return true;
         }
         
-        Item shootableItem = findShootableItem();
+        Item shootableItem = findShootableItem(player);
         if (!player.isCreative()) {
             if (shootableItem == null) {
                 player.getOffhandInventory().sendContents(player);
@@ -113,7 +113,7 @@ public class ItemCrossbow extends ItemTool {
     }
     
     public void loadProjectile(@Nonnull Player player, @Nonnull Item projectile) {
-        String namedspaceId = RuntimeItems.getRuntimeMapping().getNamespacedIdByNetworkId(projectile.getNetworkId());
+        String namedspaceId = projectile.getNamespaceId();
         if (namedspaceId == null) {
             return;
         }

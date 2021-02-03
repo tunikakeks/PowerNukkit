@@ -101,6 +101,14 @@ public class ItemCrossbow extends ItemTool {
     }
     
     public boolean isLoaded() {
+        if (!this.hasCompoundTag()) {
+            return false;
+        }
+        
+        if (!this.getNamedTag().contains("chargedItem")) {
+            return false;
+        }
+        
         return true;
     }
     

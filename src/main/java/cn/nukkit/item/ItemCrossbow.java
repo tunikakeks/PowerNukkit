@@ -117,6 +117,14 @@ public class ItemCrossbow extends ItemTool {
         player.getInventory().setItemInHand(this);
     }
     
+    public Item getProjectile() {
+        if (!isLoaded()) {
+            return null;
+        }
+        
+        
+    }
+    
     public void loadProjectile(@Nonnull Player player, @Nonnull Item projectile) {
         String namedspaceId = projectile.getNamespaceId();
         if (namedspaceId == null) {
@@ -137,6 +145,14 @@ public class ItemCrossbow extends ItemTool {
             return false;
         }
         
+        Item projectileItem = getProjectile();
+        if (projectileItem == null) {
+            return false;
+        } else if (projectileItem.getId() == ItemID.FIREWORKS) {
+            
+        } else {
+            
+        }
         
         return true;
     }

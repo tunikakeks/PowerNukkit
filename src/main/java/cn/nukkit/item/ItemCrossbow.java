@@ -113,28 +113,17 @@ public class ItemCrossbow extends ItemTool {
     }
     
     public void loadProjectile(@Nonnull Player player, @Nonnull Item projectile) {
-        
-    }
-    
-    public void loadProjectiles(@Nonnull Player player, @Nonnull Item[] projectiles) {
-        RuntimeItemMapping mapping = RuntimeItems.getRuntimeMapping();
-        
-        CompoundTag tag = new CompoundTag("");
-        String namedspaceId;
-        for (int i = 0; i < projectiles.length; i++) {
-            namedspaceId = mapping.getNamespacedIdByNetworkId(projectiles[i].getNetworkId());
-            if (namedspaceId == null) {
-                return;
-            }
-            
-            tag
-                .putCompound("chargedItem", new CompoundTag("chargedItem")
-                    .putString("Name", namedspaceId))
-                    .putShort("Damage", projectiles[i].getDamage())
-                    .putByte("Count", projectiles[i].getCount()));
+        String namedspaceId = RuntimeItems.getRuntimeMapping().getNamespacedIdByNetworkId(projectiles[i].getNetworkId());
+        if (namedspaceId == null) {
+            return;
         }
         
-        this.setCompoundTag(tag);
+        this.setCompoundTag(new CompoundTag("")
+            .putCompound("chargedItem", new CompoundTag("chargedItem")
+                .putString("Name", namedspaceId))
+                .putShort("Damage", projectile.getDamage())
+                .putByte("Count", projectile.getCount())));
+        
         player.getInventory().setItemInHand(this);
     }
     

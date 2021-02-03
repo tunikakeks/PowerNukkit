@@ -43,6 +43,29 @@ public class ItemCrossbow extends ItemTool {
             return true;
         }
         
+        if (isLoaded()) {
+            return true;
+        }
+        
+        Item shootableItem = findShootableItem();
+        if (!player.isCreative()) {
+            if (shootableItem == null) {
+                player.getOffhandInventory().sendContents(player);
+                player.getInventory().sendContents(player);
+                return true;
+            }
+            
+            shootableItem.count--;
+            player.getOffhandInventory().sendContents(player);
+            player.getInventory().sendContents(player);
+        } else {
+            if (shootableItem == null) {
+                shootableItem = Item.get(ItemID.ARROW, 0, 1);
+            }
+        }
+        
+        loadProjectile(shootableItem);
+        player.getLevel().addSound(player, Sound.CROSSBOW_LOADING_END);
         return true;
     }
     
@@ -61,8 +84,26 @@ public class ItemCrossbow extends ItemTool {
         return 25 - (quickChargeLevel == 0 ? 0 : quickChargeLevel * 5);
     }
     
+    public Item findShootableItem(Player player) {
+        int firstSlot = player.getOffhandInventory().first(Item.get(ItemID.ARROW, 0, 1), false);
+        if (firstSlot != -1) {
+            return player.getOffhandInventory().getItem(firstSlot);
+        }
+        
+        firstSlot = player.getInventory().first(Item.get(ItemID.ARROW, 0, 1), false);
+        if (firstSlot != -1) {
+            return player.getInventory().getItem(firstSlot);
+        }
+        
+        return null;
+    }
+    
     public boolean isLoaded() {
         return true;
+    }
+    
+    public void loadProjectile(Item projectile) {
+        
     }
     
     public boolean shoot() {

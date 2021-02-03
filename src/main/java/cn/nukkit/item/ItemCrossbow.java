@@ -113,7 +113,7 @@ public class ItemCrossbow extends ItemTool {
     }
     
     public void loadProjectile(@Nonnull Player player, @Nonnull Item projectile) {
-        String namedspaceId = RuntimeItems.getRuntimeMapping().getNamespacedIdByNetworkId(projectiles[i].getNetworkId());
+        String namedspaceId = RuntimeItems.getRuntimeMapping().getNamespacedIdByNetworkId(projectile.getNetworkId());
         if (namedspaceId == null) {
             return;
         }

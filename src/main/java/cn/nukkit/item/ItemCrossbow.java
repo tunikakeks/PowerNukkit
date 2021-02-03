@@ -15,6 +15,8 @@ import cn.nukkit.nbt.tag.DoubleTag;
 import cn.nukkit.nbt.tag.FloatTag;
 import cn.nukkit.nbt.tag.ListTag;
 
+import javax.annotation.Nonnull;
+
 /**
  * @author GoodLucky777
  */
@@ -84,7 +86,7 @@ public class ItemCrossbow extends ItemTool {
         return 25 - (quickChargeLevel == 0 ? 0 : quickChargeLevel * 5);
     }
     
-    public Item findShootableItem(Player player) {
+    public Item findShootableItem(@Nonull Player player) {
         int firstSlot = player.getOffhandInventory().first(Item.get(ItemID.ARROW, 0, 1), false);
         if (firstSlot != -1) {
             return player.getOffhandInventory().getItem(firstSlot);
@@ -102,7 +104,7 @@ public class ItemCrossbow extends ItemTool {
         return true;
     }
     
-    public void loadProjectile(Item projectile) {
+    public void loadProjectile(@Nonnull Item projectile) {
         
     }
     
@@ -114,7 +116,7 @@ public class ItemCrossbow extends ItemTool {
         return true;
     }
     
-    public boolean launchProjectile() {
+    public boolean launchProjectile(@Nonnull EntityProjectile projectile) {
         return true;
     }
 }

@@ -157,6 +157,31 @@ public class ItemCrossbow extends ItemTool {
                 
                 projectiles[i] = (EntityProjectile) Entity.createEntity("Firework", player.chunk, nbt, player);
             } else {
+                float yaw = 0;
+                if (i == 0) {
+                    yaw = 0;
+                } else if (i == 1) {
+                    yaw = -10f;
+                } else if (i == 2) {
+                    yaw = 10f;
+                }
+                
+                CompoundTag nbt = new CompoundTag()
+                    .putList(new ListTag<DoubleTag>("Pos")
+                        .add(new DoubleTag("", player.x))
+                        .add(new DoubleTag("", player.y + player.getEyeHeight()))
+                        .add(new DoubleTag("", player.z)))
+                    .putList(new ListTag<DoubleTag>("Motion")
+                        .add(new DoubleTag("", -Math.sin(player.yaw / 180 * Math.PI) * Math.cos(player.pitch / 180 * Math.PI)))
+                        .add(new DoubleTag("", -Math.sin(player.pitch / 180 * Math.PI)))
+                        .add(new DoubleTag("", Math.cos(player.yaw / 180 * Math.PI) * Math.cos(player.pitch / 180 * Math.PI))))
+                    .putList(new ListTag<FloatTag>("Rotation")
+                        .add(new FloatTag("", (player.yaw > 180 ? 360 : 0) - (float) player.yaw) + yaw)
+                        .add(new FloatTag("", (float) -player.pitch)));
+                
+                if (player.isCreative() || yaw != 0) {
+                    nbt.putByte("pickup", EntityArrow.PICKUP_CREATIVE);
+                }
                 
                 projectiles[t] = (EntityProjectile) Entity.createEntity("Arrow", player.chunk, nbt, player);
             }

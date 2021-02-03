@@ -112,6 +112,11 @@ public class ItemCrossbow extends ItemTool {
         return true;
     }
     
+    public void clearProjectile(@Nonnull Player player) {
+        
+        player.getInventory().setItemInHand(this);
+    }
+    
     public void loadProjectile(@Nonnull Player player, @Nonnull Item projectile) {
         String namedspaceId = projectile.getNamespaceId();
         if (namedspaceId == null) {
@@ -131,6 +136,7 @@ public class ItemCrossbow extends ItemTool {
         if (!isLoaded()) {
             return false;
         }
+        
         
         return true;
     }

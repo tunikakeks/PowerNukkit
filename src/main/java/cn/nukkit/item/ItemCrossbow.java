@@ -66,7 +66,7 @@ public class ItemCrossbow extends ItemTool {
             }
         }
         
-        loadProjectile(shootableItem);
+        loadProjectile(player, shootableItem);
         player.getLevel().addSound(player, Sound.CROSSBOW_LOADING_END);
         return true;
     }
@@ -105,11 +105,11 @@ public class ItemCrossbow extends ItemTool {
     }
     
     public void loadProjectile(@Nonnull Player player, @Nonnull Item projectile) {
-        this.setCompoundTag(new CompoundTag("tag")
+        this.setCompoundTag(new CompoundTag("")
             .putCompound("chargedItem", new CompoundTag("chargedItem")
-                .putByte("Count", projectile.getCount())
+                .putString("Name", ""))
                 .putShort("Damage", projectile.getDamage())
-                .putString("Name", "")));
+                putByte("Count", projectile.getCount()));
         
         player.getInventory().setItemInHand(this);
     }

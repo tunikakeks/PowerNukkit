@@ -86,7 +86,7 @@ public class ItemCrossbow extends ItemTool {
         return 25 - (quickChargeLevel == 0 ? 0 : quickChargeLevel * 5);
     }
     
-    public Item findShootableItem(@Nonull Player player) {
+    public Item findShootableItem(@Nonnull Player player) {
         int firstSlot = player.getOffhandInventory().first(Item.get(ItemID.ARROW, 0, 1), false);
         if (firstSlot != -1) {
             return player.getOffhandInventory().getItem(firstSlot);

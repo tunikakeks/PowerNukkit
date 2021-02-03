@@ -177,7 +177,7 @@ public class ItemCrossbow extends ItemTool {
                         .add(new DoubleTag("", -Math.sin(player.pitch / 180 * Math.PI)))
                         .add(new DoubleTag("", Math.cos(player.yaw / 180 * Math.PI) * Math.cos(player.pitch / 180 * Math.PI))))
                     .putList(new ListTag<FloatTag>("Rotation")
-                        .add(new FloatTag("", (float) (player.yaw > 180 ? 360 : 0) - (float) player.yaw) + yaw)
+                        .add(new FloatTag("", (player.yaw > 180 ? 360 : 0) - (float) player.yaw + yaw))
                         .add(new FloatTag("", (float) -player.pitch)));
                 
                 if (player.isCreative() || yaw != 0) {

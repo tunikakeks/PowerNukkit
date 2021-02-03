@@ -191,6 +191,7 @@ public class ItemCrossbow extends ItemTool {
         EntityShootCrossbowEvent entityShootCrossbowEvent = new EntityShootCrossbowEvent(player, this, projectiles);
         Server.getInstance().getPluginManager().callEvent(entityShootCrossbowEvent);
         if (entityShootCrossbowEvent.isCancelled()) {
+            entityShootCrossbowEvent.killProjectiles();
             player.getInventory().sendContents(player);
             player.getOffhandInventory().sendContents(player);
             return false;
@@ -206,7 +207,7 @@ public class ItemCrossbow extends ItemTool {
         ProjectileLaunchEvent projectileLaunchEvent = new ProjectileLaunchEvent(projectile);
         Server.getInstance().getPluginManager().callEvent(projectileLaunchEvent);
         if (projectileLaunchEvent.isCancelled()) {
-            projectile.kill();
+            projectileLaunchEvent.getProjectile().kill();
             return false;
         }
         

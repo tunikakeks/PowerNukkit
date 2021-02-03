@@ -74,7 +74,7 @@ public class ItemCrossbow extends ItemTool {
     
     @Override
     public boolean onClickAir(Player player, Vector3 directionVector) {
-        return !shoot();
+        return !shoot(player);
     }
     
     @Override
@@ -141,7 +141,7 @@ public class ItemCrossbow extends ItemTool {
         player.getInventory().setItemInHand(this);
     }
     
-    public boolean shoot() {
+    public boolean shoot(@Nonnull Player player) {
         if (!isLoaded()) {
             return false;
         }

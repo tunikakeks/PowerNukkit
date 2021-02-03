@@ -104,8 +104,14 @@ public class ItemCrossbow extends ItemTool {
         return true;
     }
     
-    public void loadProjectile(@Nonnull Item projectile) {
+    public void loadProjectile(@Nonnull Player player, @Nonnull Item projectile) {
+        this.setCompoundTag(new CompoundTag("tag")
+            .putCompound("chargedItem", new CompoundTag("chargedItem")
+                .putByte("Count", projectile.getCount())
+                .putShort("Damage", projectile.getDamage())
+                .putString("Name", "")));
         
+        player.getInventory().setItemInHand(this);
     }
     
     public boolean shoot() {

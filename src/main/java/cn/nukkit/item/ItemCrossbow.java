@@ -2,6 +2,7 @@ package cn.nukkit.item;
 
 import cn.nukkit.Player;
 import cn.nukkit.entity.Entity;
+import cn.nukkit.entity.item.EntityFirework;
 import cn.nukkit.entity.projectile.EntityArrow;
 import cn.nukkit.entity.projectile.EntityProjectile;
 import cn.nukkit.event.entity.EntityShootCrossbowEvent;
@@ -148,10 +149,25 @@ public class ItemCrossbow extends ItemTool {
         Item projectileItem = getProjectile();
         if (projectileItem == null) {
             return false;
-        } else if (projectileItem.getId() == ItemID.FIREWORKS) {
-            
-        } else {
-            
+        }
+        
+        EntityProjectile[] projectiles;
+        for (int i = 0; i < projectileItem.getCount(); i++) {
+            if (projectileItem.getId() == ItemID.FIREWORKS) {
+                
+                projectiles[i] = (EntityProjectile) Entity.createEntity("Firework", player.chunk, nbt, player);
+            } else {
+                
+                projectiles[t] = (EntityProjectile) Entity.createEntity("Arrow", player.chunk, nbt, player);
+            }
+        }
+        
+        EntityShootCrossbowEvent entityShootCrossbowEvent = new EntityShootCrossbowEvent(player, this, projectiles);
+        Server.getInstance().getPluginManager().callEvent(entityShootCrossbowEvent);
+        if (entityShootCrossbowEvent.isCancelled()) {
+            player.getInventory().sendContents(player);
+            player.getOffhandInventory().sendContents(player);
+            return false;
         }
         
         return true;

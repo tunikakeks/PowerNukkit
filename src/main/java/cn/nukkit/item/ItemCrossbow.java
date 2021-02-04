@@ -48,7 +48,7 @@ public class ItemCrossbow extends ItemTool {
     @Override
     public boolean onUse(Player player, int ticksUsed) {
         if (ticksUsed >= getChargeTick()) {
-            return false;
+            return true;
         }
         
         float duration = (float) getChargeTick() + 3 / (float) getChargeTick();

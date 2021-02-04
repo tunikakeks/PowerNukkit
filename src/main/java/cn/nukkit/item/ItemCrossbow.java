@@ -55,7 +55,7 @@ public class ItemCrossbow extends ItemTool {
             pk.eid = this.getId();
             Server.broadcastPacket(getViewers().values(), pk);
             
-            
+            player.setUsingItem(false);
             return true;
         }
         

@@ -143,12 +143,17 @@ public class ItemCrossbow extends ItemTool {
             return;
         }
         
-        this.setCompoundTag(new CompoundTag("")
+        CompoundTag tag = new CompoundTag("")
             .putCompound("chargedItem", new CompoundTag("chargedItem")
                 .putString("Name", namedspaceId)
                 .putShort("Damage", projectile.getDamage())
                 .putByte("Count", projectile.getCount())));
         
+        if (projectile.hasCompound()) {
+            tag.getCompound("chargedItem").putCompound("tag", projectile.getCompound());
+        }
+        
+        this.setCompoundTag(tag);
         player.getInventory().setItemInHand(this);
     }
     

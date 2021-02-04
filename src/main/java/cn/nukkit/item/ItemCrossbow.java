@@ -24,6 +24,9 @@ import javax.annotation.Nonnull;
  */
 public class ItemCrossbow extends ItemTool {
 
+    private boolean hasStartLoaded = false;
+    private boolean hasMiddleLoaded = false;
+    
     public ItemCrossbow() {
         this(0, 1);
     }
@@ -48,9 +51,9 @@ public class ItemCrossbow extends ItemTool {
         }
         
         boolean quickCharge = this.hasEnchantment(Enchantment.ID_CROSSBOW_QUICK_CHARGE);
-        if () {
+        if (!hasStartLoaded) {
             player.getLevel().addSound(player, quickCharge ? Sound.CROSSBOW_QUICK_CHARGE_START : Sound.CROSSBOW_LOADING_START);
-        } else if () {
+        } else if (!hasMiddleLoaded) {
             player.getLevel().addSound(player, quickCharge ? Sound.CROSSBOW_QUICK_CHARGE_MIDDLE : Sound.CROSSBOW_LOADING_MIDDLE);
         }
         

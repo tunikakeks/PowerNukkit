@@ -130,7 +130,7 @@ public class ItemCrossbow extends ItemTool {
         return true;
     }
     
-    public void clearProjectile(@Nonnull Player player) {
+    public void clearProjectiles(@Nonnull Player player) {
         if (this.getNamedTag().contains("chargedItem")) {
             this.getNamedTag().remove("chargedItem");
             player.getInventory().setItemInHand(this);
@@ -257,6 +257,9 @@ public class ItemCrossbow extends ItemTool {
             return false;
         }
         
+        clearProjectiles(player);
+        this.hasStartLoaded = false;
+        this.hasMiddleLoaded = false;
         for (int i = 0; i < entityShootCrossbowEvent.getProjectilesCount(); i++) {
             launchProjectile(entityShootCrossbowEvent.getProjectile(i));
         }

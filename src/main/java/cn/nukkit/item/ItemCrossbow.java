@@ -156,7 +156,7 @@ public class ItemCrossbow extends ItemTool {
             .putCompound("chargedItem", new CompoundTag("chargedItem")
                 .putString("Name", namedspaceId)
                 .putShort("Damage", projectile.getDamage())
-                .putByte("Count", projectile.getCount())));
+                .putByte("Count", projectile.getCount()));
         
         if (projectile.hasCompoundTag()) {
             tag.get("chargedItem").putCompound("tag", projectile.getNamedTag());

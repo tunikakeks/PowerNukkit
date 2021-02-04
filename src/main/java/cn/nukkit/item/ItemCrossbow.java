@@ -51,10 +51,16 @@ public class ItemCrossbow extends ItemTool {
             return false;
         }
         
+        float duration = (float) getChargeTick() + 3 / (float) getChargeTick();
         boolean quickCharge = this.hasEnchantment(Enchantment.ID_CROSSBOW_QUICK_CHARGE);
-        if (!hasStartLoaded) {
+        if (duration < 0.2) {
+            this.hasStartLoaded = false;
+            this.hasMiddleLoaded = false;
+        } else if (duration >= 0.2 && !hasStartLoaded) {
+            this.hasStartLoaded = true;
             player.getLevel().addSound(player, quickCharge ? Sound.CROSSBOW_QUICK_CHARGE_START : Sound.CROSSBOW_LOADING_START);
-        } else if (!hasMiddleLoaded) {
+        } else if (duration >= 0.5 && !hasMiddleLoaded) {
+            this.hasMiddleLoaded = true;
             player.getLevel().addSound(player, quickCharge ? Sound.CROSSBOW_QUICK_CHARGE_MIDDLE : Sound.CROSSBOW_LOADING_MIDDLE);
         }
         

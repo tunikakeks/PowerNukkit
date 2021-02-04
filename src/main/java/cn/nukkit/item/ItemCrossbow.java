@@ -135,7 +135,12 @@ public class ItemCrossbow extends ItemTool {
             return null;
         }
         
-        Item projectile = Item.get(, );
+        Item projectile = RuntimeItems.getRuntimeMapping().getItemByNamespaceId();
+        projectile.setDamage();
+        if () {
+            projectile.setCompound();
+        }
+        return projectile;
     }
     
     public void loadProjectile(@Nonnull Player player, @Nonnull Item projectile) {

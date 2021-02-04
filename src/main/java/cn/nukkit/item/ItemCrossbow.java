@@ -210,6 +210,7 @@ public class ItemCrossbow extends ItemTool {
         for (int i = 0; i < entityShootCrossbowEvent.getProjectilesCount(); i++) {
             launchProjectile(entityShootCrossbowEvent.getProjectile(i));
         }
+        player.getLevel().addSound(player, Sound.CROSSBOW_SHOOT);
         return true;
     }
     

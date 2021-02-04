@@ -69,7 +69,7 @@ public class ItemCrossbow extends ItemTool {
         }
         
         loadProjectile(player, shootableItem);
-        player.getLevel().addSound(player, Sound.CROSSBOW_LOADING_END);
+        player.getLevel().addSound(player, this.hasEnchantment(Enchantment.ID_CROSSBOW_QUICK_CHARGE) ? Sound.CROSSBOW_QUICK_CHARGE_END : Sound.CROSSBOW_LOADING_END);
         return true;
     }
     
@@ -80,6 +80,16 @@ public class ItemCrossbow extends ItemTool {
     
     @Override
     public boolean onRelease(Player player, int ticksUsed) {
+        if (ticksUsed >= getChargeTick()) {
+            return true;
+        }
+        
+        boolean quickCharge = this.hasEnchantment(Enchantment.ID_CROSSBOW_QUICK_CHARGE);
+        if () {
+            player.getLevel().addSound(player, quickCharge ? Sound.CROSSBOW_QUICK_CHARGE_START : Sound.CROSSBOW_LOADING_START);
+        } else if (i == 0) {
+            player.getLevel().addSound(player, quickCharge ? Sound.CROSSBOW_QUICK_CHARGE_MIDDLE : Sound.CROSSBOW_LOADING_MIDDLE);
+        }
         return true;
     }
     

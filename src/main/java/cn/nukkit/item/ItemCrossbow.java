@@ -184,10 +184,11 @@ public class ItemCrossbow extends ItemTool {
                         .add(new FloatTag("", (player.yaw > 180 ? 360 : 0) - (float) player.yaw))
                         .add(new FloatTag("", (float) -player.pitch)));
                 
-                tempProjectile = (EntityProjectile) Entity.createEntity("Firework", player.chunk, nbt, player);
+                if (projectileItem.hasCompound()) {
+                    nbt.putCompound("FireworkItem", NBTIO.putItemHelper(this));
+                }
                 
-                
-                projectiles[i] = tempProjectile;
+                projectiles[i] = (EntityProjectile) Entity.createEntity("Firework", player.chunk, nbt, player);
             } else {
                 float yaw = 0;
                 if (i == 0) {

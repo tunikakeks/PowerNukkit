@@ -48,7 +48,7 @@ public class ItemCrossbow extends ItemTool {
     @Override
     public boolean onUse(Player player, int ticksUsed) {
         if (ticksUsed >= getChargeTick()) {
-            return true;
+            return false;
         }
         
         float duration = (float) getChargeTick() + 3 / (float) getChargeTick();
@@ -164,11 +164,11 @@ public class ItemCrossbow extends ItemTool {
             return;
         }
         
-        CompoundTag tag = this.getNamedTag()
-            .putCompound("chargedItem", new CompoundTag("chargedItem")
-                .putString("Name", namedspaceId)
-                .putShort("Damage", projectile.getDamage())
-                .putByte("Count", projectile.getCount()));
+        CompoundTag tag = this.hasCompoundTag() ? this.getNamedTag() : new CompoundTag();
+        tag.putCompound("chargedItem", new CompoundTag("chargedItem")
+            .putString("Name", namedspaceId)
+            .putShort("Damage", projectile.getDamage())
+            .putByte("Count", projectile.getCount()));
         
         if (projectile.hasCompoundTag()) {
             tag.getCompound("chargedItem").putCompound("tag", projectile.getNamedTag());

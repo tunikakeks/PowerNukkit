@@ -134,7 +134,7 @@ public class ItemCrossbow extends ItemTool {
             return null;
         }
         
-        
+        Item projectile = Item.get(, );
     }
     
     public void loadProjectile(@Nonnull Player player, @Nonnull Item projectile) {
@@ -188,7 +188,13 @@ public class ItemCrossbow extends ItemTool {
                     nbt.putCompound("FireworkItem", NBTIO.putItemHelper(this));
                 }
                 
-                projectiles[i] = (EntityProjectile) Entity.createEntity("Firework", player.chunk, nbt, player);
+                tempProjectile = (EntityProjectile) Entity.createEntity("Firework", player.chunk, nbt, player);
+                
+                if (tempProjectile == null) {
+                    continue;
+                }
+                
+                projectiles[i] = tempProjectile;
             } else {
                 float yaw = 0;
                 if (i == 0) {
@@ -213,6 +219,10 @@ public class ItemCrossbow extends ItemTool {
                         .add(new FloatTag("", (float) -player.pitch)));
                 
                 tempProjectile = (EntityProjectile) Entity.createEntity("Arrow", player.chunk, nbt, player);
+                
+                if (tempProjectile == null) {
+                    continue;
+                }
                 
                 ((EntityArrow) tempProjectile).setCritical(true);
                 if (player.isCreative() || yaw != 0) {

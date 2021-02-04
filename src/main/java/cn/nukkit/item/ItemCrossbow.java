@@ -90,6 +90,7 @@ public class ItemCrossbow extends ItemTool {
         } else if (i == 0) {
             player.getLevel().addSound(player, quickCharge ? Sound.CROSSBOW_QUICK_CHARGE_MIDDLE : Sound.CROSSBOW_LOADING_MIDDLE);
         }
+        
         return true;
     }
     
@@ -149,8 +150,8 @@ public class ItemCrossbow extends ItemTool {
                 .putShort("Damage", projectile.getDamage())
                 .putByte("Count", projectile.getCount())));
         
-        if (projectile.hasCompound()) {
-            tag.getCompound("chargedItem").putCompound("tag", projectile.getCompound());
+        if (projectile.hasCompoundTag()) {
+            tag.get("chargedItem").putCompound("tag", projectile.getNamedTag());
         }
         
         this.setCompoundTag(tag);

@@ -188,7 +188,7 @@ public class ItemCrossbow extends ItemTool {
             return false;
         }
         
-        EntityProjectile[] projectiles;
+        EntityProjectile[] projectiles = new EntityProjectile[];
         EntityProjectile tempProjectile;
         for (int i = 0; i < projectileItem.getCount(); i++) {
             if (projectileItem.getId() == ItemID.FIREWORKS) {

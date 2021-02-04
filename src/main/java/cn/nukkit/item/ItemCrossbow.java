@@ -163,6 +163,7 @@ public class ItemCrossbow extends ItemTool {
         }
         
         EntityProjectile[] projectiles;
+        EntityProjectile tempProjectile;
         for (int i = 0; i < projectileItem.getCount(); i++) {
             if (projectileItem.getId() == ItemID.FIREWORKS) {
                 CompoundTag nbt = new CompoundTag()
@@ -178,7 +179,10 @@ public class ItemCrossbow extends ItemTool {
                         .add(new FloatTag("", (player.yaw > 180 ? 360 : 0) - (float) player.yaw))
                         .add(new FloatTag("", (float) -player.pitch)));
                 
-                projectiles[i] = (EntityProjectile) Entity.createEntity("Firework", player.chunk, nbt, player);
+                tempProjectile = (EntityProjectile) Entity.createEntity("Firework", player.chunk, nbt, player);
+                
+                
+                projectiles[i] = tempProjectile;
             } else {
                 float yaw = 0;
                 if (i == 0) {
@@ -202,11 +206,14 @@ public class ItemCrossbow extends ItemTool {
                         .add(new FloatTag("", (player.yaw > 180 ? 360 : 0) - (float) player.yaw + yaw))
                         .add(new FloatTag("", (float) -player.pitch)));
                 
+                tempProjectile = (EntityProjectile) Entity.createEntity("Arrow", player.chunk, nbt, player);
+                
+                ((EntityArrow) tempProjectile).setCritical(true);
                 if (player.isCreative() || yaw != 0) {
-                    nbt.putByte("pickup", EntityArrow.PICKUP_CREATIVE);
+                    ((EntityArrow) tempProjectile).setPickupMode(EntityArrow.PICKUP_CREATIVE);
                 }
                 
-                projectiles[i] = (EntityProjectile) Entity.createEntity("Arrow", player.chunk, nbt, player);
+                projectiles[i] = tempProjectile;
             }
         }
         

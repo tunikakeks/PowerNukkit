@@ -87,7 +87,7 @@ public class ItemCrossbow extends ItemTool {
         boolean quickCharge = this.hasEnchantment(Enchantment.ID_CROSSBOW_QUICK_CHARGE);
         if () {
             player.getLevel().addSound(player, quickCharge ? Sound.CROSSBOW_QUICK_CHARGE_START : Sound.CROSSBOW_LOADING_START);
-        } else if (i == 0) {
+        } else if () {
             player.getLevel().addSound(player, quickCharge ? Sound.CROSSBOW_QUICK_CHARGE_MIDDLE : Sound.CROSSBOW_LOADING_MIDDLE);
         }
         

@@ -126,8 +126,10 @@ public class ItemCrossbow extends ItemTool {
     }
     
     public void clearProjectile(@Nonnull Player player) {
-        
-        player.getInventory().setItemInHand(this);
+        if (this.getNamedTag().contains("chargedItem")) {
+            this.getNamedTag().remove("chargedItem");
+            player.getInventory().setItemInHand(this);
+        }
     }
     
     public Item getProjectile() {
@@ -135,10 +137,11 @@ public class ItemCrossbow extends ItemTool {
             return null;
         }
         
-        Item projectile = RuntimeItems.getRuntimeMapping().getItemByNamespaceId();
-        projectile.setDamage();
-        if () {
-            projectile.setCompound();
+        CompoundTag tag = this.getNamedTag().get("chargedItem");
+        Item projectile = RuntimeItems.getRuntimeMapping().getItemByNamespaceId(tag.getString("Name"), tag.getByte("Count"));
+        projectile.setDamage(tag.getShort("Damage"));
+        if (tag.contains("tag")) {
+            projectile.setCompoundTag(tag.get("tag"));
         }
         return projectile;
     }

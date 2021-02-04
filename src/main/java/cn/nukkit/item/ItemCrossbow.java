@@ -199,7 +199,7 @@ public class ItemCrossbow extends ItemTool {
                         .add(new FloatTag("", (player.yaw > 180 ? 360 : 0) - (float) player.yaw))
                         .add(new FloatTag("", (float) -player.pitch)));
                 
-                if (projectileItem.hasCompound()) {
+                if (projectileItem.hasCompoundTag()) {
                     nbt.putCompound("FireworkItem", NBTIO.putItemHelper(this));
                 }
                 
@@ -261,6 +261,7 @@ public class ItemCrossbow extends ItemTool {
             launchProjectile(entityShootCrossbowEvent.getProjectile(i));
         }
         player.getLevel().addSound(player, Sound.CROSSBOW_SHOOT);
+        
         return true;
     }
     
@@ -268,7 +269,7 @@ public class ItemCrossbow extends ItemTool {
         ProjectileLaunchEvent projectileLaunchEvent = new ProjectileLaunchEvent(projectile);
         Server.getInstance().getPluginManager().callEvent(projectileLaunchEvent);
         if (projectileLaunchEvent.isCancelled()) {
-            projectileLaunchEvent.getProjectile().kill();
+            projectileLaunchEvent.getEntity().kill();
             return false;
         }
         

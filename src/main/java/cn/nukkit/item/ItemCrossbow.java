@@ -188,7 +188,7 @@ public class ItemCrossbow extends ItemTool {
             return false;
         }
         
-        EntityProjectile[] projectiles = new EntityProjectile[];
+        EntityProjectile[] projectiles = new EntityProjectile[projectileItem.getCount()];
         EntityProjectile tempProjectile;
         for (int i = 0; i < projectileItem.getCount(); i++) {
             if (projectileItem.getId() == ItemID.FIREWORKS) {
@@ -212,6 +212,7 @@ public class ItemCrossbow extends ItemTool {
                 tempProjectile = (EntityProjectile) Entity.createEntity("Firework", player.chunk, nbt, player);
                 
                 if (tempProjectile == null) {
+                    projectiles[i] = null;
                     continue;
                 }
                 
@@ -242,6 +243,7 @@ public class ItemCrossbow extends ItemTool {
                 tempProjectile = (EntityProjectile) Entity.createEntity("Arrow", player.chunk, nbt, player);
                 
                 if (tempProjectile == null) {
+                    projectiles[i] = null;
                     continue;
                 }
                 
@@ -267,7 +269,9 @@ public class ItemCrossbow extends ItemTool {
         this.hasStartLoaded = false;
         this.hasMiddleLoaded = false;
         for (int i = 0; i < entityShootCrossbowEvent.getProjectilesCount(); i++) {
-            launchProjectile(entityShootCrossbowEvent.getProjectile(i));
+            if (entityShootCrossbowEvent.getProjectile(i) != null) {
+                launchProjectile(entityShootCrossbowEvent.getProjectile(i));
+            }
         }
         player.getLevel().addSound(player, Sound.CROSSBOW_SHOOT);
         

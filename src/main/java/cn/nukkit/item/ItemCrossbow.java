@@ -164,7 +164,7 @@ public class ItemCrossbow extends ItemTool {
             return;
         }
         
-        CompoundTag tag = new CompoundTag("")
+        CompoundTag tag = this.getNamedTag()
             .putCompound("chargedItem", new CompoundTag("chargedItem")
                 .putString("Name", namedspaceId)
                 .putShort("Damage", projectile.getDamage())

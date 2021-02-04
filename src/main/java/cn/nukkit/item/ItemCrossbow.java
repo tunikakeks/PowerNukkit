@@ -165,6 +165,18 @@ public class ItemCrossbow extends ItemTool {
         EntityProjectile[] projectiles;
         for (int i = 0; i < projectileItem.getCount(); i++) {
             if (projectileItem.getId() == ItemID.FIREWORKS) {
+                CompoundTag nbt = new CompoundTag()
+                    .putList(new ListTag<DoubleTag>("Pos")
+                        .add(new DoubleTag("", player.x))
+                        .add(new DoubleTag("", player.getEyeHeight() - 0.15))
+                        .add(new DoubleTag("", player.z)))
+                    .putList(new ListTag<DoubleTag>("Motion")
+                        .add(new DoubleTag("", -Math.sin(player.yaw / 180 * Math.PI) * Math.cos(player.pitch / 180 * Math.PI)))
+                        .add(new DoubleTag("", -Math.sin(player.pitch / 180 * Math.PI)))
+                        .add(new DoubleTag("", Math.cos(player.yaw / 180 * Math.PI) * Math.cos(player.pitch / 180 * Math.PI))))
+                    .putList(new ListTag<FloatTag>("Rotation")
+                        .add(new FloatTag("", (player.yaw > 180 ? 360 : 0) - (float) player.yaw))
+                        .add(new FloatTag("", (float) -player.pitch)));
                 
                 projectiles[i] = (EntityProjectile) Entity.createEntity("Firework", player.chunk, nbt, player);
             } else {

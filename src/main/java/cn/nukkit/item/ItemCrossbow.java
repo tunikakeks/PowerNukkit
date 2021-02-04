@@ -142,7 +142,7 @@ public class ItemCrossbow extends ItemTool {
             return null;
         }
         
-        CompoundTag tag = this.getNamedTag().getCompoundTag("chargedItem");
+        CompoundTag tag = this.getNamedTag().getCompound("chargedItem");
         Item projectile = RuntimeItems.getRuntimeMapping().getItemByNamespaceId(tag.getString("Name"), tag.getByte("Count"));
         projectile.setDamage(tag.getShort("Damage"));
         if (tag.contains("tag")) {

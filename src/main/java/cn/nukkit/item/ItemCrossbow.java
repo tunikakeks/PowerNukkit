@@ -106,7 +106,7 @@ public class ItemCrossbow extends ItemTool {
         EntityEventPacket pk = new EntityEventPacket();
         pk.data = 0;
         pk.event = EntityEventPacket.FINISHED_CHARGING_CROSSBOW;
-        pk.eid = this.getId();
+        pk.eid = RuntimeItems.getRuntimeMapping().getNetworkId(this);
         Server.broadcastPacket(player.getViewers().values(), pk);
         
         CompletedUsingItemPacket pk2 = new CompletedUsingItemPacket();

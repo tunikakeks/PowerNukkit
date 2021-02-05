@@ -131,7 +131,17 @@ public class ItemCrossbow extends ItemTool {
             return player.getOffhandInventory().getItem(firstSlot);
         }
         
+        firstSlot = player.getOffhandInventory().first(Item.get(ItemID.FIREWORKS, 0, 1), false);
+        if (firstSlot != -1) {
+            return player.getOffhandInventory().getItem(firstSlot);
+        }
+        
         firstSlot = player.getInventory().first(Item.get(ItemID.ARROW, 0, 1), false);
+        if (firstSlot != -1) {
+            return player.getInventory().getItem(firstSlot);
+        }
+        
+        firstSlot = player.getInventory().first(Item.get(ItemID.FIREWORKS, 0, 1), false);
         if (firstSlot != -1) {
             return player.getInventory().getItem(firstSlot);
         }

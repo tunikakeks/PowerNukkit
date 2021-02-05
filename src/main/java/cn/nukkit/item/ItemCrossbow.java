@@ -17,6 +17,7 @@ import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.DoubleTag;
 import cn.nukkit.nbt.tag.FloatTag;
 import cn.nukkit.nbt.tag.ListTag;
+import cn.nukkit.network.protocol.CompletedUsingItemPacket;
 import cn.nukkit.network.protocol.EntityEventPacket;
 
 import javax.annotation.Nonnull;
@@ -55,7 +56,11 @@ public class ItemCrossbow extends ItemTool {
             pk.eid = this.getId();
             Server.broadcastPacket(getViewers().values(), pk);
             
-            player.setUsingItem(false);
+            CompletedUsingItemPacket pk2 = new CompletedUsingItemPacket();
+            pk2.itemid = this.getId();
+            pk2.action = CompletedUsingItemPacket.UNKNOWN;
+            player.dataPacket(pk2);
+            
             return true;
         }
         

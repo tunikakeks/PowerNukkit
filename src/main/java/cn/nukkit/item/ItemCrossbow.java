@@ -50,16 +50,7 @@ public class ItemCrossbow extends ItemTool {
     @Override
     public boolean onUse(Player player, int ticksUsed) {
         if (ticksUsed >= getChargeTick()) {
-            EntityEventPacket pk = new EntityEventPacket();
-            pk.data = 0;
-            pk.event = EntityEventPacket.FINISHED_CHARGING_CROSSBOW;
-            pk.eid = this.getId();
-            Server.broadcastPacket(player.getViewers().values(), pk);
-            
-            CompletedUsingItemPacket pk2 = new CompletedUsingItemPacket();
-            pk2.itemId = this.getId();
-            pk2.action = CompletedUsingItemPacket.ACTION_UNKNOWN;
-            player.dataPacket(pk2);
+            processLoad(player);
             
             return true;
         }
@@ -87,12 +78,12 @@ public class ItemCrossbow extends ItemTool {
     
     @Override
     public boolean onRelease(Player player, int ticksUsed) {
-        if (ticksUsed < getChargeTick()) {
-            return true;
-        }
-        
+        return true;
+    }
+    
+    public boolean processLoad(@Nonnull Player player) {
         if (isLoaded()) {
-            return true;
+            return false;
         }
         
         Item shootableItem = findShootableItem(player);
@@ -100,7 +91,7 @@ public class ItemCrossbow extends ItemTool {
             if (shootableItem == null) {
                 player.getOffhandInventory().sendContents(player);
                 player.getInventory().sendContents(player);
-                return true;
+                return false;
             }
             
             shootableItem.count--;
@@ -111,6 +102,17 @@ public class ItemCrossbow extends ItemTool {
                 shootableItem = Item.get(ItemID.ARROW, 0, 1);
             }
         }
+        
+        EntityEventPacket pk = new EntityEventPacket();
+        pk.data = 0;
+        pk.event = EntityEventPacket.FINISHED_CHARGING_CROSSBOW;
+        pk.eid = this.getId();
+        Server.broadcastPacket(player.getViewers().values(), pk);
+        
+        CompletedUsingItemPacket pk2 = new CompletedUsingItemPacket();
+        pk2.itemId = this.getId();
+        pk2.action = CompletedUsingItemPacket.ACTION_UNKNOWN;
+        player.dataPacket(pk2);
         
         loadProjectile(player, shootableItem);
         player.getLevel().addSound(player, this.hasEnchantment(Enchantment.ID_CROSSBOW_QUICK_CHARGE) ? Sound.CROSSBOW_QUICK_CHARGE_END : Sound.CROSSBOW_LOADING_END);

@@ -19,6 +19,7 @@ import cn.nukkit.nbt.tag.FloatTag;
 import cn.nukkit.nbt.tag.ListTag;
 import cn.nukkit.network.protocol.CompletedUsingItemPacket;
 import cn.nukkit.network.protocol.EntityEventPacket;
+import cn.nukkit.utils.MainLogger;
 
 import javax.annotation.Nonnull;
 
@@ -49,7 +50,9 @@ public class ItemCrossbow extends ItemTool {
     
     @Override
     public boolean onUse(Player player, int ticksUsed) {
+        MainLogger.getLogger().info("tickUsed: " + String.valueOf(ticksUsed));
         if (ticksUsed >= getChargeTick()) {
+            MainLogger.getLogger().info("Process Load!");
             processLoad(player);
             
             return true;
@@ -83,6 +86,7 @@ public class ItemCrossbow extends ItemTool {
     
     public boolean processLoad(@Nonnull Player player) {
         if (isLoaded()) {
+            MainLogger.getLogger().info("Process Load failed! isLoaded() == true");
             return false;
         }
         
@@ -117,6 +121,7 @@ public class ItemCrossbow extends ItemTool {
         loadProjectile(player, shootableItem);
         player.getLevel().addSound(player, this.hasEnchantment(Enchantment.ID_CROSSBOW_QUICK_CHARGE) ? Sound.CROSSBOW_QUICK_CHARGE_END : Sound.CROSSBOW_LOADING_END);
         
+        MainLogger.getLogger().info("Process Load Success!");
         return true;
     }
     
@@ -188,6 +193,7 @@ public class ItemCrossbow extends ItemTool {
         if (namedspaceId == null) {
             return;
         }
+        MainLogger.getLogger().info("loadProjectile: " + namedspaceId);
         
         CompoundTag tag = this.hasCompoundTag() ? this.getNamedTag() : new CompoundTag();
         tag.putCompound("chargedItem", new CompoundTag("chargedItem")
@@ -208,6 +214,7 @@ public class ItemCrossbow extends ItemTool {
             return false;
         }
         
+        MainLogger.getLogger().info("Shoot!");
         Item projectileItem = getProjectile();
         if (projectileItem == null) {
             return false;

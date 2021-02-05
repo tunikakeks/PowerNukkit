@@ -153,7 +153,7 @@ public class ItemCrossbow extends ItemTool {
     
     public void clearProjectiles(@Nonnull Player player) {
         if (this.getNamedTag().contains("chargedItem")) {
-            this.getNamedTag().remove("chargedItem");
+            this.setNamedTag(this.getNamedTag().remove("chargedItem"));
             player.getInventory().setItemInHand(this);
         }
     }

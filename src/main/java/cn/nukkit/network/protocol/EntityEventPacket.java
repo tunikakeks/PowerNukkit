@@ -68,6 +68,9 @@ public class EntityEventPacket extends DataPacket {
     @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int START_SWIMMING = 70;
     @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int BALLOON_POP = 71;
     @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int TREASURE_HUNT = 72;
+    @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int SUMMON_AGENT = 73;
+    @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int FINISHED_CHARGING_CROSSBOW = 74;
+    @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int LANDED_ON_GROUND = 75;
     
     @Override
     public byte pid() {

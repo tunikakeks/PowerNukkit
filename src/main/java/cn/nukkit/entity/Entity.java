@@ -2580,7 +2580,6 @@ public abstract class Entity extends Location implements Metadatable {
         if (!this.closed) {
             EntityDespawnEvent event = new EntityDespawnEvent(this);
             this.server.getPluginManager().callEvent(event);
-            if (!event.isCancelled()) {
                 this.closed = true;
                 this.despawnFromAll();
                 if (this.chunk != null) {
@@ -2589,7 +2588,6 @@ public abstract class Entity extends Location implements Metadatable {
 
                 if (this.level != null) {
                     this.level.removeEntity(this);
-                }
             }
         }
     }

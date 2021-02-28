@@ -12,6 +12,7 @@ import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
 import cn.nukkit.event.entity.ProjectileHitEvent;
+import cn.nukkit.event.player.PlayerFishEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.randomitem.Fishing;
 import cn.nukkit.level.MovingObjectPosition;
@@ -265,6 +266,7 @@ public class EntityFishingHook extends EntityProjectile {
             if (experience > 0) {
                 player.addExperience(experience);
             }
+            Server.getInstance().getPluginManager().callEvent(new PlayerFishEvent(player));
         }
         if (this.shootingEntity instanceof Player) {
             EntityEventPacket pk = new EntityEventPacket();

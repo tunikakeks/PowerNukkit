@@ -5,6 +5,7 @@ import cn.nukkit.api.Since;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.value.StoneSlab3Type;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemBlock;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.utils.BlockColor;
 
@@ -27,6 +28,15 @@ public class BlockSlabStone3 extends BlockSlab {
 
     public BlockSlabStone3() {
         this(0);
+    }
+
+    @Since("1.4.0.0-PN")
+    @PowerNukkitOnly
+    @Nonnull
+    @Override
+    public ItemBlock asItemBlock(int count) {
+        return new ItemBlock(this, this.getDamage() & 0x07, count);
+
     }
 
     public BlockSlabStone3(int meta) {

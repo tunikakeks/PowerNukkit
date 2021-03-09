@@ -11,6 +11,7 @@ import cn.nukkit.blockproperty.BooleanBlockProperty;
 import cn.nukkit.blockproperty.value.WoodType;
 import cn.nukkit.event.block.LeavesDecayEvent;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemBlock;
 import cn.nukkit.item.ItemID;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.item.enchantment.Enchantment;
@@ -60,6 +61,14 @@ public class BlockLeaves extends BlockTransparentMeta {
 
     public BlockLeaves() {
         this(0);
+    }
+
+    @Since("1.4.0.0-PN")
+    @PowerNukkitOnly
+    @Nonnull
+    @Override
+    public ItemBlock asItemBlock(int count) {
+        return new ItemBlock(this, this.getDamage() & 0x3, count);
     }
 
     public BlockLeaves(int meta) {

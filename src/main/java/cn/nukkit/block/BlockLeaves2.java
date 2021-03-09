@@ -7,6 +7,7 @@ import cn.nukkit.blockproperty.ArrayBlockProperty;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.value.WoodType;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemBlock;
 
 import javax.annotation.Nonnull;
 
@@ -69,5 +70,11 @@ public class BlockLeaves2 extends BlockLeaves {
     @Override
     protected Item getSapling() {
         return Item.get(BlockID.SAPLING, getIntValue(NEW_LEAF_TYPE) + 4);
+    }
+
+    @Nonnull
+    @Override
+    public ItemBlock asItemBlock(int count) {
+        return new ItemBlock(this, this.getDamage() & 0x01, count);
     }
 }

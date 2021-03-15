@@ -37,7 +37,9 @@ public enum InventoryType {
     BLAST_FURNACE(3, "Blast Furnace", 27),
     SMOKER(3, "Smoker", 28),
     STONECUTTER(2, "Stonecutter", 29), // Should be 29 but it's totally driven by the client, so setting to -1 = UI
-    CARTOGRAPHY(3, "Cartography Table", -1),
+    CARTOGRAPHY(3, "Cartography Table", -1), //TODO Implemt: Id 30
+    SMITHING_TABLE(3, "Smithing Table", -1), // TODO Implement Id 33
+    LOOM(4, "Loom", 24),
     BARREL(27, "Barrel", 0),
     CAMPFIRE(4, "Campfire", -9), // -9 = NONE
     @PowerNukkitOnly @Since("1.4.0.0-PN") ENTITY_EQUIPMENT(36, "Entity Equipment", -1), //36 CONTAINER

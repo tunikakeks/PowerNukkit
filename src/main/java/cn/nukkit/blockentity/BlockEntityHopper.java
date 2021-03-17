@@ -11,7 +11,7 @@ import cn.nukkit.block.BlockID;
 import cn.nukkit.blockproperty.CommonBlockProperties;
 import cn.nukkit.blockstate.BlockState;
 import cn.nukkit.entity.Entity;
-import cn.nukkit.entity.item.EntityItem;
+import cn.nukkit.entity.item.*;
 import cn.nukkit.event.inventory.InventoryMoveItemEvent;
 import cn.nukkit.inventory.*;
 import cn.nukkit.item.Item;
@@ -406,7 +406,7 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
         BlockEntity be = this.level.getBlockEntity(temporalVector.setComponentsAdding(this, side));
 
         if (be instanceof BlockEntityHopper && levelBlockState.isDefaultState() || !(be instanceof InventoryHolder) && !(blockSide instanceof BlockComposter)) {
-            return false;
+            return fillMinecart(blockSide);
         }
 
         InventoryMoveItemEvent event;
@@ -543,7 +543,52 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
             }
         }
 
+        entity:
         //TODO: check for minecart
+        return fillMinecart(blockSide);
+    }
+
+    private boolean fillMinecart(Block blockSide) {
+        for(Entity entity : level.getNearbyEntities(new SimpleAxisAlignedBB(blockSide.x, blockSide.y, blockSide.z, blockSide.x + 1, blockSide.y + 1, blockSide.z + 1))) {
+            if(entity.isClosed() || !(entity instanceof EntityMinecartAbstract) || entity instanceof EntityMinecartEmpty || entity instanceof EntityMinecartTNT) {
+                continue;
+            }
+            InventoryHolder inventoryHolder = (InventoryHolder) entity;
+            Inventory inventory = inventoryHolder.getInventory();
+            if(inventory.isFull()) {
+                continue;
+            }
+
+            for (int i = 0; i < this.inventory.getSize(); i++) {
+                Item item = this.inventory.getItem(i);
+
+                if (!item.isNull()) {
+                    Item itemToAdd = item.clone();
+                    itemToAdd.setCount(1);
+
+                    if (!inventory.canAddItem(itemToAdd)) {
+                        continue;
+                    }
+
+                    InventoryMoveItemEvent ev = new InventoryMoveItemEvent(this.inventory, inventory, this, itemToAdd, InventoryMoveItemEvent.Action.SLOT_CHANGE);
+                    this.server.getPluginManager().callEvent(ev);
+
+                    if (ev.isCancelled()) {
+                        continue;
+                    }
+
+                    Item[] items = inventory.addItem(itemToAdd);
+
+                    if (items.length > 0) {
+                        continue;
+                    }
+
+                    item.count--;
+                    this.inventory.setItem(i, item);
+                    return true;
+                }
+            }
+        }
         return false;
     }
 

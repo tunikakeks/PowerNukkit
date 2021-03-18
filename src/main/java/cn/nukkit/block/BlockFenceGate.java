@@ -89,6 +89,16 @@ public class BlockFenceGate extends BlockTransparentMeta implements RedstoneComp
     }
 
     @Override
+    public boolean canPassThrough() {
+        return isOpen();
+    }
+
+    @Override
+    public boolean canBeFlowedInto() {
+        return isOpen();
+    }
+
+    @Override
     public int getToolType() {
         return ItemTool.TYPE_AXE;
     }

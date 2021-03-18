@@ -204,6 +204,7 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
         if (blockEntity instanceof InventoryHolder || blockSide instanceof BlockComposter)  {
             changed = pullItems() || changed;
         } else {
+            changed = pullMinecartItems() || changed;
             changed = pickupItems() || changed;
         }
 
@@ -318,6 +319,53 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
                 Item[] items = this.inventory.addItem(itemToAdd);
 
                 return items.length < 1;
+            }
+        }
+        return false;
+    }
+
+    public boolean pullMinecartItems() {
+        for(Entity entity : level.getCollidingEntities(new SimpleAxisAlignedBB(this.x, this.y + 1, this.z, this.x + 1, this.y + 2, this.z + 1))) {
+            if(!(entity instanceof EntityMinecartAbstract) || entity instanceof EntityMinecartEmpty || entity instanceof EntityMinecartTNT) {
+                continue;
+            }
+
+            InventoryHolder inventoryHolder = (InventoryHolder) entity;
+            Inventory inventory = inventoryHolder.getInventory();
+
+            if(inventory.isFull()) {
+                continue;
+            }
+
+            for (int i = 0; i < inventory.getSize(); i++) {
+                Item item = inventory.getItem(i);
+
+                if (!item.isNull()) {
+                    Item itemToAdd = item.clone();
+                    itemToAdd.count = 1;
+
+                    if (!this.inventory.canAddItem(itemToAdd)) {
+                        continue;
+                    }
+
+                    InventoryMoveItemEvent ev = new InventoryMoveItemEvent(inventory, this.inventory, this, itemToAdd, InventoryMoveItemEvent.Action.SLOT_CHANGE);
+                    this.server.getPluginManager().callEvent(ev);
+
+                    if (ev.isCancelled()) {
+                        continue;
+                    }
+
+                    Item[] items = this.inventory.addItem(itemToAdd);
+
+                    if (items.length >= 1) {
+                        continue;
+                    }
+
+                    item.count--;
+
+                    inventory.setItem(i, item);
+                    return true;
+                }
             }
         }
         return false;
@@ -543,16 +591,16 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
             }
         }
 
-        entity:
         //TODO: check for minecart
         return fillMinecart(blockSide);
     }
 
     private boolean fillMinecart(Block blockSide) {
-        for(Entity entity : level.getNearbyEntities(new SimpleAxisAlignedBB(blockSide.x, blockSide.y, blockSide.z, blockSide.x + 1, blockSide.y + 1, blockSide.z + 1))) {
+        for(Entity entity : level.getCollidingEntities(new SimpleAxisAlignedBB(blockSide.x, blockSide.y, blockSide.z, blockSide.x + 1, blockSide.y + 1, blockSide.z + 1))) {
             if(entity.isClosed() || !(entity instanceof EntityMinecartAbstract) || entity instanceof EntityMinecartEmpty || entity instanceof EntityMinecartTNT) {
                 continue;
             }
+
             InventoryHolder inventoryHolder = (InventoryHolder) entity;
             Inventory inventory = inventoryHolder.getInventory();
             if(inventory.isFull()) {

@@ -438,19 +438,19 @@ public abstract class EntityMinecartAbstract extends EntityVehicle {
 
         switch (Orientation.byMetadata(block.getRealMeta())) {
             case ASCENDING_NORTH:
-                motionX -= 0.0078125D;
-                y += 1;
-                break;
-            case ASCENDING_SOUTH:
-                motionX += 0.0078125D;
-                y += 1;
-                break;
-            case ASCENDING_EAST:
                 motionZ += 0.0078125D;
                 y += 1;
                 break;
-            case ASCENDING_WEST:
+            case ASCENDING_SOUTH:
                 motionZ -= 0.0078125D;
+                y += 1;
+                break;
+            case ASCENDING_EAST:
+                motionX -= 0.0078125D;
+                y += 1;
+                break;
+            case ASCENDING_WEST:
+                motionX += 0.0078125D;
                 y += 1;
                 break;
         }

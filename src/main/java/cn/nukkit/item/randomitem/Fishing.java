@@ -22,9 +22,9 @@ public final class Fishing {
     public static final Selector SALMON = putSelector(new ConstantItemSelector(Item.RAW_SALMON, FISHES), 0.25F);
     public static final Selector CLOWNFISH = putSelector(new ConstantItemSelector(Item.CLOWNFISH, FISHES), 0.02F);
     public static final Selector PUFFERFISH = putSelector(new ConstantItemSelector(Item.PUFFERFISH, FISHES), 0.13F);
-    public static final Selector TREASURE_BOW = putSelector(new ConstantItemSelector(Item.BOW, TREASURES), 0.1667F);
-    public static final Selector TREASURE_ENCHANTED_BOOK = putSelector(new ConstantItemSelector(Item.ENCHANTED_BOOK, TREASURES),  0.1667F);
-    public static final Selector TREASURE_FISHING_ROD = putSelector(new ConstantItemSelector(Item.FISHING_ROD, TREASURES), 0.1667F);
+    public static final Selector TREASURE_BOW = putSelector(new ConstantItemWithRandomEnchantmentSelector(Item.BOW, new Enchantment[] {Enchantment.getEnchantment(Enchantment.ID_BOW_POWER), Enchantment.getEnchantment(Enchantment.ID_BOW_KNOCKBACK), Enchantment.getEnchantment(Enchantment.ID_BOW_INFINITY), Enchantment.getEnchantment(Enchantment.ID_BOW_FLAME), Enchantment.getEnchantment(Enchantment.ID_DURABILITY)}, 3, false, true, TREASURES), 0.1667F);
+    public static final Selector TREASURE_ENCHANTED_BOK;
+    public static final Selector TREASURE_FISHING_ROD = putSelector(new ConstantItemWithRandomEnchantmentSelector(Item.FISHING_ROD, new Enchantment[] {Enchantment.getEnchantment(Enchantment.ID_FORTUNE_FISHING), Enchantment.getEnchantment(Enchantment.ID_LURE), Enchantment.getEnchantment(Enchantment.ID_DURABILITY), Enchantment.getEnchantment(Enchantment.ID_MENDING)}, 3, false, true, TREASURES), 0.1667F);
     public static final Selector TREASURE_NAME_TAG = putSelector(new ConstantItemSelector(Item.NAME_TAG, TREASURES), 0.1667F);
     public static final Selector TREASURE_SADDLE = putSelector(new ConstantItemSelector(Item.SADDLE, TREASURES), 0.1667F);
     public static final Selector JUNK_BOWL = putSelector(new ConstantItemSelector(Item.BOWL, JUNKS), 0.12F);
@@ -61,5 +61,14 @@ public final class Fishing {
         Object result = selectFrom(ROOT_FISHING);
         if (result instanceof Item) return (Item) result;
         return null;
+    }
+
+    static {
+        Enchantment[] enchantments = new Enchantment[34];
+        for(int i = 0; i < enchantments.length; i++) {
+            if(i == 33) enchantments[i] = Enchantment.getEnchantment(36);
+            enchantments[i] = Enchantment.getEnchantment(i);
+        }
+        TREASURE_ENCHANTED_BOK = putSelector(new ConstantItemWithRandomEnchantmentSelector(Item.ENCHANTED_BOOK, enchantments, 1, true, TREASURES),  0.1667F);
     }
 }

@@ -328,6 +328,7 @@ public class EntityFishingHook extends EntityProjectile {
         } else {
             ev = new EntityDamageByChildEntityEvent(this.shootingEntity, this, entity, DamageCause.PROJECTILE, damage);
         }
+        entity.attack(ev);
         if(shootingEntity != entity) {
             setDataProperty(new LongEntityData(DATA_TARGET_EID, entity.getId()));
             this.caughtEntity = entity;

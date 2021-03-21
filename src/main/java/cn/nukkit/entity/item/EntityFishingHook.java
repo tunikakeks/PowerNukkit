@@ -14,8 +14,6 @@ import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
 import cn.nukkit.event.entity.ProjectileHitEvent;
 import cn.nukkit.event.player.PlayerFishEvent;
 import cn.nukkit.item.Item;
-import cn.nukkit.item.ItemBookEnchanted;
-import cn.nukkit.item.enchantment.Enchantment;
 import cn.nukkit.item.randomitem.Fishing;
 import cn.nukkit.level.MovingObjectPosition;
 import cn.nukkit.level.format.FullChunk;
@@ -236,16 +234,8 @@ public class EntityFishingHook extends EntityProjectile {
     @PowerNukkitDifference(since = "1.4.0.0-PN", info = "May create custom EntityItem")
     public void reelLine() {
         if (this.shootingEntity instanceof Player && this.caught) {
-            Item item = Fishing.getFishingResult(this.rod).clone();
-            Random random = new Random();
-            if(item instanceof ItemBookEnchanted) {
-                if(!item.hasEnchantments()) {
-                    int randomNumber = random.nextInt(34);
-                    Enchantment enchantment = Enchantment.getEnchantments()[randomNumber == 33 ? 36 : randomNumber];
-                    item.addEnchantment(enchantment.setLevel(enchantment.getMaxLevel()));
-                }
-            }
-            int experience = random.nextInt((3 - 1) + 1) + 1;
+            Item item = Fishing.getFishingResult(this.rod);
+            int experience = new Random().nextInt((3 - 1) + 1) + 1;
             Vector3 motion;
 
             if (this.shootingEntity != null) {
@@ -338,10 +328,9 @@ public class EntityFishingHook extends EntityProjectile {
         } else {
             ev = new EntityDamageByChildEntityEvent(this.shootingEntity, this, entity, DamageCause.PROJECTILE, damage);
         }
-
-        if (entity.attack(ev)) {
+        if(shootingEntity != entity) {
             setDataProperty(new LongEntityData(DATA_TARGET_EID, entity.getId()));
+            this.caughtEntity = entity;
         }
-        this.caughtEntity = entity;
     }
 }

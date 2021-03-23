@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -287,49 +287,53 @@ extends <a href="../../../cn/nukkit/block/BlockLog.html" title="class in cn.nukk
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#getBurnAbility--">getBurnAbility</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../cn/nukkit/item/ItemBlock.html" title="class in cn.nukkit.item">ItemBlock</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#asItemBlock-int-">asItemBlock</a></span>(int&nbsp;count)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#getBurnChance--">getBurnChance</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#getBurnAbility--">getBurnAbility</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#getBurnChance--">getBurnChance</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/utils/BlockColor.html" title="class in cn.nukkit.utils">BlockColor</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#getColor--">getColor</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#getHardness--">getHardness</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#getId--">getId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#getName--">getName</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/blockproperty/BlockProperties.html" title="class in cn.nukkit.blockproperty">BlockProperties</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#getProperties--">getProperties</a></span>()</code>
 <div class="block">A backward-compatibility properties definition that accepts any values that can be stored in the amount of bits
  specified by <a href="../../../cn/nukkit/block/Block.html#DATA_BITS"><code>Block.DATA_BITS</code></a>.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#getResistance--">getResistance</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../cn/nukkit/blockstate/BlockState.html" title="class in cn.nukkit.blockstate">BlockState</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#getStrippedState--">getStrippedState</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../cn/nukkit/blockproperty/value/WoodType.html" title="enum in cn.nukkit.blockproperty.value">WoodType</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#getWoodType--">getWoodType</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/block/BlockWood.html#setWoodType-cn.nukkit.blockproperty.value.WoodType-">setWoodType</a></span>(<a href="../../../cn/nukkit/blockproperty/value/WoodType.html" title="enum in cn.nukkit.blockproperty.value">WoodType</a>&nbsp;woodType)</code>&nbsp;</td>
 </tr>
@@ -402,7 +406,7 @@ extends <a href="../../../cn/nukkit/block/BlockLog.html" title="class in cn.nukk
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;cn.nukkit.blockstate.<a href="../../../cn/nukkit/blockstate/IBlockState.html" title="interface in cn.nukkit.blockstate">IBlockState</a></h3>
-<code><a href="../../../cn/nukkit/blockstate/IBlockState.html#asItemBlock-int-">asItemBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBigId--">getBigId</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBitSize--">getBitSize</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.block.Block-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.level.Level-int-int-int-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.level.Level-int-int-int-int-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.level.Level-int-int-int-int-boolean-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.level.Level-int-int-int-int-boolean-java.util.function.Consumer-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.level.Position-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.level.Position-int-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.block.Block-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Level-cn.nukkit.math.BlockVector3-int-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Level-int-int-int-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Level-int-int-int-int-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Level-int-int-int-int-java.util.function.Consumer-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Level-cn.nukkit.math.Vector3-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Level-cn.nukkit.math.Vector3-int-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Position-int-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBooleanValue-cn.nukkit.blockproperty.BlockProperty-">getBooleanValue</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getCheckedProperty-java.lang.String-java.lang.Class-">getCheckedProperty</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getCheckedPropertyValue-java.lang.String-java.lang.Class-">getCheckedPropertyValue</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getIntValue-cn.nukkit.blockproperty.BlockProperty-">getIntValue</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getLegacyStateId--">getLegacyStateId</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getPersistenceName--">getPersistenceName</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getPersistenceValue-cn.nukkit.blockproperty.BlockProperty-">getPersistenceValue</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getProperty-java.lang.String-">getProperty</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getPropertyNames--">getPropertyNames</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getPropertyValue-cn.nukkit.blockproperty.BlockProperty-">getPropertyValue</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getStateId--">getStateId</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getUncheckedPropertyValue-cn.nukkit.blockproperty.BlockProperty-">getUncheckedPropertyValue</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getUncheckedPropertyValue-java.lang.String-">getUncheckedPropertyValue</a></code></li>
+<code><a href="../../../cn/nukkit/blockstate/IBlockState.html#getBigId--">getBigId</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBitSize--">getBitSize</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.block.Block-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.level.Level-int-int-int-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.level.Level-int-int-int-int-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.level.Level-int-int-int-int-boolean-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.level.Level-int-int-int-int-boolean-java.util.function.Consumer-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.level.Position-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlock-cn.nukkit.level.Position-int-">getBlock</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.block.Block-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Level-cn.nukkit.math.BlockVector3-int-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Level-int-int-int-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Level-int-int-int-int-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Level-int-int-int-int-java.util.function.Consumer-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Level-cn.nukkit.math.Vector3-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Level-cn.nukkit.math.Vector3-int-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBlockRepairing-cn.nukkit.level.Position-int-">getBlockRepairing</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getBooleanValue-cn.nukkit.blockproperty.BlockProperty-">getBooleanValue</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getCheckedProperty-java.lang.String-java.lang.Class-">getCheckedProperty</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getCheckedPropertyValue-java.lang.String-java.lang.Class-">getCheckedPropertyValue</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getIntValue-cn.nukkit.blockproperty.BlockProperty-">getIntValue</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getLegacyStateId--">getLegacyStateId</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getPersistenceName--">getPersistenceName</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getPersistenceValue-cn.nukkit.blockproperty.BlockProperty-">getPersistenceValue</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getProperty-java.lang.String-">getProperty</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getPropertyNames--">getPropertyNames</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getPropertyValue-cn.nukkit.blockproperty.BlockProperty-">getPropertyValue</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getStateId--">getStateId</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getUncheckedPropertyValue-cn.nukkit.blockproperty.BlockProperty-">getUncheckedPropertyValue</a>, <a href="../../../cn/nukkit/blockstate/IBlockState.html#getUncheckedPropertyValue-java.lang.String-">getUncheckedPropertyValue</a></code></li>
 </ul>
 </li>
 </ul>
@@ -533,6 +537,15 @@ extends <a href="../../../cn/nukkit/block/BlockLog.html" title="class in cn.nukk
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../cn/nukkit/block/Block.html#getId--">getId</a></code>&nbsp;in class&nbsp;<code><a href="../../../cn/nukkit/block/Block.html" title="class in cn.nukkit.block">Block</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="asItemBlock-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>asItemBlock</h4>
+<pre>public&nbsp;<a href="../../../cn/nukkit/item/ItemBlock.html" title="class in cn.nukkit.item">ItemBlock</a>&nbsp;asItemBlock(int&nbsp;count)</pre>
 </li>
 </ul>
 <a name="getProperties--">

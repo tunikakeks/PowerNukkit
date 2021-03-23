@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -187,6 +187,10 @@ implements <a href="../../../cn/nukkit/inventory/InventoryHolder.html" title="in
 <tr class="altColor">
 <td class="colFirst"><code>protected int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityFurnace.html#maxTime">maxTime</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityFurnace.html#speedMultiplier">speedMultiplier</a></span></code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -389,6 +393,10 @@ implements <a href="../../../cn/nukkit/inventory/InventoryHolder.html" title="in
  Changes the name of this object, or names it.</div>
 </td>
 </tr>
+<tr id="i32" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cn/nukkit/blockentity/BlockEntityFurnace.html#setSpeedMultiplier-int-">setSpeedMultiplier</a></span>(int&nbsp;speedMultiplier)</code>&nbsp;</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.blockentity.BlockEntitySpawnable">
@@ -485,10 +493,19 @@ implements <a href="../../../cn/nukkit/inventory/InventoryHolder.html" title="in
 <a name="maxTime">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>maxTime</h4>
 <pre>protected&nbsp;int maxTime</pre>
+</li>
+</ul>
+<a name="speedMultiplier">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>speedMultiplier</h4>
+<pre>protected&nbsp;int speedMultiplier</pre>
 </li>
 </ul>
 </li>
@@ -577,24 +594,6 @@ implements <a href="../../../cn/nukkit/inventory/InventoryHolder.html" title="in
 </dl>
 </li>
 </ul>
-<a name="hasName--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>hasName</h4>
-<pre>public&nbsp;boolean&nbsp;hasName()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../cn/nukkit/blockentity/BlockEntityNameable.html#hasName--">BlockEntityNameable</a></code></span></div>
-<div class="block">返回这个事物是否有名字。<br>
- Whether this object has a name.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../cn/nukkit/blockentity/BlockEntityNameable.html#hasName--">hasName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../cn/nukkit/blockentity/BlockEntityNameable.html" title="interface in cn.nukkit.blockentity">BlockEntityNameable</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>如果有名字，返回 <code>true</code>。<br><code>true</code> for this object has a name.</dd>
-</dl>
-</li>
-</ul>
 <a name="setName-java.lang.String-">
 <!--   -->
 </a>
@@ -610,6 +609,24 @@ implements <a href="../../../cn/nukkit/inventory/InventoryHolder.html" title="in
 <dd><code><a href="../../../cn/nukkit/blockentity/BlockEntityNameable.html#setName-java.lang.String-">setName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../cn/nukkit/blockentity/BlockEntityNameable.html" title="interface in cn.nukkit.blockentity">BlockEntityNameable</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - 这个事物的新名字。<br>The new name of this object.</dd>
+</dl>
+</li>
+</ul>
+<a name="hasName--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hasName</h4>
+<pre>public&nbsp;boolean&nbsp;hasName()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../cn/nukkit/blockentity/BlockEntityNameable.html#hasName--">BlockEntityNameable</a></code></span></div>
+<div class="block">返回这个事物是否有名字。<br>
+ Whether this object has a name.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../cn/nukkit/blockentity/BlockEntityNameable.html#hasName--">hasName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../cn/nukkit/blockentity/BlockEntityNameable.html" title="interface in cn.nukkit.blockentity">BlockEntityNameable</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>如果有名字，返回 <code>true</code>。<br><code>true</code> for this object has a name.</dd>
 </dl>
 </li>
 </ul>
@@ -800,6 +817,15 @@ implements <a href="../../../cn/nukkit/inventory/InventoryHolder.html" title="in
 <li class="blockList">
 <h4>getSpeedMultiplier</h4>
 <pre>protected&nbsp;int&nbsp;getSpeedMultiplier()</pre>
+</li>
+</ul>
+<a name="setSpeedMultiplier-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSpeedMultiplier</h4>
+<pre>public&nbsp;void&nbsp;setSpeedMultiplier(int&nbsp;speedMultiplier)</pre>
 </li>
 </ul>
 <a name="onUpdate--">

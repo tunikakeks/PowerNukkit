@@ -107,6 +107,10 @@
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/ConstantItemSelector.html" title="class in cn.nukkit.item.randomitem">ConstantItemSelector</a></span></code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/ConstantItemWithRandomEnchantmentSelector.html" title="class in cn.nukkit.item.randomitem">ConstantItemWithRandomEnchantmentSelector</a></span></code>&nbsp;</td>
+</tr>
 </tbody>
 </table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing fields, and an explanation">
@@ -194,7 +198,7 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a></code></td>
-<td class="colLast"><span class="typeNameLabel">Fishing.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/Fishing.html#TREASURE_ENCHANTED_BOOK">TREASURE_ENCHANTED_BOOK</a></span></code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Fishing.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/Fishing.html#TREASURE_ENCHANTED_BOK">TREASURE_ENCHANTED_BOK</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a></code></td>
@@ -206,9 +210,13 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a></code></td>
-<td class="colLast"><span class="typeNameLabel">Fishing.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/Fishing.html#TREASURE_SADDLE">TREASURE_SADDLE</a></span></code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Fishing.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/Fishing.html#TREASURE_NAUTILUS_SHELL">TREASURE_NAUTILUS_SHELL</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a></code></td>
+<td class="colLast"><span class="typeNameLabel">Fishing.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/Fishing.html#TREASURE_SADDLE">TREASURE_SADDLE</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a></code></td>
 <td class="colLast"><span class="typeNameLabel">Fishing.</span><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/Fishing.html#TREASURES">TREASURES</a></span></code>&nbsp;</td>
 </tr>
@@ -303,6 +311,72 @@
 <tr class="rowColor">
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/ConstantItemSelector.html#ConstantItemSelector-cn.nukkit.item.Item-cn.nukkit.item.randomitem.Selector-">ConstantItemSelector</a></span>(<a href="../../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
                     <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a>&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/ConstantItemWithRandomEnchantmentSelector.html#ConstantItemWithRandomEnchantmentSelector-int-cn.nukkit.item.enchantment.Enchantment:A-int-boolean-boolean-cn.nukkit.item.randomitem.Selector-">ConstantItemWithRandomEnchantmentSelector</a></span>(int&nbsp;id,
+                                         <a href="../../../../../cn/nukkit/item/enchantment/Enchantment.html" title="class in cn.nukkit.item.enchantment">Enchantment</a>[]&nbsp;enchantments,
+                                         int&nbsp;maxEnchantments,
+                                         boolean&nbsp;maxEnchantLevel,
+                                         boolean&nbsp;randomDurability,
+                                         <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a>&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/ConstantItemWithRandomEnchantmentSelector.html#ConstantItemWithRandomEnchantmentSelector-int-cn.nukkit.item.enchantment.Enchantment:A-int-boolean-cn.nukkit.item.randomitem.Selector-">ConstantItemWithRandomEnchantmentSelector</a></span>(int&nbsp;id,
+                                         <a href="../../../../../cn/nukkit/item/enchantment/Enchantment.html" title="class in cn.nukkit.item.enchantment">Enchantment</a>[]&nbsp;enchantments,
+                                         int&nbsp;maxEnchantments,
+                                         boolean&nbsp;maxEnchantLevel,
+                                         <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a>&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/ConstantItemWithRandomEnchantmentSelector.html#ConstantItemWithRandomEnchantmentSelector-int-java.lang.Integer-cn.nukkit.item.enchantment.Enchantment:A-int-boolean-boolean-cn.nukkit.item.randomitem.Selector-">ConstantItemWithRandomEnchantmentSelector</a></span>(int&nbsp;id,
+                                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;meta,
+                                         <a href="../../../../../cn/nukkit/item/enchantment/Enchantment.html" title="class in cn.nukkit.item.enchantment">Enchantment</a>[]&nbsp;enchantments,
+                                         int&nbsp;maxEnchantments,
+                                         boolean&nbsp;maxEnchantLevel,
+                                         boolean&nbsp;randomDurability,
+                                         <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a>&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/ConstantItemWithRandomEnchantmentSelector.html#ConstantItemWithRandomEnchantmentSelector-int-java.lang.Integer-cn.nukkit.item.enchantment.Enchantment:A-int-boolean-cn.nukkit.item.randomitem.Selector-">ConstantItemWithRandomEnchantmentSelector</a></span>(int&nbsp;id,
+                                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;meta,
+                                         <a href="../../../../../cn/nukkit/item/enchantment/Enchantment.html" title="class in cn.nukkit.item.enchantment">Enchantment</a>[]&nbsp;enchantments,
+                                         int&nbsp;maxEnchantments,
+                                         boolean&nbsp;maxEnchantLevel,
+                                         <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a>&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/ConstantItemWithRandomEnchantmentSelector.html#ConstantItemWithRandomEnchantmentSelector-int-java.lang.Integer-int-cn.nukkit.item.enchantment.Enchantment:A-int-boolean-boolean-cn.nukkit.item.randomitem.Selector-">ConstantItemWithRandomEnchantmentSelector</a></span>(int&nbsp;id,
+                                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;meta,
+                                         int&nbsp;count,
+                                         <a href="../../../../../cn/nukkit/item/enchantment/Enchantment.html" title="class in cn.nukkit.item.enchantment">Enchantment</a>[]&nbsp;enchantments,
+                                         int&nbsp;maxEnchantments,
+                                         boolean&nbsp;maxEnchantLevel,
+                                         boolean&nbsp;randomDurability,
+                                         <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a>&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/ConstantItemWithRandomEnchantmentSelector.html#ConstantItemWithRandomEnchantmentSelector-int-java.lang.Integer-int-cn.nukkit.item.enchantment.Enchantment:A-int-boolean-cn.nukkit.item.randomitem.Selector-">ConstantItemWithRandomEnchantmentSelector</a></span>(int&nbsp;id,
+                                         <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;meta,
+                                         int&nbsp;count,
+                                         <a href="../../../../../cn/nukkit/item/enchantment/Enchantment.html" title="class in cn.nukkit.item.enchantment">Enchantment</a>[]&nbsp;enchantments,
+                                         int&nbsp;maxEnchantments,
+                                         boolean&nbsp;maxEnchantLevel,
+                                         <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a>&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/ConstantItemWithRandomEnchantmentSelector.html#ConstantItemWithRandomEnchantmentSelector-cn.nukkit.item.Item-cn.nukkit.item.enchantment.Enchantment:A-int-boolean-boolean-cn.nukkit.item.randomitem.Selector-">ConstantItemWithRandomEnchantmentSelector</a></span>(<a href="../../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
+                                         <a href="../../../../../cn/nukkit/item/enchantment/Enchantment.html" title="class in cn.nukkit.item.enchantment">Enchantment</a>[]&nbsp;enchantments,
+                                         int&nbsp;maxEnchantments,
+                                         boolean&nbsp;maxEnchantLevel,
+                                         boolean&nbsp;randomDurability,
+                                         <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a>&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/ConstantItemWithRandomEnchantmentSelector.html#ConstantItemWithRandomEnchantmentSelector-cn.nukkit.item.Item-cn.nukkit.item.enchantment.Enchantment:A-int-boolean-cn.nukkit.item.randomitem.Selector-">ConstantItemWithRandomEnchantmentSelector</a></span>(<a href="../../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
+                                         <a href="../../../../../cn/nukkit/item/enchantment/Enchantment.html" title="class in cn.nukkit.item.enchantment">Enchantment</a>[]&nbsp;enchantments,
+                                         int&nbsp;maxEnchantments,
+                                         boolean&nbsp;maxEnchantLevel,
+                                         <a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a>&nbsp;parent)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../cn/nukkit/item/randomitem/Selector.html#Selector-cn.nukkit.item.randomitem.Selector-">Selector</a></span>(<a href="../../../../../cn/nukkit/item/randomitem/Selector.html" title="class in cn.nukkit.item.randomitem">Selector</a>&nbsp;parent)</code>&nbsp;</td>

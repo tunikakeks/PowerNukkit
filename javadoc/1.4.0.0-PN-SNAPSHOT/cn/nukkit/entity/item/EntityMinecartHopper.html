@@ -19,7 +19,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -272,24 +272,44 @@ implements <a href="../../../../cn/nukkit/inventory/InventoryHolder.html" title=
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/item/EntityMinecartHopper.html#isRideable--">isRideable</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/item/EntityMinecartHopper.html#isOnTransferCooldown--">isOnTransferCooldown</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/item/EntityMinecartHopper.html#isRideable--">isRideable</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/item/EntityMinecartHopper.html#mountEntity-cn.nukkit.entity.Entity-byte-">mountEntity</a></span>(<a href="../../../../cn/nukkit/entity/Entity.html" title="class in cn.nukkit.entity">Entity</a>&nbsp;entity,
            byte&nbsp;mode)</code>
 <div class="block">Mount or Dismounts an Entity from a/into vehicle</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/item/EntityMinecartHopper.html#onInteract-cn.nukkit.Player-cn.nukkit.item.Item-cn.nukkit.math.Vector3-">onInteract</a></span>(<a href="../../../../cn/nukkit/Player.html" title="class in cn.nukkit">Player</a>&nbsp;player,
           <a href="../../../../cn/nukkit/item/Item.html" title="class in cn.nukkit.item">Item</a>&nbsp;item,
           <a href="../../../../cn/nukkit/math/Vector3.html" title="class in cn.nukkit.math">Vector3</a>&nbsp;clickedPos)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/item/EntityMinecartHopper.html#onUpdate-int-">onUpdate</a></span>(int&nbsp;currentTick)</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/item/EntityMinecartHopper.html#pickupItems--">pickupItems</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/item/EntityMinecartHopper.html#pullItems--">pullItems</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/item/EntityMinecartHopper.html#saveNBT--">saveNBT</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cn/nukkit/entity/item/EntityMinecartHopper.html#setTransferCooldown-int-">setTransferCooldown</a></span>(int&nbsp;transferCooldown)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -297,7 +317,7 @@ implements <a href="../../../../cn/nukkit/inventory/InventoryHolder.html" title=
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;cn.nukkit.entity.item.<a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html" title="class in cn.nukkit.entity.item">EntityMinecartAbstract</a></h3>
-<code><a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#activate-int-int-int-boolean-">activate</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#applyEntityCollision-cn.nukkit.entity.Entity-">applyEntityCollision</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#attack-cn.nukkit.event.entity.EntityDamageEvent-">attack</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#canDoInteraction--">canDoInteraction</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#close--">close</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getBaseOffset--">getBaseOffset</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getDerailedVelocityMod--">getDerailedVelocityMod</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getDisplayBlock--">getDisplayBlock</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getDisplayBlockOffset--">getDisplayBlockOffset</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getDrag--">getDrag</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getFlyingVelocityMod--">getFlyingVelocityMod</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getHeight--">getHeight</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getMaxSpeed--">getMaxSpeed</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getWidth--">getWidth</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#isSlowWhenEmpty--">isSlowWhenEmpty</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#kill--">kill</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#onUpdate-int-">onUpdate</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setCurrentSpeed-double-">setCurrentSpeed</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setDerailedVelocityMod-cn.nukkit.math.Vector3-">setDerailedVelocityMod</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setDisplayBlock-cn.nukkit.block.Block-">setDisplayBlock</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setDisplayBlock-cn.nukkit.block.Block-boolean-">setDisplayBlock</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setDisplayBlockOffset-int-">setDisplayBlockOffset</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setFlyingVelocityMod-cn.nukkit.math.Vector3-">setFlyingVelocityMod</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setMaximumSpeed-double-">setMaximumSpeed</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setSlowWhenEmpty-boolean-">setSlowWhenEmpty</a></code></li>
+<code><a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#activate-int-int-int-boolean-">activate</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#applyEntityCollision-cn.nukkit.entity.Entity-">applyEntityCollision</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#attack-cn.nukkit.event.entity.EntityDamageEvent-">attack</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#canDoInteraction--">canDoInteraction</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#close--">close</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getBaseOffset--">getBaseOffset</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getDerailedVelocityMod--">getDerailedVelocityMod</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getDisplayBlock--">getDisplayBlock</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getDisplayBlockOffset--">getDisplayBlockOffset</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getDrag--">getDrag</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getFlyingVelocityMod--">getFlyingVelocityMod</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getHeight--">getHeight</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getMaxSpeed--">getMaxSpeed</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#getWidth--">getWidth</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#isSlowWhenEmpty--">isSlowWhenEmpty</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#kill--">kill</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setCurrentSpeed-double-">setCurrentSpeed</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setDerailedVelocityMod-cn.nukkit.math.Vector3-">setDerailedVelocityMod</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setDisplayBlock-cn.nukkit.block.Block-">setDisplayBlock</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setDisplayBlock-cn.nukkit.block.Block-boolean-">setDisplayBlock</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setDisplayBlockOffset-int-">setDisplayBlockOffset</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setFlyingVelocityMod-cn.nukkit.math.Vector3-">setFlyingVelocityMod</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setMaximumSpeed-double-">setMaximumSpeed</a>, <a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#setSlowWhenEmpty-boolean-">setSlowWhenEmpty</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.cn.nukkit.entity.item.EntityVehicle">
@@ -443,6 +463,24 @@ implements <a href="../../../../cn/nukkit/inventory/InventoryHolder.html" title=
 </dl>
 </li>
 </ul>
+<a name="isOnTransferCooldown--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isOnTransferCooldown</h4>
+<pre>public&nbsp;boolean&nbsp;isOnTransferCooldown()</pre>
+</li>
+</ul>
+<a name="setTransferCooldown-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTransferCooldown</h4>
+<pre>public&nbsp;void&nbsp;setTransferCooldown(int&nbsp;transferCooldown)</pre>
+</li>
+</ul>
 <a name="isRideable--">
 <!--   -->
 </a>
@@ -546,7 +584,7 @@ implements <a href="../../../../cn/nukkit/inventory/InventoryHolder.html" title=
 <a name="saveNBT--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>saveNBT</h4>
 <pre>public&nbsp;void&nbsp;saveNBT()</pre>
@@ -554,6 +592,39 @@ implements <a href="../../../../cn/nukkit/inventory/InventoryHolder.html" title=
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#saveNBT--">saveNBT</a></code>&nbsp;in class&nbsp;<code><a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html" title="class in cn.nukkit.entity.item">EntityMinecartAbstract</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="onUpdate-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onUpdate</h4>
+<pre><a href="../../../../cn/nukkit/api/PowerNukkitDifference.html" title="annotation in cn.nukkit.api">@PowerNukkitDifference</a>(<a href="../../../../cn/nukkit/api/PowerNukkitDifference.html#since--">since</a>="1.3.1.2-PN",
+                       <a href="../../../../cn/nukkit/api/PowerNukkitDifference.html#info--">info</a>="Will despawn instantly after being \'killed\'")
+public&nbsp;boolean&nbsp;onUpdate(int&nbsp;currentTick)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html#onUpdate-int-">onUpdate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../cn/nukkit/entity/item/EntityMinecartAbstract.html" title="class in cn.nukkit.entity.item">EntityMinecartAbstract</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="pullItems--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>pullItems</h4>
+<pre>public&nbsp;boolean&nbsp;pullItems()</pre>
+</li>
+</ul>
+<a name="pickupItems--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>pickupItems</h4>
+<pre>public&nbsp;boolean&nbsp;pickupItems()</pre>
 </li>
 </ul>
 </li>

@@ -2432,11 +2432,15 @@ public abstract class Entity extends Location implements Metadatable {
     }
 
     public void kill() {
-        this.health = 0;
-        this.scheduleUpdate();
+        EntityKillEvent event = new EntityKillEvent(this);
+        Server.getInstance().getPluginManager().callEvent(event);
+        if (!event.isCancelled()) {
+            this.health = 0;
+            this.scheduleUpdate();
 
-        for (Entity passenger : new ArrayList<>(this.passengers)) {
-            dismountEntity(passenger);
+            for (Entity passenger : new ArrayList<>(this.passengers)) {
+                dismountEntity(passenger);
+            }
         }
     }
 
@@ -2522,15 +2526,16 @@ public abstract class Entity extends Location implements Metadatable {
 
     public void close() {
         if (!this.closed) {
-            this.closed = true;
-            this.server.getPluginManager().callEvent(new EntityDespawnEvent(this));
-            this.despawnFromAll();
-            if (this.chunk != null) {
-                this.chunk.removeEntity(this);
-            }
+            EntityDespawnEvent event = new EntityDespawnEvent(this);
+            this.server.getPluginManager().callEvent(event);
+                this.closed = true;
+                this.despawnFromAll();
+                if (this.chunk != null) {
+                    this.chunk.removeEntity(this);
+                }
 
-            if (this.level != null) {
-                this.level.removeEntity(this);
+                if (this.level != null) {
+                    this.level.removeEntity(this);
             }
         }
     }

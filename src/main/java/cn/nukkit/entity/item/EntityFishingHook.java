@@ -12,6 +12,7 @@ import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
 import cn.nukkit.event.entity.ProjectileHitEvent;
+import cn.nukkit.event.player.PlayerFishEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.randomitem.Fishing;
 import cn.nukkit.level.MovingObjectPosition;
@@ -44,6 +45,7 @@ public class EntityFishingHook extends EntityProjectile {
     public int attractTimer = 0;
     public boolean caught = false;
     public int coughtTimer = 0;
+    public Entity caughtEntity;
 
     public Vector3 fish = null;
 
@@ -265,12 +267,20 @@ public class EntityFishingHook extends EntityProjectile {
             if (experience > 0) {
                 player.addExperience(experience);
             }
+            Server.getInstance().getPluginManager().callEvent(new PlayerFishEvent(player));
         }
         if (this.shootingEntity instanceof Player) {
             EntityEventPacket pk = new EntityEventPacket();
             pk.eid = this.getId();
             pk.event = EntityEventPacket.FISH_HOOK_TEASE;
             Server.broadcastPacket(this.getViewers().values(), pk);
+        }
+        if(caughtEntity != null) {
+            if(this.shootingEntity != null) {
+                Vector3 motion = this.shootingEntity.subtract(this).multiply(0.1);
+                motion.y += Math.sqrt(this.shootingEntity.distance(this)) * 0.08;
+                caughtEntity.setMotion(motion);
+            }
         }
         if (!this.closed) {
             this.kill();
@@ -318,9 +328,10 @@ public class EntityFishingHook extends EntityProjectile {
         } else {
             ev = new EntityDamageByChildEntityEvent(this.shootingEntity, this, entity, DamageCause.PROJECTILE, damage);
         }
-
-        if (entity.attack(ev)) {
+        entity.attack(ev);
+        if(shootingEntity != entity) {
             setDataProperty(new LongEntityData(DATA_TARGET_EID, entity.getId()));
+            this.caughtEntity = entity;
         }
     }
 }

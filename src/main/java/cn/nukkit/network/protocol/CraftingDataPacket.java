@@ -91,6 +91,8 @@ public class CraftingDataPacket extends DataPacket {
     public void encode() {
         this.reset();
         this.putUnsignedVarInt(entries.size());
+		
+		int recipeNetworkId = 1;
 
         int recipeNetworkId = 1;
 

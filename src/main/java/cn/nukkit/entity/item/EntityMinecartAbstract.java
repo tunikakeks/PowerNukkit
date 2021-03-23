@@ -5,10 +5,7 @@ import cn.nukkit.api.API;
 import cn.nukkit.api.API.Definition;
 import cn.nukkit.api.API.Usage;
 import cn.nukkit.api.PowerNukkitDifference;
-import cn.nukkit.block.Block;
-import cn.nukkit.block.BlockRail;
-import cn.nukkit.block.BlockRailActivator;
-import cn.nukkit.block.BlockRailPowered;
+import cn.nukkit.block.*;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.EntityHuman;
 import cn.nukkit.entity.EntityLiving;
@@ -20,6 +17,7 @@ import cn.nukkit.event.vehicle.VehicleUpdateEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemMinecart;
 import cn.nukkit.level.GameRule;
+import cn.nukkit.level.Level;
 import cn.nukkit.level.Location;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.math.MathHelper;
@@ -54,6 +52,7 @@ public abstract class EntityMinecartAbstract extends EntityVehicle {
     };
     private double currentSpeed = 0;
     private Block blockInside;
+    private Block lastBlock;
     // Plugins modifiers
     private boolean slowWhenEmpty = true;
     private double derailedX = 0.5;
@@ -152,6 +151,17 @@ public abstract class EntityMinecartAbstract extends EntityVehicle {
             }
 
             Block block = level.getBlock(new Vector3(dx, dy, dz));
+            if(lastBlock != null && !(lastBlock.equals(block))) {
+                if(Rail.isRailBlock(lastBlock)) {
+                    if(lastBlock instanceof BlockRailDetector) {
+                        ((BlockRailDetector) lastBlock).setActive(false);
+                        level.scheduleUpdate(lastBlock, this, 0);
+                        level.scheduleUpdate(lastBlock, lastBlock.down(), 0);
+                        level.updateComparatorOutputLevel(lastBlock);
+                    }
+                }
+            }
+            lastBlock = block;
 
             // Ensure that the block is a rail
             if (Rail.isRailBlock(block)) {
@@ -159,6 +169,8 @@ public abstract class EntityMinecartAbstract extends EntityVehicle {
                 // Activate the minecart/TNT
                 if (block instanceof BlockRailActivator && ((BlockRailActivator) block).isActive()) {
                     activate(dx, dy, dz, (block.getDamage() & 0x8) != 0);
+                } else if(block instanceof BlockRailDetector) {
+                    block.onUpdate(Level.BLOCK_UPDATE_SCHEDULED);
                 }
             } else {
                 setFalling();
@@ -257,6 +269,13 @@ public abstract class EntityMinecartAbstract extends EntityVehicle {
     @Override
     public void close() {
         super.close();
+
+        Block block = level.getBlock(new Vector3(MathHelper.floor(x), MathHelper.floor(y), MathHelper.floor(z)));
+        if(Rail.isRailBlock(block)) {
+            if(block instanceof BlockRailDetector) {
+                block.onUpdate(Level.BLOCK_UPDATE_SCHEDULED);
+            }
+        }
 
         for (Entity passenger : new ArrayList<>(this.passengers)) {
             dismountEntity(passenger);
@@ -419,19 +438,19 @@ public abstract class EntityMinecartAbstract extends EntityVehicle {
 
         switch (Orientation.byMetadata(block.getRealMeta())) {
             case ASCENDING_NORTH:
-                motionX -= 0.0078125D;
-                y += 1;
-                break;
-            case ASCENDING_SOUTH:
-                motionX += 0.0078125D;
-                y += 1;
-                break;
-            case ASCENDING_EAST:
                 motionZ += 0.0078125D;
                 y += 1;
                 break;
-            case ASCENDING_WEST:
+            case ASCENDING_SOUTH:
                 motionZ -= 0.0078125D;
+                y += 1;
+                break;
+            case ASCENDING_EAST:
+                motionX -= 0.0078125D;
+                y += 1;
+                break;
+            case ASCENDING_WEST:
+                motionX += 0.0078125D;
                 y += 1;
                 break;
         }

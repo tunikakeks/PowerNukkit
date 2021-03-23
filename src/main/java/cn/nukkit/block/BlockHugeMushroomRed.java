@@ -1,10 +1,15 @@
 package cn.nukkit.block;
 
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemBlock;
 import cn.nukkit.item.ItemTool;
+import cn.nukkit.item.enchantment.Enchantment;
 import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.utils.BlockColor;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author Pub4Game
@@ -47,6 +52,11 @@ public class BlockHugeMushroomRed extends BlockSolidMeta {
 
     @Override
     public Item[] getDrops(Item item) {
+        if (item.hasEnchantment(Enchantment.ID_SILK_TOUCH)) {
+            return new Item[]{
+                    new ItemBlock(Block.get(BlockID.RED_MUSHROOM_BLOCK), this.getDamage() == 10 ? 10 : 14)
+            };
+        }
         if (new NukkitRandom().nextRange(1, 20) == 0) {
             return new Item[]{
                     new ItemBlock(Block.get(BlockID.RED_MUSHROOM))
@@ -58,7 +68,7 @@ public class BlockHugeMushroomRed extends BlockSolidMeta {
 
     @Override
     public boolean canSilkTouch() {
-        return true;
+        return false;
     }
 
     @Override

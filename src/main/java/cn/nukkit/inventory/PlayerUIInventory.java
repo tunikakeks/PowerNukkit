@@ -86,6 +86,14 @@ public class PlayerUIInventory extends BaseInventory {
                     }
                 }
                 return;
+            case Player.CRAFTING_LOOM:
+                if (index >= LoomInventory.OFFSET) {
+                    Inventory inventory = player.getWindowById(Player.LOOM_WINDOW_ID);
+                    if (inventory instanceof LoomInventory) {
+                        inventory.onSlotChange(index == 50 ? 3 : index - LoomInventory.OFFSET, before, send);
+                    }
+                }
+                return;
             default:
                 super.onSlotChange(index, before, send);
         }

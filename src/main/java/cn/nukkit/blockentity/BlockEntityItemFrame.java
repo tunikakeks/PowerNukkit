@@ -141,7 +141,6 @@ public class BlockEntityItemFrame extends BlockEntitySpawnable {
             }
             return null;
         }
-
         EntityItem itemEntity = level.dropAndGetItem(add(0.5, 0.25, 0.5), drop);
         if (itemEntity == null) {
             if (player != null) {
@@ -149,12 +148,10 @@ public class BlockEntityItemFrame extends BlockEntitySpawnable {
             }
             return null;
         }
-
         setItem(MinecraftItemID.AIR.get(0), true);
         setItemRotation(0);
         spawnToAll();
         level.addLevelEvent(this, LevelEventPacket.EVENT_SOUND_ITEM_FRAME_REMOVED);
-
         return itemEntity;
     }
 }

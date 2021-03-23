@@ -31,6 +31,7 @@ public class ItemFrameDropItemEvent extends BlockEvent implements Cancellable {
     public static HandlerList getHandlers() {
         return handlers;
     }
+
     @Nullable
     public Player getPlayer() {
         return player;

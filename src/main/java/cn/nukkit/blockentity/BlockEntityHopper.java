@@ -586,6 +586,9 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
 
                     item.count--;
                     this.inventory.setItem(i, item);
+                    if(be instanceof BlockEntityHopper) {
+                        ((BlockEntityHopper) be).transferCooldown++;
+                    }
                     return true;
                 }
             }

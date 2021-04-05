@@ -1,7 +1,10 @@
 package cn.nukkit.inventory;
 
 import cn.nukkit.blockentity.BlockEntityFurnace;
+import cn.nukkit.entity.Entity;
+import cn.nukkit.entity.item.EntityXPOrb;
 import cn.nukkit.item.Item;
+import cn.nukkit.math.NukkitMath;
 
 /**
  * @author MagicDroidX (Nukkit Project)
@@ -48,6 +51,15 @@ public class FurnaceInventory extends ContainerInventory {
     @Override
     public void onSlotChange(int index, Item before, boolean send) {
         super.onSlotChange(index, before, send);
+
+        if(index == 2 && getItem(2).getId() == 0) {
+            int experience = NukkitMath.floorDouble(this.getHolder().getExperience());
+            if(experience >= 1) {
+                this.getHolder().setExperience(this.getHolder().getExperience() - experience);
+                EntityXPOrb orb = new EntityXPOrb(this.getHolder().getChunk(), Entity.getDefaultNBT(this.getHolder()).putShort("Value", experience));
+                orb.spawnToAll();
+            }
+        }
 
         this.getHolder().scheduleUpdate();
     }

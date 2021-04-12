@@ -543,7 +543,7 @@ public class BinaryStream {
                 stream.write(NBTIO.write(tag, ByteOrder.LITTLE_ENDIAN));
             } else if (item.hasCompoundTag()) {
                 stream.writeShort(-1);
-                stream.writeByte(1);
+                stream.writeByte(1); // Hardcoded in current version
                 stream.write(item.getCompoundTag());
             } else {
                 buf.writeShortLE(0);

@@ -11,7 +11,9 @@ import cn.nukkit.entity.projectile.EntityArrow;
 import cn.nukkit.entity.projectile.EntitySnowball;
 import cn.nukkit.event.block.BlockGrowEvent;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemID;
 import cn.nukkit.item.ItemTool;
+import cn.nukkit.item.enchantment.Enchantment;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.Position;
 import cn.nukkit.level.Sound;
@@ -204,7 +206,10 @@ public class BlockChorusFlower extends BlockTransparentMeta {
 
     @Override
     public Item[] getDrops(Item item) {
-        return new Item[]{ this.toItem() };
+        if (item.hasEnchantment(Enchantment.ID_SILK_TOUCH)) {
+            return new Item[]{ this.toItem() };
+        }
+        return new Item[]{Item.get(ItemID.CHORUS_FRUIT)};
     }
 
     @Override

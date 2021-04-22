@@ -52,15 +52,6 @@ public class FurnaceInventory extends ContainerInventory {
     public void onSlotChange(int index, Item before, boolean send) {
         super.onSlotChange(index, before, send);
 
-        if(index == 2 && getItem(2).getId() == 0) {
-            int experience = NukkitMath.floorDouble(this.getHolder().getExperience());
-            if(experience >= 1) {
-                this.getHolder().setExperience(this.getHolder().getExperience() - experience);
-                EntityXPOrb orb = new EntityXPOrb(this.getHolder().getChunk(), Entity.getDefaultNBT(this.getHolder()).putShort("Value", experience));
-                orb.spawnToAll();
-            }
-        }
-
         this.getHolder().scheduleUpdate();
     }
 }

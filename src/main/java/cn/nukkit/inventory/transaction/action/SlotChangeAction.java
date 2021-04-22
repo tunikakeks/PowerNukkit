@@ -1,6 +1,8 @@
 package cn.nukkit.inventory.transaction.action;
 
 import cn.nukkit.Player;
+import cn.nukkit.blockentity.BlockEntityFurnace;
+import cn.nukkit.inventory.FurnaceInventory;
 import cn.nukkit.inventory.Inventory;
 import cn.nukkit.inventory.transaction.InventoryTransaction;
 import cn.nukkit.item.Item;
@@ -72,6 +74,13 @@ public class SlotChangeAction extends InventoryAction {
         viewers.remove(source);
 
         this.inventory.sendSlot(this.inventorySlot, viewers);
+
+        if(this.inventory instanceof FurnaceInventory && this.inventorySlot == 2) {
+            BlockEntityFurnace blockEntityFurnace = ((FurnaceInventory) this.inventory).getHolder();
+            if(blockEntityFurnace != null && !blockEntityFurnace.closed) {
+                blockEntityFurnace.releaseExperience();
+            }
+        }
     }
 
     /**

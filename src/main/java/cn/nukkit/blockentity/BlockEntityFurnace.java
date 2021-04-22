@@ -3,6 +3,8 @@ package cn.nukkit.blockentity;
 import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
+import cn.nukkit.entity.Entity;
+import cn.nukkit.entity.item.EntityXPOrb;
 import cn.nukkit.event.inventory.FurnaceBurnEvent;
 import cn.nukkit.event.inventory.FurnaceSmeltEvent;
 import cn.nukkit.inventory.FurnaceInventory;
@@ -13,6 +15,7 @@ import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemBlock;
 import cn.nukkit.item.ItemBucket;
 import cn.nukkit.level.format.FullChunk;
+import cn.nukkit.math.NukkitMath;
 import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.ListTag;
@@ -351,6 +354,15 @@ public class BlockEntityFurnace extends BlockEntitySpawnable implements Inventor
         this.timing.stopTiming();
 
         return ret;
+    }
+
+    public void releaseExperience() {
+        int experience = NukkitMath.floorDouble(this.experience);
+        if(experience >= 1) {
+            this.setExperience(this.experience - experience);
+            EntityXPOrb orb = new EntityXPOrb(this.getChunk(), Entity.getDefaultNBT(this).putShort("Value", experience));
+            orb.spawnToAll();
+        }
     }
 
     @Override

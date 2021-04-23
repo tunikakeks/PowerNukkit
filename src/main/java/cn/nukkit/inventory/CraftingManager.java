@@ -184,15 +184,19 @@ public class CraftingManager {
                         } catch (Exception old) {
                             inputItem = Item.get(Utils.toInt(recipe.get("inputId")), recipe.containsKey("inputDamage") ? Utils.toInt(recipe.get("inputDamage")) : -1, 1);
                         }
+                        double experience = 0;
+                        if(resultMap.containsKey("experience")) {
+                            experience = (double) resultMap.get("experience");
+                        }
                         switch (craftingBlock) {
                             case "furnace":
-                                this.registerRecipe(new FurnaceRecipe(resultItem, inputItem));
+                                this.registerRecipe(new FurnaceRecipe(resultItem, inputItem, experience));
                                 break;
                             case "blast_furnace":
-                                this.registerRecipe(new BlastFurnaceRecipe(resultItem, inputItem));
+                                this.registerRecipe(new BlastFurnaceRecipe(resultItem, inputItem, experience));
                                 break;
                             case "smoker":
-                                this.registerRecipe(new SmokerRecipe(resultItem, inputItem));
+                                this.registerRecipe(new SmokerRecipe(resultItem, inputItem, experience));
                                 break;
                             case "campfire":
                                 this.registerRecipe(new CampfireRecipe(resultItem, inputItem));

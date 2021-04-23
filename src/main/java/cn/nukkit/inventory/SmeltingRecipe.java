@@ -4,4 +4,6 @@ import cn.nukkit.item.Item;
 
 public interface SmeltingRecipe extends Recipe {
     Item getInput();
+
+    double getExperience();
 }

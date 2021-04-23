@@ -65,7 +65,7 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
             this.inventory.setItem(i, this.getItem(i));
         }
 
-        this.pickupArea = new SimpleAxisAlignedBB(this.x, this.y, this.z, this.x + 1, this.y + 2, this.z + 1);
+        this.pickupArea = new SimpleAxisAlignedBB(this.x - 0.1, this.y, this.z - 0.1, this.x + 1.1, this.y + 2, this.z + 1.1);
         
         this.scheduleUpdate();
 
@@ -297,6 +297,13 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
                     item.count--;
 
                     inv.setItem(i, item);
+
+                    Block blockDown = this.getBlock().down();
+                    if(blockDown instanceof BlockHopper) {
+                        BlockEntityHopper blockEntityHopper = ((BlockHopper) blockDown).getOrCreateBlockEntity();
+                        if(!blockEntityHopper.isOnTransferCooldown()) blockEntityHopper.transferCooldown = 1;
+                    }
+
                     return true;
                 }
             }
@@ -453,6 +460,31 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
         Block blockSide = this.getBlock().getSide(side);
         BlockEntity be = this.level.getBlockEntity(temporalVector.setComponentsAdding(this, side));
 
+        Block blockDown = this.getBlock().down();
+
+        int slot = 0;
+
+        if(side != BlockFace.DOWN && blockDown instanceof BlockHopper) {
+            BlockEntityHopper blockEntityHopper = ((BlockHopper) blockDown).getOrCreateBlockEntity();
+            if(!blockEntityHopper.isOnTransferCooldown() && !blockEntityHopper.isDisabled() && !blockEntityHopper.getInventory().isFull()) {
+                int count = 0;
+                for(int i = 0; i < this.inventory.getSize(); i++) {
+                    Item item = this.inventory.getItem(i);
+                    if(item.isNull()) {
+                        continue;
+                    }
+                    count += item.count;
+                    if(count > 1) {
+                        slot = i;
+                        break;
+                    }
+                }
+                if(count <= 1) {
+                    return false;
+                }
+            }
+        }
+
         if (be instanceof BlockEntityHopper && levelBlockState.isDefaultState() || !(be instanceof InventoryHolder) && !(blockSide instanceof BlockComposter)) {
             return fillMinecart(blockSide);
         }
@@ -469,7 +501,7 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
 
             boolean pushedItem = false;
 
-            for (int i = 0; i < this.inventory.getSize(); i++) {
+            for (int i = slot; i < this.inventory.getSize(); i++) {
                 Item item = this.inventory.getItem(i);
                 if (!item.isNull()) {
                     Item itemToAdd = item.clone();
@@ -535,7 +567,7 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
                 return false;
             }
 
-            for (int i = 0; i < this.inventory.getSize(); i++) {
+            for (int i = slot; i < this.inventory.getSize(); i++) {
                 Item item = this.inventory.getItem(i);
 
                 if (item.isNull()) {
@@ -560,7 +592,7 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
                 return false;
             }
 
-            for (int i = 0; i < this.inventory.getSize(); i++) {
+            for (int i = slot; i < this.inventory.getSize(); i++) {
                 Item item = this.inventory.getItem(i);
 
                 if (!item.isNull()) {
@@ -587,7 +619,11 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
                     item.count--;
                     this.inventory.setItem(i, item);
                     if(be instanceof BlockEntityHopper) {
-                        ((BlockEntityHopper) be).transferCooldown++;
+                        if(!((BlockEntityHopper) be).isOnTransferCooldown()) ((BlockEntityHopper) be).transferCooldown = 1;
+                    }
+                    if(blockSide.down() instanceof BlockHopper) {
+                        BlockEntityHopper blockEntityHopper = ((BlockHopper) blockSide.down()).getOrCreateBlockEntity();
+                        if(!blockEntityHopper.isOnTransferCooldown()) blockEntityHopper.transferCooldown = 1;
                     }
                     return true;
                 }

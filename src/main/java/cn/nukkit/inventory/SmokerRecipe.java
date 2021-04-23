@@ -8,9 +8,16 @@ public class SmokerRecipe implements SmeltingRecipe {
 
     private Item ingredient;
 
+    private double experience;
+
     public SmokerRecipe(Item result, Item ingredient) {
+        this(result, ingredient, 0);
+    }
+
+    public SmokerRecipe(Item result, Item ingredient, double experience) {
         this.output = result.clone();
         this.ingredient = ingredient.clone();
+        this.experience = experience;
     }
 
     public void setInput(Item item) {
@@ -20,6 +27,11 @@ public class SmokerRecipe implements SmeltingRecipe {
     @Override
     public Item getInput() {
         return this.ingredient.clone();
+    }
+
+    @Override
+    public double getExperience() {
+        return experience;
     }
 
     @Override

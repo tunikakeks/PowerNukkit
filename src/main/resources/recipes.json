@@ -45034,7 +45034,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 306
+        "id" : 306,
+        "experience": 1
       },
       "block" : "furnace"
     },
@@ -45045,7 +45046,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 306
+        "id" : 306,
+        "experience": 1
       },
       "block" : "blast_furnace"
     },
@@ -45067,7 +45069,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 601
+        "id" : 601,
+        "experience": 1
       },
       "block" : "furnace"
     },
@@ -45078,7 +45081,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 601
+        "id" : 601,
+        "experience": 1
       },
       "block" : "blast_furnace"
     },
@@ -45088,7 +45092,8 @@
         "id" : -212
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45099,7 +45104,8 @@
         "damage" : 1
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45110,7 +45116,8 @@
         "damage" : 2
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45118,7 +45125,8 @@
       "type" : 3,
       "input" : {
         "id" : -212,
-        "damage" : 3
+        "damage" : 3,
+        "experience": 0.15
       },
       "output" : {
         "id" : 303
@@ -45132,7 +45140,8 @@
         "damage" : 4
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45143,7 +45152,8 @@
         "damage" : 5
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45154,7 +45164,8 @@
         "damage" : 8
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45165,7 +45176,8 @@
         "damage" : 9
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45176,7 +45188,8 @@
         "damage" : 10
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45187,7 +45200,8 @@
         "damage" : 11
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45198,7 +45212,8 @@
         "damage" : 12
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45209,7 +45224,8 @@
         "damage" : 13
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45220,7 +45236,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 403
+        "id" : 403,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45231,7 +45248,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45242,7 +45260,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45253,7 +45272,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45264,7 +45284,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45275,7 +45296,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45286,7 +45308,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45296,7 +45319,8 @@
         "id" : 1
       },
       "output" : {
-        "id" : -183
+        "id" : -183,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45307,7 +45331,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 1
+        "id" : 1,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45318,7 +45343,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 20
+        "id" : 20,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45329,7 +45355,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 306
+        "id" : 306,
+        "experience": 1
       },
       "block" : "furnace"
     },
@@ -45340,7 +45367,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 306
+        "id" : 306,
+        "experience": 1
       },
       "block" : "blast_furnace"
     },
@@ -45351,7 +45379,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 305
+        "id" : 305,
+        "experience": 0.7
       },
       "block" : "furnace"
     },
@@ -45362,7 +45391,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 305
+        "id" : 305,
+        "experience": 0.7
       },
       "block" : "blast_furnace"
     },
@@ -45373,7 +45403,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 302
+        "id" : 302,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45384,7 +45415,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 302
+        "id" : 302,
+        "experience": 0.1
       },
       "block" : "blast_furnace"
     },
@@ -45394,7 +45426,8 @@
         "id" : 17
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45405,7 +45438,8 @@
         "damage" : 1
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45416,7 +45450,8 @@
         "damage" : 2
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45427,7 +45462,8 @@
         "damage" : 3
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45438,7 +45474,8 @@
         "damage" : 1
       },
       "output" : {
-        "id" : 19
+        "id" : 19,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45449,7 +45486,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 412
+        "id" : 412,
+        "experience": 0.2
       },
       "block" : "furnace"
     },
@@ -45460,7 +45498,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 412
+        "id" : 412,
+        "experience": 0.2
       },
       "block" : "blast_furnace"
     },
@@ -45483,7 +45522,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 304
+        "id" : 304,
+        "experience": 1
       },
       "block" : "furnace"
     },
@@ -45494,7 +45534,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 304
+        "id" : 304,
+        "experience": 1
       },
       "block" : "blast_furnace"
     },
@@ -45505,7 +45546,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 371
+        "id" : 371,
+        "experience": 0.7
       },
       "block" : "furnace"
     },
@@ -45516,7 +45558,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 371
+        "id" : 371,
+        "experience": 0.7
       },
       "block" : "blast_furnace"
     },
@@ -45527,7 +45570,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 395
+        "id" : 395,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45538,7 +45582,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 172
+        "id" : 172,
+        "experience": 0.35
       },
       "block" : "furnace"
     },
@@ -45549,7 +45594,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 513
+        "id" : 513,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45560,7 +45606,8 @@
       },
       "output" : {
         "id" : 98,
-        "damage" : 2
+        "damage" : 2,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45582,7 +45629,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 502
+        "id" : 502,
+        "experience": 1
       },
       "block" : "furnace"
     },
@@ -45593,7 +45641,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 502
+        "id" : 502,
+        "experience": 1
       },
       "block" : "blast_furnace"
     },
@@ -45604,7 +45653,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 514
+        "id" : 514,
+        "experience": 0.2
       },
       "block" : "furnace"
     },
@@ -45615,7 +45665,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 514
+        "id" : 514,
+        "experience": 0.2
       },
       "block" : "blast_furnace"
     },
@@ -45636,7 +45687,8 @@
         "id" : 159
       },
       "output" : {
-        "id" : 220
+        "id" : 220,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45647,7 +45699,8 @@
         "damage" : 1
       },
       "output" : {
-        "id" : 221
+        "id" : 221,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45658,7 +45711,8 @@
         "damage" : 2
       },
       "output" : {
-        "id" : 222
+        "id" : 222,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45669,7 +45723,8 @@
         "damage" : 3
       },
       "output" : {
-        "id" : 223
+        "id" : 223,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45680,7 +45735,8 @@
         "damage" : 4
       },
       "output" : {
-        "id" : 224
+        "id" : 224,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45691,7 +45747,8 @@
         "damage" : 5
       },
       "output" : {
-        "id" : 225
+        "id" : 225,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45702,7 +45759,8 @@
         "damage" : 6
       },
       "output" : {
-        "id" : 226
+        "id" : 226,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45713,7 +45771,8 @@
         "damage" : 7
       },
       "output" : {
-        "id" : 227
+        "id" : 227,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45724,7 +45783,8 @@
         "damage" : 8
       },
       "output" : {
-        "id" : 228
+        "id" : 228,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45735,7 +45795,8 @@
         "damage" : 9
       },
       "output" : {
-        "id" : 229
+        "id" : 229,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45746,7 +45807,8 @@
         "damage" : 10
       },
       "output" : {
-        "id" : 219
+        "id" : 219,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45757,7 +45819,8 @@
         "damage" : 11
       },
       "output" : {
-        "id" : 231
+        "id" : 231,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45768,7 +45831,8 @@
         "damage" : 12
       },
       "output" : {
-        "id" : 232
+        "id" : 232,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45779,7 +45843,8 @@
         "damage" : 13
       },
       "output" : {
-        "id" : 233
+        "id" : 233,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45790,7 +45855,8 @@
         "damage" : 14
       },
       "output" : {
-        "id" : 234
+        "id" : 234,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45801,7 +45867,8 @@
         "damage" : 15
       },
       "output" : {
-        "id" : 235
+        "id" : 235,
+        "experience": 0.1
       },
       "block" : "furnace"
     },
@@ -45811,7 +45878,8 @@
         "id" : 162
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45822,7 +45890,8 @@
         "damage" : 1
       },
       "output" : {
-        "id" : 303
+        "id" : 303,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -45845,7 +45914,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 263
+        "id" : 263,
+        "experience": 0.35
       },
       "block" : "smoker"
     },
@@ -45856,7 +45926,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 263
+        "id" : 263,
+        "experience": 0.35
       },
       "block" : "furnace"
     },
@@ -45889,7 +45960,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 268
+        "id" : 268,
+        "experience": 0.35
       },
       "block" : "smoker"
     },
@@ -45900,7 +45972,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 268
+        "id" : 268,
+        "experience": 0.35
       },
       "block" : "furnace"
     },
@@ -45933,7 +46006,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 269
+        "id" : 269,
+        "experience": 0.35
       },
       "block" : "smoker"
     },
@@ -45944,7 +46018,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 269
+        "id" : 269,
+        "experience": 0.35
       },
       "block" : "furnace"
     },
@@ -45977,7 +46052,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 274
+        "id" : 274,
+        "experience": 0.35
       },
       "block" : "smoker"
     },
@@ -45988,7 +46064,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 274
+        "id" : 274,
+        "experience": 0.35
       },
       "block" : "furnace"
     },
@@ -46021,7 +46098,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 276
+        "id" : 276,
+        "experience": 0.35
       },
       "block" : "smoker"
     },
@@ -46032,7 +46110,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 276
+        "id" : 276,
+        "experience": 0.35
       },
       "block" : "furnace"
     },
@@ -46065,7 +46144,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 281
+        "id" : 281,
+        "experience": 0.35
       },
       "block" : "smoker"
     },
@@ -46076,7 +46156,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 281
+        "id" : 281,
+        "experience": 0.35
       },
       "block" : "furnace"
     },
@@ -46109,7 +46190,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 289
+        "id" : 289,
+        "experience": 0.35
       },
       "block" : "smoker"
     },
@@ -46120,7 +46202,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 289
+        "id" : 289,
+        "experience": 0.35
       },
       "block" : "furnace"
     },
@@ -46153,7 +46236,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46164,7 +46248,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46175,7 +46260,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46186,7 +46272,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46197,7 +46284,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46208,7 +46296,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46219,7 +46308,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46230,7 +46320,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46241,7 +46332,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46252,7 +46344,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46263,7 +46356,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46274,7 +46368,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46285,7 +46380,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46296,7 +46392,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46307,7 +46404,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46318,7 +46416,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46329,7 +46428,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46340,7 +46440,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46351,7 +46452,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46362,7 +46464,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46372,7 +46475,8 @@
         "id" : 339
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46382,7 +46486,8 @@
         "id" : 339
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46392,7 +46497,8 @@
         "id" : 340
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46402,7 +46508,8 @@
         "id" : 340
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46412,7 +46519,8 @@
         "id" : 341
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46422,7 +46530,8 @@
         "id" : 341
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46432,7 +46541,8 @@
         "id" : 342
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46442,7 +46552,8 @@
         "id" : 342
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46452,7 +46563,8 @@
         "id" : 343
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46462,7 +46574,8 @@
         "id" : 343
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46472,7 +46585,8 @@
         "id" : 344
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46482,7 +46596,8 @@
         "id" : 344
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46492,7 +46607,8 @@
         "id" : 345
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46502,7 +46618,8 @@
         "id" : 345
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46512,7 +46629,8 @@
         "id" : 346
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46522,7 +46640,8 @@
         "id" : 346
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46532,7 +46651,8 @@
         "id" : 351
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46542,7 +46662,8 @@
         "id" : 351
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46552,7 +46673,8 @@
         "id" : 352
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46562,7 +46684,8 @@
         "id" : 352
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46572,7 +46695,8 @@
         "id" : 353
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46582,7 +46706,8 @@
         "id" : 353
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46592,7 +46717,8 @@
         "id" : 354
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46602,7 +46728,8 @@
         "id" : 354
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46613,7 +46740,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 270
+        "id" : 270,
+        "experience": 0.01
       },
       "block" : "smoker"
     },
@@ -46624,7 +46752,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 270
+        "id" : 270,
+        "experience": 0.01
       },
       "block" : "furnace"
     },
@@ -46657,7 +46786,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 381
+        "id" : 381,
+        "experience": 0.3
       },
       "block" : "furnace"
     },
@@ -46668,7 +46798,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46679,7 +46810,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 559
+        "id" : 559,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46690,7 +46822,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "furnace"
     },
@@ -46701,7 +46834,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 423
+        "id" : 423,
+        "experience": 0.15
       },
       "block" : "blast_furnace"
     },
@@ -46712,7 +46846,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 541
+        "id" : 541,
+        "experience": 0.35
       },
       "block" : "smoker"
     },
@@ -46723,7 +46858,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 541
+        "id" : 541,
+        "experience": 0.35
       },
       "block" : "furnace"
     },
@@ -46756,7 +46892,8 @@
         "damage" : -1
       },
       "output" : {
-        "id" : 549
+        "id" : 549,
+        "experience": 0.1
       },
       "block" : "furnace"
     }

@@ -143,10 +143,15 @@ public class EntityXPOrb extends Entity {
             }
 
             if (this.closestPlayer == null || this.closestPlayer.distanceSquared(this) > 64.0D) {
-                for (Player p : level.getPlayers().values()) {
-                    if (!p.isSpectator() && p.distance(this) <= 8) {
-                        this.closestPlayer = p;
-                        break;
+                this.closestPlayer = null;
+                double closestDistance = 0.0D;
+                for (Player p : level.getChunkPlayers(this.getChunkX(), this.getChunkZ()).values()) {
+                    if (!p.isSpectator()) {
+                        double d = p.distanceSquared(this);
+                        if (d <= 64.0D && (this.closestPlayer == null || d < closestDistance)) {
+                            this.closestPlayer = p;
+                            closestDistance = d;
+                        }
                     }
                 }
             }

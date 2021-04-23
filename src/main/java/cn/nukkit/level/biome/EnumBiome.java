@@ -1,12 +1,15 @@
 package cn.nukkit.level.biome;
 
 import cn.nukkit.api.PowerNukkitDifference;
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.level.biome.impl.HellBiome;
 import cn.nukkit.level.biome.impl.beach.BeachBiome;
 import cn.nukkit.level.biome.impl.beach.ColdBeachBiome;
 import cn.nukkit.level.biome.impl.desert.DesertBiome;
 import cn.nukkit.level.biome.impl.desert.DesertHillsBiome;
 import cn.nukkit.level.biome.impl.desert.DesertMBiome;
+import cn.nukkit.level.biome.impl.end.TheEndBiome;
 import cn.nukkit.level.biome.impl.extremehills.*;
 import cn.nukkit.level.biome.impl.forest.FlowerForestBiome;
 import cn.nukkit.level.biome.impl.forest.ForestBiome;
@@ -52,6 +55,7 @@ public enum EnumBiome {
     RIVER(7, new RiverBiome()),//
     HELL(8, new HellBiome()),
     FROZEN_OCEAN(10, new FrozenOceanBiome()),
+    @PowerNukkitOnly @Since("1.4.0.0-PN") THE_END(9, new TheEndBiome()),
     FROZEN_RIVER(11, new FrozenRiverBiome()),
     ICE_PLAINS(12, new IcePlainsBiome()),
     MUSHROOM_ISLAND(14, new MushroomIslandBiome()),//

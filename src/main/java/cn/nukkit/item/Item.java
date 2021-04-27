@@ -2,8 +2,7 @@ package cn.nukkit.item;
 
 import cn.nukkit.Player;
 import cn.nukkit.Server;
-import cn.nukkit.api.PowerNukkitDifference;
-import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.*;
 import cn.nukkit.api.Since;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
@@ -47,7 +46,7 @@ public class Item implements Cloneable, BlockID, ItemID {
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public static final Item[] EMPTY_ARRAY = new Item[0];
-    
+
     /**
      * Groups:
      * <ol>
@@ -64,7 +63,7 @@ public class Item implements Cloneable, BlockID, ItemID {
 
     protected static String UNKNOWN_STR = "Unknown";
     public static Class[] list = null;
-    
+
     private static Map<String, Integer> itemIds = Arrays.stream(ItemID.class.getDeclaredFields())
             .filter(field-> field.getModifiers() == (Modifier.PUBLIC | Modifier.STATIC | Modifier.FINAL))
             .filter(field -> field.getType().equals(int.class))
@@ -106,7 +105,11 @@ public class Item implements Cloneable, BlockID, ItemID {
     private byte[] tags = EmptyArrays.EMPTY_BYTES;
     private transient CompoundTag cachedNBT = null;
     public int count;
+
+    @Deprecated
+    @DeprecationDetails(since = "1.4.0.0-PN", by = "PowerNukkit", reason = "Unused", replaceWith = "meta or getDamage()")
     protected int durability = 0;
+
     protected String name;
 
     public Item(int id) {
@@ -218,7 +221,7 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[SIGN] = ItemSign.class; //323
             list[WOODEN_DOOR] = ItemDoorWood.class; //324
             list[BUCKET] = ItemBucket.class; //325
-            
+
             list[MINECART] = ItemMinecart.class; //328
             list[SADDLE] = ItemSaddle.class; //329
             list[IRON_DOOR] = ItemDoorIron.class; //330
@@ -339,9 +342,9 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[BANNER] = ItemBanner.class; //446
 
             list[TOTEM] = ItemTotem.class; //450
-            
+
             list[IRON_NUGGET] = ItemNuggetIron.class; //452
-            
+
             list[TRIDENT] = ItemTrident.class; //455
 
             list[BEETROOT] = ItemBeetroot.class; //457
@@ -354,7 +357,7 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[DRIED_KELP] = ItemDriedKelp.class; //464
 
             list[GOLDEN_APPLE_ENCHANTED] = ItemAppleGoldEnchanted.class; //466
-            
+
             list[TURTLE_SHELL] = ItemTurtleShell.class; //469
 
             list[CROSSBOW] = ItemCrossbow.class; //471
@@ -386,7 +389,7 @@ public class Item implements Cloneable, BlockID, ItemID {
 
             list[HONEYCOMB] = ItemHoneycomb.class; //736
             list[HONEY_BOTTLE] = ItemHoneyBottle.class; //737
-                        
+
             list[LODESTONECOMPASS] = ItemCompassLodestone.class; //741;
             list[NETHERITE_INGOT] = ItemIngotNetherite.class; //742
             list[NETHERITE_SWORD] = ItemSwordNetherite.class; //743
@@ -409,7 +412,7 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[NETHER_SPROUTS] = ItemNetherSprouts.class; //760
 
             list[SOUL_CAMPFIRE] = ItemCampfireSoul.class; //801
-            
+
             for (int i = 0; i < 256; ++i) {
                 if (Block.list[i] != null) {
                     list[i] = Block.list[i];
@@ -592,10 +595,10 @@ public class Item implements Cloneable, BlockID, ItemID {
             if (tags.length != 0) {
                 item.setCompoundTag(tags);
             }
-            
+
             return item;
         } catch (Exception e) {
-            log.error("Error getting the item {}:{}{}! Returning an unsafe item stack!", 
+            log.error("Error getting the item {}:{}{}! Returning an unsafe item stack!",
                     id, meta, id < 0? " ("+(255 - id)+")":"", e);
             return new Item(id, meta, count).setCompoundTag(tags);
         }
@@ -634,7 +637,7 @@ public class Item implements Cloneable, BlockID, ItemID {
         if (!matcher.matches()) {
             return get(AIR);
         }
-        
+
         String name = matcher.group(2);
         OptionalInt meta = OptionalInt.empty();
         String metaGroup;
@@ -675,7 +678,7 @@ public class Item implements Cloneable, BlockID, ItemID {
             int id = Integer.parseInt(numericIdGroup);
             return get(id, meta.orElse(0));
         }
-        
+
         if (name == null) {
             return get(AIR);
         }
@@ -699,6 +702,10 @@ public class Item implements Cloneable, BlockID, ItemID {
     }
 
     public static Item fromJson(Map<String, Object> data) {
+        return fromJson(data, false);
+    }
+
+    private static Item fromJson(Map<String, Object> data, boolean ignoreNegativeItemId) {
         String nbt = (String) data.get("nbt_b64");
         byte[] nbtBytes;
         if (nbt != null) {
@@ -712,7 +719,10 @@ public class Item implements Cloneable, BlockID, ItemID {
             }
         }
 
-        return get(Utils.toInt(data.get("id")), Utils.toInt(data.getOrDefault("damage", 0)), Utils.toInt(data.getOrDefault("count", 1)), nbtBytes, 0);
+        int id = Utils.toInt(data.get("id"));
+        if (ignoreNegativeItemId && id < 0) return null;
+
+        return get(id, Utils.toInt(data.getOrDefault("damage", 0)), Utils.toInt(data.getOrDefault("count", 1)), nbtBytes);
     }
 
     private static Item fromJsonStringId(Map<String, Object> data) {
@@ -901,7 +911,7 @@ public class Item implements Cloneable, BlockID, ItemID {
                 return entry.getShort("lvl");
             }
         }
-        
+
         return 0;
     }
 
@@ -1215,6 +1225,12 @@ public class Item implements Cloneable, BlockID, ItemID {
         }
     }
 
+    @Since("1.4.0.0-PN")
+    @API(definition = API.Definition.INTERNAL, usage = API.Usage.INCUBATING)
+    public Block getBlockUnsafe() {
+        return this.block;
+    }
+
     public int getId() {
         return id;
     }
@@ -1229,7 +1245,6 @@ public class Item implements Cloneable, BlockID, ItemID {
         }
     }
 
-    @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public final int getNetworkId() throws UnknownNetworkIdException {
         return RuntimeItems.getNetworkId(getNetworkFullId());

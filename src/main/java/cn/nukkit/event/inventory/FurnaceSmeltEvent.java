@@ -20,6 +20,7 @@ public class FurnaceSmeltEvent extends BlockEvent implements Cancellable {
     private final BlockEntityFurnace furnace;
     private final Item source;
     private Item result;
+    private double experience;
 
     public FurnaceSmeltEvent(BlockEntityFurnace furnace, Item source, Item result) {
         super(furnace.getBlock());
@@ -27,6 +28,16 @@ public class FurnaceSmeltEvent extends BlockEvent implements Cancellable {
         this.source.setCount(1);
         this.result = result;
         this.furnace = furnace;
+        this.experience = 0;
+    }
+
+    public FurnaceSmeltEvent(BlockEntityFurnace furnace, Item source, Item result, double experience) {
+        super(furnace.getBlock());
+        this.source = source.clone();
+        this.source.setCount(1);
+        this.result = result;
+        this.furnace = furnace;
+        this.experience = experience;
     }
 
     public BlockEntityFurnace getFurnace() {
@@ -43,5 +54,13 @@ public class FurnaceSmeltEvent extends BlockEvent implements Cancellable {
 
     public void setResult(Item result) {
         this.result = result;
+    }
+
+    public double getExperience() {
+        return experience;
+    }
+
+    public void setExperience(double experience) {
+        this.experience = experience;
     }
 }

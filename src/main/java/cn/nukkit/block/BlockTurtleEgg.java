@@ -252,8 +252,6 @@ public class BlockTurtleEgg extends BlockFlowable {
     @PowerNukkitDifference(info = "Using new method to play sounds", since = "1.4.0.0-PN")
     public void hatch(int eggs, Block newState) {
         TurtleEggHatchEvent turtleEggHatchEvent = new TurtleEggHatchEvent(this, eggs, newState);
-        //TODO Cancelled by default because EntityTurtle doesn't have AI yet, remove it when AI is added
-        turtleEggHatchEvent.setCancelled(true);
         this.level.getServer().getPluginManager().callEvent(turtleEggHatchEvent);
         int eggsHatching = turtleEggHatchEvent.getEggsHatching();
         if (!turtleEggHatchEvent.isCancelled()) {
@@ -274,15 +272,18 @@ public class BlockTurtleEgg extends BlockFlowable {
                 this.level.getServer().getPluginManager().callEvent(creatureSpawnEvent);
 
                 if (!creatureSpawnEvent.isCancelled()) {
-                    EntityTurtle turtle = (EntityTurtle) Entity.createEntity(
+                    Entity entity = Entity.createEntity(
                             creatureSpawnEvent.getEntityNetworkId(),
                             creatureSpawnEvent.getPosition());
-                    if (turtle != null) {
-                        turtle.setBreedingAge(-24000);
-                        turtle.setHomePos(new Vector3(x, y, z));
-                        turtle.setDataFlag(Entity.DATA_FLAGS, Entity.DATA_FLAG_BABY, true);
-                        turtle.setScale(0.16f);
-                        turtle.spawnToAll();
+                    if (entity != null) {
+                        if (entity instanceof EntityTurtle) {
+                            EntityTurtle turtle = (EntityTurtle) entity;
+                            turtle.setBreedingAge(-24000);
+                            turtle.setHomePos(new Vector3(x, y, z));
+                            turtle.setDataFlag(Entity.DATA_FLAGS, Entity.DATA_FLAG_BABY, true);
+                            turtle.setScale(0.16f);
+                        }
+                        entity.spawnToAll();
                         continue;
                     }
                 }

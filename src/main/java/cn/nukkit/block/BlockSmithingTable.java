@@ -1,11 +1,17 @@
 package cn.nukkit.block;
 
+import cn.nukkit.Player;
+import cn.nukkit.inventory.SmithingInventory;
+import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.utils.BlockColor;
+
+import javax.annotation.Nonnull;
 
 public class BlockSmithingTable extends BlockSolid {
 
     public BlockSmithingTable() {
+        // Does Nothing
     }
 
     @Override
@@ -25,7 +31,7 @@ public class BlockSmithingTable extends BlockSolid {
 
     @Override
     public double getResistance() {
-        return 12.5;
+        return 2.5;
     }
 
     @Override
@@ -45,6 +51,19 @@ public class BlockSmithingTable extends BlockSolid {
 
     @Override
     public boolean canHarvestWithHand() {
+        return true;
+    }
+
+    @Override
+    public boolean canBeActivated() {
+        return true;
+    }
+
+    @Override
+    public boolean onActivate(@Nonnull Item item, Player player) {
+        if(player != null) {
+            player.addWindow(new SmithingInventory(player.getUIInventory(), this), Player.SMITHING_WINDOW_ID);
+        }
         return true;
     }
 }

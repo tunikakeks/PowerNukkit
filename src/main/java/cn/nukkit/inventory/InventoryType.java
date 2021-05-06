@@ -46,7 +46,8 @@ public enum InventoryType {
     @PowerNukkitOnly @Since("1.4.0.0-PN") ENTITY_ARMOR(4, "Entity Armor", -1), //4 ARMOR
     MINECART_CHEST(27, "Minecart with Chest", 0),
     MINECART_HOPPER(5, "Minecart with Hopper", 8),
-    OFFHAND(1, "Offhand", -1);
+    OFFHAND(1, "Offhand", -1),
+    SMITHING(3, "Smithing Table", -1);
 
     private final int size;
     private final String title;

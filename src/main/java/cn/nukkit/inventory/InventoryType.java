@@ -47,7 +47,7 @@ public enum InventoryType {
     MINECART_CHEST(27, "Minecart with Chest", 0),
     MINECART_HOPPER(5, "Minecart with Hopper", 8),
     OFFHAND(1, "Offhand", -1),
-    SMITHING(3, "Smithing Table", -1);
+    SMITHING(3, "Smithing Table", 33);
 
     private final int size;
     private final String title;

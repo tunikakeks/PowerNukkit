@@ -38,7 +38,7 @@ public enum InventoryType {
     SMOKER(3, "Smoker", 28),
     STONECUTTER(2, "Stonecutter", 29), // Should be 29 but it's totally driven by the client, so setting to -1 = UI
     CARTOGRAPHY(3, "Cartography Table", -1), //TODO Implemt: Id 30
-    SMITHING_TABLE(3, "Smithing Table", -1), // TODO Implement Id 33
+    SMITHING_TABLE(3, "Smithing Table", 33), // TODO Implement Id 33
     LOOM(4, "Loom", 24),
     BARREL(27, "Barrel", 0),
     CAMPFIRE(4, "Campfire", -9), // -9 = NONE

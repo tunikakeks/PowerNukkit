@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * @author MagicDroidX (Nukkit Project)
  */
-public class BlockOreLapis extends BlockSolid {
+public class BlockOreLapis extends BlockOre {
 
 
     public BlockOreLapis() {

@@ -1838,12 +1838,6 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         return false;
     }
 
-    public void sendMovementSpeed(float movementSpeed) {
-        Attribute attribute = Attribute.getAttribute(Attribute.MOVEMENT_SPEED).setValue(movementSpeed);
-
-        this.setAttribute(attribute);
-    }
-
     public void sendAttributes() {
         UpdateAttributesPacket pk = new UpdateAttributesPacket();
         pk.entityId = this.getId();
@@ -4782,9 +4776,13 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     public void setMovementSpeed(float speed, boolean send) {
         super.setMovementSpeed(speed);
         if (this.spawned && send) {
-            Attribute attribute = Attribute.getAttribute(Attribute.MOVEMENT_SPEED).setValue(speed);
-            this.setAttribute(attribute);
+            this.sendMovementSpeed(speed);
         }
+    }
+
+    public void sendMovementSpeed(float speed){
+        Attribute attribute = Attribute.getAttribute(Attribute.MOVEMENT_SPEED).setValue(speed);
+        this.setAttribute(attribute);
     }
 
     public Entity getKiller() {
@@ -5543,6 +5541,11 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         if (isSprinting() != value) {
             super.setSprinting(value);
             this.setMovementSpeed(value ? getMovementSpeed() * 1.3f : getMovementSpeed() / 1.3f);
+
+            if(this.hasEffect(Effect.SPEED)) {
+                float movementSpeed = this.getMovementSpeed();
+                this.sendMovementSpeed(value ? movementSpeed * 1.3f : movementSpeed);
+            }
         }
     }
 

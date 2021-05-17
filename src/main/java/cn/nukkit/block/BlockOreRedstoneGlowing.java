@@ -11,7 +11,7 @@ import cn.nukkit.level.Level;
  * @author xtypr
  * @since 2015/12/6
  */
-public class BlockOreRedstoneGlowing extends BlockOre {
+public class BlockOreRedstoneGlowing extends BlockOreRedstone {
 
     public BlockOreRedstoneGlowing() {
     }

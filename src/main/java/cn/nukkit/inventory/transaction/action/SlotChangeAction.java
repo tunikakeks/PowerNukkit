@@ -6,6 +6,7 @@ import cn.nukkit.inventory.FurnaceInventory;
 import cn.nukkit.inventory.Inventory;
 import cn.nukkit.inventory.transaction.InventoryTransaction;
 import cn.nukkit.item.Item;
+import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +14,7 @@ import java.util.Set;
 /**
  * @author CreeperFace
  */
+@ToString(callSuper = true)
 public class SlotChangeAction extends InventoryAction {
 
     protected Inventory inventory;
@@ -95,5 +97,15 @@ public class SlotChangeAction extends InventoryAction {
     @Override
     public void onAddToTransaction(InventoryTransaction transaction) {
         transaction.addInventory(this.inventory);
+    }
+
+    @Override
+    public String toString() {
+        return "SlotChangeAction{" +
+                "inventory=" + inventory +
+                ", inventorySlot=" + inventorySlot +
+                ", sourceItem=" + sourceItem +
+                ", targetItem=" + targetItem +
+                '}';
     }
 }

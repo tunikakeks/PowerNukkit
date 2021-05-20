@@ -12,7 +12,7 @@ import java.util.Random;
 /**
  * @author MagicDroidX (Nukkit Project)
  */
-public class BlockOreRedstone extends BlockSolid {
+public class BlockOreRedstone extends BlockOre {
 
     public BlockOreRedstone() {
     }

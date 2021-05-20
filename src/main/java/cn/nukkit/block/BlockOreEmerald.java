@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author xtypr
  * @since 2015/12/1
  */
-public class BlockOreEmerald extends BlockSolid {
+public class BlockOreEmerald extends BlockOre {
 
     public BlockOreEmerald() {
     }

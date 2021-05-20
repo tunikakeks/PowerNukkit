@@ -6,7 +6,7 @@ import cn.nukkit.item.ItemTool;
 /**
  * @author MagicDroidX (Nukkit Project)
  */
-public class BlockOreIron extends BlockSolid {
+public class BlockOreIron extends BlockOre {
 
 
     public BlockOreIron() {

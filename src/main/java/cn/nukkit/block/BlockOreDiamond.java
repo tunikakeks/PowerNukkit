@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * @author MagicDroidX (Nukkit Project)
  */
-public class BlockOreDiamond extends BlockSolid {
+public class BlockOreDiamond extends BlockOre {
 
 
     public BlockOreDiamond() {

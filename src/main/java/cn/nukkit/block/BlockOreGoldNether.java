@@ -14,7 +14,7 @@ import cn.nukkit.utils.BlockColor;
  */
 @PowerNukkitOnly
 @Since("1.4.0.0-PN")
-public class BlockOreGoldNether extends BlockSolid {
+public class BlockOreGoldNether extends BlockOre {
 
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")

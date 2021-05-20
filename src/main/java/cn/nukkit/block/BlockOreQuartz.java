@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author xtypr
  * @since 2015/12/26
  */
-public class BlockOreQuartz extends BlockSolid {
+public class BlockOreQuartz extends BlockOre {
 
     public BlockOreQuartz() {
     }

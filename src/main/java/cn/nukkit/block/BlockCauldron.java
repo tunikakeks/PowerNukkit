@@ -139,7 +139,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                         } else if (bucket.isWater()) { //water bucket
                             this.setFillLevel(3);//fill
                             cauldron.clearCustomColor();
-                            this.level.setBlock(this, this, true);
+                            this.level.setBlock(this, this, true, true);
                             this.getLevel().addSound(this.add(0.5, 1, 0.5), Sound.CAULDRON_FILLWATER);
                         } else { // lava bucket
                             if (isEmpty()) {

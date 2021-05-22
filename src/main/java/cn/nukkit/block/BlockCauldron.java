@@ -179,7 +179,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                     cauldron.setCustomColor(mixed);
                 }
 
-                cauldron.scheduleUpdate();
+                cauldron.spawnToAll();
                 this.level.addSound(this.add(0.5, 0.5, 0.5), Sound.CAULDRON_ADDDYE);
 
                 break;
@@ -384,7 +384,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                         cauldron.setCustomColor(mixed);
                     }
 
-                    cauldron.scheduleUpdate();
+                    cauldron.spawnToAll();
                     this.level.addSound(this.add(0.5, 0.5, 0.5), Sound.CAULDRON_ADDDYE);
                 } else {
                     return true;

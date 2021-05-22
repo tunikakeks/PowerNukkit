@@ -112,7 +112,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                     break;
                 }
                 if (bucket.isEmpty()) {
-                    if (!isFull() || cauldron.isCustomColor() || cauldron.hasPotion()) {
+                    if (!isFull() || cauldron.hasPotion()) {
                         break;
                     }
                     
@@ -180,8 +180,9 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                     );
                     cauldron.setCustomColor(mixed);
                 }
+                this.getLevel().addLevelEvent(this.add(0.5, 0.375 + this.getDamage() * 0.125, 0.5), LevelEventPacket.EVENT_CAULDRON_ADD_DYE);
                 this.level.addSound(this.add(0.5, 0.5, 0.5), Sound.CAULDRON_ADDDYE);
-                
+
                 break;
             
             case ItemID.LEATHER_CAP:
@@ -334,6 +335,30 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                 this.getLevel().addSound(this.add(0.5, 1, 0.5), Sound.CAULDRON_TAKEWATER);
                 
                 break;
+            case BlockID.SHULKER_BOX:
+                if(!isFull() || cauldron.isCustomColor() || cauldron.hasPotion()) {
+                    break;
+                }
+
+                player.getInventory().setItemInHand(Item.get(Item.UNDYED_SHULKER_BOX));
+                setFillLevel(getFillLevel() - 1);
+                this.level.setBlock(this, this, true, true);
+                this.getLevel().addSound(this.add(0.5, 1, 0.5), Sound.CAULDRON_TAKEPOTION);
+
+                break;
+            case ItemID.ARROW:
+                if(isEmpty() || !cauldron.hasPotion() || item.getDamage() != 0) {
+                    break;
+                }
+
+                Item newArrow = item.clone();
+                newArrow.setDamage(cauldron.getPotionId());
+                replaceArrow(item, player, newArrow);
+                setFillLevel(getFillLevel() - 1);
+                this.level.setBlock(this, this, true, true);
+                this.getLevel().addSound(this.add(0.5, 1, 0.5), Sound.CAULDRON_TAKEPOTION);
+
+                break;
             default:
                 if (item instanceof ItemDye) {
                     if (isEmpty() || cauldron.hasPotion()) {
@@ -357,6 +382,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                         );
                         cauldron.setCustomColor(mixed);
                     }
+                    this.getLevel().addLevelEvent(this.add(0.5, 0.375 + this.getDamage() * 0.125, 0.5), LevelEventPacket.EVENT_CAULDRON_ADD_DYE);
                     this.level.addSound(this.add(0.5, 0.5, 0.5), Sound.CAULDRON_ADDDYE);
                 } else {
                     return true;
@@ -378,6 +404,35 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                 } else {
                     player.getLevel().dropItem(player.add(0, 1.3, 0), newBucket, player.getDirectionVector().multiply(0.4));
                 }
+            }
+        } else {
+            if (player.getInventory().canAddItem(newBucket)) {
+                player.getInventory().addItem(newBucket);
+            }
+        }
+    }
+
+    protected void replaceArrow(Item oldArrow, Player player, Item newArrow) {
+        if (player.isSurvival() || player.isAdventure()) {
+            int fillLevel = getFillLevel();
+            if(fillLevel == 3) {
+                player.getInventory().setItemInHand(newArrow);
+            } else {
+                if(oldArrow.getCount() <= (fillLevel * 16)) {
+                    player.getInventory().setItemInHand(newArrow);
+                } else {
+                    oldArrow.setCount(oldArrow.getCount() - (fillLevel * 16));
+                    player.getInventory().setItemInHand(oldArrow);
+                    if (player.getInventory().canAddItem(newArrow)) {
+                        player.getInventory().addItem(newArrow);
+                    } else {
+                        player.getLevel().dropItem(player.add(0, 1.3, 0), newArrow, player.getDirectionVector().multiply(0.4));
+                    }
+                }
+            }
+        } else {
+            if (player.getInventory().canAddItem(newArrow)) {
+                player.getInventory().addItem(newArrow);
             }
         }
     }

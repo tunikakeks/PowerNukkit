@@ -32,6 +32,7 @@ public final class DispenseBehaviorRegister {
         registerBehavior(ItemID.DYE, new DyeDispenseBehavior());
         registerBehavior(ItemID.FIREWORKS, new FireworksDispenseBehavior());
         registerBehavior(ItemID.FLINT_AND_STEEL, new FlintAndSteelDispenseBehavior());
+        registerBehavior(ItemID.FIRE_CHARGE, new FlintAndSteelDispenseBehavior());
         registerBehavior(BlockID.SHULKER_BOX, new ShulkerBoxDispenseBehavior());
         registerBehavior(BlockID.UNDYED_SHULKER_BOX, new ShulkerBoxDispenseBehavior());
         registerBehavior(ItemID.SPAWN_EGG, new SpawnEggDispenseBehavior());

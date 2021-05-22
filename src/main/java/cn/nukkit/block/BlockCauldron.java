@@ -336,7 +336,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                 
                 break;
             case BlockID.SHULKER_BOX:
-                if(!isFull() || cauldron.isCustomColor() || cauldron.hasPotion()) {
+                if(isEmpty() || cauldron.isCustomColor() || cauldron.hasPotion()) {
                     break;
                 }
 
@@ -351,10 +351,11 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                     break;
                 }
 
-                Item newArrow = item.clone();
-                newArrow.setDamage(cauldron.getPotionId());
-                replaceArrow(item, player, newArrow);
+                replaceArrow(item, player, new ItemArrow(cauldron.getPotionId()));
                 setFillLevel(0);
+
+                cauldron.setPotionId(0xffff);//reset potion
+                cauldron.clearCustomColor();
 
                 this.level.setBlock(this, this, true, true);
                 this.getLevel().addSound(this.add(0.5, 1, 0.5), Sound.CAULDRON_TAKEPOTION);
@@ -383,7 +384,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                         );
                         cauldron.setCustomColor(mixed);
                     }
-                    this.getLevel().addLevelEvent(this.add(0.5, 0.375 + this.getDamage() * 0.125, 0.5), LevelEventPacket.EVENT_CAULDRON_ADD_DYE);
+                    this.level.setBlock(this, this, true, true);
                     this.level.addSound(this.add(0.5, 0.5, 0.5), Sound.CAULDRON_ADDDYE);
                 } else {
                     return true;
@@ -424,7 +425,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                 } else {
                     oldArrow.setCount(oldArrow.getCount() - (fillLevel * 16));
                     player.getInventory().setItemInHand(oldArrow);
-                    newArrow.setCount(oldArrow.getCount());
+                    newArrow.setCount(fillLevel * 16);
                     if (player.getInventory().canAddItem(newArrow)) {
                         player.getInventory().addItem(newArrow);
                     } else {

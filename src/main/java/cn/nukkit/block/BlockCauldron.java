@@ -339,7 +339,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                     break;
                 }
 
-                player.getInventory().setItemInHand(Item.get(Item.UNDYED_SHULKER_BOX));
+                player.getInventory().setItemInHand(Item.get(Item.UNDYED_SHULKER_BOX).setCompoundTag(item.getCompoundTag()));
                 setFillLevel(getFillLevel() - 1);
                 this.level.setBlock(this, this, true, true);
                 this.getLevel().addSound(this.add(0.5, 1, 0.5), Sound.CAULDRON_TAKEPOTION);

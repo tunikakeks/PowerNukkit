@@ -133,9 +133,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                     PlayerBucketEmptyEvent ev = new PlayerBucketEmptyEvent(player, this, null, this, item, MinecraftItemID.BUCKET.get(1, bucket.getCompoundTag()));
                     this.level.getServer().getPluginManager().callEvent(ev);
                     if (!ev.isCancelled()) {
-                        if (player.isSurvival() || player.isAdventure()) {
-                            replaceBucket(bucket, player, ev.getItem());
-                        }
+                        replaceBucket(bucket, player, ev.getItem());
                         if (cauldron.hasPotion()) {//if has potion
                             clearWithFizz(cauldron);
                         } else if (bucket.isWater()) { //water bucket
@@ -351,7 +349,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                     break;
                 }
 
-                replaceArrow(item, player, new ItemArrow(cauldron.getPotionId()));
+                replaceArrow(item, player, new ItemArrow(cauldron.getPotionId() + 1));
                 setFillLevel(0);
 
                 cauldron.setPotionId(0xffff);//reset potion
@@ -418,6 +416,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
         int fillLevel = getFillLevel();
         if (player.isSurvival() || player.isAdventure()) {
             if(fillLevel == 3) {
+                newArrow.setCount(oldArrow.getCount());
                 player.getInventory().setItemInHand(newArrow);
             } else {
                 if(oldArrow.getCount() <= (fillLevel * 16)) {
@@ -436,6 +435,8 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
         } else {
             if(fillLevel != 3) {
                 newArrow.setCount(fillLevel * 16);
+            } else {
+                newArrow.setCount(oldArrow.getCount());
             }
             if (player.getInventory().canAddItem(newArrow)) {
                 player.getInventory().addItem(newArrow);

@@ -5431,6 +5431,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     }
 
     public void sendAllInventories() {
+        getCursorInventory().sendContents(this);
         for (Inventory inv : this.windows.keySet()) {
             inv.sendContents(this);
 

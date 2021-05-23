@@ -112,7 +112,7 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                     break;
                 }
                 if (bucket.isEmpty()) {
-                    if (!isFull() || cauldron.isCustomColor() || cauldron.hasPotion()) {
+                    if (!isFull() || cauldron.hasPotion()) {
                         break;
                     }
                     
@@ -133,15 +133,13 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                     PlayerBucketEmptyEvent ev = new PlayerBucketEmptyEvent(player, this, null, this, item, MinecraftItemID.BUCKET.get(1, bucket.getCompoundTag()));
                     this.level.getServer().getPluginManager().callEvent(ev);
                     if (!ev.isCancelled()) {
-                        if (player.isSurvival() || player.isAdventure()) {
-                            replaceBucket(bucket, player, ev.getItem());
-                        }
+                        replaceBucket(bucket, player, ev.getItem());
                         if (cauldron.hasPotion()) {//if has potion
                             clearWithFizz(cauldron);
                         } else if (bucket.isWater()) { //water bucket
                             this.setFillLevel(3);//fill
                             cauldron.clearCustomColor();
-                            this.level.setBlock(this, this, true);
+                            this.level.setBlock(this, this, true, true);
                             this.getLevel().addSound(this.add(0.5, 1, 0.5), Sound.CAULDRON_FILLWATER);
                         } else { // lava bucket
                             if (isEmpty()) {
@@ -180,8 +178,10 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                     );
                     cauldron.setCustomColor(mixed);
                 }
+
+                this.level.sendBlocks(this.level.getPlayers().values().toArray(new Player[this.level.getPlayers().values().size()]), new Block[] {this});
                 this.level.addSound(this.add(0.5, 0.5, 0.5), Sound.CAULDRON_ADDDYE);
-                
+
                 break;
             
             case ItemID.LEATHER_CAP:
@@ -334,6 +334,32 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                 this.getLevel().addSound(this.add(0.5, 1, 0.5), Sound.CAULDRON_TAKEWATER);
                 
                 break;
+            case BlockID.SHULKER_BOX:
+                if(isEmpty() || cauldron.isCustomColor() || cauldron.hasPotion()) {
+                    break;
+                }
+
+                player.getInventory().setItemInHand(Item.get(Item.UNDYED_SHULKER_BOX).setCompoundTag(item.getCompoundTag()));
+                setFillLevel(getFillLevel() - 1);
+                this.level.setBlock(this, this, true, true);
+                this.getLevel().addSound(this.add(0.5, 1, 0.5), Sound.CAULDRON_TAKEPOTION);
+
+                break;
+            case ItemID.ARROW:
+                if(isEmpty() || !cauldron.hasPotion() || item.getDamage() != 0) {
+                    break;
+                }
+
+                replaceArrow(item, player, new ItemArrow(cauldron.getPotionId() + 1));
+                setFillLevel(0);
+
+                cauldron.setPotionId(0xffff);//reset potion
+                cauldron.clearCustomColor();
+
+                this.level.setBlock(this, this, true, true);
+                this.getLevel().addSound(this.add(0.5, 1, 0.5), Sound.CAULDRON_TAKEPOTION);
+
+                break;
             default:
                 if (item instanceof ItemDye) {
                     if (isEmpty() || cauldron.hasPotion()) {
@@ -357,6 +383,8 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                         );
                         cauldron.setCustomColor(mixed);
                     }
+
+                    this.level.sendBlocks(this.level.getPlayers().values().toArray(new Player[this.level.getPlayers().values().size()]), new Block[] {this});
                     this.level.addSound(this.add(0.5, 0.5, 0.5), Sound.CAULDRON_ADDDYE);
                 } else {
                     return true;
@@ -378,6 +406,42 @@ public class BlockCauldron extends BlockSolidMeta implements BlockEntityHolder<B
                 } else {
                     player.getLevel().dropItem(player.add(0, 1.3, 0), newBucket, player.getDirectionVector().multiply(0.4));
                 }
+            }
+        } else {
+            if (player.getInventory().canAddItem(newBucket)) {
+                player.getInventory().addItem(newBucket);
+            }
+        }
+    }
+
+    protected void replaceArrow(Item oldArrow, Player player, Item newArrow) {
+        int fillLevel = getFillLevel();
+        if (player.isSurvival() || player.isAdventure()) {
+            if(fillLevel == 3) {
+                newArrow.setCount(oldArrow.getCount());
+                player.getInventory().setItemInHand(newArrow);
+            } else {
+                if(oldArrow.getCount() <= (fillLevel * 16)) {
+                    player.getInventory().setItemInHand(newArrow);
+                } else {
+                    oldArrow.setCount(oldArrow.getCount() - (fillLevel * 16));
+                    player.getInventory().setItemInHand(oldArrow);
+                    newArrow.setCount(fillLevel * 16);
+                    if (player.getInventory().canAddItem(newArrow)) {
+                        player.getInventory().addItem(newArrow);
+                    } else {
+                        player.getLevel().dropItem(player.add(0, 1.3, 0), newArrow, player.getDirectionVector().multiply(0.4));
+                    }
+                }
+            }
+        } else {
+            if(fillLevel != 3) {
+                newArrow.setCount(fillLevel * 16);
+            } else {
+                newArrow.setCount(oldArrow.getCount());
+            }
+            if (player.getInventory().canAddItem(newArrow)) {
+                player.getInventory().addItem(newArrow);
             }
         }
     }

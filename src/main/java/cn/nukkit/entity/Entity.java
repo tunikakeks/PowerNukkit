@@ -216,7 +216,7 @@ public abstract class Entity extends Location implements Metadatable {
     @Since("1.3.0.0-PN") public static final int DATA_HITBOX = dynamic(118); //NBT
     @Since("1.3.0.0-PN") public static final int DATA_IS_BUOYANT = dynamic(119); //byte
     @Since("1.4.0.0-PN") public static final int DATA_FREEZING_EFFECT_STRENGTH = 120;
-    @Since("1.3.0.0-PN") public static final int DATA_BUOYANCY_DATA = dynamic(120); //string
+    @Since("1.3.0.0-PN") public static final int DATA_BUOYANCY_DATA = dynamic(121); //string
     @Since("1.4.0.0-PN") public static final int DATA_GOAT_HORN_COUNT = 122;
 
     // Flags
@@ -928,7 +928,7 @@ public abstract class Entity extends Location implements Metadatable {
                         cause.addSuppressed(exceptions.get(i));
                     }
                 }
-                log.error("Could not create an entity of type {} with {} args", name, args == null? 0 : args.length, cause);
+                log.debug("Could not create an entity of type {} with {} args", name, args == null? 0 : args.length, cause);
             }
         } else {
             log.debug("Entity type {} is unknown", name);
@@ -1343,7 +1343,7 @@ public abstract class Entity extends Location implements Metadatable {
                 direction = 5;
             }
 
-            double force = new Random().nextDouble() * 0.2 + 0.1;
+            double force = ThreadLocalRandom.current().nextDouble() * 0.2 + 0.1;
 
             if (direction == 0) {
                 this.motionX = -force;

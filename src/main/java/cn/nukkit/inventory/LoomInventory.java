@@ -24,10 +24,12 @@ public class LoomInventory extends FakeBlockUIComponent {
         who.resetCraftingGridType();
         who.craftingType = Player.CRAFTING_SMALL;
 
-        Item[] drops = who.getInventory().addItem(getItem(0), getItem(1), getItem(2));
+        Item[] drops = new Item[] {getItem(0), getItem(1), getItem(2)};
         for(Item drop : drops) {
-            if (!who.dropItem(drop)) {
+            if (!who.getInventory().canAddItem(drop)) {
                 this.getHolder().getLevel().dropItem(this.getHolder().add(0.5, 0.5, 0.5), drop);
+            } else {
+                who.getInventory().addItem(drop);
             }
         }
 

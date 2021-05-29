@@ -2524,7 +2524,6 @@ public class Level implements ChunkManager, Metadatable {
                 return null;
             }
 
-            BlockPlaceEvent event = new BlockPlaceEvent(player, hand, block, target, item);
             if (player.getGamemode() == 2) {
                 Tag tag = item.getNamedTagEntry("CanPlaceOn");
                 boolean canPlace = false;
@@ -2540,13 +2539,14 @@ public class Level implements ChunkManager, Metadatable {
                     }
                 }
                 if (!canPlace) {
-                    event.setCancelled();
+                    return null;
                 }
             }
             if(!player.isOp() && isInSpawnRadius(target)) {
-                event.setCancelled();
+                return null;
             }
 
+            BlockPlaceEvent event = new BlockPlaceEvent(player, hand, block, target, item);
             this.server.getPluginManager().callEvent(event);
             if (event.isCancelled()) {
                 return null;

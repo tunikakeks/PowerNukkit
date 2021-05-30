@@ -87,6 +87,7 @@ public class Nether extends Generator {
                 new OreType(Block.get(BlockID.SOUL_SAND), 5, 64, 0, 128),
                 new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 3, 8, 22),
                 new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 2, 7, 119),
+                new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 1, 7, 119),
                 new OreType(Block.get(BlockID.GRAVEL), 5, 64, 0, 128),
                 new OreType(Block.get(BlockID.LAVA), 1, 16, 0, (int) this.lavaHeight),
         });
@@ -105,8 +106,7 @@ public class Nether extends Generator {
         PopulatorOre ore = new PopulatorOre(Block.NETHERRACK, new OreType[]{
                 new OreType(Block.get(BlockID.QUARTZ_ORE), 40, 16, 0, 128, NETHERRACK),
                 new OreType(Block.get(BlockID.SOUL_SAND), 1, 64, 30, 35, NETHERRACK),
-                new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 3, 8, 22, NETHERRACK),
-                new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 2, 7, 119, NETHERRACK),
+                new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 1, 7, 119, NETHERRACK),
                 new OreType(Block.get(BlockID.LAVA), 32, 1, 0, 32, NETHERRACK),
                 new OreType(Block.get(BlockID.MAGMA), 32, 16, 26, 37, NETHERRACK),
         });
@@ -120,17 +120,17 @@ public class Nether extends Generator {
         this.nukkitRandom.setSeed(chunkX * localSeed1 ^ chunkZ * localSeed2 ^ this.level.getSeed());
 
         BaseFullChunk chunk = level.getChunk(chunkX, chunkZ);
+        Biome biome = EnumBiome.NETHER_WASTES.biome;
 
         for (int x = 0; x < 16; ++x) {
             for (int z = 0; z < 16; ++z) {
-                Biome biome = EnumBiome.HELL.biome;
                 chunk.setBiomeId(x, z, biome.getId());
-
                 chunk.setBlockId(x, 0, z, Block.BEDROCK);
+                chunk.setBlockId(x, 127, z, Block.BEDROCK);
+
                 for (int y = 115; y < 127; ++y) {
                     chunk.setBlockId(x, y, z, Block.NETHERRACK);
                 }
-                chunk.setBlockId(x, 127, z, Block.BEDROCK);
                 for (int y = 1; y < 127; ++y) {
                     if (getNoise(baseX | x, y, baseZ | z) > 0) {
                         chunk.setBlockId(x, y, z, Block.NETHERRACK);

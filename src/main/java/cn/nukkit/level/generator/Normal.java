@@ -194,12 +194,33 @@ public class Normal extends Generator {
 
         this.populators = ImmutableList.of(
                 new PopulatorOre(STONE, new OreType[]{
-                        new OreType(Block.get(BlockID.COAL_ORE), 20, 17, 0, 128),
-                        new OreType(Block.get(BlockID.IRON_ORE), 20, 9, 0, 64),
-                        new OreType(Block.get(BlockID.REDSTONE_ORE), 8, 8, 0, 16),
-                        new OreType(Block.get(BlockID.LAPIS_ORE), 1, 7, 0, 16),
-                        new OreType(Block.get(BlockID.GOLD_ORE), 2, 9, 0, 32),
-                        new OreType(Block.get(BlockID.DIAMOND_ORE), 1, 8, 0, 16),
+                        new OreType(Block.get(BlockID.COAL_ORE), 6, 12, 108, 128),
+                        new OreType(Block.get(BlockID.COAL_ORE), 4, 17, 64, 108),
+                        new OreType(Block.get(BlockID.COAL_ORE), 2, 21, 0, 64),
+
+
+                        new OreType(Block.get(BlockID.IRON_ORE), 6, 4, 0, 60),
+                        new OreType(Block.get(BlockID.IRON_ORE), 4, 7, 0, 54),
+                        new OreType(Block.get(BlockID.IRON_ORE), 2, 8, 0, 52),
+                        new OreType(Block.get(BlockID.IRON_ORE), 2, 9, 0, 48),
+
+
+                        new OreType(Block.get(BlockID.REDSTONE_ORE), 1, 4, 0, 16),
+                        new OreType(Block.get(BlockID.REDSTONE_ORE), 1, 6, 0, 12),
+                        new OreType(Block.get(BlockID.REDSTONE_ORE), 1, 8, 0, 10),
+
+
+                        new OreType(Block.get(BlockID.LAPIS_ORE), 1, 4, 16, 34),
+                        new OreType(Block.get(BlockID.LAPIS_ORE), 1, 6, 0, 12),
+
+
+                        new OreType(Block.get(BlockID.GOLD_ORE), 2, 4, 28, 34),
+                        new OreType(Block.get(BlockID.GOLD_ORE), 1, 8, 0, 28),
+
+
+                        new OreType(Block.get(BlockID.DIAMOND_ORE), 2, 2, 0, 16),
+
+
                         new OreType(Block.get(BlockID.DIRT), 10, 33, 0, 128),
                         new OreType(Block.get(BlockID.GRAVEL), 8, 33, 0, 128),
                         new OreType(Block.get(BlockID.STONE, BlockStone.GRANITE), 10, 33, 0, 80),

@@ -8,7 +8,6 @@ import cn.nukkit.api.Unsigned;
 import cn.nukkit.block.Block;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.BlockProperty;
-import cn.nukkit.blockproperty.UnknownRuntimeIdException;
 import cn.nukkit.blockproperty.exception.InvalidBlockPropertyException;
 import cn.nukkit.blockproperty.exception.InvalidBlockPropertyMetaException;
 import cn.nukkit.blockproperty.exception.InvalidBlockPropertyValueException;
@@ -38,6 +37,8 @@ import static cn.nukkit.blockstate.Loggers.logIBlockState;
 @Since("1.4.0.0-PN")
 @ParametersAreNonnullByDefault
 public interface IBlockState {
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     @Nonnegative
     int getBlockId();
 
@@ -484,13 +485,6 @@ public interface IBlockState {
     @Since("1.4.0.0-PN")
     @Nonnull
     default ItemBlock asItemBlock(int count) {
-        BlockState currentState = getCurrentState();
-        BlockState itemState = currentState.forItem();
-        int runtimeId = itemState.getRuntimeId();
-        if (runtimeId == BlockStateRegistry.getUpdateBlockRegistration() && !"minecraft:info_update".equals(itemState.getPersistenceName())) {
-            throw new UnknownRuntimeIdException("The current block state can't be represented as an item. State: "+currentState+", Item: "+itemState);
-        }
-        Block block = itemState.getBlock();
-        return new ItemBlock(block, itemState.getExactIntStorage(), count);
+        return getCurrentState().asItemBlock(count);
     }
 }

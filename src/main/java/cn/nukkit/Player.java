@@ -2738,17 +2738,8 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
                             switch (target.getId()) {
                                 case BlockID.NOTEBLOCK:
-                                    ((BlockNoteblock) target).emitSound();
-                                    break actionswitch;
                                 case BlockID.DRAGON_EGG:
-                                    ((BlockDragonEgg) target).teleport();
                                     break actionswitch;
-                                case BlockID.LECTERN:
-                                    ((BlockLectern) target).dropBook(this);
-                                    break;
-                                case BlockID.ITEM_FRAME_BLOCK:
-                                    ((BlockItemFrame) target).getOrCreateBlockEntity().dropItem(this);
-                                    break;
                             }
                             Block block = target.getSide(face);
                             if (block.getId() == BlockID.FIRE || block.getId() == BlockID.SOUL_FIRE) {

@@ -889,7 +889,7 @@ public class Item implements Cloneable, BlockID, ItemID {
      * @param id The enchantment ID from {@link Enchantment} constants.
      */
     @PowerNukkitOnly
-    @Since("1.3.2.0-PN")
+    @Since("1.4.0.0-PN")
     public boolean hasEnchantment(int id) {
         return getEnchantmentLevel(id) > 0;
     }
@@ -998,7 +998,7 @@ public class Item implements Cloneable, BlockID, ItemID {
         return enchantments.toArray(Enchantment.EMPTY_ARRAY);
     }
 
-    @Since("1.3.2.0-PN")
+    @Since("1.4.0.0-PN")
     public int getRepairCost() {
         if (this.hasCompoundTag()) {
             CompoundTag tag = this.getNamedTag();
@@ -1012,7 +1012,7 @@ public class Item implements Cloneable, BlockID, ItemID {
         return 0;
     }
 
-    @Since("1.3.2.0-PN")
+    @Since("1.4.0.0-PN")
     public Item setRepairCost(int cost) {
         if (cost <= 0 && this.hasCompoundTag()) {
             return this.setNamedTag(this.getNamedTag().remove("RepairCost"));
@@ -1251,7 +1251,7 @@ public class Item implements Cloneable, BlockID, ItemID {
     }
     
     @PowerNukkitOnly
-    @Since("1.3.2.0-PN")
+    @Since("1.4.0.0-PN")
     public String getNamespaceId() {
         RuntimeItemMapping runtimeMapping = RuntimeItems.getRuntimeMapping();
         return runtimeMapping.getNamespacedIdByNetworkId(
@@ -1406,6 +1406,8 @@ public class Item implements Cloneable, BlockID, ItemID {
         return false;
     }
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public boolean damageWhenBreaking() { return true; }
 
     @Override
@@ -1442,7 +1444,7 @@ public class Item implements Cloneable, BlockID, ItemID {
      * When true, this item can be used to reduce growing times like a bone meal.
      * @return {@code true} if it can act like a bone meal
      */
-    @Since("1.3.2.0-PN")
+    @Since("1.4.0.0-PN")
     @PowerNukkitOnly
     public boolean isFertilizer() {
         return false;

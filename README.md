@@ -1,27 +1,4 @@
-![nukkit](https://raw.githubusercontent.com/PowerNukkit/PowerNukkit/master/.github/images/banner.png)
-
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE)
-[![PowerNukkit v1.X](https://github.com/PowerNukkit/PowerNukkit/workflows/PowerNukkit%20v1.X/badge.svg?branch=master)](https://github.com/PowerNukkit/PowerNukkit/actions?query=branch%3Amaster)
-[![Discord](https://img.shields.io/discord/728280425255927879)](https://powernukkit.org/discord)
-
-Introduction
--------------
-
-Nukkit is nuclear-powered server software for Minecraft: Pocket Edition.
-It has a few key advantages over other server software:
-
-* Written in Java, Nukkit is faster and more stable.
-* Having a friendly structure, it's easy to contribute to Nukkit's development and rewrite plugins from other platforms into Nukkit plugins.
-
-Nukkit is **under improvement** yet, we welcome contributions.
-
-**PowerNukkit** is a modified version of Nukkit that adds support to a huge amount of features like water-logging, all new blocks, more plugin events, offhand slot, bug fixes and many more.
-
-Please note that PowerNukkit is not handled by Cloudburst's staff and is provided with love but without warranty. If you find any issue while running PowerNukkit you should [create a new issue](https://github.com/PowerNukkit/PowerNukkit/issues) in this repository first.
-
-It's also advisable to have a backup schedule set up, use plugins that are made for PowerNukkit and use only stable PowerNukkit versions.
-
-Most Cloudburst Nukkit plugins are supported but they may not understand the new blocks and items and the new stuff that you can do with PowerNukkit.
+⚠ This software is developed for a specific server and should not be used for other servers! ⚠
 
 Links
 --------------------

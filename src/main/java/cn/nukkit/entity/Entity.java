@@ -813,6 +813,15 @@ public abstract class Entity extends Location implements Metadatable {
             return; //here add null means add nothing
         }
 
+        if (hasEffect(effect.getId())) {
+            Effect currEffect = this.effects.get(effect.getId());
+            if (currEffect.getAmplifier() > effect.getAmplifier()) {
+                return;
+            }
+
+            removeEffect(effect.getId());
+        }
+
         effect.add(this);
 
         this.effects.put(effect.getId(), effect);

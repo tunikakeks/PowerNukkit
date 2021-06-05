@@ -40,13 +40,13 @@ public class BlockSapling extends BlockFlowable {
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public static final BooleanBlockProperty AGED = new BooleanBlockProperty("age_bit", false);
-    
+
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public static final BlockProperties PROPERTIES = new BlockProperties(SAPLING_TYPE, AGED);
-    
+
     @Deprecated
-    @DeprecationDetails(since = "1.4.0.0-PN", replaceWith = "WoodType.OAK", by = "PowerNukkit", 
+    @DeprecationDetails(since = "1.4.0.0-PN", replaceWith = "WoodType.OAK", by = "PowerNukkit",
             reason = "Use the new BlockProperty system instead")
     public static final int OAK = 0;
 
@@ -59,7 +59,7 @@ public class BlockSapling extends BlockFlowable {
     @DeprecationDetails(since = "1.4.0.0-PN", replaceWith = "WoodType.BIRCH", by = "PowerNukkit",
             reason = "Use the new BlockProperty system instead")
     public static final int BIRCH = 2;
-    
+
     @Deprecated
     @DeprecationDetails(since = "1.4.0.0-PN",
             by = "PowerNukkit", replaceWith = "ObjectTree.growTree(ChunkManager level, int x, int y, int z, NukkitRandom random, WoodType.BIRCH, true)",
@@ -81,6 +81,8 @@ public class BlockSapling extends BlockFlowable {
             reason = "Use the new BlockProperty system instead")
     public static final int DARK_OAK = 5;
 
+    public static final int AZALEA = 6;
+
     public BlockSapling() {
         this(0);
     }
@@ -101,7 +103,7 @@ public class BlockSapling extends BlockFlowable {
     public BlockProperties getProperties() {
         return PROPERTIES;
     }
-    
+
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public WoodType getWoodType() {
@@ -140,7 +142,7 @@ public class BlockSapling extends BlockFlowable {
 
         return false;
     }
-    
+
     @Override
     public boolean canBeActivated() {
         return true;

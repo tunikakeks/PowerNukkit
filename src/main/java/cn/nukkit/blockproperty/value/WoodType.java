@@ -30,7 +30,9 @@ public enum WoodType {
 
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
-    DARK_OAK(BlockColor.BROWN_BLOCK_COLOR, "Dark Oak");
+    DARK_OAK(BlockColor.BROWN_BLOCK_COLOR, "Dark Oak"),
+
+    AZALEA(BlockColor.WOOD_BLOCK_COLOR, "Oak");
     
     private final BlockColor color;
     private final String englishName;

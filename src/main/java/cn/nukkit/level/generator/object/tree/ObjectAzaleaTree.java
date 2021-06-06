@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class ObjectAzaleaTree extends ObjectTree {
     private int treeHeight = 7;
-    private boolean isFlowered = false;
+    private final boolean isFlowered;
 
     public ObjectAzaleaTree(boolean isFlowered) {
         super();

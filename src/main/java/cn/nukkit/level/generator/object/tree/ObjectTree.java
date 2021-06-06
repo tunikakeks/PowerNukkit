@@ -95,6 +95,12 @@ public abstract class ObjectTree {
             case JUNGLE:
                 tree = new ObjectJungleTree();
                 break;
+            case AZALEA:
+                tree = new ObjectAzaleaTree(false);
+                break;
+            case FLOWERED_AZALEA:
+                tree = new ObjectAzaleaTree(true);
+                break;
             case OAK:
             default:
                 tree = new ObjectOakTree();

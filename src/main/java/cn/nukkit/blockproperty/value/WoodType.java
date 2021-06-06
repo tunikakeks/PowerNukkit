@@ -32,8 +32,9 @@ public enum WoodType {
     @Since("1.4.0.0-PN")
     DARK_OAK(BlockColor.BROWN_BLOCK_COLOR, "Dark Oak"),
 
-    AZALEA(BlockColor.WOOD_BLOCK_COLOR, "Oak");
-    
+    AZALEA(BlockColor.WOOD_BLOCK_COLOR, "Oak"),
+    FLOWERED_AZALEA(BlockColor.WOOD_BLOCK_COLOR, "Oak");
+
     private final BlockColor color;
     private final String englishName;
 

@@ -61,6 +61,8 @@ public class BlockFlowerPot extends BlockFlowable implements BlockEntityHolder<B
             case WARPED_ROOTS:
             case CRIMSON_ROOTS:
             case BAMBOO:
+            case AZALEA:
+            case FLOWERED_AZALEA_LEAVES:
                 return true;
             default:
                 return false;

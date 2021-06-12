@@ -1,7 +1,10 @@
 package cn.nukkit.entity.projectile;
 
 import cn.nukkit.Player;
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.entity.Entity;
+import cn.nukkit.entity.mob.EntityBlaze;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.level.particle.GenericParticle;
@@ -9,6 +12,7 @@ import cn.nukkit.level.particle.Particle;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.network.protocol.DataPacket;
 
+import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -16,6 +20,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author MagicDroidX (Nukkit Project)
  */
 public class EntitySnowball extends EntityProjectile {
+
     public static final int NETWORK_ID = 81;
     private static final byte[] particleCounts = new byte[24];
     private static int particleIndex = 0;
@@ -91,6 +96,12 @@ public class EntitySnowball extends EntityProjectile {
         return hasUpdate;
     }
 
+    @PowerNukkitOnly
+    @Override
+    public int getResultDamage(@Nullable Entity entity) {
+        return entity instanceof EntityBlaze ? 3 : super.getResultDamage(entity);
+    }
+
     @Override
     protected void addHitEffect() {
         int particles = nextParticleCount();
@@ -103,6 +114,12 @@ public class EntitySnowball extends EntityProjectile {
         int chunkX = (int) x >> 4;
         int chunkZ = (int) z >> 4;
         Level level = this.level;
-        level.getServer().batchPackets(level.getChunkPlayers(chunkX, chunkZ).values().toArray(new Player[0]), allPackets);
+        level.getServer().batchPackets(level.getChunkPlayers(chunkX, chunkZ).values().toArray(Player.EMPTY_ARRAY), allPackets);
+    }
+    
+    
+    @Override
+    public String getName() {
+        return "Snowball";
     }
 }

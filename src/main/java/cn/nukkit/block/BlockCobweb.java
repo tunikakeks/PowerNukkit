@@ -1,11 +1,16 @@
 package cn.nukkit.block;
 
 import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
+import cn.nukkit.blockproperty.BlockProperties;
+import cn.nukkit.blockproperty.CommonBlockProperties;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemString;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.utils.BlockColor;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author xtypr
@@ -28,6 +33,14 @@ public class BlockCobweb extends BlockFlowable {
     @Override
     public int getId() {
         return COBWEB;
+    }
+
+    @Since("1.4.0.0-PN")
+    @PowerNukkitOnly
+    @Nonnull
+    @Override
+    public BlockProperties getProperties() {
+        return CommonBlockProperties.EMPTY_PROPERTIES;
     }
 
     @Override
@@ -58,12 +71,16 @@ public class BlockCobweb extends BlockFlowable {
 
     @Override
     public Item[] getDrops(Item item) {
-        if (item.isShears() || item.isSword()) {
+        if (item.isShears()) {
+            return new Item[]{
+                    this.toItem()
+            };
+        } else if (item.isSword()) {
             return new Item[]{
                     new ItemString()
             };
         } else {
-            return new Item[0];
+            return Item.EMPTY_ARRAY;
         }
     }
 

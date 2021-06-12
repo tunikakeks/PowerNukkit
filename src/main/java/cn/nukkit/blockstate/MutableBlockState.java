@@ -9,6 +9,7 @@ import cn.nukkit.blockstate.exception.InvalidBlockStateException;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -21,9 +22,14 @@ import static cn.nukkit.api.API.Usage.INCUBATING;
 @EqualsAndHashCode
 @ParametersAreNonnullByDefault
 public abstract class MutableBlockState implements IMutableBlockState {
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     protected final int blockId;
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     protected final BlockProperties properties;
-    
+
     MutableBlockState(int blockId, BlockProperties properties) {
         this.blockId = blockId;
         this.properties = properties;
@@ -57,6 +63,7 @@ public abstract class MutableBlockState implements IMutableBlockState {
         return properties;
     }
 
+    @Nonnegative
     @Override
     public final int getBlockId() {
         return blockId;
@@ -84,8 +91,12 @@ public abstract class MutableBlockState implements IMutableBlockState {
     /**
      * @throws cn.nukkit.blockstate.exception.InvalidBlockStateException if the state is invalid
      */
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public abstract void validate();
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     @Nonnull
     public abstract MutableBlockState copy();
 }

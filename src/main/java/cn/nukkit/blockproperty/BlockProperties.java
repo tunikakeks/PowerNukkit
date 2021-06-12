@@ -2,12 +2,10 @@ package cn.nukkit.blockproperty;
 
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.blockproperty.exception.BlockPropertyNotFoundException;
 import cn.nukkit.blockproperty.exception.InvalidBlockPropertyMetaException;
 import cn.nukkit.blockproperty.exception.InvalidBlockPropertyValueException;
-import cn.nukkit.blockstate.BigIntegerMutableBlockState;
-import cn.nukkit.blockstate.IntMutableBlockState;
-import cn.nukkit.blockstate.LongMutableBlockState;
-import cn.nukkit.blockstate.MutableBlockState;
+import cn.nukkit.blockstate.*;
 import cn.nukkit.utils.functional.ToIntTriFunctionTwoInts;
 import cn.nukkit.utils.functional.ToLongTriFunctionOneIntOneLong;
 import cn.nukkit.utils.functional.TriFunction;
@@ -29,6 +27,7 @@ import java.util.function.ObjIntConsumer;
 public final class BlockProperties {
     private final Map<String, RegisteredBlockProperty> byName;
     private final int bitSize;
+    private final BlockProperties itemBlockProperties;
 
     /**
      * @throws IllegalArgumentException If there are validation failures
@@ -36,6 +35,20 @@ public final class BlockProperties {
     @PowerNukkitOnly
     @Since("1.4.0.0")
     public BlockProperties(BlockProperty<?>... properties) {
+        this(null, properties);
+    }
+
+    /**
+     * @throws IllegalArgumentException If there are validation failures
+     */
+    @PowerNukkitOnly
+    @Since("1.4.0.0")
+    public BlockProperties(@Nullable BlockProperties itemBlockProperties, BlockProperty<?>... properties) {
+        if (itemBlockProperties == null) {
+            this.itemBlockProperties = this;
+        } else {
+            this.itemBlockProperties = itemBlockProperties;
+        }
         Map<String, RegisteredBlockProperty> registry = new LinkedHashMap<>(properties.length);
         Map<String, RegisteredBlockProperty> byPersistenceName = new LinkedHashMap<>(properties.length);
         int offset = 0;
@@ -64,10 +77,21 @@ public final class BlockProperties {
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     @Nonnull
+    public BlockProperties getItemBlockProperties() {
+        return itemBlockProperties;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    @Nonnull
     public MutableBlockState createMutableState(int blockId) {
-        if (bitSize <= 32) {
+        if (bitSize == 0) {
+            return new ZeroMutableBlockState(blockId, this);
+        } else if (bitSize < 8) {
+            return new ByteMutableBlockState(blockId, this);
+        } else if (bitSize < 32) {
             return new IntMutableBlockState(blockId, this);
-        } else if (bitSize <= 64) {
+        } else if (bitSize < 64) {
             return new LongMutableBlockState(blockId, this);
         } else {
             return new BigIntegerMutableBlockState(blockId, this);
@@ -78,6 +102,16 @@ public final class BlockProperties {
     @Since("1.4.0.0-PN")
     public boolean contains(String propertyName) {
         return byName.containsKey(propertyName);
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public boolean contains(BlockProperty<?> property) {
+        RegisteredBlockProperty registry = byName.get(property.getName());
+        if (registry == null) {
+            return false;
+        }
+        return registry.getProperty().getValueClass().equals(property.getValueClass());
     }
 
     /**
@@ -133,7 +167,7 @@ public final class BlockProperties {
     public RegisteredBlockProperty requireRegisteredProperty(String propertyName) {
         RegisteredBlockProperty registry = byName.get(propertyName);
         if (registry == null) {
-            throw new NoSuchElementException("The property "+propertyName+" was not found");
+            throw new BlockPropertyNotFoundException(propertyName, this);
         }
         return registry;
     }
@@ -286,6 +320,42 @@ public final class BlockProperties {
         return unchecked.setValue(currentMeta, registry.offset, value);
     }
 
+    @SuppressWarnings("unchecked")
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public int setPersistenceValue(int currentMeta, String propertyName, String persistenceValue) {
+        RegisteredBlockProperty registry = requireRegisteredProperty(propertyName);
+        @SuppressWarnings("rawtypes") 
+        BlockProperty property = registry.property;
+        int meta = property.getMetaForPersistenceValue(persistenceValue);
+        Serializable value = property.getValueForMeta(meta);
+        return property.setValue(currentMeta, registry.offset, value);
+    }
+
+    @SuppressWarnings("unchecked")
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public long setPersistenceValue(long currentMeta, String propertyName, String persistenceValue) {
+        RegisteredBlockProperty registry = requireRegisteredProperty(propertyName);
+        @SuppressWarnings("rawtypes")
+        BlockProperty property = registry.property;
+        int meta = property.getMetaForPersistenceValue(persistenceValue);
+        Serializable value = property.getValueForMeta(meta);
+        return property.setValue(currentMeta, registry.offset, value);
+    }
+
+    @SuppressWarnings("unchecked")
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public BigInteger setPersistenceValue(BigInteger currentMeta, String propertyName, String persistenceValue) {
+        RegisteredBlockProperty registry = requireRegisteredProperty(propertyName);
+        @SuppressWarnings("rawtypes")
+        BlockProperty property = registry.property;
+        int meta = property.getMetaForPersistenceValue(persistenceValue);
+        Serializable value = property.getValueForMeta(meta);
+        return property.setValue(currentMeta, registry.offset, value);
+    }
+
     /**
      * @throws NoSuchElementException If the property is not registered
      * @throws InvalidBlockPropertyValueException If the new value is not accepted by the property
@@ -308,7 +378,7 @@ public final class BlockProperties {
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     @Nonnull
-    public Object getValue(int currentMeta, String propertyName) {
+    public Serializable getValue(int currentMeta, String propertyName) {
         RegisteredBlockProperty registry = requireRegisteredProperty(propertyName);
         return registry.property.getValue(currentMeta, registry.offset);
     }
@@ -320,7 +390,7 @@ public final class BlockProperties {
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     @Nonnull
-    public Object getValue(long currentMeta, String propertyName) {
+    public Serializable getValue(long currentMeta, String propertyName) {
         RegisteredBlockProperty registry = requireRegisteredProperty(propertyName);
         return registry.property.getValue(currentMeta, registry.offset);
     }
@@ -332,7 +402,7 @@ public final class BlockProperties {
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     @Nonnull
-    public Object getValue(BigInteger currentMeta, String propertyName) {
+    public Serializable getValue(BigInteger currentMeta, String propertyName) {
         RegisteredBlockProperty registry = requireRegisteredProperty(propertyName);
         return registry.property.getValue(currentMeta, registry.offset);
     }
@@ -507,7 +577,7 @@ public final class BlockProperties {
 
         return (Boolean) registry.property.getValue(currentMeta, registry.offset);
     }
-    
+
     /**
      * @throws NoSuchElementException If the property is not registered
      * @throws InvalidBlockPropertyMetaException If the meta contains invalid data
@@ -524,22 +594,30 @@ public final class BlockProperties {
         return (Boolean) registry.property.getValue(currentMeta, registry.offset);
     }
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public int getBitSize() {
         return bitSize;
     }
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public void forEach(ObjIntConsumer<BlockProperty<?>> consumer) {
         for (RegisteredBlockProperty registry : byName.values()) {
             consumer.accept(registry.property, registry.offset);
         }
     }
-    
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public void forEach(Consumer<BlockProperty<?>> consumer) {
         for (RegisteredBlockProperty registry : byName.values()) {
             consumer.accept(registry.property);
         }
     }
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public <R> R reduce(R identity, TriFunction<BlockProperty<?>, Integer, R, R> accumulator) {
         R result = identity;
         for (RegisteredBlockProperty registry : byName.values()) {
@@ -548,6 +626,8 @@ public final class BlockProperties {
         return result;
     }
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public int reduceInt(int identity, ToIntTriFunctionTwoInts<BlockProperty<?>> accumulator) {
         int result = identity;
         for (RegisteredBlockProperty registry : byName.values()) {
@@ -556,6 +636,8 @@ public final class BlockProperties {
         return result;
     }
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public long reduceLong(long identity, ToLongTriFunctionOneIntOneLong<BlockProperty<?>> accumulator) {
         long result = identity;
         for (RegisteredBlockProperty registry : byName.values()) {
@@ -564,6 +646,8 @@ public final class BlockProperties {
         return result;
     }
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     @Nonnull
     public List<String> getItemPropertyNames() {
         List<String> itemProperties = new ArrayList<>(byName.size());
@@ -583,6 +667,48 @@ public final class BlockProperties {
                 "bitSize=" + bitSize +
                 ", properties=" + byName.values() +
                 '}';
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    @SuppressWarnings({"rawtypes", "java:S3740", "unchecked"})
+    public boolean isDefaultValue(String propertyName, @Nullable Serializable value) {
+        BlockProperty blockProperty = getBlockProperty(propertyName);
+        return blockProperty.isDefaultValue(value);
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public <T extends Serializable> boolean isDefaultValue(BlockProperty<T> property, @Nullable T value) {
+        return isDefaultValue(property.getName(), value);
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    @SuppressWarnings({"rawtypes", "java:S3740"})
+    public boolean isDefaultIntValue(String propertyName, int value) {
+        BlockProperty blockProperty = getBlockProperty(propertyName);
+        return blockProperty.isDefaultIntValue(value);
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public <T extends Serializable> boolean isDefaultIntValue(BlockProperty<T> property, int value) {
+        return isDefaultIntValue(property.getName(), value);
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    @SuppressWarnings({"rawtypes", "java:S3740"})
+    public boolean isDefaultBooleanValue(String propertyName, boolean value) {
+        BlockProperty blockProperty = getBlockProperty(propertyName);
+        return blockProperty.isDefaultBooleanValue(value);
+    }
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public <T extends Serializable> boolean isDefaultBooleanValue(BlockProperty<T> property, boolean value) {
+        return isDefaultBooleanValue(property.getName(), value);
     }
 
     @PowerNukkitOnly

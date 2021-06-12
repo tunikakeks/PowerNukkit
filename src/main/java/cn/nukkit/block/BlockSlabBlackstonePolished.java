@@ -13,14 +13,21 @@ import javax.annotation.Nonnull;
 @Since("1.4.0.0-PN")
 public class BlockSlabBlackstonePolished extends BlockSlab {
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public BlockSlabBlackstonePolished() {
         this(0);
     }
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public BlockSlabBlackstonePolished(int meta) {
         super(meta, POLISHED_BLACKSTONE_DOUBLE_SLAB);
     }
 
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     protected BlockSlabBlackstonePolished(int meta, int doubleSlab) {
         super(meta, doubleSlab);
     }
@@ -63,7 +70,7 @@ public class BlockSlabBlackstonePolished extends BlockSlab {
         if (item.isPickaxe() && item.getTier() >= ItemTool.TIER_WOODEN) {
             return new Item[]{ toItem() };
         }
-        return new Item[0];
+        return Item.EMPTY_ARRAY;
     }
 
     @Override

@@ -11,6 +11,7 @@ import cn.nukkit.event.HandlerList;
 public class PlayerLocallyInitializedEvent extends PlayerEvent {
     private static final HandlerList handlers = new HandlerList();
 
+    @Since("1.4.0.0-PN")
     public static HandlerList getHandlers() {
         return handlers;
     }

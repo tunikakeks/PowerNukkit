@@ -1,19 +1,27 @@
 package cn.nukkit.block;
 
 import cn.nukkit.Player;
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.item.Item;
-import cn.nukkit.item.ItemID;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.generator.object.ObjectNyliumVegetation;
 import cn.nukkit.level.particle.BoneMealParticle;
 import cn.nukkit.math.NukkitRandom;
-import cn.nukkit.utils.DyeColor;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+@PowerNukkitOnly
+@Since("1.4.0.0-PN")
 public abstract class BlockNylium extends BlockSolid {
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public BlockNylium() {
+        // Does nothing
+    }
+
     @Override
     public int getToolType() {
         return ItemTool.TYPE_PICKAXE;
@@ -36,7 +44,7 @@ public abstract class BlockNylium extends BlockSolid {
     @Override
     public boolean onActivate(@Nonnull Item item, @Nullable Player player) {
         Block up = up();
-        if (item.isNull() || item.getId() != ItemID.DYE || item.getDamage() != DyeColor.WHITE.getDyeData() || up.getId() != AIR) {
+        if (item.isNull() || !item.isFertilizer() || up.getId() != AIR) {
             return false;
         }
 
@@ -51,6 +59,8 @@ public abstract class BlockNylium extends BlockSolid {
         return true;
     }
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public boolean grow() {
         ObjectNyliumVegetation.growVegetation(level, this, new NukkitRandom());
         return true;
@@ -71,7 +81,7 @@ public abstract class BlockNylium extends BlockSolid {
         if (item.isPickaxe() && item.getTier() >= ItemTool.TIER_WOODEN) {
             return new Item[]{ Item.get(NETHERRACK) };
         }
-        return new Item[0];
+        return Item.EMPTY_ARRAY;
     }
 
     @Override

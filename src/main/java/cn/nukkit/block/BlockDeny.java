@@ -11,8 +11,16 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@PowerNukkitOnly
+@Since("1.4.0.0-PN")
 @ParametersAreNonnullByDefault
 public class BlockDeny extends BlockSolid {
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public BlockDeny() {
+        // Does nothing
+    }
+
     @Override
     public int getId() {
         return DENY;
@@ -73,6 +81,6 @@ public class BlockDeny extends BlockSolid {
 
     @Override
     public Item[] getDrops(Item item) {
-        return new Item[0];
+        return Item.EMPTY_ARRAY;
     }
 }

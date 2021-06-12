@@ -1,7 +1,11 @@
 package cn.nukkit.block;
 
 import cn.nukkit.Player;
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
+import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemTool;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.utils.BlockColor;
 import cn.nukkit.utils.Faceable;
@@ -13,6 +17,10 @@ import javax.annotation.Nonnull;
  * @since 2015/11/24
  */
 public class BlockHayBale extends BlockSolidMeta implements Faceable {
+    @PowerNukkitOnly
+    @Since("1.5.0.0-PN")
+    public static final BlockProperties PROPERTIES = BlockBone.PROPERTIES;
+
     public BlockHayBale() {
         this(0);
     }
@@ -24,6 +32,14 @@ public class BlockHayBale extends BlockSolidMeta implements Faceable {
     @Override
     public int getId() {
         return HAY_BALE;
+    }
+
+    @Since("1.4.0.0-PN")
+    @PowerNukkitOnly
+    @Nonnull
+    @Override
+    public BlockProperties getProperties() {
+        return PROPERTIES;
     }
 
     @Override
@@ -39,6 +55,11 @@ public class BlockHayBale extends BlockSolidMeta implements Faceable {
     @Override
     public double getResistance() {
         return 2.5;
+    }
+
+    @Override
+    public int getToolType() {
+        return ItemTool.TYPE_HOE;
     }
 
     @Override

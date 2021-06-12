@@ -2,13 +2,16 @@ package cn.nukkit.block;
 
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.item.Item;
+import cn.nukkit.utils.BlockColor;
 
 @PowerNukkitOnly
 public class BlockBeeNest extends BlockBeehive {
+    @PowerNukkitOnly
     public BlockBeeNest() {
         this(0);
     }
 
+    @PowerNukkitOnly
     protected BlockBeeNest(int meta) {
         super(meta);
     }
@@ -45,6 +48,11 @@ public class BlockBeeNest extends BlockBeehive {
     
     @Override
     public Item[] getDrops(Item item) {
-        return new Item[0];
+        return Item.EMPTY_ARRAY;
+    }
+    
+    @Override
+    public BlockColor getColor() {
+        return BlockColor.YELLOW_BLOCK_COLOR;
     }
 }

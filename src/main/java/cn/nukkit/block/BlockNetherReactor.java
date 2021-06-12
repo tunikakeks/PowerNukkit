@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
 @PowerNukkitOnly
 @Since("1.4.0.0-PN")
 public class BlockNetherReactor extends BlockSolid implements BlockEntityHolder<BlockEntityNetherReactor> {
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public BlockNetherReactor() {
         // Does nothing
     }
@@ -85,7 +87,7 @@ public class BlockNetherReactor extends BlockSolid implements BlockEntityHolder<
                     Item.get(ItemID.IRON_INGOT, 0, 6)
             };
         } else {
-            return new Item[0];
+            return Item.EMPTY_ARRAY;
         }
     }
 

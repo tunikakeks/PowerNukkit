@@ -12,12 +12,18 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@PowerNukkitOnly
+@Since("1.4.0.0-PN")
 @ParametersAreNonnullByDefault
 public class BlockBorder extends BlockWallBase {
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public BlockBorder() {
         this(0);
     }
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     public BlockBorder(int meta) {
         super(meta);
     }
@@ -82,7 +88,7 @@ public class BlockBorder extends BlockWallBase {
 
     @Override
     public Item[] getDrops(Item item) {
-        return new Item[0];
+        return Item.EMPTY_ARRAY;
     }
 
     @Override

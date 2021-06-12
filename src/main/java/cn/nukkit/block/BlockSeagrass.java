@@ -2,6 +2,10 @@ package cn.nukkit.block;
 
 import cn.nukkit.Player;
 import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
+import cn.nukkit.blockproperty.ArrayBlockProperty;
+import cn.nukkit.blockproperty.BlockProperties;
+import cn.nukkit.blockproperty.value.SeaGrassType;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemBlock;
 import cn.nukkit.item.ItemTool;
@@ -9,16 +13,26 @@ import cn.nukkit.level.Level;
 import cn.nukkit.level.particle.BoneMealParticle;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.utils.BlockColor;
-import cn.nukkit.utils.DyeColor;
 
 import javax.annotation.Nonnull;
 
+@PowerNukkitOnly
 public class BlockSeagrass extends BlockFlowable {
-    
+
+    @PowerNukkitOnly
+    @Since("1.5.0.0-PN")
+    public static final ArrayBlockProperty<SeaGrassType> SEA_GRASS_TYPE = new ArrayBlockProperty<>("sea_grass_type", false, SeaGrassType.class);
+
+    @PowerNukkitOnly
+    @Since("1.5.0.0-PN")
+    public static final BlockProperties PROPERTIES = new BlockProperties(SEA_GRASS_TYPE);
+
+    @PowerNukkitOnly
     public BlockSeagrass() {
         this(0);
     }
-    
+
+    @PowerNukkitOnly
     public BlockSeagrass(int meta) {
         super(meta);
     }
@@ -27,7 +41,15 @@ public class BlockSeagrass extends BlockFlowable {
     public int getId() {
         return SEAGRASS;
     }
-    
+
+    @Since("1.4.0.0-PN")
+    @PowerNukkitOnly
+    @Nonnull
+    @Override
+    public BlockProperties getProperties() {
+        return PROPERTIES;
+    }
+
     @Override
     public String getName() {
         return "Seagrass";
@@ -92,7 +114,7 @@ public class BlockSeagrass extends BlockFlowable {
     
     @Override
     public boolean onActivate(@Nonnull Item item, Player player) {
-        if (getDamage() == 0 && item.getId() == Item.DYE && item.getDamage() == DyeColor.WHITE.getDyeData()) {
+        if (getDamage() == 0 && item.isFertilizer()) {
             Block up = this.up();
             int damage;
             if (up instanceof BlockWater && ((damage = up.getDamage()) == 0 || damage == 8)) {
@@ -116,7 +138,7 @@ public class BlockSeagrass extends BlockFlowable {
         if (item.isShears()) {
             return new Item[] { toItem() };
         } else {
-            return new Item[0];
+            return Item.EMPTY_ARRAY;
         }
     }
     

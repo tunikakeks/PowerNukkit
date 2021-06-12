@@ -1,6 +1,8 @@
 package cn.nukkit.entity.item;
 
 import cn.nukkit.api.PowerNukkitDifference;
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.EntityExplosive;
 import cn.nukkit.entity.data.IntEntityData;
@@ -97,7 +99,7 @@ public class EntityPrimedTNT extends Entity implements EntityExplosive {
         this.setDataFlag(DATA_FLAGS, DATA_FLAG_IGNITED, true);
         this.setDataProperty(new IntEntityData(DATA_FUSE_LENGTH, fuse));
 
-        this.getLevel().addSound(this, Sound.RANDOM_FIZZ);
+        this.getLevel().addSound(this, Sound.RANDOM_FUSE);
     }
 
 
@@ -174,7 +176,10 @@ public class EntityPrimedTNT extends Entity implements EntityExplosive {
         if (event.isCancelled()) {
             return;
         }
+      
         Explosion explosion = new Explosion(this, event.getForce(), this, this.allowUnderwater);
+        explosion.setFireChance(event.getFireChance());
+      
         if (event.isBlockBreaking()) {
             explosion.explodeA();
         }
@@ -183,5 +188,11 @@ public class EntityPrimedTNT extends Entity implements EntityExplosive {
 
     public Entity getSource() {
         return source;
+    }
+    
+    
+    @Override
+    public String getName() {
+        return "Block of TNT";
     }
 }

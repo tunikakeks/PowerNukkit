@@ -1,11 +1,20 @@
 package cn.nukkit.block;
 
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemID;
 import cn.nukkit.utils.BlockColor;
 
+@PowerNukkitOnly
+@Since("1.4.0.0-PN")
 public class BlockNetherSprout extends BlockRoots {
-    
+
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public BlockNetherSprout() {
+    }
+
     @Override
     public int getId() {
         return NETHER_SPROUTS_BLOCK;
@@ -26,7 +35,7 @@ public class BlockNetherSprout extends BlockRoots {
         if (item.isShears()) {
             return new Item[]{ toItem() };
         }
-        return new Item[0];
+        return Item.EMPTY_ARRAY;
     }
 
     @Override

@@ -1,15 +1,31 @@
 package cn.nukkit.block;
 
 import cn.nukkit.Player;
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
+import cn.nukkit.blockproperty.BlockProperties;
+import cn.nukkit.blockproperty.CommonBlockProperties;
 import cn.nukkit.item.Item;
 import cn.nukkit.level.Level;
 import cn.nukkit.math.BlockFace;
 
 import javax.annotation.Nonnull;
 
+@PowerNukkitOnly
+@Since("1.4.0.0-PN")
 public abstract class BlockRoots extends BlockFlowable {
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     protected BlockRoots() {
         super(0);
+    }
+
+    @Since("1.4.0.0-PN")
+    @PowerNukkitOnly
+    @Nonnull
+    @Override
+    public BlockProperties getProperties() {
+        return CommonBlockProperties.EMPTY_PROPERTIES;
     }
 
     @Override
@@ -26,6 +42,8 @@ public abstract class BlockRoots extends BlockFlowable {
         return isSupportValid() && super.place(item, block, target, face, fx, fy, fz, player);
     }
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
     protected boolean isSupportValid() {
         switch (down().getId()) {
             case WARPED_NYLIUM:

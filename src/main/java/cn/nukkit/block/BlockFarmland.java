@@ -3,6 +3,8 @@ package cn.nukkit.block;
 import cn.nukkit.api.PowerNukkitDifference;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.blockproperty.BlockProperties;
+import cn.nukkit.blockproperty.IntBlockProperty;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemBlock;
 import cn.nukkit.item.ItemTool;
@@ -11,11 +13,20 @@ import cn.nukkit.math.BlockFace;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.utils.BlockColor;
 
+import javax.annotation.Nonnull;
+
 /**
  * @author xtypr
  * @since 2015/12/2
  */
 public class BlockFarmland extends BlockTransparentMeta {
+    @PowerNukkitOnly
+    @Since("1.5.0.0-PN")
+    public static final IntBlockProperty MOISTURIZED_AMOUNT = new IntBlockProperty("moisturized_amount", false, 7);
+
+    @PowerNukkitOnly
+    @Since("1.5.0.0-PN")
+    public static final BlockProperties PROPERTIES = new BlockProperties(MOISTURIZED_AMOUNT);
 
     public BlockFarmland() {
         this(0);
@@ -35,6 +46,14 @@ public class BlockFarmland extends BlockTransparentMeta {
         return FARMLAND;
     }
 
+    @Since("1.4.0.0-PN")
+    @PowerNukkitOnly
+    @Nonnull
+    @Override
+    public BlockProperties getProperties() {
+        return PROPERTIES;
+    }
+
     @Override
     public double getResistance() {
         return 3;
@@ -52,7 +71,7 @@ public class BlockFarmland extends BlockTransparentMeta {
 
     @Override
     public double getMaxY() {
-        return this.y + 0.9375;
+        return this.y + 1;
     }
 
     @Override

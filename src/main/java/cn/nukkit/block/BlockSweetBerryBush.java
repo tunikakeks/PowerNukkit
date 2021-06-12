@@ -4,13 +4,13 @@ import cn.nukkit.Player;
 import cn.nukkit.Server;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.event.block.BlockGrowEvent;
 import cn.nukkit.event.block.BlockHarvestEvent;
 import cn.nukkit.event.entity.EntityDamageByBlockEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.item.Item;
-import cn.nukkit.item.ItemID;
 import cn.nukkit.item.ItemSweetBerries;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.Position;
@@ -20,13 +20,15 @@ import cn.nukkit.math.AxisAlignedBB;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.math.MathHelper;
 import cn.nukkit.utils.BlockColor;
-import cn.nukkit.utils.DyeColor;
 
 import javax.annotation.Nonnull;
 import java.util.concurrent.ThreadLocalRandom;
 
 @PowerNukkitOnly
 public class BlockSweetBerryBush extends BlockFlowable {
+    @PowerNukkitOnly
+    @Since("1.5.0.0-PN")
+    public static final BlockProperties PROPERTIES = new BlockProperties(BlockCrops.GROWTH);
 
     @PowerNukkitOnly
     public BlockSweetBerryBush() {
@@ -41,6 +43,14 @@ public class BlockSweetBerryBush extends BlockFlowable {
     @Override
     public int getId() {
         return SWEET_BERRY_BUSH;
+    }
+
+    @Since("1.4.0.0-PN")
+    @PowerNukkitOnly
+    @Nonnull
+    @Override
+    public BlockProperties getProperties() {
+        return PROPERTIES;
     }
 
     @Override
@@ -78,7 +88,7 @@ public class BlockSweetBerryBush extends BlockFlowable {
 
         int age = MathHelper.clamp(getDamage(), 0, 3);
 
-        if (age < 3 && item.getId() == ItemID.DYE && item.getDamage() == DyeColor.WHITE.getDyeData()) {
+        if (age < 3 && item.isFertilizer()) {
             BlockSweetBerryBush block = (BlockSweetBerryBush) this.clone();
             block.setDamage(block.getDamage() + 1);
             if (block.getDamage() > 3) {
@@ -201,9 +211,13 @@ public class BlockSweetBerryBush extends BlockFlowable {
     @Override
     public Item[] getDrops(Item item) {
         int age = MathHelper.clamp(getDamage(), 0, 3);
-        int amount = 1 + ThreadLocalRandom.current().nextInt(2);
-        if (age == 3) {
-            amount++;
+        
+        int amount = 1;
+        if (age > 1) {
+            amount = 1 + ThreadLocalRandom.current().nextInt(2);
+            if (age == 3) {
+                amount++;
+            }
         }
 
         return new Item[]{ new ItemSweetBerries(0, amount) };

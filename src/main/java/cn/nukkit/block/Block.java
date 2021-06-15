@@ -606,7 +606,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             // 560 Special block: minecraft:unknown
             //list[POWDER_SNOW] = .class; //561
             //list[SCULK_SENSOR] = .class; //562
-            //list[POINTED_DRIPSTONE] = .class; //563
+            list[POINTED_DRIPSTONE] = BlockPointedDripstone.class; //563
             // 564 (unused)
             // 565 (unused)
             list[COPPER_ORE] = BlockOreCopper.class; //566
@@ -618,22 +618,22 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[DRIPSTONE_BLOCK] = BlockDripstone.class; //572
             //list[DIRT_WITH_ROOTS] = .class; //573
             list[HANGING_ROOTS] = BlockRootsHanging.class; //574
-            //list[MOSS_BLOCK] = .class; //575
+            list[MOSS_BLOCK] = BlockMoss.class; //575
             //list[SPORE_BLOSSOM] = .class; //576
             //list[CAVE_VINES] = .class; //577
-            //list[BIG_DRIPLEAF] = .class; //578
-            //list[AZALEA_LEAVES] = .class; //579
-            //list[AZALEA_LEAVES_FLOWERED] = .class; //580
+            list[BIG_DRIPLEAF] = BlockDripLeaf.class; //578
+            list[AZALEA_LEAVES] = BlockLeavesAzalea.class; //579
+            list[AZALEA_LEAVES_FLOWERED] = BlockLeavesAzaleaFlowered.class; //580
             list[CALCITE] = BlockCalcite.class; //581
             list[AMETHYST_BLOCK] = BlockAmethyst.class; //582
-            //list[BUDDING_AMETHYST] = .class; //583
-            //list[AMETHYST_CLUSTER] = .class; //584
+            list[BUDDING_AMETHYST] = BlockBuddingAmethyst.class; //583
+            list[AMETHYST_CLUSTER] = BlockAmethystCluster.class; //584
             //list[LARGE_AMETHYST_BUD] = .class; //585
             //list[MEDIUM_AMETHYST_BUD] = .class; //586
             //list[SMALL_AMETHYST_BUD] = .class; //587
             list[TUFF] = BlockTuff.class; //588
             list[TINTED_GLASS] = BlockGlassTinted.class; //589
-            //list[MOSS_CARPET] = .class; //590
+            list[MOSS_CARPET] = BlockMossCarpet.class; //590
             //list[SMALL_DRIPLEAF_BLOCK] = .class; //591
             list[AZALEA] = BlockAzalea.class; //592
             list[FLOWERING_AZALEA] = BlockAzaleaFlowering.class; //593

@@ -3,10 +3,10 @@ package cn.nukkit.item;
 import cn.nukkit.Player;
 import cn.nukkit.Server;
 import cn.nukkit.api.*;
-import cn.nukkit.api.Since;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
 import cn.nukkit.blockproperty.UnknownRuntimeIdException;
+import cn.nukkit.blockproperty.exception.BlockPropertyNotFoundException;
 import cn.nukkit.blockproperty.exception.InvalidBlockPropertyMetaException;
 import cn.nukkit.blockstate.BlockState;
 import cn.nukkit.blockstate.BlockStateRegistry;
@@ -14,6 +14,7 @@ import cn.nukkit.blockstate.exception.InvalidBlockStateException;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.inventory.Fuel;
 import cn.nukkit.item.enchantment.Enchantment;
+import cn.nukkit.item.enchantment.sideeffect.SideEffect;
 import cn.nukkit.level.Level;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.math.Vector3;
@@ -25,10 +26,14 @@ import cn.nukkit.utils.Utils;
 import io.netty.util.internal.EmptyArrays;
 import it.unimi.dsi.fastutil.ints.Int2IntArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2IntMap;
+import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 
+import javax.annotation.Nonnull;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UncheckedIOException;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import java.nio.ByteOrder;
 import java.util.*;
@@ -418,6 +423,28 @@ public class Item implements Cloneable, BlockID, ItemID {
                     list[i] = Block.list[i];
                 }
             }
+
+            RuntimeItemMapping runtimeMapping = RuntimeItems.getRuntimeMapping();
+            for (@SuppressWarnings("unchecked") Class<Item> aClass : list) {
+                if (!Item.class.equals(aClass)) {
+                    continue;
+                }
+                try {
+                    Constructor<Item> constructor = aClass.getConstructor();
+                    Item item = constructor.newInstance();
+                    runtimeMapping.registerNamespacedIdItem(item.getNamespaceId(), constructor);
+                } catch (Exception e) {
+                    log.warn("Failed to cache the namespaced id resolution of the item {}", aClass, e);
+                }
+            }
+
+            runtimeMapping.registerNamespacedIdItem(ItemRawIron.class);
+            runtimeMapping.registerNamespacedIdItem(ItemRawGold.class);
+            runtimeMapping.registerNamespacedIdItem(ItemRawCopper.class);
+            runtimeMapping.registerNamespacedIdItem(ItemCopperIngot.class);
+            runtimeMapping.registerNamespacedIdItem(ItemAmethystShard.class);
+            runtimeMapping.registerNamespacedIdItem(ItemSpyGlass.class);
+            runtimeMapping.registerNamespacedIdItem(ItemGlowInkSac.class);
         }
 
         initCreativeItems();
@@ -447,21 +474,62 @@ public class Item implements Cloneable, BlockID, ItemID {
 
     private static final ArrayList<Item> creative = new ArrayList<>();
 
+    @SneakyThrows(IOException.class)
     @SuppressWarnings("unchecked")
     private static void initCreativeItems() {
         clearCreativeItems();
 
         Config config = new Config(Config.JSON);
-        config.load(Server.class.getClassLoader().getResourceAsStream("creativeitems.json"));
+        try(InputStream resourceAsStream = Server.class.getClassLoader().getResourceAsStream("creativeitems.json")) {
+            config.load(resourceAsStream);
+        }
         List<Map> list = config.getMapList("items");
 
         for (Map map : list) {
             try {
-                addCreativeItem(fromJsonStringId(map));
+                Item item = loadCreativeItemEntry(map);
+                if (item != null) {
+                    addCreativeItem(item);
+                }
             } catch (Exception e) {
-                log.error("Error while registering a creative item", e);
+                log.error("Error while registering a creative item {}", map, e);
             }
         }
+    }
+
+    private static Item loadCreativeItemEntry(Map<String, Object> data) {
+        String nbt = (String) data.get("nbt_b64");
+        byte[] nbtBytes = nbt != null ? Base64.getDecoder().decode(nbt) : EmptyArrays.EMPTY_BYTES;
+
+        String id = data.get("id").toString();
+        Item item = null;
+        if (data.containsKey("damage")) {
+            int meta = Utils.toInt(data.get("damage"));
+            item = fromString(id + ":" + meta);
+        } else if (data.containsKey("blockRuntimeId")) {
+            int blockRuntimeId = -1;
+            try {
+                blockRuntimeId = ((Number) data.get("blockRuntimeId")).intValue();
+                BlockState blockState = BlockStateRegistry.getBlockStateByRuntimeId(blockRuntimeId);
+                if (blockState != null) {
+                    item = blockState.asItemBlock();
+                } else {
+                    log.warn("Block state not found for the creative item {} with runtimeId {}", id, blockRuntimeId);
+                }
+            } catch (BlockPropertyNotFoundException e) {
+                log.warn("The block {} (runtime id:{}) is not supported yet!", id, blockRuntimeId);
+            } catch (Throwable e) {
+                log.error("Error loading the creative item {} with runtimeId {}", id, blockRuntimeId, e);
+                return null;
+            }
+        }
+
+        if (item == null) {
+            item = fromString(id);
+        }
+
+        item.setCompoundTag(nbtBytes);
+        return item;
     }
 
     public static void clearCreativeItems() {
@@ -811,6 +879,18 @@ public class Item implements Cloneable, BlockID, ItemID {
         return this.tags != null && this.tags.length > 0;
     }
 
+    @PowerNukkitOnly
+    @Since("FUTURE")
+    public boolean hasCustomCompoundTag() {
+        return hasCompoundTag();
+    }
+
+    @PowerNukkitOnly
+    @Since("FUTURE")
+    public byte[] getCustomCompoundTag() {
+        return getCompoundTag();
+    }
+
     public boolean hasCustomBlockData() {
         if (!this.hasCompoundTag()) {
             return false;
@@ -996,6 +1076,17 @@ public class Item implements Cloneable, BlockID, ItemID {
         }
 
         return enchantments.toArray(Enchantment.EMPTY_ARRAY);
+    }
+
+    @PowerNukkitOnly
+    @Since("FUTURE")
+    @Nonnull
+    public SideEffect[] getAttackSideEffects(@Nonnull Entity attacker, @Nonnull Entity entity) {
+        return Arrays.stream(getEnchantments())
+                .flatMap(enchantment -> Arrays.stream(enchantment.getAttackSideEffects(attacker, entity)))
+                .filter(Objects::nonNull)
+                .toArray(SideEffect[]::new)
+        ;
     }
 
     @Since("1.4.0.0-PN")
@@ -1206,7 +1297,7 @@ public class Item implements Cloneable, BlockID, ItemID {
     }
 
     public boolean isNull() {
-        return this.count <= 0 || this.id == AIR;
+        return this.count <= 0 || this.id == AIR || this.id == STRING_IDENTIFIED_ITEM && !(this instanceof StringItem);
     }
 
     final public String getName() {
@@ -1285,7 +1376,6 @@ public class Item implements Cloneable, BlockID, ItemID {
     @Since("1.4.0.0-PN")
     public Item createFuzzyCraftingRecipe() {
         Item item = clone();
-        item.meta = 0;
         item.hasMeta = false;
         return item;
     }
@@ -1412,7 +1502,11 @@ public class Item implements Cloneable, BlockID, ItemID {
 
     @Override
     final public String toString() {
-        return "Item " + this.name + " (" + this.id + ":" + (!this.hasMeta ? "?" : this.meta) + ")x" + this.count + (this.hasCompoundTag() ? " tags:0x" + Binary.bytesToHexString(this.getCompoundTag()) : "");
+        return "Item " + this.name +
+                " (" + (this instanceof StringItem? this.getNamespaceId() :this.id)
+                + ":" + (!this.hasMeta ? "?" : this.meta)
+                + ")x" + this.count
+                + (this.hasCustomCompoundTag() ? " tags:0x" + Binary.bytesToHexString(this.getCustomCompoundTag()) : "");
     }
 
     public int getDestroySpeed(Block block, Player player) {

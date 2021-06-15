@@ -28,13 +28,13 @@ import javax.annotation.Nullable;
 public class BlockChorusFlower extends BlockTransparentMeta {
 
     @PowerNukkitOnly
-    @Since("1.4.0.0-PN")
+    @Since("1.5.0.0-PN")
     public static final IntBlockProperty AGE = new IntBlockProperty("age", false, 5);
-    
+
     @PowerNukkitOnly
-    @Since("1.4.0.0-PN")
+    @Since("1.5.0.0-PN")
     public static final BlockProperties PROPERTIES = new BlockProperties(AGE);
-    
+
     public BlockChorusFlower() {
         this(0);
     }
@@ -43,17 +43,17 @@ public class BlockChorusFlower extends BlockTransparentMeta {
         super(meta);
     }
     
-    @PowerNukkitOnly
+    @Override
+    public int getId() {
+        return CHORUS_FLOWER;
+    }
+
     @Since("1.4.0.0-PN")
+    @PowerNukkitOnly
     @Nonnull
     @Override
     public BlockProperties getProperties() {
         return PROPERTIES;
-    }
-    
-    @Override
-    public int getId() {
-        return CHORUS_FLOWER;
     }
 
     @Override

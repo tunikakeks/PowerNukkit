@@ -88,7 +88,7 @@ public class Nether extends Generator {
                 new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 3, 8, 22),
                 new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 2, 7, 119),
                 new OreType(Block.get(BlockID.GRAVEL), 5, 64, 0, 128),
-                new OreType(Block.get(BlockID.LAVA), 1, 16, 0, (int) this.lavaHeight),
+                new OreType(Block.get(BlockID.FLOWING_LAVA), 1, 16, 0, (int) this.lavaHeight),
         });
         this.populators.add(ores);
 
@@ -108,6 +108,7 @@ public class Nether extends Generator {
                 new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 3, 8, 22, NETHERRACK),
                 new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 2, 7, 119, NETHERRACK),
                 new OreType(Block.get(BlockID.LAVA), 32, 1, 0, 32, NETHERRACK),
+                new OreType(Block.get(BlockID.FLOWING_LAVA), 32, 1, 0, 32, NETHERRACK),
                 new OreType(Block.get(BlockID.MAGMA), 32, 16, 26, 37, NETHERRACK),
         });
         this.populators.add(ore);

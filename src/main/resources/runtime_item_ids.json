@@ -3890,7 +3890,9 @@
   },
   {
     "name": "minecraft:axolotl_bucket",
-    "id": 369
+    "id": 369,
+    "oldId": 325,
+    "oldData": 12
   },
   {
     "name": "minecraft:minecart",

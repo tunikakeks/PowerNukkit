@@ -308,11 +308,8 @@ public class ItemBucket extends Item {
                 if (e5 != null) e5.spawnToAll();
                 break;
             case 12:
-                //TODO: Uncomment this code after adding the entity
-                /*
                 Entity e12 = Entity.createEntity("Axolotl", block);
                 if (e12 != null) e12.spawnToAll();
-                */
                 break;
         }
     }

@@ -1,7 +1,9 @@
 package cn.nukkit.inventory;
 
+import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.item.Item;
 
+@PowerNukkitOnly
 public class SmokerRecipe implements SmeltingRecipe {
 
     private final Item output;
@@ -10,6 +12,7 @@ public class SmokerRecipe implements SmeltingRecipe {
 
     private double experience;
 
+    @PowerNukkitOnly
     public SmokerRecipe(Item result, Item ingredient) {
         this(result, ingredient, 0);
     }
@@ -20,6 +23,7 @@ public class SmokerRecipe implements SmeltingRecipe {
         this.experience = experience;
     }
 
+    @PowerNukkitOnly
     public void setInput(Item item) {
         this.ingredient = item.clone();
     }

@@ -1,6 +1,8 @@
 package cn.nukkit.entity;
 
 import cn.nukkit.Player;
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.entity.data.IntPositionEntityData;
 import cn.nukkit.entity.data.Skin;
 import cn.nukkit.item.Item;
@@ -50,14 +52,21 @@ public class EntityHuman extends EntityHumanType {
         return 1.8f;
     }
 
+    @Since("FUTURE")
+    @PowerNukkitOnly
+    @Override
+    public float getSwimmingHeight() {
+        return getWidth();
+    }
+
     @Override
     public float getEyeHeight() {
-        return 1.62f;
+        return (float)(boundingBox.getMaxY() - boundingBox.getMinY() - 0.18);
     }
 
     @Override
     protected float getBaseOffset() {
-        return this.getEyeHeight();
+        return 1.62f;
     }
 
     protected Skin skin;
@@ -108,6 +117,11 @@ public class EntityHuman extends EntityHumanType {
                 if (skinTag.contains("ModelId")) {
                     newSkin.setSkinId(skinTag.getString("ModelId"));
                 }
+
+                if (skinTag.contains("PlayFabID")) {
+                    newSkin.setPlayFabId(skinTag.getString("PlayFabID"));
+                }
+
                 if (skinTag.contains("Data")) {
                     byte[] data = skinTag.getByteArray("Data");
                     if (skinTag.contains("SkinImageWidth") && skinTag.contains("SkinImageHeight")) {
@@ -268,6 +282,10 @@ public class EntityHuman extends EntityHumanType {
                             .putString("PieceType", tint.pieceType)
                             .putList(colors));
                 }
+            }
+
+            if (!this.getSkin().getPlayFabId().isEmpty()) {
+                skinTag.putString("PlayFabID", this.getSkin().getPlayFabId());
             }
             this.namedTag.putCompound("Skin", skinTag);
         }

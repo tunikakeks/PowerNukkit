@@ -162,4 +162,10 @@ public class EntityPotion extends EntityProjectile {
         this.timing.stopTiming();
         return hasUpdate;
     }
+    
+    
+    @Override
+    public String getName() {
+        return "Potion";
+    }
 }

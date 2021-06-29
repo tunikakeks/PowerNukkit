@@ -2106,7 +2106,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
     protected void processLogin() {
         if (!this.server.isWhitelisted((this.getName()).toLowerCase())) {
-            this.kick(PlayerKickEvent.Reason.NOT_WHITELISTED, "Server is white-listed");
+            this.kick(PlayerKickEvent.Reason.NOT_WHITELISTED, "You're not invited to play on this server.");
 
             return;
         } else if (this.isBanned()) {
@@ -2128,8 +2128,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
         Player oldPlayer = null;
         for (Player p : new ArrayList<>(this.server.getOnlinePlayers().values())) {
-            if (p != this && p.getName() != null && p.getName().equalsIgnoreCase(this.getName()) ||
-                    this.getUniqueId().equals(p.getUniqueId())) {
+            if (p != this && p.getName().equalsIgnoreCase(this.getName()) || this.getUniqueId().equals(p.getUniqueId())) {
                 oldPlayer = p;
                 break;
             }
@@ -4174,7 +4173,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
             String message;
             if (isAdmin) {
                 if (!this.isBanned()) {
-                    message = "Kicked by admin." + (!reasonString.isEmpty() ? " Reason: " + reasonString : "");
+                    message = "You were kicked out of the game" + (!reasonString.isEmpty() ? ": " + reasonString : "");
                 } else {
                     message = reasonString;
                 }

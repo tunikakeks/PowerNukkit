@@ -620,7 +620,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[HANGING_ROOTS] = BlockRootsHanging.class; //574
             list[MOSS_BLOCK] = BlockMoss.class; //575
             //list[SPORE_BLOSSOM] = .class; //576
-            list[CAVE_VINES] = BlockCaveVines.class; //577
+            //list[CAVE_VINES] = BlockCaveVines.class; //577
             list[BIG_DRIPLEAF] = BlockDripLeaf.class; //578
             list[AZALEA_LEAVES] = BlockLeavesAzalea.class; //579
             list[AZALEA_LEAVES_FLOWERED] = BlockLeavesAzaleaFlowered.class; //580
@@ -673,8 +673,8 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[WAXED_DOUBLE_CUT_COPPER_SLAB] = BlockDoubleSlabCopperCutWaxed.class; //627
             list[WAXED_EXPOSED_DOUBLE_CUT_COPPER_SLAB] = BlockDoubleSlabCopperCutExposedWaxed.class; //628
             list[WAXED_WEATHERED_DOUBLE_CUT_COPPER_SLAB] = BlockDoubleSlabCopperCutWeatheredWaxed.class; //629
-            list[CAVE_VINES_BODY_WITH_BERRIES] = BlockCaveVinesBodyWithBerries.class; //630
-            list[CAVE_VINES_HEAD_WITH_BERRIES] = BlockCaveVinesHeadWithBerries.class; //631
+            //list[CAVE_VINES_BODY_WITH_BERRIES] = BlockCaveVinesBodyWithBerries.class; //630
+            //list[CAVE_VINES_HEAD_WITH_BERRIES] = BlockCaveVinesHeadWithBerries.class; //631
             list[SMOOTH_BASALT] = BlockBasaltSmooth.class; //632
             list[DEEPSLATE] = BlockDeepslate.class; //633
             list[COBBLED_DEEPSLATE] = BlockDeepslateCobbled.class; //634
@@ -719,7 +719,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[RAW_IRON_BLOCK] = BlockRawIron.class; //706
             list[RAW_COPPER_BLOCK] = BlockRawCopper.class; //707
             list[RAW_GOLD_BLOCK] = BlockRawGold.class; //708
-            list[INFESTED_DEEPSLATE] = BlockDeepslateInfested.class; //709
+            //list[INFESTED_DEEPSLATE] = BlockDeepslateInfested.class; //709
 
             initializing = true;
             

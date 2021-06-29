@@ -85,8 +85,7 @@ public class Nether extends Generator {
         PopulatorOre ores = new PopulatorOre(Block.NETHERRACK, new OreType[]{
                 new OreType(Block.get(BlockID.QUARTZ_ORE), 20, 16, 0, 128),
                 new OreType(Block.get(BlockID.SOUL_SAND), 5, 64, 0, 128),
-                new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 3, 8, 22),
-                new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 2, 7, 119),
+                new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 1, 7, 119),
                 new OreType(Block.get(BlockID.GRAVEL), 5, 64, 0, 128),
                 new OreType(Block.get(BlockID.FLOWING_LAVA), 1, 16, 0, (int) this.lavaHeight),
         });

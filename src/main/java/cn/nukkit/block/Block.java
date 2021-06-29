@@ -1357,9 +1357,6 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             case ItemTool.TIER_GOLD:
                 return 12.0;
             default:
-                if (toolTier == ItemTool.TIER_NETHERITE) {
-                    return 9.0;
-                }
                 return 1.0;
         }
     }

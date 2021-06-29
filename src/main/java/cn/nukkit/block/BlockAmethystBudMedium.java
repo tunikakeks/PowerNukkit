@@ -16,16 +16,16 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class BlockAmethystCluster extends BlockTransparent {
+public class BlockAmethystBudMedium extends BlockTransparent {
 
     @Override
     public String getName() {
-        return "Amethyst Cluster";
+        return "Medium Amethyst Bud";
     }
 
     @Override
     public int getId() {
-        return AMETHYST_CLUSTER;
+        return MEDIUM_AMETHYST_BUD;
     }
 
     @Nonnull

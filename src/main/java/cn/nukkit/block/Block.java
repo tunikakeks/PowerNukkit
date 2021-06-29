@@ -616,11 +616,11 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             // 570 (unused)
             // 571 (unused)
             list[DRIPSTONE_BLOCK] = BlockDripstone.class; //572
-            //list[DIRT_WITH_ROOTS] = .class; //573
+            list[DIRT_WITH_ROOTS] = BlockDirtRooted.class; //573
             list[HANGING_ROOTS] = BlockRootsHanging.class; //574
             list[MOSS_BLOCK] = BlockMoss.class; //575
             //list[SPORE_BLOSSOM] = .class; //576
-            //list[CAVE_VINES] = .class; //577
+            list[CAVE_VINES] = BlockCaveVines.class; //577
             list[BIG_DRIPLEAF] = BlockDripLeaf.class; //578
             list[AZALEA_LEAVES] = BlockLeavesAzalea.class; //579
             list[AZALEA_LEAVES_FLOWERED] = BlockLeavesAzaleaFlowered.class; //580
@@ -628,9 +628,9 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[AMETHYST_BLOCK] = BlockAmethyst.class; //582
             list[BUDDING_AMETHYST] = BlockBuddingAmethyst.class; //583
             list[AMETHYST_CLUSTER] = BlockAmethystCluster.class; //584
-            //list[LARGE_AMETHYST_BUD] = .class; //585
-            //list[MEDIUM_AMETHYST_BUD] = .class; //586
-            //list[SMALL_AMETHYST_BUD] = .class; //587
+            list[LARGE_AMETHYST_BUD] = BlockAmethystBudLarge.class; //585
+            list[MEDIUM_AMETHYST_BUD] = BlockAmethystBudMedium.class; //586
+            list[SMALL_AMETHYST_BUD] = BlockAmethystBudSmall.class; //587
             list[TUFF] = BlockTuff.class; //588
             list[TINTED_GLASS] = BlockGlassTinted.class; //589
             list[MOSS_CARPET] = BlockMossCarpet.class; //590
@@ -673,31 +673,31 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[WAXED_DOUBLE_CUT_COPPER_SLAB] = BlockDoubleSlabCopperCutWaxed.class; //627
             list[WAXED_EXPOSED_DOUBLE_CUT_COPPER_SLAB] = BlockDoubleSlabCopperCutExposedWaxed.class; //628
             list[WAXED_WEATHERED_DOUBLE_CUT_COPPER_SLAB] = BlockDoubleSlabCopperCutWeatheredWaxed.class; //629
-            //list[CAVE_VINES_BODY_WITH_BERRIES] = .class; //630
-            //list[CAVE_VINES_HEAD_WITH_BERRIES] = .class; //631
-            //list[SMOOTH_BASALT] = .class; //632
+            list[CAVE_VINES_BODY_WITH_BERRIES] = BlockCaveVinesBodyWithBerries.class; //630
+            list[CAVE_VINES_HEAD_WITH_BERRIES] = BlockCaveVinesHeadWithBerries.class; //631
+            list[SMOOTH_BASALT] = BlockBasaltSmooth.class; //632
             list[DEEPSLATE] = BlockDeepslate.class; //633
             list[COBBLED_DEEPSLATE] = BlockDeepslateCobbled.class; //634
             list[COBBLED_DEEPSLATE_SLAB] = BlockSlabDeepslateCobbled.class; //635
-            //list[COBBLED_DEEPSLATE_STAIRS] = .class; //636
-            //list[COBBLED_DEEPSLATE_WALL] = .class; //637
+            list[COBBLED_DEEPSLATE_STAIRS] = BlockStairsDeepslateCobbled.class; //636
+            list[COBBLED_DEEPSLATE_WALL] = BlockWallDeepslateCobbled.class; //637
             list[POLISHED_DEEPSLATE] = BlockDeepslatePolished.class; //638
-            //list[POLISHED_DEEPSLATE_SLAB] = .class; //639
-            //list[POLISHED_DEEPSLATE_STAIRS] = .class; //640
-            //list[POLISHED_DEEPSLATE_WALL] = .class; //641
-            //list[DEEPSLATE_TILES] = .class; //642
-            //list[DEEPSLATE_TILE_SLAB] = .class; //643
-            //list[DEEPSLATE_TILE_STAIRS] = .class; //644
-            //list[DEEPSLATE_TILE_WALL] = .class; //645
-            //list[DEEPSLATE_BRICKS] = .class; //646
-            //list[DEEPSLATE_BRICK_SLAB] = .class; //647
-            //list[DEEPSLATE_BRICK_STAIRS] = .class; //648
-            //list[DEEPSLATE_BRICK_WALL] = .class; //649
-            //list[CHISELED_DEEPSLATE] = .class; //650
+            list[POLISHED_DEEPSLATE_SLAB] = BlockSlabDeepslatePolished.class; //639
+            list[POLISHED_DEEPSLATE_STAIRS] = BlockStairsDeepslatePolished.class; //640
+            list[POLISHED_DEEPSLATE_WALL] = BlockWallDeepslatePolished.class; //641
+            list[DEEPSLATE_TILES] = BlockDeepslateTiles.class; //642
+            list[DEEPSLATE_TILE_SLAB] = BlockSlabDeepslateTile.class; //643
+            list[DEEPSLATE_TILE_STAIRS] = BlockStairsDeepslateTile.class; //644
+            list[DEEPSLATE_TILE_WALL] = BlockWallDeepslateTile.class; //645
+            list[DEEPSLATE_BRICKS] = BlockDeepslateBricks.class; //646
+            list[DEEPSLATE_BRICK_SLAB] = BlockSlabDeepslateBrick.class; //647
+            list[DEEPSLATE_BRICK_STAIRS] = BlockStairsDeepslateBrick.class; //648
+            list[DEEPSLATE_BRICK_WALL] = BlockWallDeepslateBrick.class; //649
+            list[CHISELED_DEEPSLATE] = BlockDeepslateChiseled.class; //650
             list[COBBLED_DEEPSLATE_DOUBLE_SLAB] = BlockDoubleSlabDeepslateCobbled.class; //651
-            //list[POLISHED_DEEPSLATE_DOUBLE_SLAB] = .class; //652
-            //list[DEEPSLATE_TILE_DOUBLE_SLAB] = .class; //653
-            //list[DEEPSLATE_BRICK_DOUBLE_SLAB] = .class; //654
+            list[POLISHED_DEEPSLATE_DOUBLE_SLAB] = BlockDoubleSlabDeepslatePolished.class; //652
+            list[DEEPSLATE_TILE_DOUBLE_SLAB] = BlockDoubleSlabDeepslateTile.class; //653
+            list[DEEPSLATE_BRICK_DOUBLE_SLAB] = BlockDoubleSlabDeepslateBrick.class; //654
             list[DEEPSLATE_LAPIS_ORE] = BlockOreLapisDeepslate.class; //655
             list[DEEPSLATE_IRON_ORE] = BlockOreIronDeepslate.class; //656
             list[DEEPSLATE_GOLD_ORE] = BlockOreGoldDeepslate.class; //657
@@ -707,9 +707,9 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[DEEPSLATE_COAL_ORE] = BlockOreCoalDeepslate.class; //661
             list[DEEPSLATE_EMERALD_ORE] = BlockOreEmeraldDeepslate.class; //662
             list[DEEPSLATE_COPPER_ORE] = BlockOreCopperDeepslate.class; //663
-            //list[CRACKED_DEEPSLATE_TILES] = .class; //664
-            //list[CRACKED_DEEPSLATE_BRICKS] = .class; //665
-            //list[GLOW_LICHEN] = .class; //666
+            list[CRACKED_DEEPSLATE_TILES] = BlockDeepslateTilesCracked.class; //664
+            list[CRACKED_DEEPSLATE_BRICKS] = BlockDeepslateBricksCracked.class; //665
+            list[GLOW_LICHEN] = BlockGlowLichen.class; //666
             // Unused 667 - 700
             list[WAXED_OXIDIZED_COPPER] = BlockCopperOxidizedWaxed.class; //701
             list[WAXED_OXIDIZED_CUT_COPPER] = BlockCopperCutOxidizedWaxed.class; //702
@@ -719,7 +719,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[RAW_IRON_BLOCK] = BlockRawIron.class; //706
             list[RAW_COPPER_BLOCK] = BlockRawCopper.class; //707
             list[RAW_GOLD_BLOCK] = BlockRawGold.class; //708
-            //list[INFESTED_DEEPSLATE] = .class; //709
+            list[INFESTED_DEEPSLATE] = BlockDeepslateInfested.class; //709
 
             initializing = true;
             

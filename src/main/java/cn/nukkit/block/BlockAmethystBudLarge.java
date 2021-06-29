@@ -4,6 +4,7 @@ import cn.nukkit.Player;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.CommonBlockProperties;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemAmethystShard;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.item.MinecraftItemID;
 import cn.nukkit.item.enchantment.Enchantment;
@@ -16,16 +17,16 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class BlockAmethystCluster extends BlockTransparent {
+public class BlockAmethystBudLarge extends BlockTransparent {
 
     @Override
     public String getName() {
-        return "Amethyst Cluster";
+        return "Large Amethyst Bud";
     }
 
     @Override
     public int getId() {
-        return AMETHYST_CLUSTER;
+        return LARGE_AMETHYST_BUD;
     }
 
     @Nonnull

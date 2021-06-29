@@ -3,9 +3,11 @@ package cn.nukkit.block;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemQuartz;
 import cn.nukkit.item.ItemTool;
+import cn.nukkit.item.MinecraftItemID;
 import cn.nukkit.item.enchantment.Enchantment;
 import cn.nukkit.math.NukkitRandom;
 
+import javax.annotation.Nullable;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -68,6 +70,12 @@ public class BlockOreQuartz extends BlockOre {
         } else {
             return Item.EMPTY_ARRAY;
         }
+    }
+
+    @Nullable
+    @Override
+    protected MinecraftItemID getRawMaterial() {
+        return MinecraftItemID.QUARTZ;
     }
 
     @Override

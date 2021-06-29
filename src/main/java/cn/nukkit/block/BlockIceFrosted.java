@@ -1,6 +1,10 @@
 package cn.nukkit.block;
 
 import cn.nukkit.Player;
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
+import cn.nukkit.blockproperty.BlockProperties;
+import cn.nukkit.blockproperty.IntBlockProperty;
 import cn.nukkit.item.Item;
 import cn.nukkit.level.Level;
 import cn.nukkit.math.BlockFace;
@@ -10,6 +14,14 @@ import javax.annotation.Nonnull;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class BlockIceFrosted extends BlockTransparentMeta {
+
+    @PowerNukkitOnly
+    @Since("1.5.0.0-PN")
+    public static final IntBlockProperty AGE = new IntBlockProperty("age", false, 3);
+
+    @PowerNukkitOnly
+    @Since("1.5.0.0-PN")
+    public static final BlockProperties PROPERTIES = new BlockProperties(AGE);
 
     public BlockIceFrosted() {
         this(0);
@@ -22,6 +34,14 @@ public class BlockIceFrosted extends BlockTransparentMeta {
     @Override
     public int getId() {
         return ICE_FROSTED;
+    }
+
+    @Since("1.4.0.0-PN")
+    @PowerNukkitOnly
+    @Nonnull
+    @Override
+    public BlockProperties getProperties() {
+        return PROPERTIES;
     }
 
     @Override
@@ -55,7 +75,7 @@ public class BlockIceFrosted extends BlockTransparentMeta {
 
     @Override
     public boolean onBreak(Item item) {
-        level.setBlock(this, get(WATER), true);
+        level.setBlock(this, get(FLOWING_WATER), true);
         return true;
     }
 
@@ -69,7 +89,7 @@ public class BlockIceFrosted extends BlockTransparentMeta {
             }
         } else if (type == Level.BLOCK_UPDATE_NORMAL) {
             if (countNeighbors() < 2) {
-                level.setBlock(this, layer, get(WATER), true);
+                level.setBlock(this, layer, get(FLOWING_WATER), true);
             }
         }
         return super.onUpdate(type);
@@ -97,7 +117,7 @@ public class BlockIceFrosted extends BlockTransparentMeta {
             level.setBlock(this, layer, this, true);
             level.scheduleUpdate(level.getBlock(this), ThreadLocalRandom.current().nextInt(20, 40));
         } else {
-            level.setBlock(this, layer, get(WATER), true);
+            level.setBlock(this, layer, get(FLOWING_WATER), true);
             if (isSource) {
                 for (BlockFace face : BlockFace.values()) {
                     Block block = getSide(face);

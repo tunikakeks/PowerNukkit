@@ -43,6 +43,7 @@ import cn.nukkit.inventory.transaction.data.UseItemData;
 import cn.nukkit.inventory.transaction.data.UseItemOnEntityData;
 import cn.nukkit.item.*;
 import cn.nukkit.item.enchantment.Enchantment;
+import cn.nukkit.item.enchantment.sideeffect.SideEffect;
 import cn.nukkit.lang.TextContainer;
 import cn.nukkit.lang.TranslationContainer;
 import cn.nukkit.level.*;
@@ -1661,7 +1662,15 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                 this.y = newPos.y;
                 this.z = newPos.z;
                 double radius = this.getWidth() / 2;
-                this.boundingBox.setBounds(this.x - radius, this.y, this.z - radius, this.x + radius, this.y + this.getHeight(), this.z + radius);
+                this.boundingBox.setBounds(
+                        this.x - radius, 
+                        this.y, 
+                        this.z - radius, 
+                        
+                        this.x + radius, 
+                        this.y + this.getCurrentHeight(), 
+                        this.z + radius
+                );
             }
         }
 
@@ -1748,10 +1757,10 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     for (int coordZ = this.getFloorZ() - radius; coordZ < this.getFloorZ() + radius + 1; coordZ++) {
                         Block block = level.getBlock(coordX, this.getFloorY() - 1, coordZ);
                         int layer = 0;
-                        if ((block.getId() != Block.STILL_WATER && (block.getId() != Block.WATER || block.getDamage() != 0)) || block.up().getId() != Block.AIR) {
+                        if ((block.getId() != Block.STILL_WATER && (block.getId() != Block.FLOWING_WATER || block.getDamage() != 0)) || block.up().getId() != Block.AIR) {
                             block = block.getLevelBlockAtLayer(1);
                             layer = 1;
-                            if ((block.getId() != Block.STILL_WATER && (block.getId() != Block.WATER || block.getDamage() != 0)) || block.up().getId() != Block.AIR) {
+                            if ((block.getId() != Block.STILL_WATER && (block.getId() != Block.FLOWING_WATER || block.getDamage() != 0)) || block.up().getId() != Block.AIR) {
                                 continue;
                             }
                         }
@@ -2631,7 +2640,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     }
 
                     MovePlayerPacket movePlayerPacket = (MovePlayerPacket) packet;
-                    Vector3 newPos = new Vector3(movePlayerPacket.x, movePlayerPacket.y - this.getEyeHeight(), movePlayerPacket.z);
+                    Vector3 newPos = new Vector3(movePlayerPacket.x, movePlayerPacket.y - this.getBaseOffset(), movePlayerPacket.z);
 
                     if (newPos.distanceSquared(this) < 0.01 && movePlayerPacket.yaw % 360 == this.yaw && movePlayerPacket.pitch % 360 == this.pitch) {
                         break;
@@ -3883,6 +3892,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                                     }
 
                                     EntityDamageByEntityEvent entityDamageByEntityEvent = new EntityDamageByEntityEvent(this, target, DamageCause.ENTITY_ATTACK, damage);
+                                    entityDamageByEntityEvent.setSideEffects(item.getAttackSideEffects(this, target));
                                     if (this.isSpectator()) entityDamageByEntityEvent.setCancelled();
                                     if ((target instanceof Player) && !this.level.getGameRules().getBoolean(GameRule.PVP)) {
                                         entityDamageByEntityEvent.setCancelled();
@@ -3904,6 +3914,10 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                                         if (target instanceof EntityLiving) {
                                             ((EntityLiving) target).postAttack(this);
                                         }
+                                    }
+
+                                    for (SideEffect sideEffect : entityDamageByEntityEvent.getSideEffects()) {
+                                        sideEffect.doPostAttack(this, entityDamageByEntityEvent, target);
                                     }
 
                                     for (Enchantment enchantment : item.getEnchantments()) {
@@ -4084,6 +4098,13 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                             this.teleport(this.getSpawn(), PlayerTeleportEvent.TeleportCause.END_PORTAL);
                         }
                     }
+                case ProtocolInfo.TICK_SYNC_PACKET:
+                    TickSyncPacket tickSyncPacket = (TickSyncPacket) packet;
+                    
+                    TickSyncPacket tickSyncPacketToClient = new TickSyncPacket();
+                    tickSyncPacketToClient.setRequestTimestamp(tickSyncPacket.getRequestTimestamp());
+                    tickSyncPacketToClient.setResponseTimestamp(this.getServer().getTick());
+                    this.dataPacketImmediately(tickSyncPacketToClient);
                     break;
                 default:
                     break;
@@ -5077,7 +5098,8 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         pk.pitch = (float) pitch;
         pk.yaw = (float) yaw;
         pk.mode = mode;
-
+        pk.onGround = this.onGround;
+        
         if (targets != null) {
             Server.broadcastPacket(targets, pk);
         } else {
@@ -5933,6 +5955,10 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         this.dataPacket(pk);
     }
 
+    /**
+     * Start fishing
+     * @param fishingRod fishing rod item
+     */
     public void startFishing(Item fishingRod) {
         CompoundTag nbt = new CompoundTag()
                 .putList(new ListTag<DoubleTag>("Pos")
@@ -5946,14 +5972,14 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                 .putList(new ListTag<FloatTag>("Rotation")
                         .add(new FloatTag("", (float) yaw))
                         .add(new FloatTag("", (float) pitch)));
-        double f = 1;
+        double f = 1.1;
         EntityFishingHook fishingHook = new EntityFishingHook(chunk, nbt, this);
         fishingHook.setMotion(new Vector3(-Math.sin(Math.toRadians(yaw)) * Math.cos(Math.toRadians(pitch)) * f * f, -Math.sin(Math.toRadians(pitch)) * f * f,
                 Math.cos(Math.toRadians(yaw)) * Math.cos(Math.toRadians(pitch)) * f * f));
         ProjectileLaunchEvent ev = new ProjectileLaunchEvent(fishingHook);
         this.getServer().getPluginManager().callEvent(ev);
         if (ev.isCancelled()) {
-            fishingHook.kill();
+            fishingHook.close();
         } else {
             fishingHook.spawnToAll();
             this.fishing = fishingHook;
@@ -5961,11 +5987,14 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         }
     }
 
+    /**
+     * Stop fishing
+     * @param click clicked or forced
+     */
     public void stopFishing(boolean click) {
-        if (click) {
+        if (this.fishing != null && click) {
             fishing.reelLine();
         } else if (this.fishing != null) {
-            this.fishing.kill();
             this.fishing.close();
         }
 

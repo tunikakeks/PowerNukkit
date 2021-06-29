@@ -91,7 +91,7 @@ public class BlockFlower extends BlockFlowable {
 
     @Override
     public int getId() {
-        return FLOWER;
+        return RED_FLOWER;
     }
 
     @Since("1.4.0.0-PN")
@@ -142,6 +142,7 @@ public class BlockFlower extends BlockFlowable {
             case DIRT:
             case FARMLAND:
             case PODZOL:
+            case MOSS_BLOCK:
                 return true;
             default:
                 return false;

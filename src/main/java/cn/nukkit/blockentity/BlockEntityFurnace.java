@@ -302,8 +302,10 @@ public class BlockEntityFurnace extends BlockEntitySpawnable implements Inventor
             if (smelt != null && canSmelt) {
                 cookTime++;
                 if (cookTime >= readyAt) {
-                    product = Item.get(smelt.getResult().getId(), smelt.getResult().getDamage(), product.getCount() + 1);
                     double experience = smelt.getExperience();
+                    int count = product.getCount() + 1;
+                    product = smelt.getResult().clone();
+                    product.setCount(count);
 
                     FurnaceSmeltEvent ev = new FurnaceSmeltEvent(this, raw, product, experience);
                     this.server.getPluginManager().callEvent(ev);

@@ -285,9 +285,10 @@ public class Server {
         }
         instance = this;
         launchTime = System.currentTimeMillis();
-        CraftingManager.packet = new BatchPacket();
-        CraftingManager.packet.payload = EmptyArrays.EMPTY_BYTES;
-        
+        BatchPacket batchPacket = new BatchPacket();
+        batchPacket.payload = EmptyArrays.EMPTY_BYTES;
+        CraftingManager.packet = batchPacket;
+
         currentThread = Thread.currentThread();
         File abs = tempDir.getAbsoluteFile();
         filePath = abs.getPath();
@@ -2522,6 +2523,7 @@ public class Server {
         Entity.registerEntity("Endermite", EntityEndermite.class);
         Entity.registerEntity("Evoker", EntityEvoker.class);
         Entity.registerEntity("Ghast", EntityGhast.class);
+        Entity.registerEntity("Goat", EntityGoat.class);
         Entity.registerEntity("Guardian", EntityGuardian.class);
         Entity.registerEntity("Hoglin", EntityHoglin.class);
         Entity.registerEntity("Husk", EntityHusk.class);
@@ -2550,6 +2552,7 @@ public class Server {
         Entity.registerEntity("ZombieVillager", EntityZombieVillager.class);
         Entity.registerEntity("ZombieVillagerV1", EntityZombieVillagerV1.class);
         //Passive
+        Entity.registerEntity("Axolotl", EntityAxolotl.class);
         Entity.registerEntity("Bat", EntityBat.class);
         Entity.registerEntity("Bee", EntityBee.class);
         Entity.registerEntity("Cat", EntityCat.class);
@@ -2559,6 +2562,7 @@ public class Server {
         Entity.registerEntity("Dolphin", EntityDolphin.class);
         Entity.registerEntity("Donkey", EntityDonkey.class);
         Entity.registerEntity("Fox", EntityFox.class);
+        Entity.registerEntity("GlowSquid", EntityGlowSquid.class);
         Entity.registerEntity("Horse", EntityHorse.class);
         Entity.registerEntity("Llama", EntityLlama.class);
         Entity.registerEntity("Mooshroom", EntityMooshroom.class);

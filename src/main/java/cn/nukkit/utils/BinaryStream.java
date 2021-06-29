@@ -1,5 +1,6 @@
 package cn.nukkit.utils;
 
+import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
 import cn.nukkit.block.Block;
 import cn.nukkit.entity.Attribute;
@@ -24,7 +25,9 @@ import io.netty.buffer.AbstractByteBufAllocator;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
 import io.netty.util.internal.EmptyArrays;
+import lombok.SneakyThrows;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.nio.ByteOrder;
@@ -385,12 +388,21 @@ public class BinaryStream {
         int count = getLShort();
         int damage = (int) getUnsignedVarInt();
 
-        int fullId = RuntimeItems.getRuntimeMapping().getLegacyFullId(networkId);
-        int id = RuntimeItems.getId(fullId);
+        Integer id = null;
+        String stringId = null;
+        try {
+            int fullId = RuntimeItems.getRuntimeMapping().getLegacyFullId(networkId);
+            id = RuntimeItems.getId(fullId);
 
-        boolean hasData = RuntimeItems.hasData(fullId);
-        if (hasData) {
-            damage = RuntimeItems.getData(fullId);
+            boolean hasData = RuntimeItems.hasData(fullId);
+            if (hasData) {
+                damage = RuntimeItems.getData(fullId);
+            }
+        } catch (IllegalArgumentException unknownMapping) {
+            stringId = RuntimeItems.getRuntimeMapping().getNamespacedIdByNetworkId(networkId);
+            if (stringId == null) {
+                throw unknownMapping;
+            }
         }
 
         if (getBoolean()) { // hasNetId
@@ -442,7 +454,7 @@ public class BinaryStream {
                 canBreak[i] = stream.readUTF();
             }
 
-            if (id == ItemID.SHIELD) {
+            if (id != null && id == ItemID.SHIELD) {
                 stream.readLong();
             }
         } catch (IOException e) {
@@ -451,7 +463,15 @@ public class BinaryStream {
             buf.release();
         }
 
-        Item item = Item.get(id, damage, count, nbt);
+        Item item;
+        if (id != null) {
+            item = Item.get(id, damage, count, nbt);
+        } else {
+            item = Item.fromString(stringId);
+            item.setDamage(damage);
+            item.setCount(count);
+            item.setCompoundTag(nbt);
+        }
 
         if (canBreak.length > 0 || canPlace.length > 0) {
             CompoundTag namedTag = item.getNamedTag();
@@ -523,7 +543,7 @@ public class BinaryStream {
         ByteBuf userDataBuf = ByteBufAllocator.DEFAULT.ioBuffer();
         try (LittleEndianByteBufOutputStream stream = new LittleEndianByteBufOutputStream(userDataBuf)) {
             if (data != 0) {
-                byte[] nbt = item.getCompoundTag();
+                byte[] nbt = item.getCustomCompoundTag();
                 CompoundTag tag;
                 if (nbt == null || nbt.length == 0) {
                     tag = new CompoundTag();
@@ -537,10 +557,10 @@ public class BinaryStream {
                 stream.writeShort(-1);
                 stream.writeByte(1); // Hardcoded in current version
                 stream.write(NBTIO.write(tag, ByteOrder.LITTLE_ENDIAN));
-            } else if (item.hasCompoundTag()) {
+            } else if (item.hasCustomCompoundTag()) {
                 stream.writeShort(-1);
                 stream.writeByte(1); // Hardcoded in current version
-                stream.write(item.getCompoundTag());
+                stream.write(item.getCustomCompoundTag());
             } else {
                 userDataBuf.writeShortLE(0);
             }
@@ -725,7 +745,7 @@ public class BinaryStream {
         Map<GameRule, GameRules.Value> rules = gameRules.getGameRules();
         this.putUnsignedVarInt(rules.size());
         rules.forEach((gameRule, value) -> {
-            putString(gameRule.getName().toLowerCase());
+            this.putString(gameRule.getName().toLowerCase());
             value.write(this);
         });
     }
@@ -798,6 +818,26 @@ public class BinaryStream {
 
     public boolean feof() {
         return this.offset < 0 || this.offset >= this.buffer.length;
+    }
+
+    @SneakyThrows(IOException.class)
+    @PowerNukkitOnly
+    @Since("1.5.0.0-PN")
+    public CompoundTag getTag() {
+        ByteArrayInputStream is = new ByteArrayInputStream(buffer, offset, buffer.length);
+        int initial = is.available();
+        try {
+            return NBTIO.read(is);
+        } finally {
+            offset += is.available() - initial;
+        }
+    }
+
+    @SneakyThrows(IOException.class)
+    @PowerNukkitOnly
+    @Since("1.5.0.0-PN")
+    public void putTag(CompoundTag tag) {
+        put(NBTIO.write(tag));
     }
 
     private void ensureCapacity(int minCapacity) {

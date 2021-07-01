@@ -3,14 +3,12 @@ package cn.nukkit.block;
 import cn.nukkit.Player;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
-import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.event.block.BlockGrowEvent;
 import cn.nukkit.item.Item;
-import cn.nukkit.item.MinecraftItemID;
+import cn.nukkit.item.ItemGlowBerries;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.particle.BoneMealParticle;
 import cn.nukkit.math.*;
-import cn.nukkit.utils.BlockColor;
 
 import javax.annotation.Nonnull;
 import java.util.concurrent.ThreadLocalRandom;
@@ -20,9 +18,6 @@ import java.util.concurrent.ThreadLocalRandom;
  * @since 28/06/2021
  */
 public class BlockCaveVines extends BlockTransparent {
-    @PowerNukkitOnly
-    @Since("1.5.0.0-PN")
-    public static final BlockProperties PROPERTIES = new BlockProperties(BlockCrops.GROWTH);
 
     @PowerNukkitOnly
     public BlockCaveVines() {
@@ -34,22 +29,9 @@ public class BlockCaveVines extends BlockTransparent {
         return CAVE_VINES;
     }
 
-    @Since("1.4.0.0-PN")
-    @PowerNukkitOnly
-    @Nonnull
-    @Override
-    public BlockProperties getProperties() {
-        return PROPERTIES;
-    }
-
     @Override
     public String getName() {
         return "Cave Vines";
-    }
-
-    @Override
-    public BlockColor getColor() {
-        return BlockColor.FOLIAGE_BLOCK_COLOR;
     }
 
     @Override
@@ -165,6 +147,6 @@ public class BlockCaveVines extends BlockTransparent {
 
     @Override
     public Item toItem() {
-        return MinecraftItemID.GLOW_BERRIES.get(1);
+        return new ItemGlowBerries();
     }
 }

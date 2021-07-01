@@ -5,11 +5,10 @@ import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
 import cn.nukkit.event.block.BlockHarvestEvent;
 import cn.nukkit.item.Item;
-import cn.nukkit.item.MinecraftItemID;
+import cn.nukkit.item.ItemGlowBerries;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.Position;
 import cn.nukkit.math.BlockFace;
-import cn.nukkit.utils.BlockColor;
 
 import javax.annotation.Nonnull;
 import java.util.concurrent.ThreadLocalRandom;
@@ -19,7 +18,6 @@ import java.util.concurrent.ThreadLocalRandom;
  * @since 28/06/2021
  */
 public class BlockCaveVinesHeadWithBerries extends BlockTransparent {
-
 
     public BlockCaveVinesHeadWithBerries() {
 
@@ -33,11 +31,6 @@ public class BlockCaveVinesHeadWithBerries extends BlockTransparent {
     @Override
     public String getName() {
         return "Cave Vines";
-    }
-
-    @Override
-    public BlockColor getColor() {
-        return BlockColor.FOLIAGE_BLOCK_COLOR;
     }
 
     @Override
@@ -89,7 +82,7 @@ public class BlockCaveVinesHeadWithBerries extends BlockTransparent {
     public boolean onActivate(@Nonnull Item item) {
         BlockHarvestEvent event = new BlockHarvestEvent(this,
                 new BlockCaveVines(),
-                new Item[]{ MinecraftItemID.GLOW_BERRIES.get(1 + ThreadLocalRandom.current().nextInt(2)) }
+                new Item[]{ new ItemGlowBerries(1 + ThreadLocalRandom.current().nextInt(2)) }
         );
 
         getLevel().getServer().getPluginManager().callEvent(event);
@@ -157,11 +150,11 @@ public class BlockCaveVinesHeadWithBerries extends BlockTransparent {
 
     @Override
     public Item[] getDrops(Item item) {
-        return new Item[] { MinecraftItemID.GLOW_BERRIES.get(1 + ThreadLocalRandom.current().nextInt(2)) };
+        return new Item[] { new ItemGlowBerries(1 + ThreadLocalRandom.current().nextInt(2)) };
     }
 
     @Override
     public Item toItem() {
-        return MinecraftItemID.GLOW_BERRIES.get(1);
+        return new ItemGlowBerries();
     }
 }

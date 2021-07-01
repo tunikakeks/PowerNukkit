@@ -1966,6 +1966,21 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                 if (this.getFoodData() != null) this.getFoodData().update(tickDiff);
             }
 
+            if (this.isSwimming()) {
+                Block block = level.getBlock(this);
+                if (!block.up().isSolid() || !block.down().isSolid()) {
+                    if (block.getId() != Block.FLOWING_WATER && block.getId() != Block.STILL_WATER) {
+                        PlayerToggleSwimEvent ptse = new PlayerToggleSwimEvent(this, false);
+                        this.server.getPluginManager().callEvent(ptse);
+
+                        if (!ptse.isCancelled()) {
+                            this.setSwimming(false);
+                        }
+                    }
+                    return false;
+                }
+            }
+
             if (!this.isSleeping()) {
                 this.timeSinceRest++;
             }

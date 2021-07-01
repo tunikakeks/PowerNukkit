@@ -1,14 +1,44 @@
 ⚠ This software is developed for a specific server and should not be used for other servers! ⚠
+[<img alt="PowerNukkit" width="838" src="https://raw.githubusercontent.com/PowerNukkit/PowerNukkit/master/.github/images/banner.png" />](https://powernukkit.org)
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE)
+[![PowerNukkit v1.X](https://github.com/PowerNukkit/PowerNukkit/workflows/PowerNukkit%20v1.X/badge.svg?branch=master)](https://builds.powernukkit.org/buildConfiguration/PowerNukkit_Releases#all-projects)
+[![TeamCity Build Status](https://builds.powernukkit.org/app/rest/builds/buildType:(id:PowerNukkit_Snapshots)/statusIcon)](https://builds.powernukkit.org/buildConfiguration/PowerNukkit_Snapshots)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=PowerNukkit_PowerNukkit&metric=coverage)](https://sonarcloud.io/dashboard?id=PowerNukkit_PowerNukkit)
+[![Discord](https://img.shields.io/discord/728280425255927879)](https://powernukkit.org/discord)
+
+Introduction
+-------------
+
+Nukkit is nuclear-powered server software for Minecraft: Pocket Edition.
+It has a few key advantages over other server software:
+
+* Written in Java, Nukkit is faster and more stable.
+* Having a friendly structure, it's easy to contribute to Nukkit's development and rewrite plugins from other platforms into Nukkit plugins.
+
+Nukkit is **under improvement** yet, we welcome contributions.
+
+**PowerNukkit** is a modified version of Nukkit that adds support to a huge amount of features like water-logging, all new blocks, more plugin events, offhand slot, bug fixes and many more.
+
+Please note that PowerNukkit is not handled by Cloudburst's staff and is provided with love but without warranty. If you find any issue while running PowerNukkit you should [create a new issue](https://github.com/PowerNukkit/PowerNukkit/issues) in this repository first.
+
+It's also advisable to have a backup schedule set up, use plugins that are made for PowerNukkit and use only stable PowerNukkit versions.
+
+Most Cloudburst Nukkit plugins are supported but they may not understand the new blocks and items and the new stuff that you can do with PowerNukkit.
 
 Links
 --------------------
 
-* __[PowerNukkit Website](https://powernukkit.org/)__
-* __[PowerNukkit Forum and Guides](https://discuss.powernukkit.org/)__
-* __[Download PowerNukkit Releases](https://powernukkit.org/releases)__
-* __[Download PowerNukkit Snapshots](https://powernukkit.org/snapshots)__
-* __[PowerNukkit Discord](https://powernukkit.org/discord)__
-* __[Cloudburst Nukkit Plugins](https://cloudburstmc.org/resources/categories/nukkit-plugins.1/)__
+- __[🌐 PowerNukkit Website](https://powernukkit.org/)__
+- __[👩🏽‍💻 PowerNukkit Website for Plugin Developers](https://devs.powernukkit.org/)__
+- __[💬 PowerNukkit Forum and Guides](https://discuss.powernukkit.org/)__
+- __[💬 PowerNukkit Discord](https://powernukkit.org/discord)__
+- __[💾 Download PowerNukkit Recommended Build](https://powernukkit.org/recommended)__
+- __[💾 Download PowerNukkit Releases](https://powernukkit.org/releases)__
+- __[💾 Download PowerNukkit Snapshots](https://powernukkit.org/snapshots)__
+- __[🔌 Cloudburst Nukkit Plugins](https://cloudburstmc.org/resources/categories/nukkit-plugins.1/)__
+- __[🔌 PowerNukkit Plugins](https://discuss.powernukkit.org/c/plugins/powernukkit-plugins/14/)__
+- __[🧩 PowerNukkit Plugin Requests](https://discuss.powernukkit.org/c/plugins/plugin-requests/13)__
 
 Creating Plugins
 ----------------
@@ -165,6 +195,9 @@ Completely remove the chart:
 Contributing
 ------------
 Please read the [CONTRIBUTING](.github/CONTRIBUTING.md) guide before submitting any issue. Issues with insufficient information or in the wrong format will be closed and will not be reviewed.
+
+---------
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=PowerNukkit_PowerNukkit)
 
 ---------
 

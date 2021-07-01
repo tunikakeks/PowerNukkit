@@ -39,8 +39,10 @@ public class EntityWither extends EntityMob implements EntitySmite {
         this.setMaxHealth(600);
     }
 
+    @PowerNukkitOnly
+    @Since("FUTURE")
     @Override
-    public String getName() {
+    public String getOriginalName() {
         return "Wither";
     }
 

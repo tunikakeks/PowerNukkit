@@ -326,10 +326,12 @@ public class EntityFishingHook extends EntityProjectile {
             this.caughtEntity = entity;
         }
     }
-    
-    
+
+
+    @PowerNukkitOnly
+    @Since("FUTURE")
     @Override
-    public String getName() {
+    public String getOriginalName() {
         return "Fishing Hook";
     }
 }

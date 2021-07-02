@@ -23,4 +23,14 @@ public class EntityGoat extends EntityMob {
     public int getNetworkId() {
         return NETWORK_ID;
     }
+
+    @Override
+    public float getWidth() {
+        return .8f;
+    }
+
+    @Override
+    public float getHeight() {
+        return .95f;
+    }
 }

@@ -35,4 +35,14 @@ public class EntityAxolotl extends EntityAnimal {
     public boolean applyNameTag(Item item) {
         return super.applyNameTag(item);
     }
+
+    @Override
+    public float getWidth() {
+        return .65f;
+    }
+
+    @Override
+    public float getHeight() {
+        return .55f;
+    }
 }

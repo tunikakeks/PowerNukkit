@@ -146,6 +146,11 @@ public class BlockCaveVines extends BlockTransparent {
     }
 
     @Override
+    public Item[] getDrops(Item item) {
+        return Item.EMPTY_ARRAY;
+    }
+
+    @Override
     public Item toItem() {
         return new ItemGlowBerries();
     }

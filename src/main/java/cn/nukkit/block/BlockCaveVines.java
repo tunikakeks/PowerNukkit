@@ -124,7 +124,7 @@ public class BlockCaveVines extends BlockTransparent {
 
     @Override
     public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, Player player) {
-        if (isSupportValid(up())) {
+        if (isSupportValid(up()) && face == BlockFace.DOWN) {
             if (up().getId() == Block.CAVE_VINES_HEAD_WITH_BERRIES) {
                 this.getLevel().setBlock(up(), Block.get(Block.CAVE_VINES_BODY_WITH_BERRIES), true, true);
             }

@@ -30,7 +30,7 @@ public class BlockDripLeaf extends BlockTransparent {
 
     @Override
     public String getName() {
-        return "Big Drip Leaf";
+        return "Big Dripleaf";
     }
 
     @Override
@@ -100,9 +100,11 @@ public class BlockDripLeaf extends BlockTransparent {
     @Override
     public int onUpdate(int type) {
         if(type == Level.BLOCK_UPDATE_NORMAL) {
-            if(!(this.down() instanceof BlockSolid || this.down() instanceof BlockSolidMeta || this.down() instanceof BlockDripLeaf) || (this.getPropertyValue(BIG_HEAD) == false && !(this.up() instanceof BlockDripLeaf))) {
+            Block down = this.down();
+            if(!(down.isSolid() || down instanceof BlockDripLeaf) || (!this.getPropertyValue(BIG_HEAD) && !(this.up() instanceof BlockDripLeaf))) {
                 this.getLevel().useBreakOn(this);
             }
+            return type;
         }
         return 0;
     }

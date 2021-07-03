@@ -15,6 +15,7 @@ import cn.nukkit.level.particle.BoneMealParticle;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.scheduler.Task;
+import cn.nukkit.utils.BlockColor;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -69,6 +70,11 @@ public class BlockDripLeaf extends BlockTransparent {
         }
         this.setPropertyValue(TILTS, tilt);
         this.getLevel().setBlock(this, this, true, true);
+    }
+
+    @Override
+    public BlockColor getColor() {
+        return BlockColor.GREEN_BLOCK_COLOR;
     }
 
     @Override

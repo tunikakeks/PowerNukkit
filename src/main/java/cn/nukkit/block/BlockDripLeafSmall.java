@@ -18,7 +18,7 @@ public class BlockDripLeafSmall extends BlockTransparent {
 
     @Override
     public String getName() {
-        return "Small Drip Leaf";
+        return "Small Dripleaf";
     }
 
     @Override

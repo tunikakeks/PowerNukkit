@@ -226,7 +226,8 @@ public class Normal extends Generator {
                         new DeepslateOreType(Block.get(BlockID.COPPER_ORE), Block.get(BlockID.DEEPSLATE_COPPER_ORE), 4, 10, 0, 84),
                         new DeepslateOreType(Block.get(BlockID.COPPER_ORE), Block.get(BlockID.DEEPSLATE_COPPER_ORE), 2, 16, 0, 64),
                 }),
-                new PopulatorCaves()//,
+                new PopulatorCaves(),
+                new AmethystGeodePopulator()//,
                 //new PopulatorRavines()
         );
     }

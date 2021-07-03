@@ -2037,12 +2037,6 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                 hasUpdated = true;
             }
         }
-        if(this.level.getGameRules().getBoolean(GameRule.FREEZE_DAMAGE) && freezingTicks == 140) {
-            if(noDamageTicks <= 0) {
-                this.attack(new EntityDamageEvent(this, DamageCause.FREEZING, 1));
-                this.noDamageTicks = 40;
-            }
-        }
         return super.entityBaseTick(tickDiff) || hasUpdated;
     }
 

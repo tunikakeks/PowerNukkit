@@ -5,6 +5,8 @@ import cn.nukkit.entity.Entity;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemBucketPowderSnow;
 import cn.nukkit.item.ItemID;
+import cn.nukkit.item.MinecraftItemID;
+import cn.nukkit.math.BlockFace;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -48,19 +50,17 @@ public class BlockPowderSnow extends BlockTransparent {
 
         this.getLevel().setBlock(this, Block.get(BlockID.AIR));
         Item result = new ItemBucketPowderSnow();
-        if(player.isCreative()) {
-            player.getInventory().addItem(result);
-            return true;
-        }
-        if(item.count > 1) {
-            item.count--;
-            if (player.getInventory().canAddItem(result)) {
-                player.getInventory().addItem(result);
+        if(!player.isCreative()) {
+            if(item.count > 1) {
+                item.count--;
+                if (player.getInventory().canAddItem(result)) {
+                    player.getInventory().addItem(result);
+                } else {
+                    player.dropItem(result);
+                }
             } else {
-                player.dropItem(result);
+                player.getInventory().setItemInHand(result);
             }
-        } else {
-            player.getInventory().setItemInHand(result);
         }
         return true;
     }
@@ -87,5 +87,10 @@ public class BlockPowderSnow extends BlockTransparent {
     @Override
     public boolean canPassThrough() {
         return true;
+    }
+
+    @Override
+    public Item toItem() {
+        return MinecraftItemID.POWDER_SNOW_BUCKET.get(1);
     }
 }

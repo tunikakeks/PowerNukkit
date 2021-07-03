@@ -79,7 +79,7 @@ public class BlockDripLeaf extends BlockTransparent {
         }
         this.setPropertyValue(TILTS, DripLeafTilt.NONE);
         this.setPropertyValue(BIG_HEAD, true);
-        this.setPropertyValue(CommonBlockProperties.DIRECTION, player.getDirection().getOpposite());
+        this.setPropertyValue(CommonBlockProperties.DIRECTION, player != null ? player.getDirection().getOpposite() : BlockFace.NORTH);
         if(down instanceof BlockDripLeaf) {
             this.setPropertyValue(CommonBlockProperties.DIRECTION, down.getPropertyValue(CommonBlockProperties.DIRECTION));
             if(this.getLevel().setBlock(this, this, true, true)) {

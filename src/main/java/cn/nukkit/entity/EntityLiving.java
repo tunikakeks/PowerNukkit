@@ -61,6 +61,7 @@ public abstract class EntityLiving extends Entity implements EntityDamageable {
     protected float movementSpeed = 0.1f;
 
     protected int turtleTicks = 0;
+    public int freezingTicks = 0;
 
     @Override
     protected void initEntity() {
@@ -73,6 +74,9 @@ public abstract class EntityLiving extends Entity implements EntityDamageable {
 
         if (!this.namedTag.contains("Health") || !(this.namedTag.get("Health") instanceof FloatTag)) {
             this.namedTag.putFloat("Health", this.getMaxHealth());
+        }
+        if (this.namedTag.containsShort("Freeze")) {
+            this.freezingTicks = this.namedTag.getShort("Freeze");
         }
 
         this.health = this.namedTag.getFloat("Health");
@@ -94,6 +98,7 @@ public abstract class EntityLiving extends Entity implements EntityDamageable {
     public void saveNBT() {
         super.saveNBT();
         this.namedTag.putFloat("Health", this.getHealth());
+        this.namedTag.putShort("Freeze", freezingTicks);
     }
 
     public boolean hasLineOfSight(Entity entity) {

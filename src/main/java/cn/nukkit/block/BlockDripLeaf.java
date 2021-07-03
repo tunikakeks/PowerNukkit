@@ -29,7 +29,7 @@ public class BlockDripLeaf extends BlockTransparent {
 
     @Override
     public String getName() {
-        return "Big Drip Leaf";
+        return "Big Dripleaf";
     }
 
     @Override
@@ -79,7 +79,9 @@ public class BlockDripLeaf extends BlockTransparent {
         }
         this.setPropertyValue(TILTS, DripLeafTilt.NONE);
         this.setPropertyValue(BIG_HEAD, true);
-        this.setPropertyValue(CommonBlockProperties.DIRECTION, player.getDirection().getOpposite());
+        if (player != null) {
+            this.setPropertyValue(CommonBlockProperties.DIRECTION, player.getDirection().getOpposite());
+        }
         if(down instanceof BlockDripLeaf) {
             this.setPropertyValue(CommonBlockProperties.DIRECTION, down.getPropertyValue(CommonBlockProperties.DIRECTION));
             if(this.getLevel().setBlock(this, this, true, true)) {
@@ -94,8 +96,12 @@ public class BlockDripLeaf extends BlockTransparent {
     @Override
     public int onUpdate(int type) {
         if(type == Level.BLOCK_UPDATE_NORMAL) {
-            if(!(this.down() instanceof BlockSolid || this.down() instanceof BlockSolidMeta || this.down() instanceof BlockDripLeaf) || (this.getPropertyValue(BIG_HEAD) == false && !(this.up() instanceof BlockDripLeaf))) {
+            if(!(this.down() instanceof BlockSolid || this.down() instanceof BlockSolidMeta || this.down().isSolid() || this.down() instanceof BlockDripLeaf) || (!this.getPropertyValue(BIG_HEAD) && !(this.up() instanceof BlockDripLeaf))) {
                 this.getLevel().useBreakOn(this);
+            }
+
+            if (!this.getPropertyValue(BIG_HEAD) && up().getId() != Block.BIG_DRIPLEAF) {
+                this.setPropertyValue(BIG_HEAD, true);
             }
         }
         return 0;

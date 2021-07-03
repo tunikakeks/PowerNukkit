@@ -3,8 +3,8 @@ package cn.nukkit.block;
 import cn.nukkit.Player;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemBucketPowderSnow;
 import cn.nukkit.item.ItemID;
-import cn.nukkit.item.MinecraftItemID;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -47,7 +47,7 @@ public class BlockPowderSnow extends BlockTransparent {
         }
 
         this.getLevel().setBlock(this, Block.get(BlockID.AIR));
-        Item result = MinecraftItemID.POWDER_SNOW_BUCKET.get(1);
+        Item result = new ItemBucketPowderSnow();
         if(player.isCreative()) {
             player.getInventory().addItem(result);
             return true;

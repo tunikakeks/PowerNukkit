@@ -11,6 +11,7 @@ public class ItemBucketPowderSnow extends StringItem {
 
     public ItemBucketPowderSnow() {
         super(MinecraftItemID.POWDER_SNOW_BUCKET.getNamespacedId(), "Powder Snow Bucket");
+        this.count = 1;
     }
 
     @Override

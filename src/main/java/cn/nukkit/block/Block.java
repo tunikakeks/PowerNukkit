@@ -604,7 +604,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[CRACKED_NETHER_BRICKS] = BlockBricksNetherCracked.class; //558
             list[QUARTZ_BRICKS] = BlockBricksQuartz.class; //559
             // 560 Special block: minecraft:unknown
-            //list[POWDER_SNOW] = .class; //561
+            list[POWDER_SNOW] = BlockPowderSnow.class; //561
             //list[SCULK_SENSOR] = .class; //562
             list[POINTED_DRIPSTONE] = BlockPointedDripstone.class; //563
             // 564 (unused)

@@ -1500,6 +1500,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         boolean portal = false;
         boolean scaffolding = false;
         boolean endPortal = false;
+        boolean powderSnow = false;
         for (Block block : this.getCollisionBlocks()) {
             switch (block.getId()) {
                 case BlockID.NETHER_PORTAL:
@@ -1510,6 +1511,9 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     break;
                 case BlockID.END_PORTAL:
                     endPortal = true;
+                    break;
+                case BlockID.POWDER_SNOW:
+                    powderSnow = true;
                     break;
             }
 
@@ -1574,6 +1578,15 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
             }
         } else {
             this.inPortalTicks = 0;
+        }
+        if(powderSnow && this.getInventory().getBoots().getId() != ItemID.LEATHER_BOOTS) {
+            if(this.freezingTicks < 140) {
+                this.freezingTicks++;
+                this.setDataProperty(new FloatEntityData(DATA_FREEZING_EFFECT_STRENGTH, (1f / 140f) * freezingTicks));
+            }
+        } else {
+            this.freezingTicks = Math.max(this.freezingTicks - 2, 0);
+            this.setDataProperty(new FloatEntityData(DATA_FREEZING_EFFECT_STRENGTH, (1f / 140f) * freezingTicks));
         }
     }
 
@@ -2022,6 +2035,12 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
             if (noShieldTicks < 0) {
                 noShieldTicks = 0;
                 hasUpdated = true;
+            }
+        }
+        if(this.level.getGameRules().getBoolean(GameRule.FREEZE_DAMAGE) && freezingTicks == 140) {
+            if(noDamageTicks <= 0) {
+                this.attack(new EntityDamageEvent(this, DamageCause.FREEZING, 1));
+                this.noDamageTicks = 40;
             }
         }
         return super.entityBaseTick(tickDiff) || hasUpdated;

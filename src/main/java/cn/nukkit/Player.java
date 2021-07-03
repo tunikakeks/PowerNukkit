@@ -1579,7 +1579,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         } else {
             this.inPortalTicks = 0;
         }
-        if(powderSnow && this.getInventory().getBoots().getId() != ItemID.LEATHER_BOOTS) {
+        if (powderSnow && this.getInventory().getBoots().getId() != ItemID.LEATHER_BOOTS) {
             if(this.freezingTicks < 140) {
                 this.freezingTicks++;
                 this.setDataProperty(new FloatEntityData(DATA_FREEZING_EFFECT_STRENGTH, (1f / 140f) * freezingTicks));

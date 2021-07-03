@@ -1,9 +1,23 @@
 package cn.nukkit.block;
 
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.utils.BlockColor;
 
-public class BlockSmoothBasalt extends Block {
+/**
+ * @author PleaseInsertNameHere
+ * @since 28/06/2021
+ */
+
+@PowerNukkitOnly
+@Since("1.4.0.0-PN")
+public class BlockBasaltSmooth extends BlockSolid {
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public BlockBasaltSmooth() {
+
+    }
 
     @Override
     public String getName() {
@@ -12,7 +26,17 @@ public class BlockSmoothBasalt extends Block {
 
     @Override
     public int getId() {
-        return SMOOTH_BASALT;
+        return BlockID.SMOOTH_BASALT;
+    }
+
+    @Override
+    public double getHardness() {
+        return 1.25;
+    }
+
+    @Override
+    public double getResistance() {
+        return 4.2;
     }
 
     @Override
@@ -23,11 +47,6 @@ public class BlockSmoothBasalt extends Block {
     @Override
     public int getToolTier() {
         return ItemTool.TIER_WOODEN;
-    }
-
-    @Override
-    public boolean canHarvestWithHand() {
-        return false;
     }
 
     @Override

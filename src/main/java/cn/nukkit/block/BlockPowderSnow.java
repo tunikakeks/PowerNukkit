@@ -67,7 +67,7 @@ public class BlockPowderSnow extends BlockTransparent {
 
     @Override
     public Item[] getDrops(Item item) {
-        return new Item[] {Item.get(0)};
+        return Item.EMPTY_ARRAY;
     }
 
     @Override
@@ -78,6 +78,10 @@ public class BlockPowderSnow extends BlockTransparent {
     @Override
     public void onEntityCollide(Entity entity) {
         entity.resetFallDistance();
+        if(entity.fireTicks > 0) {
+            entity.extinguish();
+            this.level.setBlock(this, Block.get(BlockID.AIR));
+        }
     }
 
     @Override

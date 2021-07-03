@@ -5,16 +5,25 @@ import cn.nukkit.api.Since;
 import cn.nukkit.item.ItemTool;
 
 /**
- * @author LoboMetalurgico
- * @since 08/06/2021
+ * @author PleaseInsertNameHere
+ * @since 28/06/2021
  */
-
 @PowerNukkitOnly
 @Since("FUTURE")
-public class BlockDeepslatePolished extends BlockDeepslateCobbled {
+public class BlockDeepslateBricksCracked extends BlockSolid {
     @PowerNukkitOnly
     @Since("FUTURE")
-    public BlockDeepslatePolished() {
+    public BlockDeepslateBricksCracked(){
+    }
+
+    @Override
+    public String getName() {
+        return "Cracked Deepslate Bricks";
+    }
+
+    @Override
+    public int getId() {
+        return ItemTool.CRACKED_DEEPSLATE_BRICKS;
     }
 
     @Override
@@ -25,16 +34,6 @@ public class BlockDeepslatePolished extends BlockDeepslateCobbled {
     @Override
     public double getResistance() {
         return 6.0;
-    }
-
-    @Override
-    public String getName() {
-        return "Polished Deepslate";
-    }
-
-    @Override
-    public int getId() {
-        return POLISHED_DEEPSLATE;
     }
 
     @Override

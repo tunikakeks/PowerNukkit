@@ -2321,6 +2321,7 @@ public abstract class Entity extends Location implements Metadatable {
         boolean portal = false;
         boolean scaffolding = false;
         boolean endPortal = false;
+        boolean powderSnow = false;
         for (Block block : this.getCollisionBlocks()) {
             switch (block.getId()) {
                 case Block.NETHER_PORTAL:
@@ -2332,6 +2333,8 @@ public abstract class Entity extends Location implements Metadatable {
                 case BlockID.END_PORTAL:
                     endPortal = true;
                     break;
+                case BlockID.POWDER_SNOW:
+                    powderSnow = true;
             }
 
             block.onEntityCollide(this);
@@ -2397,6 +2400,19 @@ public abstract class Entity extends Location implements Metadatable {
             }
         } else {
             this.inPortalTicks = 0;
+        }
+
+        if(this instanceof EntityLiving) {
+            EntityLiving living = (EntityLiving) this;
+            if(powderSnow) {
+                if(living.freezingTicks < 140) {
+                    living.freezingTicks++;
+                    living.setDataProperty(new FloatEntityData(DATA_FREEZING_EFFECT_STRENGTH, (1f / 140f) * living.freezingTicks));
+                }
+            } else {
+                living.freezingTicks = Math.max(living.freezingTicks - 2, 0);
+                this.setDataProperty(new FloatEntityData(DATA_FREEZING_EFFECT_STRENGTH, (1f / 140f) * living.freezingTicks));
+            }
         }
 
         if (vector.lengthSquared() > 0) {

@@ -304,6 +304,13 @@ public abstract class EntityLiving extends Entity implements EntityDamageable {
             }
         }
 
+        if(this.level.getGameRules().getBoolean(GameRule.FREEZE_DAMAGE) && freezingTicks == 140) {
+            if(noDamageTicks <= 0) {
+                this.attack(new EntityDamageEvent(this, DamageCause.FREEZING, 1));
+                this.noDamageTicks = 40;
+            }
+        }
+
         // Used to check collisions with magma blocks
         Block block = this.level.getBlock((int) x, (int) y - 1, (int) z);
         if (block instanceof BlockMagma) block.onEntityCollide(this);

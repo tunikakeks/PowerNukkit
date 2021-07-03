@@ -39,9 +39,7 @@ public class ItemBucketPowderSnow extends StringItem {
         Block targetBlock = new BlockPowderSnow();
         if(target.canBeReplaced()) {
             level.setBlock(target, targetBlock);
-            if(player.isCreative()) {
-                player.getInventory().addItem(Item.get(Item.BUCKET));
-            } else {
+            if(!player.isCreative()) {
                 player.getInventory().setItemInHand(Item.get(Item.BUCKET));
             }
             return true;

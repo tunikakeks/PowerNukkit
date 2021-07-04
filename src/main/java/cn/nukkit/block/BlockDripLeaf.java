@@ -101,10 +101,6 @@ public class BlockDripLeaf extends BlockTransparent {
     public int onUpdate(int type) {
         if(type == Level.BLOCK_UPDATE_NORMAL) {
             Block down = this.down();
-            if (down instanceof BlockDripLeaf && down.getPropertyValue(BIG_HEAD)) {
-                down.setPropertyValue(BIG_HEAD, false);
-                return type;
-            }
 
             if(!(down.isSolid() || down instanceof BlockDripLeaf) || (!this.getPropertyValue(BIG_HEAD) && !(this.up() instanceof BlockDripLeaf))) {
                 this.getLevel().useBreakOn(this);

@@ -2,13 +2,13 @@ package cn.nukkit.block;
 
 import cn.nukkit.Player;
 import cn.nukkit.blockproperty.BlockProperties;
-import cn.nukkit.blockproperty.BooleanBlockProperty;
 import cn.nukkit.blockproperty.CommonBlockProperties;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.particle.BoneMealParticle;
 import cn.nukkit.math.BlockFace;
+import cn.nukkit.utils.BlockColor;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -16,9 +16,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class BlockDripLeafSmall extends BlockTransparent {
 
-    public static final BooleanBlockProperty HEAD = new BooleanBlockProperty("small_dripleaf_head", false);
-
-    public static final BlockProperties PROPERTIES = new BlockProperties(CommonBlockProperties.DIRECTION, HEAD);
+    public static final BlockProperties PROPERTIES = new BlockProperties(CommonBlockProperties.DIRECTION, CommonBlockProperties.UPPER_BLOCK);
 
     @Override
     public String getName() {
@@ -37,6 +35,51 @@ public class BlockDripLeafSmall extends BlockTransparent {
     }
 
     @Override
+    public boolean onBreak(Item item) {
+        Block down = down();
+
+        if (isTopHalf()) { // Top half
+            this.getLevel().useBreakOn(down);
+        } else {
+            this.getLevel().setBlock(this, Block.get(BlockID.AIR), true, true);
+        }
+
+        return true;
+    }
+
+    public boolean isTopHalf() {
+        return getBooleanValue(CommonBlockProperties.UPPER_BLOCK);
+    }
+
+    public void setTopHalf(boolean top) {
+        this.setPropertyValue(CommonBlockProperties.UPPER_BLOCK, top);
+    }
+
+    private boolean isSupportValid(Block support) {
+        switch (support.getId()) {
+            case GRASS:
+            case CLAY_BLOCK:
+            case DIRT:
+            case PODZOL:
+            case FARMLAND:
+            case MOSS_BLOCK:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    @Override
+    public Item[] getDrops(Item item) {
+        return item.isShears() ? new Item[] {this.toItem()} : Item.EMPTY_ARRAY;
+    }
+
+    @Override
+    public int getToolType() {
+        return ItemTool.TYPE_SHEARS;
+    }
+
+    @Override
     public double getHardness() {
         return 0;
     }
@@ -52,35 +95,59 @@ public class BlockDripLeafSmall extends BlockTransparent {
     }
 
     @Override
-    public boolean canBeActivated() {
+    public boolean canHarvestWithHand() {
+        return false;
+    }
+
+    @Override
+    public boolean breaksWhenMoved() {
         return true;
+    }
+
+    public boolean sticksToPiston() {
+        return false;
     }
 
     @Override
     public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, @Nullable Player player) {
-        if(down().getId() != Block.MOSS_BLOCK || up().getId() != Block.AIR) {
+        Block down = this.down();
+        Block up = this.up();
+        if(!isSupportValid(down) || !(block instanceof BlockWater) || up.getId() != AIR) {
             return false;
         }
-        if (player != null) {
-            this.setPropertyValue(CommonBlockProperties.DIRECTION, player.getDirection().getOpposite());
-        }
-        this.level.setBlock(this, this, true, true);
-        this.setPropertyValue(HEAD, false);
+        this.setPropertyValue(CommonBlockProperties.DIRECTION, player != null ? player.getDirection().getOpposite() : BlockFace.NORTH);
+        this.setTopHalf(false);
+        this.getLevel().setBlock(this, this, true, false);
 
-        BlockDripLeafSmall up = (BlockDripLeafSmall) this.clone();
-        up.setPropertyValue(HEAD, true);
-        this.level.setBlock(up(), up, true, true);
-        return this.getLevel().setBlock(this, this, true, true);
+        this.setTopHalf(true);
+        this.getLevel().setBlock(up, this, true, true);
+        this.getLevel().updateAround(this);
+        return true;
     }
 
     @Override
     public int onUpdate(int type) {
-        if(type == Level.BLOCK_UPDATE_NORMAL) {
-            if(this.down().getId() != Block.MOSS_BLOCK && !(this.down() instanceof BlockDripLeafSmall)) {
-                this.getLevel().useBreakOn(this);
+        if (type == Level.BLOCK_UPDATE_NORMAL) {
+            if (isTopHalf()) {
+                // Top
+                if (this.down().getId() != SMALL_DRIPLEAF_BLOCK) {
+                    this.getLevel().setBlock(this, Block.get(BlockID.AIR), false, true);
+                    return Level.BLOCK_UPDATE_NORMAL;
+                }
+            } else {
+                // Bottom
+                if (this.up().getId() != SMALL_DRIPLEAF_BLOCK || !isSupportValid(down())) {
+                    this.getLevel().useBreakOn(this);
+                    return Level.BLOCK_UPDATE_NORMAL;
+                }
             }
         }
         return 0;
+    }
+
+    @Override
+    public boolean canBeActivated() {
+        return true;
     }
 
     @Override
@@ -90,34 +157,23 @@ public class BlockDripLeafSmall extends BlockTransparent {
         }
         this.getLevel().addParticle(new BoneMealParticle(this));
         BlockDripLeaf dripLeaf = new BlockDripLeaf();
-        dripLeaf.setPropertyValue(BlockDripLeaf.BIG_HEAD, false);
-        dripLeaf.setPropertyValue(CommonBlockProperties.DIRECTION, this.getPropertyValue(CommonBlockProperties.DIRECTION));
-        this.getLevel().setBlock(this, dripLeaf, true, true);
-
-        BlockDripLeaf dripLeafHead = (BlockDripLeaf) dripLeaf.clone();
-        dripLeafHead.setPropertyValue(BlockDripLeaf.BIG_HEAD, true);
 
         if (down().getId() != Block.SMALL_DRIPLEAF_BLOCK) {
-            this.getLevel().setBlock(up(), dripLeafHead, true, true);
+            this.getLevel().setBlock(up(), dripLeaf.clone(), true, true);
         } else {
             this.getLevel().setBlock(down(), dripLeaf.clone(), true, true);
             int height = ThreadLocalRandom.current().nextInt(2,6);
-            for (int hY = (int) (this.y + 1); hY <= (this.y + height); y++) {
-                Block block = this.getLevel().getBlock((int) x, hY, (int) z);
-                if (block.getId() != Block.AIR && !(block instanceof BlockDripLeafSmall)) {
-                    this.getLevel().setBlock(block.down(), dripLeafHead, true, true);
-                } else if (hY == (this.y + height)) {
-                    this.getLevel().setBlock(block, dripLeafHead, true, true);
-                } else {
-                    this.getLevel().setBlock(block, dripLeaf.clone(), true, true);
+            for (int i = 1; i <= height; i++) {
+                if ((this.y + i) < 255) {
+                    this.getLevel().setBlock(up(i), dripLeaf.clone(), true, true);
                 }
             }
         }
+        this.getLevel().setBlock(this, dripLeaf, true, true);
         return false;
     }
 
-    @Override
-    public boolean canHarvestWithHand() {
-        return false;
+    public BlockColor getColor() {
+        return BlockColor.GREEN_BLOCK_COLOR;
     }
 }

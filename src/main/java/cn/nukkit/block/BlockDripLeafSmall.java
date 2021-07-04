@@ -156,20 +156,32 @@ public class BlockDripLeafSmall extends BlockTransparent {
             return false;
         }
         this.getLevel().addParticle(new BoneMealParticle(this));
+
         BlockDripLeaf dripLeaf = new BlockDripLeaf();
+        dripLeaf.setPropertyValue(BlockDripLeaf.BIG_HEAD, false);
+        dripLeaf.setPropertyValue(CommonBlockProperties.DIRECTION, getPropertyValue(CommonBlockProperties.DIRECTION));
+
+        BlockDripLeaf dripLeafHead = (BlockDripLeaf) dripLeaf.clone();
+        dripLeafHead.setPropertyValue(BlockDripLeaf.BIG_HEAD, true);
+
 
         if (down().getId() != Block.SMALL_DRIPLEAF_BLOCK) {
-            this.getLevel().setBlock(up(), dripLeaf.clone(), true, true);
+            this.getLevel().setBlock(this, dripLeaf, true, false);
+            this.getLevel().setBlock(up(), dripLeafHead, true, false);
         } else {
-            this.getLevel().setBlock(down(), dripLeaf.clone(), true, true);
-            int height = ThreadLocalRandom.current().nextInt(2,6);
+            this.getLevel().setBlock(down(), dripLeaf, true, false);
+            this.getLevel().setBlock(this, dripLeaf, true, false);
+            int height = ThreadLocalRandom.current().nextInt(1,6);
             for (int i = 1; i <= height; i++) {
-                if ((this.y + i) < 255) {
-                    this.getLevel().setBlock(up(i), dripLeaf.clone(), true, true);
+                if ((this.y + i) < 256) {
+                    if (i == height) {
+                        this.getLevel().setBlock(up(i), dripLeafHead, true, false);
+                    } else {
+                        this.getLevel().setBlock(up(i), dripLeaf, true, false);
+                    }
                 }
             }
         }
-        this.getLevel().setBlock(this, dripLeaf, true, true);
         return false;
     }
 

@@ -30,10 +30,10 @@ public class ConstantItemSelector extends Selector {
     }
 
     public ConstantItemSelector(Item item, Selector parent) {
-        this(item, parent, 1, 1);
+        this(item, 1, 1, parent);
     }
 
-    public ConstantItemSelector(Item item, Selector parent, int minCount, int maxCount) {
+    public ConstantItemSelector(Item item, int minCount, int maxCount, Selector parent) {
         super(parent);
         this.item = item;
         this.minCount = minCount;

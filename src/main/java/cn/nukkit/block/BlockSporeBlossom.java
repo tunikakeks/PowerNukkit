@@ -30,7 +30,7 @@ public class BlockSporeBlossom extends BlockFlowable {
     @Override
     public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, @Nullable Player player) {
         Block up = this.up();
-        if(!up.isSolid() || up instanceof BlockLeaves) {
+        if(!up.isSolid(BlockFace.DOWN) || up instanceof BlockLeaves) {
             return false;
         }
         return this.getLevel().setBlock(this, this, true, true);

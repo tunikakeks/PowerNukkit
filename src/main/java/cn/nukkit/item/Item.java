@@ -442,6 +442,7 @@ public class Item implements Cloneable, BlockID, ItemID {
             runtimeMapping.registerNamespacedIdItem(ItemRawGold.class);
             runtimeMapping.registerNamespacedIdItem(ItemRawCopper.class);
             runtimeMapping.registerNamespacedIdItem(ItemIngotCopper.class);
+            runtimeMapping.registerNamespacedIdItem(ItemItemFrameGlow.class);
             runtimeMapping.registerNamespacedIdItem(ItemAmethystShard.class);
             runtimeMapping.registerNamespacedIdItem(ItemSpyGlass.class);
             runtimeMapping.registerNamespacedIdItem(ItemGlowInkSac.class);

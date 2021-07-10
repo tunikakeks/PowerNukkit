@@ -551,6 +551,7 @@ public class Server {
                 put("auto-save", true);
                 put("force-resources", false);
                 put("xbox-auth", true);
+                put("check-xuid", true);
                 put("disable-auto-bug-report", false);
             }
         });
@@ -1274,6 +1275,10 @@ public class Server {
                 .toArray(PlayerListPacket.Entry[]::new);
 
         player.dataPacket(pk);
+    }
+
+    public boolean getCheckXUID() {
+        return this.getPropertyBoolean("check-xuid", true);
     }
 
     public void sendRecipeList(Player player) {

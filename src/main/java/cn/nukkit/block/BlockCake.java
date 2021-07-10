@@ -149,8 +149,13 @@ public class BlockCake extends BlockTransparentMeta {
     @Override
     public boolean onActivate(@Nonnull Item item, Player player) {
         if (player != null && (player.isCreative() || player.getFoodData().getLevel() < player.getFoodData().getMaxLevel())) {
-            if (getBites() <= 6) setBites(getBites() + 1);
-            if (getBites() >= 6) {
+            if(getBites() == 6) {
+                Food.getByRelative(this).eatenBy(player);
+                getLevel().setBlock(this, Block.get(BlockID.AIR), true);
+                return true;
+            }
+            if (getBites() < 6) setBites(getBites() + 1);
+            if (getBites() > 6) {
                 getLevel().setBlock(this, Block.get(BlockID.AIR), true);
             } else {
                 Food.getByRelative(this).eatenBy(player);

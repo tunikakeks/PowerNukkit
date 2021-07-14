@@ -19,8 +19,7 @@
 package org.powernukkit.tools;
 
 import cn.nukkit.Server;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import lombok.Data;
@@ -50,24 +49,23 @@ public class RuntimeItemIdUpdater {
             itemNameToNukkitRegistry.put(runtimeItem.name, runtimeItem);
         }
 
-        List<RuntimeItem> requiredItems;
+        JsonArray requiredItems;
         try(InputStream resourceAsStream = Server.class.getClassLoader().getResourceAsStream("runtime_item_states.json");
             Reader reader = new InputStreamReader(Objects.requireNonNull(resourceAsStream), StandardCharsets.UTF_8);
-            JsonReader jsonReader = new JsonReader(reader);
+            BufferedReader bufferedReader = new BufferedReader(reader);
         ) {
-            requiredItems = gson.fromJson(jsonReader, LIST);
+            requiredItems = gson.fromJson(bufferedReader, JsonArray.class);
         }
 
-        for (RuntimeItem entry : requiredItems) {
-            RuntimeItem runtimeItem = itemNameToNukkitRegistry.get(entry.name);
+        for (JsonElement e : requiredItems) {
+            JsonObject entry = e.getAsJsonObject();
+            String name = entry.get("name").getAsString();
+            RuntimeItem runtimeItem = itemNameToNukkitRegistry.get(name);
             if (runtimeItem == null) {
-                itemNameToNukkitRegistry.put(entry.name, entry);
                 continue;
             }
-            runtimeItem.id = entry.id;
+            runtimeItem.id = entry.get("id").getAsInt();
         }
-
-        runtimeItems = new ArrayList<>(itemNameToNukkitRegistry.values());
 
         try (FileWriter writer = new FileWriter("src/main/resources/runtime_item_ids.json");
             BufferedWriter bufferedWriter = new BufferedWriter(writer)

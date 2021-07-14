@@ -148,6 +148,9 @@ public class BlockCake extends BlockTransparentMeta {
 
     @Override
     public boolean onActivate(@Nonnull Item item, Player player) {
+        if(this.getBites() == 0 && item.getBlock() instanceof BlockCandleBase) {
+            return false;
+        }
         if (player != null && (player.isCreative() || player.getFoodData().getLevel() < player.getFoodData().getMaxLevel())) {
             if(getBites() == 6) {
                 Food.getByRelative(this).eatenBy(player);

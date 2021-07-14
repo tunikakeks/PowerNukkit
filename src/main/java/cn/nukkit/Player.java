@@ -4555,7 +4555,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     }
 
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     @Override
     public String getOriginalName() {
         return "Player";
@@ -6153,6 +6153,15 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         pk.type = TextPacket.TYPE_ANNOUNCEMENT;
         pk.source = source;
         pk.message = message;
+        this.dataPacket(pk);
+    }
+    
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
+    public void completeUsingItem(int itemId, int action) {
+        CompletedUsingItemPacket pk = new CompletedUsingItemPacket();
+        pk.itemId = itemId;
+        pk.action = action;
         this.dataPacket(pk);
     }
     

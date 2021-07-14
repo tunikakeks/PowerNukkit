@@ -221,7 +221,7 @@ public abstract class Entity extends Location implements Metadatable {
     @Since("1.3.0.0-PN") public static final int DATA_HITBOX = dynamic(118); //NBT
     @Since("1.3.0.0-PN") public static final int DATA_IS_BUOYANT = dynamic(119); //byte
     @Since("1.5.0.0-PN") @PowerNukkitOnly public static final int DATA_BASE_RUNTIME_ID = dynamic(120); // ???
-    @Since("1.4.0.0-PN") public static final int DATA_FREEZING_EFFECT_STRENGTH = dynamic(121);
+    @Since("1.4.0.0-PN") public static final int DATA_FREEZING_EFFECT_STRENGTH = dynamic(121); // ???
     @Since("1.3.0.0-PN") public static final int DATA_BUOYANCY_DATA = dynamic(122); //string
     @Since("1.4.0.0-PN") public static final int DATA_GOAT_HORN_COUNT = dynamic(123); // ???
     @Since("1.5.0.0-PN") @PowerNukkitOnly public static final int DATA_UPDATE_PROPERTIES = dynamic(124); // ???
@@ -453,7 +453,7 @@ public abstract class Entity extends Location implements Metadatable {
     }
 
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     public float getCurrentHeight() {
         if (isSwimming()) {
             return getSwimmingHeight();
@@ -697,7 +697,7 @@ public abstract class Entity extends Location implements Metadatable {
     }
     
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     public float getSwimmingHeight() {
         return getHeight();
     }
@@ -1005,24 +1005,24 @@ public abstract class Entity extends Location implements Metadatable {
     
     @Nonnull
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     public static IntCollection getKnownEntityIds() {
         return knownEntities.keySet().stream()
-                .filter(Utils::isNumeric)
+                .filter(Utils::isInteger)
                 .mapToInt(Integer::parseInt)
                 .collect(IntArrayList::new, IntArrayList::add, IntArrayList::addAll);
     }
 
     @Nonnull
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     public static List<String> getSaveIds() {
         return new ArrayList<>(shortNames.values());
     }
 
     @Nonnull
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     public static OptionalInt getSaveId(String id) {
         Class<? extends Entity> entityClass = knownEntities.get(id);
         if (entityClass == null) {
@@ -1031,14 +1031,14 @@ public abstract class Entity extends Location implements Metadatable {
         return knownEntities.entrySet().stream()
                 .filter(entry -> entry.getValue().equals(entityClass))
                 .map(Map.Entry::getKey)
-                .filter(Utils::isNumeric)
+                .filter(Utils::isInteger)
                 .mapToInt(Integer::parseInt)
                 .findFirst();
     }
 
     @Nullable
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     public static String getSaveId(int id) {
         Class<? extends Entity> entityClass = knownEntities.get(Integer.toString(id));
         if (entityClass == null) {
@@ -1139,7 +1139,7 @@ public abstract class Entity extends Location implements Metadatable {
      * The name that English name of the type of this entity. 
      */
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     public String getOriginalName() {
         return this.getSaveId();
     }
@@ -1148,7 +1148,7 @@ public abstract class Entity extends Location implements Metadatable {
      * Similar to {@link #getName()}, but if the name is blank or empty it returns the static name instead.
      */
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     public final String getVisibleName() {
         String name = getName();
         if (!TextFormat.clean(name).trim().isEmpty()) {
@@ -2655,8 +2655,8 @@ public abstract class Entity extends Location implements Metadatable {
             to = ev.getTo();
         }
 
-        Entity riding = getRiding();
-        if (riding != null && !riding.dismountEntity(this)) {
+        Entity currentRide = getRiding();
+        if (currentRide != null && !currentRide.dismountEntity(this)) {
             return false;
         }
 
@@ -2681,7 +2681,7 @@ public abstract class Entity extends Location implements Metadatable {
     }
 
     public void respawnToAll() {
-        Collection<Player> players = new ArrayList<>(this.hasSpawned.values());
+        Player[] players = this.hasSpawned.values().toArray(Player.EMPTY_ARRAY);
         this.hasSpawned.clear();
 
         for (Player player : players) {

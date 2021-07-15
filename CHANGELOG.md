@@ -6,14 +6,112 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 with an added upstream's major version number in front of the major version, so we have a better distinction from
 Nukkit 1.X and 2.X.
 
-## [Unreleased 1.4.0.0-PN] - Future ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/15?closed=1))
+## [Unreleased 1.5.2.0-PN] - Future ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/28?closed=1))
 Click the link above to see the future.
+
+## [1.5.1.0-PN] - 2021-07-05 ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/22?closed=1))
+Our goal on this version was to fix bugs, and we did it, we fixed a lot of them!
+
+Thank you for the translations!
+Help us to translate PowerNukkit at https://translate.powernukkit.org
+
+Want to talk? 
+Talk to us at https://discuss.powernukkit.org and/or https://powernukkit.org/discord
+
+### Changed
+- [#1107] Guava version from `29.0` to `30.1.1`
+- [#1107] SnakeYAML version from `1.26` to `1.28`
+- [#1134] Update the Chinese, Russian, and Turkish translations. Thank you for your contributions!
+- [#1149] Update the Spanish, and Russian translations. Also improved the message when a plugin is not found. Thank you for your contributions!
+- [#1177] Update the Portuguese, Chinese, and Polish translations. Also added the key `language.locale` to allow plugin devs to build a `Locale` object
+- [#1150] The `show_death_message` gamerule was renamed to `show_death_messages`. A backward compatibility code will keep the old one working, but it's now deprecated.
+- [#1151] Improved `/setworldspaw` auto completion
+- [#1153] Deprecate BlockNetherBrick in favor of BlockBricksNether
+- [#783] Campfire now drop 2 charcoal always
+- [#783] Soul campfire now drops 1 soul sand
+- [#783] Soul campfire now deal double the damage that normal campfires deals
+- [#783] Campfire and Soul campfire now deal damage even the entity is sneaking
+- [#783] Campfire and Soul campfire now breaks when pushed by piston
+- [#669] Improved the output of the `/kill @e` command
+
+### Added
+- [#1146] Added implementation for `AnimateEntityPacket`
+- [#1150] The `freeze_damage` gamerule 
+- [#1150] Mappings for Goat, Glow Squid, and Axolotl entities and spawn eggs
+- [#783] Campfire and Soul Campfire can now be lit by burning entities stepping on it
+- [#783] Campfire and Soul Campfire can now be unlit by throwing a splash water bottle on it
+- [#783] Campfire and Soul Campfire can now lit by using an item enchanted with fire aspect
+- [#669] New API methods to get the name of the entity for display
+
+### Fixes
+- [#1119] `TickSyncPacket` was not registered 
+- [#1120] Entities sometimes gets invisible for some players
+- [#1122] Backward compatibility with plugins setting full bark logs with 17:13
+- [#1132] You don't dismount the vehicle when you teleport, causing you to glitch
+- [#1103] The output message of the `/enchant` command
+- [#1100] Abrupt Time Change
+- [#1130] Soul Campfire and End Crystal were rendering as other items in the inventory
+- [#1139] Backward compatibility with some custom world generators
+- [#1147] Sharpness damage calculation
+- [#1153] Some code quality issues reported by sonar
+- [#1170] Cobwebs are now breakable by using shears
+- [#702] Burning arrow and rain will make a lot of particles
+- [#625] If you instant kill a mob with fire aspect enchant tool, it will not give fire aspect drops
+- [#979] Fixes an issue where the players could not hear each other walking
+- [#576] Swmming in a 1x1 tunnel of water was causing suffocation damage by the block above the player
+
+## [1.5.0.0-PN] - 2021-06-11 ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/26?closed=1))
+This was quick! This new version add protocol support for Minecraft `1.17.0` as if it was `1.16.221`.
+
+The new changes will be implemented in `1.5.1.0-PN` and onwards.
+
+This version works with Minecraft `1.16.221`!
+
+### Breaking change!
+***This version supports a new major Minecraft version, some plugin sources might need to be updated or recompiled!***
+
+- `BlockWall.WallType.END_STONE_BRICK` was renamed to `END_BRICK` to match the property
+- Custom blocks now have to implement `Block.getProperties()` if they need to have custom meta.
+- `BlockCauldron.getFillLevel()` and it's setter now range from 0 to 6. Glass bottle remove/add 2 levels instead of one now.
+- The creative inventory file format has changed
+- The recipes file format has changed
+- `BellAttachmentType` was renamed to `AttachmentType`
+- `BlockBell.getBellAttachmentType` and `BlockBell.setBellAttachmentType` were renamed to `get/setAttachment`.
+- `DoublePlantType` enum had the entries changed to match the property values.
+- `BlockMeta`, `BlockSolidMeta`, and `BlockFallableMeta` now have `getProperties` abstract.
+- `CommonBlockProperties.LEGACY_PROPERTY_NAME`, `LEGACY_PROPERTIES`, and `LEGACY_BIG_PROPERTIES` were removed.
+- `MinecraftItemID.DEBUG_STICK` was removed.
+- All deprecated stuff marked to be removed at this version was removed. Except `AnvilDamageEvent.getDamage()`.
+
+### Deprecated
+- This is a reminder that numeric block meta are deprecated. Use the specifc block API to make modifications. Come to Discord if you have questions.
+- A lot of duplicated BlockIDs are being deprecated, follow the `replaceBy` instructions to use the right ones.
+
+### Changed
+- All blocks are now using the new block state system.
+- We are no longer using `runtime_block_states.dat` and `runtime+block_states_overrides.dat`, we are now using `canonical_block_states.nbt` from [pmmp/BedrockData](https://github.com/pmmp/BedrockData)
+- `BlockProperties.requireRegisteredProperty` now throws `BlockPropertyNotFoundException` instead of `NoSuchElementException` when the prop is not found.
+- Some `Entity` magic values have changed
+- Game rules now have a flag to determine if it can be changed.
+
+#### Added
+- Event to handle player fishing by plugins. `PlayerFishEvent`.
+- 3 new packets: `AddVolumeEntityPacket`, `RemoveVolumeEntityPacket`, and `SyncEntityPropertyPacket`
+
+### Fixes
+- Issues with crafting recipes involving charcoal and dyes and ink_sac related items
+
+## [1.4.0.0-PN] - 2021-05-31 ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/15?closed=1))
+It's finally here! A stable version of the Nether update! Supporting almost all blocks and items!
+
+It works with Minecraft `1.16.221`!
 
 ### Breaking change!
 ***This version supports a new major Minecraft version, some plugin sources might need to be updated or recompiled!***
 
 - Many `final` constants are no longer constants, they are now marked with `dynamic` due to constant changes on updates
 - The size of the block data bits changed back from `6` to `4` to fix backward compatibility with Nukkit plugins
+- New chunk content versioning! Don't keep changing versions back and forth, or you will end up with having some odd block states!
 
 ### Deprecated
 - All usage of the numeric block damage system is now deprecated, new code should use the new block state system
@@ -523,7 +621,7 @@ Fixes several anvil issues.
 
 ### Changed
 - Make BlockLectern implements Faceable
-- The versioning convention now follows this pattern:<br>`upstream.major.minor.patch-PN`<br>[Click here for details.](https://github.com/PowerNukkit/PowerNukkit/blob/7912aa4be68e94a52762361c2d5189b7bbc58d2a/pom.xml#L8-L14)
+- The versioning convention now follows this pattern:<br/>`upstream.major.minor.patch-PN`<br/>[Click here for details.](https://github.com/PowerNukkit/PowerNukkit/blob/7912aa4be68e94a52762361c2d5189b7bbc58d2a/pom.xml#L8-L14)
 
 ## [1.1.1.0-PN] - 2020-01-21
 ### Fixes
@@ -634,7 +732,10 @@ Fixes several anvil issues.
 [updated changelog]:https://github.com/PowerNukkit/PowerNukkit/blob/bleeding/CHANGELOG.md
 [discord guild]: https://powernukkit.org/discord
 
-[Unreleased 1.4.0.0-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.3.1.5-PN...bleeding
+[Unreleased 1.5.2.0-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.5.1.0-PN...bleeding
+[1.5.1.0-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.5.0.0-PN...v1.5.1.0-PN
+[1.5.0.0-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.4.0.0-PN...v1.5.0.0-PN
+[1.4.0.0-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.3.1.5-PN...v1.4.0.0-PN
 [1.3.1.5-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.3.1.4-PN...v1.3.1.5-PN
 [1.3.1.4-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.3.1.3-PN...v1.3.1.4-PN
 [1.3.1.3-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.3.1.2-PN...v1.3.1.3-PN
@@ -775,16 +876,40 @@ Fixes several anvil issues.
 [#469]: https://github.com/PowerNukkit/PowerNukkit/issues/469
 [#475]: https://github.com/PowerNukkit/PowerNukkit/issues/475
 [#544]: https://github.com/PowerNukkit/PowerNukkit/issues/544
+[#576]: https://github.com/PowerNukkit/PowerNukkit/issues/576
+[#625]: https://github.com/PowerNukkit/PowerNukkit/issues/625
+[#669]: https://github.com/PowerNukkit/PowerNukkit/issues/669
+[#702]: https://github.com/PowerNukkit/PowerNukkit/issues/702
 [#765]: https://github.com/PowerNukkit/PowerNukkit/issues/765
 [#766]: https://github.com/PowerNukkit/PowerNukkit/issues/766
 [#770]: https://github.com/PowerNukkit/PowerNukkit/issues/770
 [#776]: https://github.com/PowerNukkit/PowerNukkit/issues/776
 [#777]: https://github.com/PowerNukkit/PowerNukkit/issues/777
 [#778]: https://github.com/PowerNukkit/PowerNukkit/issues/778
+[#783]: https://github.com/PowerNukkit/PowerNukkit/issues/783
 [#857]: https://github.com/PowerNukkit/PowerNukkit/issues/857
 [#882]: https://github.com/PowerNukkit/PowerNukkit/issues/882
 [#902]: https://github.com/PowerNukkit/PowerNukkit/issues/902
 [#917]: https://github.com/PowerNukkit/PowerNukkit/issues/917
 [#959]: https://github.com/PowerNukkit/PowerNukkit/issues/959
 [#960]: https://github.com/PowerNukkit/PowerNukkit/issues/960
+[#979]: https://github.com/PowerNukkit/PowerNukkit/issues/979
 [#990]: https://github.com/PowerNukkit/PowerNukkit/issues/990
+[#1100]: https://github.com/PowerNukkit/PowerNukkit/issues/1100
+[#1103]: https://github.com/PowerNukkit/PowerNukkit/issues/1103
+[#1107]: https://github.com/PowerNukkit/PowerNukkit/issues/1107
+[#1119]: https://github.com/PowerNukkit/PowerNukkit/issues/1119
+[#1120]: https://github.com/PowerNukkit/PowerNukkit/issues/1120
+[#1122]: https://github.com/PowerNukkit/PowerNukkit/issues/1122
+[#1130]: https://github.com/PowerNukkit/PowerNukkit/issues/1130
+[#1132]: https://github.com/PowerNukkit/PowerNukkit/issues/1132
+[#1134]: https://github.com/PowerNukkit/PowerNukkit/issues/1134
+[#1139]: https://github.com/PowerNukkit/PowerNukkit/issues/1139
+[#1146]: https://github.com/PowerNukkit/PowerNukkit/issues/1146
+[#1147]: https://github.com/PowerNukkit/PowerNukkit/issues/1147
+[#1149]: https://github.com/PowerNukkit/PowerNukkit/issues/1149
+[#1150]: https://github.com/PowerNukkit/PowerNukkit/issues/1150
+[#1151]: https://github.com/PowerNukkit/PowerNukkit/issues/1151
+[#1153]: https://github.com/PowerNukkit/PowerNukkit/issues/1153
+[#1170]: https://github.com/PowerNukkit/PowerNukkit/issues/1170
+[#1177]: https://github.com/PowerNukkit/PowerNukkit/issues/1177

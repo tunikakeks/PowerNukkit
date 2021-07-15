@@ -3396,12 +3396,11 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     }
                     break;
                 case ProtocolInfo.INVENTORY_TRANSACTION_PACKET:
-                    if (this.isSpectator()) {
+                    InventoryTransactionPacket transactionPacket = (InventoryTransactionPacket) packet;
+                    if (this.isSpectator() && transactionPacket.transactionType != InventoryTransactionPacket.TYPE_USE_ITEM) {
                         this.sendAllInventories();
                         break;
                     }
-
-                    InventoryTransactionPacket transactionPacket = (InventoryTransactionPacket) packet;
 
                     // Nasty hack because the client won't change the right packet in survival when creating netherite stuff
                     // so we are emulating what Mojang should be sending

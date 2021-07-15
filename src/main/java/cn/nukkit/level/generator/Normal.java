@@ -1,6 +1,7 @@
 package cn.nukkit.level.generator;
 
 import cn.nukkit.block.*;
+import cn.nukkit.blockstate.BlockState;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.biome.Biome;
 import cn.nukkit.level.biome.BiomeSelector;

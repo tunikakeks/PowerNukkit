@@ -209,8 +209,8 @@ public class Normal extends Generator {
                 }),
                 new PopulatorCaves(),
                 //new PopulatorRavines(),
-                new PopulatorSpring(Block.get(BlockID.WATER), 50, 8, 255),
-                new PopulatorSpring(Block.get(BlockID.LAVA), 20, 16, 255)
+                new PopulatorSpring(BlockState.of(BlockID.WATER), ImmutableList.of(BlockState.of(BlockID.STONE)), 50, 8, 255),
+                new PopulatorSpring(BlockState.of(BlockID.LAVA), ImmutableList.of(BlockState.of(BlockID.STONE)), 20, 16, 255)
         );
     }
 

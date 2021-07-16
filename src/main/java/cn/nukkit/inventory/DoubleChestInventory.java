@@ -10,6 +10,7 @@ import cn.nukkit.network.protocol.BlockEventPacket;
 import cn.nukkit.network.protocol.InventorySlotPacket;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -115,7 +116,9 @@ public class DoubleChestInventory extends ContainerInventory implements Inventor
         this.left.viewers.add(who);
         this.right.viewers.add(who);
 
-        if (this.getViewers().size() == 1) {
+        Iterator<Player> viewerIterator = this.getViewers().iterator();
+        Player next = null;
+        if (!who.isSpectator() && (this.getViewers().size() == 1 || (this.getViewers().size() == 2 && (next = viewerIterator.next()).equals(who) ? viewerIterator.next().isSpectator() : (next != null && next.isSpectator())))) {
             BlockEventPacket pk1 = new BlockEventPacket();
             pk1.x = (int) this.left.getHolder().getX();
             pk1.y = (int) this.left.getHolder().getY();
@@ -146,7 +149,9 @@ public class DoubleChestInventory extends ContainerInventory implements Inventor
     @PowerNukkitDifference(info = "Using new method to play sounds", since = "1.4.0.0-PN")
     @Override
     public void onClose(Player who) {
-        if (this.getViewers().size() == 1) {
+        Iterator<Player> viewerIterator = this.getViewers().iterator();
+        Player next = null;
+        if (!who.isSpectator() && (this.getViewers().size() == 1 || (this.getViewers().size() == 2 && (next = viewerIterator.next()).equals(who) ? viewerIterator.next().isSpectator() : (next != null && next.isSpectator())))) {
             BlockEventPacket pk1 = new BlockEventPacket();
             pk1.x = (int) this.right.getHolder().getX();
             pk1.y = (int) this.right.getHolder().getY();

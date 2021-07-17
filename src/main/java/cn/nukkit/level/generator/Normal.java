@@ -192,8 +192,8 @@ public class Normal extends Generator {
 
         this.populators = ImmutableList.of(
                 new PopulatorOre(STONE, new OreType[]{
-                        new OreType(Block.get(BlockID.DEEPSLATE), 10, 160, 0, 16),
-                        new OreType(Block.get(BlockID.TUFF), 2, 160, 0, 16),
+                        new OreType(Block.get(BlockID.DEEPSLATE), 3, 50, 0, 16),
+                        new OreType(Block.get(BlockID.TUFF), 2, 40, 0, 16),
                         new OreType(Block.get(BlockID.DIRT), 10, 33, 0, 128),
                         new OreType(Block.get(BlockID.GRAVEL), 8, 33, 0, 128),
                         new OreType(Block.get(BlockID.STONE, BlockStone.GRANITE), 10, 33, 0, 80),

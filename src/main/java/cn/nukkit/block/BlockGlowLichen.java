@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 /**
  * @author Gabriel8579
  * @since 2021-06-13
+ * <p>
+ * This file is originally adapted from: https://github.com/PowerNukkit/PowerNukkit/commit/f079155b03c32de1403be946bb98571dde005f2f
  */
 @Since("FUTURE")
 public class BlockGlowLichen extends BlockTransparent {

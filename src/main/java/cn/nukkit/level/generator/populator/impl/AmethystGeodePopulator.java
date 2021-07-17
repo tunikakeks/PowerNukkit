@@ -15,7 +15,7 @@ public class AmethystGeodePopulator extends Populator {
     @Override
     public void populate(ChunkManager level, int chunkX, int chunkZ, NukkitRandom random, FullChunk chunk) {
         if(random.nextRange(1, 53) == 1) {
-            int height = random.nextRange(10, 70);
+            int height = random.nextRange(0, 70);
             makeCircle(chunk, BlockID.SMOOTH_BASALT, height, 7, false);
             makeCircle(chunk, BlockID.CALCITE, height, 6, false);
             makeCircle(chunk, BlockID.AMETHYST_BLOCK, height, 5, false);
@@ -25,21 +25,16 @@ public class AmethystGeodePopulator extends Populator {
     }
 
     public void makeCircle(FullChunk chunk, int blockId, int height, int size, boolean filled) {
-        double radiusX = size;
-        double radiusY = size;
-        double radiusZ = size;
-
-        final double invRadiusX = 1 / radiusX;
-        final double invRadiusY = 1 / radiusY;
-        final double invRadiusZ = 1 / radiusZ;
+        final double invRadiusX = 1 / (double) size;
+        final double invRadiusY = 1 / (double) size;
+        final double invRadiusZ = 1 / (double) size;
 
         int px = 8;
-        int py = height;
         int pz = 8;
 
-        final int ceilRadiusX = (int) Math.ceil(radiusX);
-        final int ceilRadiusY = (int) Math.ceil(radiusY);
-        final int ceilRadiusZ = (int) Math.ceil(radiusZ);
+        final int ceilRadiusX = (int) Math.ceil(size);
+        final int ceilRadiusY = (int) Math.ceil(size);
+        final int ceilRadiusZ = (int) Math.ceil(size);
 
         int yy; double nextXn = 0;
 
@@ -51,7 +46,7 @@ public class AmethystGeodePopulator extends Populator {
                 final double zn = nextZn; double dz = zn * zn;
                 double dxz = dx + dz; nextZn = (z + 1) * invRadiusZ;
                 double nextYn = 0;
-                forY: for (int y = 0; y <= ceilRadiusY; ++y) {
+                for (int y = 0; y <= ceilRadiusY; ++y) {
                     final double yn = nextYn;
                     double dy = yn * yn;
                     double dxyz = dxz + dy;
@@ -62,26 +57,28 @@ public class AmethystGeodePopulator extends Populator {
                                 break forX;
                             }
                             break forZ;
-                        } break forY;
+                        }
+                        break;
                     }
-                    if(!filled) {
+                    if (!filled) {
                         if (nextXn * nextXn + dy + dz <= 1 && nextYn * nextYn + dx + dz <= 1 && nextZn * nextZn + dx + dy <= 1) {
                             continue;
                         }
                     }
-                    yy = py + y;
+                    yy = height + y;
                     if (yy <= 256) {
-                        chunk.setBlockId(px + x, py + y, pz + z, blockId);
+                        chunk.setBlockId(px + x, height + y, pz + z, blockId);
                         if (x != 0) {
-                            chunk.setBlockId(px - x, py + y, pz + z, blockId);
+                            chunk.setBlockId(px - x, height + y, pz + z, blockId);
                         }
                         if (z != 0) {
-                            chunk.setBlockId(px + x, py + y, pz - z, blockId);
+                            chunk.setBlockId(px + x, height + y, pz - z, blockId);
                             if (x != 0) {
-                                chunk.setBlockId(px - x, py + y, pz - z, blockId);
+                                chunk.setBlockId(px - x, height + y, pz - z, blockId);
                             }
                         }
-                    } if (y != 0 && (yy = py - y) >= 0) {
+                    }
+                    if (y != 0 && (yy = height - y) >= 0) {
                         chunk.setBlockId(px + x, yy, pz + z, blockId);
                         if (x != 0) {
                             chunk.setBlockId(px - x, yy, pz + z, blockId);
@@ -99,21 +96,16 @@ public class AmethystGeodePopulator extends Populator {
     }
 
     public void generateCluster(FullChunk chunk, NukkitRandom random, int height, int size) {
-        double radiusX = size;
-        double radiusY = size;
-        double radiusZ = size;
-
-        final double invRadiusX = 1 / radiusX;
-        final double invRadiusY = 1 / radiusY;
-        final double invRadiusZ = 1 / radiusZ;
+        final double invRadiusX = 1 / (double) size;
+        final double invRadiusY = 1 / (double) size;
+        final double invRadiusZ = 1 / (double) size;
 
         int px = 8;
-        int py = height;
         int pz = 8;
 
-        final int ceilRadiusX = (int) Math.ceil(radiusX);
-        final int ceilRadiusY = (int) Math.ceil(radiusY);
-        final int ceilRadiusZ = (int) Math.ceil(radiusZ);
+        final int ceilRadiusX = (int) Math.ceil(size);
+        final int ceilRadiusY = (int) Math.ceil(size);
+        final int ceilRadiusZ = (int) Math.ceil(size);
 
         int yy; double nextXn = 0;
 
@@ -125,7 +117,7 @@ public class AmethystGeodePopulator extends Populator {
                 final double zn = nextZn; double dz = zn * zn;
                 double dxz = dx + dz; nextZn = (z + 1) * invRadiusZ;
                 double nextYn = 0;
-                forY: for (int y = 0; y <= ceilRadiusY; ++y) {
+                for (int y = 0; y <= ceilRadiusY; ++y) {
                     final double yn = nextYn;
                     double dy = yn * yn;
                     double dxyz = dxz + dy;
@@ -136,24 +128,26 @@ public class AmethystGeodePopulator extends Populator {
                                 break forX;
                             }
                             break forZ;
-                        } break forY;
+                        }
+                        break;
                     }
                     if (nextXn * nextXn + dy + dz <= 1 && nextYn * nextYn + dx + dz <= 1 && nextZn * nextZn + dx + dy <= 1) {
                         continue;
                     }
-                    yy = py + y;
+                    yy = height + y;
                     if (yy <= 256) {
-                        placeCluster(chunk, px + x, py + y, pz + z, random);
+                        placeCluster(chunk, px + x, height + y, pz + z, random);
                         if (x != 0) {
-                            placeCluster(chunk, px - x, py + y, pz + z, random);
+                            placeCluster(chunk, px - x, height + y, pz + z, random);
                         }
                         if (z != 0) {
-                            placeCluster(chunk,  + x, py + y, pz - z, random);
+                            placeCluster(chunk, +x, height + y, pz - z, random);
                             if (x != 0) {
-                                placeCluster(chunk, px - x, py + y, pz - z, random);
+                                placeCluster(chunk, px - x, height + y, pz - z, random);
                             }
                         }
-                    } if (y != 0 && (yy = py - y) >= 0) {
+                    }
+                    if (y != 0 && (yy = height - y) >= 0) {
                         placeCluster(chunk, px + x, yy, pz + z, random);
                         if (x != 0) {
                             placeCluster(chunk, px - x, yy, pz + z, random);

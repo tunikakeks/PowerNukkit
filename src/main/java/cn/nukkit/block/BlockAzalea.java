@@ -94,9 +94,4 @@ public class BlockAzalea extends BlockTransparent {
     public boolean isSolid(BlockFace side) {
         return false;
     }
-
-    @Override
-    public Item[] getDrops(Item item) {
-            return Item.EMPTY_ARRAY;
-    }
 }

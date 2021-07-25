@@ -199,7 +199,7 @@ public class BlockChest extends BlockTransparentMeta implements Faceable, BlockE
         }
         
         Block top = up();
-        if (!top.isTransparent()) {
+        if (!top.isTransparent() && !player.isSpectator()) {
             return false;
         }
 

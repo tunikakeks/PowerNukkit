@@ -938,11 +938,14 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     protected void doFirstSpawn() {
         this.spawned = true;
 
-        this.inventory.sendContents(this);
-        this.inventory.sendHeldItem(this);
-        this.inventory.sendArmorContents(this);
-        this.offhandInventory.sendContents(this);
-        this.setEnableClientCommand(true);
+        if (this.inventory != null) {
+            this.inventory.sendContents(this);
+            this.inventory.sendHeldItem(this);
+            this.inventory.sendArmorContents(this);
+            this.offhandInventory.sendContents(this);
+            this.setEnableClientCommand(true);
+        }
+
 
         SetTimePacket setTimePacket = new SetTimePacket();
         setTimePacket.time = this.level.getTime();
@@ -1579,7 +1582,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         } else {
             this.inPortalTicks = 0;
         }
-        if (powderSnow && this.getInventory().getBoots().getId() != ItemID.LEATHER_BOOTS) {
+        if (powderSnow && this.getInventory() != null && this.getInventory().getBoots().getId() != ItemID.LEATHER_BOOTS) {
             if(this.freezingTicks < 140) {
                 this.freezingTicks++;
                 this.setDataProperty(new FloatEntityData(DATA_FREEZING_EFFECT_STRENGTH, (1f / 140f) * freezingTicks));
@@ -1793,7 +1796,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         }
 
         if (!revert) {
-            int soulSpeedLevel = this.getInventory().getBoots().getEnchantmentLevel(Enchantment.ID_SOUL_SPEED);
+            int soulSpeedLevel = this.getInventory() != null ? this.getInventory().getBoots().getEnchantmentLevel(Enchantment.ID_SOUL_SPEED) : 0;
 
             if (soulSpeedLevel > 0) {
                 Block downBlock = this.getLevelBlock().down();
@@ -3730,7 +3733,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                                     boolean spamBug = (lastRightClickPos != null && System.currentTimeMillis() - lastRightClickTime < 100.0 && blockVector.distanceSquared(lastRightClickPos) < 0.00001);
                                     lastRightClickPos = blockVector.asVector3();
                                     lastRightClickTime = System.currentTimeMillis();
-                                    if (spamBug && this.getInventory().getItemInHand().getBlockId() == BlockID.AIR) {
+                                    if (spamBug && (this.getInventory() == null || this.getInventory().getItemInHand().getBlockId() == BlockID.AIR)) {
                                         return;
                                     }
 
@@ -3775,7 +3778,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
                                     this.resetCraftingGridType();
 
-                                    Item i = this.getInventory().getItemInHand();
+                                    Item i = this.getInventory() != null ? this.getInventory().getItemInHand() : Item.get(Item.AIR);
 
                                     Item oldItem = i.clone();
 
@@ -5560,7 +5563,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     }
 
     public void resetCraftingGridType() {
-        if (this.craftingGrid != null) {
+        if (this.craftingGrid != null && this.inventory != null) {
             Item[] drops = this.inventory.addItem(this.craftingGrid.getContents().values().toArray(Item.EMPTY_ARRAY));
 
             if (drops.length > 0) {
@@ -6047,7 +6050,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     private void updateBlockingFlag() {
         boolean shouldBlock = getNoShieldTicks() == 0
                 && (this.isSneaking() || getRiding() != null)
-                && (this.getInventory().getItemInHand().getId() == ItemID.SHIELD || this.getOffhandInventory().getItem(0).getId() == ItemID.SHIELD);
+                && (this.getInventory() != null && this.getOffhandInventory() != null & (this.getInventory().getItemInHand().getId() == ItemID.SHIELD || this.getOffhandInventory().getItem(0).getId() == ItemID.SHIELD));
 
         if (isBlocking() != shouldBlock) {
             this.setBlocking(shouldBlock);
@@ -6093,8 +6096,10 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public void giveItem(Item... items) {
-        for(Item failed: getInventory().addItem(items)) {
-            getLevel().dropItem(this, failed);
+        if (getInventory() != null) {
+            for (Item failed : getInventory().addItem(items)) {
+                getLevel().dropItem(this, failed);
+            }
         }
     }
 

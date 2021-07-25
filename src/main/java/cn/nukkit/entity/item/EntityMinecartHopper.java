@@ -267,7 +267,7 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
         boolean pickedUpItem = false;
 
         for(Entity entity : this.level.getCollidingEntities(new SimpleAxisAlignedBB(this.getFloorX(), this.getFloorY(), this.getFloorZ(), this.getFloorX() + 1, this.getFloorY() + 2.5, this.getFloorZ() + 1))) {
-            if (entity.isClosed() || !(entity instanceof EntityItem)) {
+            if (!(entity instanceof EntityItem) || entity.isClosed()) {
                 continue;
             }
 

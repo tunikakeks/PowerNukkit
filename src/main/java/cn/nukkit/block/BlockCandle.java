@@ -6,7 +6,7 @@ public class BlockCandle extends BlockCandleBase {
 
     @Override
     public String getName() {
-        return "Candle Cake";
+        return "Candle";
     }
 
     @Override

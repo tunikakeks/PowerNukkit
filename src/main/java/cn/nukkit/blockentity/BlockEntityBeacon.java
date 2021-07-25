@@ -133,6 +133,9 @@ public class BlockEntityBeacon extends BlockEntitySpawnable {
                     //Get the regen effect
                     e = Effect.getEffect(Effect.REGENERATION);
 
+                    //Set invisible
+                    e.setVisible(false);
+
                     //Set duration
                     e.setDuration(duration * 20);
 

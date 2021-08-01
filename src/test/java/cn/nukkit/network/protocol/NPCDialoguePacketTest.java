@@ -37,7 +37,7 @@ class NPCDialoguePacketTest {
     @Test
     void encodeDecode() {
         val packet = new NPCDialoguePacket();
-        packet.setRuntimeEntityId(1L);
+        packet.setUniqueEntityId(1L);
         packet.setAction(NPCDialogAction.CLOSE);
         packet.setDialogue("dialog");
         packet.setSceneName("scene");
@@ -50,7 +50,7 @@ class NPCDialoguePacketTest {
         packet2.getUnsignedVarInt();
         packet2.decode();
         
-        assertEquals(1L, packet2.getRuntimeEntityId());
+        assertEquals(1L, packet2.getUniqueEntityId());
         assertEquals(NPCDialogAction.CLOSE, packet2.getAction());
         assertEquals("dialog", packet2.getDialogue());
         assertEquals("scene", packet2.getSceneName());

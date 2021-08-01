@@ -36,7 +36,7 @@ public class NPCDialoguePacket extends DataPacket {
     
     private static final NPCDialogAction[] ACTIONS = NPCDialogAction.values();
     
-    private long runtimeEntityId;
+    private long uniqueEntityId;
     private NPCDialogAction action = NPCDialogAction.OPEN;
     private String dialogue = "";
     private String sceneName = "";
@@ -56,7 +56,7 @@ public class NPCDialoguePacket extends DataPacket {
 
     @Override
     public void decode() {
-        runtimeEntityId = getUnsignedVarLong();
+        uniqueEntityId = getLLong();
         action = ACTIONS[getVarInt()];
         dialogue = getString();
         sceneName = getString();
@@ -67,7 +67,7 @@ public class NPCDialoguePacket extends DataPacket {
     @Override
     public void encode() {
         reset();
-        putUnsignedVarLong(runtimeEntityId);
+        putLLong(uniqueEntityId);
         putVarInt(action.ordinal());
         putString(dialogue);
         putString(sceneName);
@@ -77,14 +77,14 @@ public class NPCDialoguePacket extends DataPacket {
 
     @PowerNukkitOnly
     @Since("FUTURE")
-    public long getRuntimeEntityId() {
-        return runtimeEntityId;
+    public long getUniqueEntityId() {
+        return uniqueEntityId;
     }
 
     @PowerNukkitOnly
     @Since("FUTURE")
-    public void setRuntimeEntityId(long runtimeEntityId) {
-        this.runtimeEntityId = runtimeEntityId;
+    public void setUniqueEntityId(long runtimeEntityId) {
+        this.uniqueEntityId = runtimeEntityId;
     }
 
     @PowerNukkitOnly

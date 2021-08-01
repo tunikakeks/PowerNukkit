@@ -5,8 +5,6 @@ import cn.nukkit.level.ChunkManager;
 import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.math.Vector3;
 
-import java.util.*;
-
 public class ObectMoss {
 
     public static void growMoss(ChunkManager level, Vector3 pos, NukkitRandom random) {

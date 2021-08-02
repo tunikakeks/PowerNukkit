@@ -3,6 +3,7 @@ package cn.nukkit.block;
 import cn.nukkit.Player;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
+import cn.nukkit.level.generator.object.ObectMoss;
 import cn.nukkit.level.generator.object.ObjectTallGrass;
 import cn.nukkit.level.particle.BoneMealParticle;
 import cn.nukkit.math.NukkitRandom;
@@ -60,6 +61,7 @@ public class BlockMoss extends BlockSolid {
             }
             this.level.addParticle(new BoneMealParticle(this));
             ObjectTallGrass.growGrass(this.getLevel(), this, new NukkitRandom());
+            ObectMoss.growMoss(this.getLevel(), this, new NukkitRandom());
             return true;
         }
         return false;

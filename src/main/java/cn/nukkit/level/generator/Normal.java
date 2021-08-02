@@ -220,6 +220,7 @@ public class Normal extends Generator {
                         new DeepslateOreType(Block.get(BlockID.GOLD_ORE), Block.get(BlockID.DEEPSLATE_GOLD_ORE), 2, 4, 28, 34),
                         new DeepslateOreType(Block.get(BlockID.GOLD_ORE), Block.get(BlockID.DEEPSLATE_GOLD_ORE), 1, 8, 0, 28),
 
+                        new DeepslateOreType(Block.get(BlockID.DIAMOND_ORE), Block.get(BlockID.DEEPSLATE_DIAMOND_ORE), 1, 8, 0, 16),
                         new DeepslateOreType(Block.get(BlockID.DIAMOND_ORE), Block.get(BlockID.DEEPSLATE_DIAMOND_ORE), 2, 2, 0, 16),
 
                         new DeepslateOreType(Block.get(BlockID.COPPER_ORE), Block.get(BlockID.DEEPSLATE_COPPER_ORE), 6, 8, 0, 96),

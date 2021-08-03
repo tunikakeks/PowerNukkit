@@ -78,6 +78,30 @@ public class ObjectAzaleaTree extends ObjectTree {
 
     @Override
     protected void placeTrunk(ChunkManager level, int x, int y, int z, NukkitRandom random, int trunkHeight) {
+        int rootCount = 0;
+        all:
+        for (int yy = 2; yy < 8; yy++) {
+            for (int xx = -3; xx <= 3; xx++) {
+                for (int zz = -3; zz <= 3; zz++) {
+                    int blockId = level.getBlockIdAt(x + xx, y - yy, z + zz);
+                    if (blockId == Block.AIR || blockId == Block.DIRT || blockId == Block.GRASS || blockId == Block.STONE) {
+                        if ((yy != 7 || ((xx >= -1 && xx <= 1) && (zz >= -1 && zz <= 1))) && random.nextBoundedInt(Math.max(-xx, xx) + 1) == 0 && random.nextBoundedInt(Math.max(-zz, zz) + 1) == 0) {
+                            level.setBlockAt(x + xx, y - yy, z + zz, Block.DIRT_WITH_ROOTS);
+                            if (yy == 7) {
+                                rootCount++;
+                                blockId = level.getBlockIdAt(x + xx, y - yy - 1, z + zz);
+                                if (blockId == Block.AIR || blockId == Block.DIRT || blockId == Block.GRASS || blockId == Block.STONE) {
+                                    level.setBlockAt(x + xx, y - yy - 1, z + zz, Block.HANGING_ROOTS);
+                                }
+                            }
+                            if (rootCount >= 3) {
+                                break all;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         level.setBlockAt(x, y - 1, z, BlockID.DIRT_WITH_ROOTS);
         level.setBlockAt(x, y, z, getTrunkBlock());
         for (int yy = 0; yy <= trunkHeight; ++yy) {

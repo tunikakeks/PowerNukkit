@@ -62,11 +62,13 @@ public class BlockDirtRooted extends BlockSolid {
             this.getLevel().setBlock(this, get(DIRT), true);
             this.getLevel().dropItem(add(0, 0.5, 0), MinecraftItemID.HANGING_ROOTS.get(1));
             player.getLevel().addSound(player, Sound.USE_GRASS);
+            return true;
         } else if (item.isShovel()) {
             item.useOn(this);
             this.getLevel().setBlock(this, Block.get(BlockID.GRASS_PATH));
             player.getLevel().addSound(player, Sound.USE_GRASS);
+            return true;
         }
-        return true;
+        return false;
     }
 }

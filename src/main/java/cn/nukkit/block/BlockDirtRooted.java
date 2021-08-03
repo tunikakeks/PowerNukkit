@@ -69,7 +69,6 @@ public class BlockDirtRooted extends BlockSolid {
             player.getLevel().addSound(player, Sound.USE_GRASS);
             return true;
         }
-
         return false;
     }
 }

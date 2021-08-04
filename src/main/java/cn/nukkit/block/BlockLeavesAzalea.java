@@ -3,6 +3,7 @@ package cn.nukkit.block;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.value.WoodType;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.MinecraftItemID;
 
 import javax.annotation.Nonnull;
 
@@ -44,5 +45,10 @@ public class BlockLeavesAzalea extends BlockLeaves {
     @Override
     public BlockProperties getProperties() {
         return PROPERTIES;
+    }
+
+    @Override
+    public boolean shearDropsBlock() {
+        return false;
     }
 }

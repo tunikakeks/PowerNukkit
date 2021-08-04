@@ -138,7 +138,7 @@ public class BlockLeaves extends BlockTransparentMeta {
 
     @Override
     public Item[] getDrops(Item item) {
-        if (item.isShears()) {
+        if (shearDropsBlock() && item.isShears()) {
             return new Item[]{
                     toItem()
             };
@@ -296,5 +296,9 @@ public class BlockLeaves extends BlockTransparentMeta {
     @Override
     public boolean sticksToPiston() {
         return false;
+    }
+
+    public boolean shearDropsBlock() {
+        return true;
     }
 }

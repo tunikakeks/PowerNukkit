@@ -1,5 +1,6 @@
 package cn.nukkit.entity.weather;
 
+import cn.nukkit.Server;
 import cn.nukkit.api.PowerNukkitDifference;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
@@ -9,6 +10,7 @@ import cn.nukkit.entity.Entity;
 import cn.nukkit.event.block.BlockFadeEvent;
 import cn.nukkit.event.block.BlockIgniteEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
+import cn.nukkit.event.entity.LightningDistractEvent;
 import cn.nukkit.level.GameRule;
 import cn.nukkit.level.Position;
 import cn.nukkit.level.Sound;
@@ -59,7 +61,11 @@ public class EntityLightning extends Entity implements EntityLightningStrike {
                     for(int z = -32; z <= 32; z++) {
                         Block rod = this.getLevel().getBlock(this.getFloorX() + x, this.getFloorY() + y, this.getFloorZ() + z);
                         if(rod instanceof BlockLightningRod) {
-                            this.setPosition(new Vector3(rod.x, rod.y + 1, rod.z));
+                            LightningDistractEvent lightningDistractEvent = new LightningDistractEvent(this, rod);
+                            Server.getInstance().getPluginManager().callEvent(lightningDistractEvent);
+                            if(!lightningDistractEvent.isCancelled()) {
+                                this.setPosition(lightningDistractEvent.getDistractionBlock());
+                            }
                             break x;
                         }
                     }

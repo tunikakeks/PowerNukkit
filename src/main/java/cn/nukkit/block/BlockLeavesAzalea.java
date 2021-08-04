@@ -23,7 +23,7 @@ public class BlockLeavesAzalea extends BlockLeaves {
 
     @Override
     protected Item getSapling() {
-        return Item.get(Item.AZALEA);
+        return MinecraftItemID.AZALEA.get(1);
     }
 
     @Override

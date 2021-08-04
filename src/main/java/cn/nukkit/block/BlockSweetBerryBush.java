@@ -181,6 +181,7 @@ public class BlockSweetBerryBush extends BlockFlowable {
             case GRASS:
             case DIRT:
             case PODZOL:
+            case MOSS_BLOCK:
                 return true;
             default:
                 return false;

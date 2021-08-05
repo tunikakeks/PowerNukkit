@@ -2,6 +2,7 @@ package cn.nukkit.event.entity;
 
 import cn.nukkit.entity.Entity;
 import cn.nukkit.potion.Effect;
+import lombok.Getter;
 
 import java.util.Map;
 
@@ -14,6 +15,9 @@ public class EntityDamageByEntityEvent extends EntityDamageEvent {
 
     private float knockBack;
 
+    @Getter
+    private int lootingLevel;
+
     public EntityDamageByEntityEvent(Entity damager, Entity entity, DamageCause cause, float damage) {
         this(damager, entity, cause, damage, 0.3f);
     }
@@ -23,16 +27,34 @@ public class EntityDamageByEntityEvent extends EntityDamageEvent {
     }
 
     public EntityDamageByEntityEvent(Entity damager, Entity entity, DamageCause cause, float damage, float knockBack) {
-        super(entity, cause, damage);
-        this.damager = damager;
-        this.knockBack = knockBack;
-        this.addAttackerModifiers(damager);
+        this(damager, entity, cause, damage, knockBack, 0);
     }
 
     public EntityDamageByEntityEvent(Entity damager, Entity entity, DamageCause cause, Map<DamageModifier, Float> modifiers, float knockBack) {
+        this(damager, entity, cause, modifiers, knockBack, 0);
+    }
+
+    public EntityDamageByEntityEvent(Entity damager, Entity entity, DamageCause cause, float damage, int lootingLevel) {
+        this(damager, entity, cause, damage, 0.3f, lootingLevel);
+    }
+
+    public EntityDamageByEntityEvent(Entity damager, Entity entity, DamageCause cause, Map<DamageModifier, Float> modifiers, int lootingLevel) {
+        this(damager, entity, cause, modifiers, 0.3f, lootingLevel);
+    }
+
+    public EntityDamageByEntityEvent(Entity damager, Entity entity, DamageCause cause, float damage, float knockBack, int lootingLevel) {
+        super(entity, cause, damage);
+        this.damager = damager;
+        this.knockBack = knockBack;
+        this.lootingLevel = lootingLevel;
+        this.addAttackerModifiers(damager);
+    }
+
+    public EntityDamageByEntityEvent(Entity damager, Entity entity, DamageCause cause, Map<DamageModifier, Float> modifiers, float knockBack, int lootingLevel) {
         super(entity, cause, modifiers);
         this.damager = damager;
         this.knockBack = knockBack;
+        this.lootingLevel = lootingLevel;
         this.addAttackerModifiers(damager);
     }
 

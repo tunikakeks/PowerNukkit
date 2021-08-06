@@ -129,6 +129,11 @@ public class BlockAzalea extends BlockTransparent {
     }
 
     @Override
+    public boolean canBeFlowedInto() {
+        return true;
+    }
+
+    @Override
     public boolean breaksWhenMoved() {
         return true;
     }

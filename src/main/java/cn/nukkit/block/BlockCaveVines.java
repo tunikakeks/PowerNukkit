@@ -11,7 +11,6 @@ import cn.nukkit.level.particle.BoneMealParticle;
 import cn.nukkit.math.*;
 
 import javax.annotation.Nonnull;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author PleaseInsertNameHere
@@ -113,7 +112,6 @@ public class BlockCaveVines extends BlockTransparent {
         }
 
         if (type == Level.BLOCK_UPDATE_RANDOM
-                && ThreadLocalRandom.current().nextInt(5) == 0
                 && level.getFullLight(add(0, 1, 0)) >= BlockCrops.MINIMUM_LIGHT_LEVEL) {
             if (this.down().getId() == Block.AIR) {
                 level.setBlock(this.down(), this.clone());
@@ -138,11 +136,6 @@ public class BlockCaveVines extends BlockTransparent {
     @Since("1.4.0.0-PN")
     public static boolean isSupportValid(Block block) {
         return block.isSolid() || block.getId() == Block.CAVE_VINES || block.getId() == Block.CAVE_VINES_HEAD_WITH_BERRIES || block.getId() == Block.CAVE_VINES_BODY_WITH_BERRIES;
-    }
-
-    @Override
-    public boolean canHarvestWithHand() {
-        return false;
     }
 
     @Override

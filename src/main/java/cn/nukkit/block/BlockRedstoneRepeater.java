@@ -43,6 +43,16 @@ public abstract class BlockRedstoneRepeater extends BlockRedstoneDiode {
     }
 
     @Override
+    public boolean canBeFlowedInto() {
+        return true;
+    }
+
+    @Override
+    public int getWaterloggingLevel() {
+        return 0;
+    }
+
+    @Override
     public boolean onActivate(@Nonnull Item item, Player player) {
         int repeaterDelay = getPropertyValue(REPEATER_DELAY);
         if (repeaterDelay == 3) {

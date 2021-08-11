@@ -76,6 +76,16 @@ public abstract class BlockRedstoneComparator extends BlockRedstoneDiode impleme
     }
 
     @Override
+    public boolean canBeFlowedInto() {
+        return true;
+    }
+
+    @Override
+    public int getWaterloggingLevel() {
+        return 0;
+    }
+
+    @Override
     protected int getDelay() {
         return 2;
     }

@@ -45,12 +45,6 @@ public class CraftingTransaction extends InventoryTransaction {
             this.inputs = new ArrayList<>(1);
             
             this.secondaryOutputs = new ArrayList<>(1);
-        } else if(source.craftingType == Player.CRAFTING_LOOM) {
-            this.gridSize = 3;
-
-            this.inputs = new ArrayList<>(3);
-
-            this.secondaryOutputs = new ArrayList<>(1);
         } else {
             this.gridSize = (source.getCraftingGrid() instanceof BigCraftingGrid) ? 3 : 2;
 
@@ -82,10 +76,6 @@ public class CraftingTransaction extends InventoryTransaction {
 
     public void setExtraOutput(Item item) {
         if (secondaryOutputs.size() < gridSize * gridSize) {
-            if(craftingType == Player.CRAFTING_LOOM) {
-                source.getWindowById(Player.LOOM_WINDOW_ID).onSlotChange(3, item, false);
-                return;
-            }
             secondaryOutputs.add(item.clone());
         } else {
             throw new RuntimeException("Output list is full can't add " + item);
@@ -173,6 +163,12 @@ public class CraftingTransaction extends InventoryTransaction {
                     }
                 }
                 break;
+            case Player.CRAFTING_LOOM:
+                inventory = source.getWindowById(Player.LOOM_WINDOW_ID);
+                if(inventory instanceof LoomInventory) {
+                    LoomInventory loom = (LoomInventory) inventory;
+                    addInventory(loom);
+                }
             default:
                 recipe = craftingManager.matchRecipe(inputs, this.primaryOutput, this.secondaryOutputs);
                 break;
@@ -236,9 +232,6 @@ public class CraftingTransaction extends InventoryTransaction {
 
     @Since("1.3.0.0-PN")
     public boolean checkForCraftingPart(List<InventoryAction> actions) {
-        if(craftingType == Player.CRAFTING_LOOM) {
-            return true;
-        }
         for (InventoryAction action : actions) {
             if (action instanceof SlotChangeAction) {
                 SlotChangeAction slotChangeAction = (SlotChangeAction) action;

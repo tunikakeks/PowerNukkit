@@ -3703,6 +3703,11 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
                     switch (transactionPacket.transactionType) {
                         case InventoryTransactionPacket.TYPE_NORMAL:
+                            if(SignBookTransaction.checkForItemPart(actions)) {
+                                SignBookTransaction signBookTransaction = new SignBookTransaction(this, actions);
+                                signBookTransaction.execute();
+                                return;
+                            }
                             InventoryTransaction transaction = new InventoryTransaction(this, actions);
 
                             if (!transaction.execute()) {

@@ -38,16 +38,19 @@ public class LoomInventory extends FakeBlockUIComponent {
         who.resetCraftingGridType();
     }
 
-    @Override
-    public void onSlotChange(int index, Item before, boolean send) {
-        if(index == 3) {
-            Item input1 = getItem(0);
-            Item input2 = getItem(1);
-            input1.count--;
-            input2.count--;
-            setItem(0, input1);
-            setItem(1, input2);
-            playerUI.addItem(before);
-        }
+    public Item getFirstItem() {
+        return getItem(0);
+    }
+
+    public Item getSecondItem() {
+        return getItem(1);
+    }
+
+    public void setFirstItem(Item item) {
+        this.setItem(0, item);
+    }
+
+    public void setSecondItem(Item item) {
+        this.setItem(1, item);
     }
 }

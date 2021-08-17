@@ -187,6 +187,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     @Since("1.4.0.0-PN") protected RepairItemTransaction repairItemTransaction;
     @Since("1.4.0.0-PN") @PowerNukkitOnly protected GrindstoneTransaction grindstoneTransaction;
     @Since("1.4.0.0-PN") @PowerNukkitOnly protected SmithingTransaction smithingTransaction;
+    @Since("1.4.0.0-PN") @PowerNukkitOnly protected LoomTransaction loomTransaction;
 
     public long creationTime = 0;
 
@@ -3527,6 +3528,26 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     }
 
                     if (transactionPacket.isCraftingPart) {
+                        if (LoomTransaction.checkForItemPart(actions)) {
+                            if (this.loomTransaction == null) {
+                                this.loomTransaction = new LoomTransaction(this, actions);
+                            } else {
+                                for (InventoryAction action : actions) {
+                                    this.loomTransaction.addAction(action);
+                                }
+                            }
+                            if (this.loomTransaction.canExecute()) {
+                                if (this.loomTransaction.execute()) {
+                                    Collection<Player> players = level.getChunkPlayers(getChunkX(), getChunkZ()).values();
+                                    players.remove(this);
+                                    if (!players.isEmpty()) {
+                                        level.addSound(this, Sound.BLOCK_LOOM_USE, 1f, 1f, players);
+                                    }
+                                }
+                            }
+                            this.loomTransaction = null;
+                            return;
+                        }
                         if (this.craftingTransaction == null) {
                             this.craftingTransaction = new CraftingTransaction(this, actions);
                         } else {

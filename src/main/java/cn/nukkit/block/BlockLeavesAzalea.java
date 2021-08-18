@@ -33,7 +33,7 @@ public class BlockLeavesAzalea extends BlockLeaves {
 
     @Override
     public void setType(WoodType type) {
-        return;
+
     }
 
     @Override

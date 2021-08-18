@@ -46,9 +46,4 @@ public class BlockLeavesAzalea extends BlockLeaves {
     public BlockProperties getProperties() {
         return PROPERTIES;
     }
-
-    @Override
-    public boolean shearDropsBlock() {
-        return false;
-    }
 }

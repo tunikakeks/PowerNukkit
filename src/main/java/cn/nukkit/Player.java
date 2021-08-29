@@ -2142,7 +2142,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
     protected void processLogin() {
         if (!this.server.isWhitelisted((this.getName()).toLowerCase())) {
-            this.kick(PlayerKickEvent.Reason.NOT_WHITELISTED, "You're not invited to play on this server.");
+            this.kick(PlayerKickEvent.Reason.NOT_WHITELISTED, "You're not invited to play on this server.", false);
 
             return;
         } else if (this.isBanned()) {

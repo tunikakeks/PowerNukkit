@@ -4508,6 +4508,10 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
             this.riding = null;
         }
 
+        if (!this.closed) {
+            super.close();
+        }
+
         if (this.perm != null) {
             this.perm.clearPermissions();
             this.perm = null;

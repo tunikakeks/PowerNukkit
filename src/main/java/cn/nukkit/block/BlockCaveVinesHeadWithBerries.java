@@ -3,6 +3,8 @@ package cn.nukkit.block;
 import cn.nukkit.Player;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.blockproperty.BlockProperties;
+import cn.nukkit.blockproperty.IntBlockProperty;
 import cn.nukkit.event.block.BlockHarvestEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemGlowBerries;
@@ -11,6 +13,7 @@ import cn.nukkit.level.Position;
 import cn.nukkit.math.BlockFace;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -18,6 +21,12 @@ import java.util.concurrent.ThreadLocalRandom;
  * @since 28/06/2021
  */
 public class BlockCaveVinesHeadWithBerries extends BlockTransparent {
+
+    public static final IntBlockProperty GROWING_PLANT_AGE = new IntBlockProperty("growing_plant_age", false, 25);
+
+    @PowerNukkitOnly
+    @Since("1.5.0.0-PN")
+    public static final BlockProperties PROPERTIES = new BlockProperties(GROWING_PLANT_AGE);
 
     public BlockCaveVinesHeadWithBerries() {
 
@@ -31,6 +40,12 @@ public class BlockCaveVinesHeadWithBerries extends BlockTransparent {
     @Override
     public String getName() {
         return "Cave Vines";
+    }
+
+    @Nonnull
+    @Override
+    public BlockProperties getProperties() {
+        return PROPERTIES;
     }
 
     @Override
@@ -79,7 +94,7 @@ public class BlockCaveVinesHeadWithBerries extends BlockTransparent {
     }
 
     @Override
-    public boolean onActivate(@Nonnull Item item) {
+    public boolean onActivate(@Nonnull Item item, @Nullable Player player) {
         BlockHarvestEvent event = new BlockHarvestEvent(this,
                 new BlockCaveVines(),
                 new Item[]{ new ItemGlowBerries(1 + ThreadLocalRandom.current().nextInt(2)) }

@@ -13,6 +13,7 @@ import cn.nukkit.level.particle.BoneMealParticle;
 import cn.nukkit.math.*;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author PleaseInsertNameHere
@@ -87,7 +88,7 @@ public class BlockCaveVines extends BlockTransparent {
     }
 
     @Override
-    public boolean onActivate(@Nonnull Item item, Player player) {
+    public boolean onActivate(@Nonnull Item item, @Nullable Player player) {
         if (item.isFertilizer()) {
             int downId = this.down().getId();
             BlockGrowEvent event = new BlockGrowEvent(this, Block.get(downId != CAVE_VINES ? CAVE_VINES_HEAD_WITH_BERRIES : CAVE_VINES_BODY_WITH_BERRIES));

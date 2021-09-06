@@ -5,9 +5,11 @@ import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.CommonBlockProperties;
+import cn.nukkit.event.level.StructureGrowEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.level.Level;
+import cn.nukkit.level.ListChunkManager;
 import cn.nukkit.level.generator.object.tree.ObjectAzaleaTree;
 import cn.nukkit.level.particle.BoneMealParticle;
 import cn.nukkit.math.BlockFace;
@@ -89,7 +91,16 @@ public class BlockAzalea extends BlockTransparent {
                 return true;
             }
 
-            new ObjectAzaleaTree().placeObject(this.getLevel(), (int) this.x, (int) this.y, (int) this.z, new NukkitRandom());
+            ListChunkManager chunkManager = new ListChunkManager(this.level);
+            new ObjectAzaleaTree().placeObject(chunkManager, (int) this.x, (int) this.y, (int) this.z, new NukkitRandom());
+            StructureGrowEvent structureGrowEvent = new StructureGrowEvent(this, chunkManager.getBlocks());
+            this.level.getServer().getPluginManager().callEvent(structureGrowEvent);
+            if (structureGrowEvent.isCancelled()) {
+                return true;
+            }
+            for(Block block : structureGrowEvent.getBlockList()) {
+                this.level.setBlock(block, block);
+            }
 
             return true;
         }

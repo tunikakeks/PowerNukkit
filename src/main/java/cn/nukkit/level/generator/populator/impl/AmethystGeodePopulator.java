@@ -14,7 +14,7 @@ public class AmethystGeodePopulator extends Populator {
 
     @Override
     public void populate(ChunkManager level, int chunkX, int chunkZ, NukkitRandom random, FullChunk chunk) {
-        if(random.nextRange(1, 53) == 1) {
+        if(random.nextRange(1, 30) == 1) {
             int height = random.nextRange(10, 70);
             makeCircle(chunk, BlockID.SMOOTH_BASALT, height, 7, false);
             makeCircle(chunk, BlockID.CALCITE, height, 6, false);

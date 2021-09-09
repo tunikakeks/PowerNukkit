@@ -42,6 +42,12 @@ public class BlockCaveVines extends BlockTransparent {
         return "Cave Vines";
     }
 
+    @Nonnull
+    @Override
+    public BlockProperties getProperties() {
+        return PROPERTIES;
+    }
+
     @Override
     public int getBurnChance() {
         return 30;

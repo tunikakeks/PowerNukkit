@@ -39,6 +39,36 @@ public abstract class BlockCandleBase extends BlockTransparent {
     }
 
     @Override
+    public double getMinX() {
+        return this.x + 0.375;
+    }
+
+    @Override
+    public double getMinY() {
+        return this.x;
+    }
+
+    @Override
+    public double getMinZ() {
+        return this.x + 0.375;
+    }
+
+    @Override
+    public double getMaxX() {
+        return this.x + 0.625;
+    }
+
+    @Override
+    public double getMaxY() {
+        return this.y + 0.375;
+    }
+
+    @Override
+    public double getMaxZ() {
+        return this.z + 0.625;
+    }
+
+    @Override
     public double getResistance() {
         return 0.1;
     }

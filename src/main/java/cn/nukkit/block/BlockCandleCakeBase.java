@@ -40,6 +40,36 @@ public abstract class BlockCandleCakeBase extends BlockTransparent {
     }
 
     @Override
+    public double getMinX() {
+        return this.x + 0.0625;
+    }
+
+    @Override
+    public double getMinY() {
+        return this.y;
+    }
+
+    @Override
+    public double getMinZ() {
+        return this.z + 0.0625;
+    }
+
+    @Override
+    public double getMaxX() {
+        return this.x - 0.0625 + 1;
+    }
+
+    @Override
+    public double getMaxY() {
+        return this.y + 0.875;
+    }
+
+    @Override
+    public double getMaxZ() {
+        return this.z - 0.0625 + 1;
+    }
+
+    @Override
     public boolean breaksWhenMoved() {
         return true;
     }

@@ -1,6 +1,7 @@
 package cn.nukkit.block;
 
 import cn.nukkit.Player;
+import cn.nukkit.blockentity.BlockEntityCauldron;
 import cn.nukkit.blockproperty.ArrayBlockProperty;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.BooleanBlockProperty;
@@ -116,6 +117,43 @@ public class BlockPointedDripstone extends BlockSolid {
             if(!this.isHanging()) {
                 return 0;
             }
+            Block up = this.up(2);
+            if(up instanceof BlockLiquid) {
+                if(ThreadLocalRandom.current().nextInt(256) < (up instanceof BlockWater ? 45 : 15)) {
+                    boolean maxLengthReached = true;
+                    Block dripstoneTip = null;
+                    for(int i = 0; i <= 11; i++) {
+                        dripstoneTip = this.down(i);
+                        if(dripstoneTip.getId() != POINTED_DRIPSTONE) {
+                            maxLengthReached = false;
+                            break;
+                        }
+                    }
+                    if(!maxLengthReached) {
+                        for(int i = 1; i <= 10; i++) {
+                            Block down = dripstoneTip.down(i);
+                            if(down.getId() == AIR) {
+                                continue;
+                            }
+                            if(down instanceof BlockCauldron) {
+                                BlockCauldron cauldron = (BlockCauldron) down;
+                                if(up instanceof BlockLava && cauldron.isEmpty()) {
+                                    BlockEntityCauldron blockEntityCauldron = cauldron.getOrCreateBlockEntity();
+                                    BlockCauldronLava cauldronLava = new BlockCauldronLava(0xE);
+                                    cauldronLava.setFillLevel(BlockCauldron.FILL_LEVEL.getMaxValue());
+                                    this.level.setBlock(cauldron, cauldronLava, true, true);
+                                    blockEntityCauldron.clearCustomColor();
+                                    blockEntityCauldron.setType(BlockEntityCauldron.PotionType.LAVA);
+                                } else if(!cauldron.isFull()) {
+                                    cauldron.setFillLevel(cauldron.getFillLevel() + 2);
+                                    this.getLevel().setBlock(cauldron, cauldron, true);
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
             Block down = this.down();
             if(down instanceof BlockPointedDripstone) {
                 down.onUpdate(type);
@@ -129,7 +167,7 @@ public class BlockPointedDripstone extends BlockSolid {
             }
             int upCount = 1;
             while(true) {
-                Block up = this.up(upCount++);
+                up = this.up(upCount++);
                 if(up instanceof BlockPointedDripstone) {
                     continue;
                 }

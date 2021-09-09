@@ -273,12 +273,12 @@ public class Effect implements Cloneable {
         this.color = ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
     }
 
-    public void add(Entity entity) {
+    public boolean add(Entity entity) {
         Effect oldEffect = entity.getEffect(getId());
         if (oldEffect != null && (Math.abs(this.getAmplifier()) < Math.abs(oldEffect.getAmplifier()) ||
                 Math.abs(this.getAmplifier()) == Math.abs(oldEffect.getAmplifier())
                         && this.getDuration() < oldEffect.getDuration())) {
-            return;
+            return false;
         }
         if (entity instanceof Player) {
             Player player = (Player) entity;
@@ -321,6 +321,8 @@ public class Effect implements Cloneable {
             int add = (this.amplifier + 1) * 4;
             if (add > entity.getAbsorption()) entity.setAbsorption(add);
         }
+
+        return true;
     }
 
     public void remove(Entity entity) {

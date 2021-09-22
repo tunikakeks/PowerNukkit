@@ -131,7 +131,7 @@ public class BlockBed extends BlockTransparentMeta implements Faceable, BlockEnt
         BlockFace dir = getBlockFace();
 
         boolean shouldExplode = this.level.getDimension() != Level.DIMENSION_OVERWORLD;
-        boolean willExplode = shouldExplode && this.level.getGameRules().getBoolean(GameRule.TNT_EXPLODES);
+        boolean willExplode = shouldExplode && this.level.getGameRules().getBoolean(GameRule.RESPAWN_BLOCKS_EXPLODE);
         
         Block head;
         if (isHeadPiece()) {

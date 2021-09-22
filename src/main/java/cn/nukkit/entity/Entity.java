@@ -1929,9 +1929,9 @@ public abstract class Entity extends Location implements Metadatable {
             return;
         }
 
-        float damage = (float) Math.floor(fallDistance - 3 - (this.hasEffect(Effect.JUMP) ? this.getEffect(Effect.JUMP).getAmplifier() + 1 : 0));
         Location floorLocation = this.floor();
         Block down = this.level.getBlock(floorLocation.down());
+        float damage = (float) Math.floor(fallDistance * (down.getId() == BlockID.POINTED_DRIPSTONE ? 2 : 1) - 3 - (this.hasEffect(Effect.JUMP) ? this.getEffect(Effect.JUMP).getAmplifier() + 1 : 0));
         if (damage > 0) {
             if(down instanceof BlockHayBale) {
                 damage -= (damage * 0.8f);

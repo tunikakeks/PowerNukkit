@@ -17,12 +17,12 @@ public interface ProtocolInfo {
     /**
      * Actual Minecraft: PE protocol version
      */
-    int CURRENT_PROTOCOL = dynamic(448);
+    int CURRENT_PROTOCOL = dynamic(465);
 
     List<Integer> SUPPORTED_PROTOCOLS = Ints.asList(CURRENT_PROTOCOL);
 
-    String MINECRAFT_VERSION = dynamic("v1.17.10");
-    String MINECRAFT_VERSION_NETWORK = dynamic("1.17.10");
+    String MINECRAFT_VERSION = dynamic("v1.17.30");
+    String MINECRAFT_VERSION_NETWORK = dynamic("1.17.30");
 
     byte LOGIN_PACKET = 0x01;
     byte PLAY_STATUS_PACKET = 0x02;
@@ -190,6 +190,7 @@ public interface ProtocolInfo {
     @Since("1.5.0.0-PN") @PowerNukkitOnly @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "REMOVE_VOLUME_ENTITY_PACKET") byte REMOVE_VOLUME_ENTITY = REMOVE_VOLUME_ENTITY_PACKET;
     @Since("FUTURE") @PowerNukkitOnly byte SIMULATION_TYPE_PACKET = (byte) 0xa8;
     @Since("FUTURE") @PowerNukkitOnly byte NPC_DIALOGUE_PACKET = (byte) 0xa9;
+    @Since("FUTURE") @PowerNukkitOnly byte CREATE_PHOTO_PACKET = (byte) 0xab;
 
     byte BATCH_PACKET = (byte) 0xff;
 }

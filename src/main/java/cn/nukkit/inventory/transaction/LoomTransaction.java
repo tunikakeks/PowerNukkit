@@ -46,6 +46,9 @@ public class LoomTransaction extends InventoryTransaction {
         if(first.getId() != Item.BANNER || second.getId() != Item.DYE || first.getDamage() != outputItem.getDamage()) {
             return false;
         }
+        if(!outputItem.hasCompoundTag()) {
+            return false;
+        }
         int patternCount = outputItem.getNamedTag().getList("Patterns").size();
         if(first.getNamedTag() == null) {
             return patternCount == 1;

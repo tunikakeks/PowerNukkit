@@ -144,7 +144,7 @@ public class BlockPointedDripstone extends BlockSolid {
                                     this.level.setBlock(cauldron, cauldronLava, true, true);
                                     blockEntityCauldron.clearCustomColor();
                                     blockEntityCauldron.setType(BlockEntityCauldron.PotionType.LAVA);
-                                } else if(!cauldron.isFull()) {
+                                } else if(!cauldron.isFull() && !cauldron.getOrCreateBlockEntity().hasPotion()) {
                                     cauldron.setFillLevel(cauldron.getFillLevel() + 2);
                                     this.getLevel().setBlock(cauldron, cauldron, true);
                                 }

@@ -26,9 +26,4 @@ public class ItemCampfireSoul extends Item {
         super(SOUL_CAMPFIRE, meta, count, "Soul Campfire");
         this.block = new BlockCampfireSoul();
     }
-
-    @Override
-    public int getMaxStackSize() {
-        return 1;
-    }
 }

@@ -39,9 +39,11 @@ public class BlockItemFrame extends BlockTransparentMeta implements BlockEntityH
     @Since("1.4.0.0-PN")
     public static final BooleanBlockProperty HAS_MAP = new BooleanBlockProperty("item_frame_map_bit", false);
 
+    public static final BooleanBlockProperty HAS_PHOTO = new BooleanBlockProperty("item_frame_photo_bit", false);
+
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
-    public static final BlockProperties PROPERTIES = new BlockProperties(FACING_DIRECTION, HAS_MAP);
+    public static final BlockProperties PROPERTIES = new BlockProperties(FACING_DIRECTION, HAS_MAP, HAS_PHOTO);
 
     public BlockItemFrame() {
         this(0);

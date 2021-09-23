@@ -33,6 +33,7 @@ public enum GameRule {
     SEND_COMMAND_FEEDBACK("sendCommandFeedback"),
     SHOW_COORDINATES("showCoordinates"),
     @Since("1.5.1.0-PN") SHOW_DEATH_MESSAGES("showDeathMessages"),
+    @Since("FUTURE") RESPAWN_BLOCKS_EXPLODE("respawnBlocksExplode"),
 
     @Deprecated
     @PowerNukkitOnly("Renamed to SHOW_DEATH_MESSAGE by NukkitX") 

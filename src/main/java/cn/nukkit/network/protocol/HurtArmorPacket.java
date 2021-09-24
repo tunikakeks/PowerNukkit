@@ -17,7 +17,7 @@ public class HurtArmorPacket extends DataPacket {
     @Since("1.3.0.0-PN")
     public int damage;
 
-    @Since("1.5.2.0-PN")
+    @Since("FUTURE")
     public long armorSlots;
 
     @Override
@@ -28,6 +28,7 @@ public class HurtArmorPacket extends DataPacket {
     @Override
     public void encode() {
         this.reset();
+        this.putUnsignedVarLong(this.armorSlots);
         this.putVarInt(this.cause);
         this.putVarInt(this.damage);
         this.putUnsignedVarLong(this.armorSlots);

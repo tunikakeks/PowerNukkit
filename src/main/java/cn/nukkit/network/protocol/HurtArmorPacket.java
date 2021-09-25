@@ -28,7 +28,6 @@ public class HurtArmorPacket extends DataPacket {
     @Override
     public void encode() {
         this.reset();
-        this.putUnsignedVarLong(this.armorSlots);
         this.putVarInt(this.cause);
         this.putVarInt(this.damage);
         this.putUnsignedVarLong(this.armorSlots);

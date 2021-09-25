@@ -42,6 +42,10 @@ public class BlockItemFrame extends BlockTransparentMeta implements BlockEntityH
     public static final BooleanBlockProperty HAS_PHOTO = new BooleanBlockProperty("item_frame_photo_bit", false);
 
     @PowerNukkitOnly
+    @Since("FUTURE")
+    public static final BooleanBlockProperty HAS_PHOTO = new BooleanBlockProperty("item_frame_photo_bit", false);
+
+    @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public static final BlockProperties PROPERTIES = new BlockProperties(FACING_DIRECTION, HAS_MAP, HAS_PHOTO);
 
@@ -96,6 +100,18 @@ public class BlockItemFrame extends BlockTransparentMeta implements BlockEntityH
     @Since("1.4.0.0-PN")
     public void setStoringMap(boolean map) {
         setBooleanValue(HAS_MAP, map);
+    }
+
+    @PowerNukkitOnly
+    @Since("FUTURE")
+    public boolean isStoringPhoto() {
+        return getBooleanValue(HAS_PHOTO);
+    }
+
+    @PowerNukkitOnly
+    @Since("FUTURE")
+    public void setStoringPhoto(boolean hasPhoto) {
+        setBooleanValue(HAS_PHOTO, hasPhoto);
     }
 
     @PowerNukkitOnly

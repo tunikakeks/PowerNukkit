@@ -36,6 +36,7 @@ public class AddVolumeEntityPacket extends DataPacket {
         reset();
         putUnsignedVarInt(id);
         putTag(data);
+        putString("");
     }
 
     @PowerNukkitOnly

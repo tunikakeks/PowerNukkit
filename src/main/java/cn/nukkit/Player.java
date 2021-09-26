@@ -4637,12 +4637,8 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     break;
 
                 case LAVA:
-                    Block block = this.level.getBlock(new Vector3(this.x, this.y - 1, this.z));
-                    if (block.getId() == Block.MAGMA) {
-                        message = "death.attack.magma";
-                    } else {
-                        message = "death.attack.lava";
-                    }
+                    message = "death.attack.lava";
+                    
                     if (killer instanceof EntityProjectile) {
                         Entity shooter = ((EntityProjectile) killer).shootingEntity;
                         if (shooter != null) {
@@ -4702,6 +4698,9 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     break;
                 case HUNGER:
                     message = "death.attack.starve";
+                    break;
+                case MAGMA:
+                    message = "death.attack.magma";
                     break;
                 default:
                     message = "death.attack.generic";

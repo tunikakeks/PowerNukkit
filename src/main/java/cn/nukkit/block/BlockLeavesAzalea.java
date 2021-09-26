@@ -3,6 +3,7 @@ package cn.nukkit.block;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.value.WoodType;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemBlock;
 
 import javax.annotation.Nonnull;
 
@@ -22,7 +23,7 @@ public class BlockLeavesAzalea extends BlockLeaves {
 
     @Override
     protected Item getSapling() {
-        return Item.get(Item.AZALEA);
+        return new ItemBlock(Block.get(AZALEA));
     }
 
     @Override
@@ -44,5 +45,10 @@ public class BlockLeavesAzalea extends BlockLeaves {
     @Override
     public BlockProperties getProperties() {
         return PROPERTIES;
+    }
+
+    @Override
+    public Item toItem() {
+        return new ItemBlock(Block.get(Block.AZALEA_LEAVES));
     }
 }

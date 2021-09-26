@@ -348,11 +348,7 @@ public class EntityDamageEvent extends EntityEvent implements Cancellable {
         /**
          * Damage caused by all
          */
-        HUNGER,
-        /**
-         * Damage caused by freezing
-         */
-        FREEZING
+        FREEZING,
         @PowerNukkitOnly
         @Since("FUTURE")
         ALL

@@ -422,7 +422,7 @@ public class BinaryStream {
         }
 
         int blockRuntimeId = getVarInt();
-        if (id <= 255 && id != FALLBACK_ID) {
+        if (id != null && id < 255 && id != FALLBACK_ID) {
             BlockState blockStateByRuntimeId = BlockStateRegistry.getBlockStateByRuntimeId(blockRuntimeId);
             if (blockStateByRuntimeId != null) {
                 damage = blockStateByRuntimeId.asItemBlock().getDamage();

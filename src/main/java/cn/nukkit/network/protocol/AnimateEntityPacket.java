@@ -20,6 +20,7 @@ public class AnimateEntityPacket extends DataPacket {
     private String animation;
     private String nextState;
     private String stopExpression;
+    private int stopExpressionVersion = 1;
     private String controller;
     private float blendOutTime;
     private List<Long> entityRuntimeIds = new ArrayList<>();
@@ -29,6 +30,7 @@ public class AnimateEntityPacket extends DataPacket {
     	this.animation = this.getString();
 		this.nextState = this.getString();
 		this.stopExpression = this.getString();
+		this.stopExpressionVersion = this.getInt();
 		this.controller = this.getString();
 		this.blendOutTime = this.getLFloat();
 		for (int i = 0, len = (int) this.getUnsignedVarInt(); i < len; i++) {
@@ -42,6 +44,7 @@ public class AnimateEntityPacket extends DataPacket {
         this.putString(this.animation);
 		this.putString(this.nextState);
 		this.putString(this.stopExpression);
+        this.putInt(this.stopExpressionVersion);
 		this.putString(this.controller);
 		this.putLFloat(this.blendOutTime);
 		this.putUnsignedVarInt(this.entityRuntimeIds.size());
@@ -89,6 +92,18 @@ public class AnimateEntityPacket extends DataPacket {
     @Since("1.5.1.0-PN")
     public String getStopExpression() {
         return this.stopExpression;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
+    public void setStopExpressionVersion(int stopExpressionVersion) {
+        this.stopExpressionVersion = stopExpressionVersion;
+    }
+
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
+    public int getStopExpressionVersion() {
+        return this.stopExpressionVersion;
     }
     
     @PowerNukkitOnly

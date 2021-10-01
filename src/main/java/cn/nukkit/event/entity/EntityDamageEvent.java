@@ -212,6 +212,16 @@ public class EntityDamageEvent extends EntityEvent implements Cancellable {
 
     public enum DamageCause {
         /**
+         * Plugins
+         */
+        CUSTOM,
+        /**
+         * Damage caused by /kill command
+         */
+        @PowerNukkitOnly
+        @Since("FUTURE")
+        OVERRIDE,
+        /**
          * Damage caused by contact with a block such as a Cactus
          */
         CONTACT,
@@ -268,20 +278,79 @@ public class EntityDamageEvent extends EntityEvent implements Cancellable {
          */
         MAGIC,
         /**
-         * Plugins
+         * Damage caused by Wither
          */
-        CUSTOM,
-        /**
-         * Damage caused by being struck by lightning
-         */
-        LIGHTNING,
+        @PowerNukkitOnly
+        @Since("FUTURE")
+        WITHER,
         /**
          * Damage caused by hunger
          */
         HUNGER,
         /**
-         * Damage caused by freezing
+         * Damage caused by anvil
          */
-        FREEZING
+        @PowerNukkitOnly
+        @Since("FUTURE")
+        ANVIL,
+        /**
+         * Damage caused by thorns
+         */
+        @PowerNukkitOnly
+        @Since("FUTURE")
+        THORNS,
+        /**
+         * Damage caused by falling block
+         */
+        @PowerNukkitOnly
+        @Since("FUTURE")
+        FALLING_BLOCK,
+        /**
+         * Damage caused by piston
+         */
+        @PowerNukkitOnly
+        @Since("FUTURE")
+        PISTON,
+        /**
+         * Damage caused by flying into wall
+         */
+        @PowerNukkitOnly
+        @Since("FUTURE")
+        FLYING_INTO_WALL,
+        /**
+         * Damage caused by magma
+         */
+        @PowerNukkitOnly
+        @Since("FUTURE")
+        MAGMA,
+        /**
+         * Damage caused by fireworks
+         */
+        @PowerNukkitOnly
+        @Since("FUTURE")
+        FIREWORKS,
+        /**
+         * Damage caused by being struck by lightning
+         */
+        LIGHTNING,
+        /**
+         * Damage caused by charging
+         */
+        @PowerNukkitOnly
+        @Since("FUTURE")
+        CHARGING,
+        /**
+         * Damage caused by temperature
+         */
+        @PowerNukkitOnly
+        @Since("FUTURE")
+        TEMPERATURE,
+        /**
+         * Damage caused by all
+         */
+        FREEZING,
+        @PowerNukkitOnly
+        @Since("FUTURE")
+        ALL
     }
 }

@@ -94,7 +94,7 @@
           "legacyId": -380,
           "id": "minecraft:cobbled_deepslate_slab",
           "count": 2,
-          "blockRuntimeId": 1148
+          "blockRuntimeId": 1146
         }
       ],
       "block": "stonecutter",
@@ -113,7 +113,7 @@
         {
           "legacyId": -381,
           "id": "minecraft:cobbled_deepslate_stairs",
-          "blockRuntimeId": 1156
+          "blockRuntimeId": 1148
         }
       ],
       "block": "stonecutter",
@@ -132,7 +132,7 @@
         {
           "legacyId": -382,
           "id": "minecraft:cobbled_deepslate_wall",
-          "blockRuntimeId": 1318
+          "blockRuntimeId": 1156
         }
       ],
       "block": "stonecutter",
@@ -152,7 +152,7 @@
           "legacyId": -392,
           "id": "minecraft:deepslate_brick_slab",
           "count": 2,
-          "blockRuntimeId": 4107
+          "blockRuntimeId": 4105
         }
       ],
       "block": "stonecutter",
@@ -172,7 +172,7 @@
           "legacyId": -392,
           "id": "minecraft:deepslate_brick_slab",
           "count": 2,
-          "blockRuntimeId": 4107
+          "blockRuntimeId": 4105
         }
       ],
       "block": "stonecutter",
@@ -192,7 +192,7 @@
           "legacyId": -392,
           "id": "minecraft:deepslate_brick_slab",
           "count": 2,
-          "blockRuntimeId": 4107
+          "blockRuntimeId": 4105
         }
       ],
       "block": "stonecutter",
@@ -211,7 +211,7 @@
         {
           "legacyId": -393,
           "id": "minecraft:deepslate_brick_stairs",
-          "blockRuntimeId": 4115
+          "blockRuntimeId": 4107
         }
       ],
       "block": "stonecutter",
@@ -230,7 +230,7 @@
         {
           "legacyId": -393,
           "id": "minecraft:deepslate_brick_stairs",
-          "blockRuntimeId": 4115
+          "blockRuntimeId": 4107
         }
       ],
       "block": "stonecutter",
@@ -249,7 +249,7 @@
         {
           "legacyId": -393,
           "id": "minecraft:deepslate_brick_stairs",
-          "blockRuntimeId": 4115
+          "blockRuntimeId": 4107
         }
       ],
       "block": "stonecutter",
@@ -268,7 +268,7 @@
         {
           "legacyId": -394,
           "id": "minecraft:deepslate_brick_wall",
-          "blockRuntimeId": 4277
+          "blockRuntimeId": 4115
         }
       ],
       "block": "stonecutter",
@@ -287,7 +287,7 @@
         {
           "legacyId": -394,
           "id": "minecraft:deepslate_brick_wall",
-          "blockRuntimeId": 4277
+          "blockRuntimeId": 4115
         }
       ],
       "block": "stonecutter",
@@ -306,7 +306,7 @@
         {
           "legacyId": -394,
           "id": "minecraft:deepslate_brick_wall",
-          "blockRuntimeId": 4277
+          "blockRuntimeId": 4115
         }
       ],
       "block": "stonecutter",
@@ -364,7 +364,7 @@
           "legacyId": -388,
           "id": "minecraft:deepslate_tile_slab",
           "count": 2,
-          "blockRuntimeId": 4290
+          "blockRuntimeId": 4288
         }
       ],
       "block": "stonecutter",
@@ -384,7 +384,7 @@
           "legacyId": -388,
           "id": "minecraft:deepslate_tile_slab",
           "count": 2,
-          "blockRuntimeId": 4290
+          "blockRuntimeId": 4288
         }
       ],
       "block": "stonecutter",
@@ -404,7 +404,7 @@
           "legacyId": -388,
           "id": "minecraft:deepslate_tile_slab",
           "count": 2,
-          "blockRuntimeId": 4290
+          "blockRuntimeId": 4288
         }
       ],
       "block": "stonecutter",
@@ -424,7 +424,7 @@
           "legacyId": -388,
           "id": "minecraft:deepslate_tile_slab",
           "count": 2,
-          "blockRuntimeId": 4290
+          "blockRuntimeId": 4288
         }
       ],
       "block": "stonecutter",
@@ -443,7 +443,7 @@
         {
           "legacyId": -389,
           "id": "minecraft:deepslate_tile_stairs",
-          "blockRuntimeId": 4298
+          "blockRuntimeId": 4290
         }
       ],
       "block": "stonecutter",
@@ -462,7 +462,7 @@
         {
           "legacyId": -389,
           "id": "minecraft:deepslate_tile_stairs",
-          "blockRuntimeId": 4298
+          "blockRuntimeId": 4290
         }
       ],
       "block": "stonecutter",
@@ -481,7 +481,7 @@
         {
           "legacyId": -389,
           "id": "minecraft:deepslate_tile_stairs",
-          "blockRuntimeId": 4298
+          "blockRuntimeId": 4290
         }
       ],
       "block": "stonecutter",
@@ -500,7 +500,7 @@
         {
           "legacyId": -389,
           "id": "minecraft:deepslate_tile_stairs",
-          "blockRuntimeId": 4298
+          "blockRuntimeId": 4290
         }
       ],
       "block": "stonecutter",
@@ -1147,7 +1147,7 @@
         {
           "legacyId": 139,
           "id": "minecraft:cobblestone_wall",
-          "blockRuntimeId": 3587
+          "blockRuntimeId": 1319
         }
       ],
       "block": "stonecutter",
@@ -1167,7 +1167,7 @@
         {
           "legacyId": -347,
           "id": "minecraft:cut_copper",
-          "blockRuntimeId": 3911
+          "blockRuntimeId": 3910
         }
       ],
       "block": "stonecutter",
@@ -1188,7 +1188,7 @@
           "legacyId": -361,
           "id": "minecraft:cut_copper_slab",
           "count": 2,
-          "blockRuntimeId": 3913
+          "blockRuntimeId": 3911
         }
       ],
       "block": "stonecutter",
@@ -1208,7 +1208,7 @@
         {
           "legacyId": -354,
           "id": "minecraft:cut_copper_stairs",
-          "blockRuntimeId": 3921
+          "blockRuntimeId": 3913
         }
       ],
       "block": "stonecutter",
@@ -1229,7 +1229,7 @@
           "legacyId": -361,
           "id": "minecraft:cut_copper_slab",
           "count": 2,
-          "blockRuntimeId": 3913
+          "blockRuntimeId": 3911
         }
       ],
       "block": "stonecutter",
@@ -1249,7 +1249,7 @@
         {
           "legacyId": -354,
           "id": "minecraft:cut_copper_stairs",
-          "blockRuntimeId": 3921
+          "blockRuntimeId": 3913
         }
       ],
       "block": "stonecutter",
@@ -1290,7 +1290,7 @@
         {
           "legacyId": -3,
           "id": "minecraft:dark_prismarine_stairs",
-          "blockRuntimeId": 4045
+          "blockRuntimeId": 4037
         }
       ],
       "block": "stonecutter",
@@ -4005,7 +4005,7 @@
         {
           "legacyId": -142,
           "id": "minecraft:dark_oak_button",
-          "blockRuntimeId": 3949
+          "blockRuntimeId": 3937
         }
       ],
       "shape": [
@@ -4108,7 +4108,7 @@
         {
           "legacyId": 151,
           "id": "minecraft:daylight_detector",
-          "blockRuntimeId": 4083
+          "blockRuntimeId": 4067
         }
       ],
       "shape": [
@@ -4435,7 +4435,7 @@
         {
           "legacyId": -152,
           "id": "minecraft:dark_oak_pressure_plate",
-          "blockRuntimeId": 4013
+          "blockRuntimeId": 3997
         }
       ],
       "shape": [
@@ -4752,7 +4752,7 @@
           "legacyId": -147,
           "id": "minecraft:dark_oak_trapdoor",
           "count": 2,
-          "blockRuntimeId": 4037
+          "blockRuntimeId": 4021
         }
       ],
       "shape": [
@@ -4930,7 +4930,7 @@
         {
           "legacyId": 58,
           "id": "minecraft:crafting_table",
-          "blockRuntimeId": 3772
+          "blockRuntimeId": 3771
         }
       ],
       "shape": [
@@ -13913,7 +13913,7 @@
           "legacyId": 164,
           "id": "minecraft:dark_oak_stairs",
           "count": 4,
-          "blockRuntimeId": 4021
+          "blockRuntimeId": 4013
         }
       ],
       "shape": [
@@ -18510,7 +18510,7 @@
         {
           "legacyId": 173,
           "id": "minecraft:coal_block",
-          "blockRuntimeId": 1142
+          "blockRuntimeId": 1141
         }
       ],
       "shape": [
@@ -18565,7 +18565,7 @@
           "legacyId": -380,
           "id": "minecraft:cobbled_deepslate_slab",
           "count": 6,
-          "blockRuntimeId": 1148
+          "blockRuntimeId": 1146
         }
       ],
       "shape": [
@@ -18589,7 +18589,7 @@
           "legacyId": -381,
           "id": "minecraft:cobbled_deepslate_stairs",
           "count": 4,
-          "blockRuntimeId": 1156
+          "blockRuntimeId": 1148
         }
       ],
       "shape": [
@@ -18615,7 +18615,7 @@
           "legacyId": -382,
           "id": "minecraft:cobbled_deepslate_wall",
           "count": 6,
-          "blockRuntimeId": 1318
+          "blockRuntimeId": 1156
         }
       ],
       "shape": [
@@ -18666,7 +18666,7 @@
           "legacyId": 139,
           "id": "minecraft:cobblestone_wall",
           "count": 6,
-          "blockRuntimeId": 3587
+          "blockRuntimeId": 1319
         }
       ],
       "shape": [
@@ -18772,7 +18772,7 @@
         {
           "legacyId": -213,
           "id": "minecraft:composter",
-          "blockRuntimeId": 3644
+          "blockRuntimeId": 3635
         }
       ],
       "shape": [
@@ -18797,7 +18797,7 @@
         {
           "legacyId": -213,
           "id": "minecraft:composter",
-          "blockRuntimeId": 3644
+          "blockRuntimeId": 3635
         }
       ],
       "shape": [
@@ -18822,7 +18822,7 @@
         {
           "legacyId": -213,
           "id": "minecraft:composter",
-          "blockRuntimeId": 3644
+          "blockRuntimeId": 3635
         }
       ],
       "shape": [
@@ -18852,7 +18852,7 @@
         {
           "legacyId": -157,
           "id": "minecraft:conduit",
-          "blockRuntimeId": 3677
+          "blockRuntimeId": 3676
         }
       ],
       "shape": [
@@ -18904,7 +18904,7 @@
         {
           "legacyId": -340,
           "id": "minecraft:copper_block",
-          "blockRuntimeId": 3678
+          "blockRuntimeId": 3677
         }
       ],
       "shape": [
@@ -18930,7 +18930,7 @@
           "legacyId": -347,
           "id": "minecraft:cut_copper",
           "count": 4,
-          "blockRuntimeId": 3911
+          "blockRuntimeId": 3910
         }
       ],
       "shape": [
@@ -18955,7 +18955,7 @@
           "legacyId": -361,
           "id": "minecraft:cut_copper_slab",
           "count": 6,
-          "blockRuntimeId": 3913
+          "blockRuntimeId": 3911
         }
       ],
       "shape": [
@@ -18979,7 +18979,7 @@
           "legacyId": -354,
           "id": "minecraft:cut_copper_stairs",
           "count": 4,
-          "blockRuntimeId": 3921
+          "blockRuntimeId": 3913
         }
       ],
       "shape": [
@@ -19079,7 +19079,7 @@
         {
           "legacyId": 58,
           "id": "minecraft:crafting_table",
-          "blockRuntimeId": 3772
+          "blockRuntimeId": 3771
         }
       ],
       "shape": [
@@ -19103,7 +19103,7 @@
         {
           "legacyId": 58,
           "id": "minecraft:crafting_table",
-          "blockRuntimeId": 3772
+          "blockRuntimeId": 3771
         }
       ],
       "shape": [
@@ -19577,7 +19577,7 @@
         {
           "legacyId": -260,
           "id": "minecraft:crimson_button",
-          "blockRuntimeId": 3784
+          "blockRuntimeId": 3772
         }
       ],
       "shape": [
@@ -19631,7 +19631,7 @@
           "legacyId": -256,
           "id": "minecraft:crimson_fence",
           "count": 3,
-          "blockRuntimeId": 3819
+          "blockRuntimeId": 3818
         }
       ],
       "shape": [
@@ -19660,7 +19660,7 @@
         {
           "legacyId": -258,
           "id": "minecraft:crimson_fence_gate",
-          "blockRuntimeId": 3820
+          "blockRuntimeId": 3819
         }
       ],
       "shape": [
@@ -19685,7 +19685,7 @@
           "legacyId": -299,
           "id": "minecraft:crimson_hyphae",
           "count": 3,
-          "blockRuntimeId": 3839
+          "blockRuntimeId": 3836
         }
       ],
       "shape": [
@@ -19710,7 +19710,7 @@
           "legacyId": -242,
           "id": "minecraft:crimson_planks",
           "count": 4,
-          "blockRuntimeId": 3841
+          "blockRuntimeId": 3840
         }
       ],
       "shape": [
@@ -19734,7 +19734,7 @@
           "legacyId": -242,
           "id": "minecraft:crimson_planks",
           "count": 4,
-          "blockRuntimeId": 3841
+          "blockRuntimeId": 3840
         }
       ],
       "shape": [
@@ -19758,7 +19758,7 @@
           "legacyId": -242,
           "id": "minecraft:crimson_planks",
           "count": 4,
-          "blockRuntimeId": 3841
+          "blockRuntimeId": 3840
         }
       ],
       "shape": [
@@ -19782,7 +19782,7 @@
           "legacyId": -242,
           "id": "minecraft:crimson_planks",
           "count": 4,
-          "blockRuntimeId": 3841
+          "blockRuntimeId": 3840
         }
       ],
       "shape": [
@@ -19805,7 +19805,7 @@
         {
           "legacyId": -262,
           "id": "minecraft:crimson_pressure_plate",
-          "blockRuntimeId": 3857
+          "blockRuntimeId": 3841
         }
       ],
       "shape": [
@@ -19859,7 +19859,7 @@
           "legacyId": -264,
           "id": "minecraft:crimson_slab",
           "count": 6,
-          "blockRuntimeId": 3860
+          "blockRuntimeId": 3858
         }
       ],
       "shape": [
@@ -19883,7 +19883,7 @@
           "legacyId": -254,
           "id": "minecraft:crimson_stairs",
           "count": 4,
-          "blockRuntimeId": 3868
+          "blockRuntimeId": 3860
         }
       ],
       "shape": [
@@ -19909,7 +19909,7 @@
           "legacyId": -246,
           "id": "minecraft:crimson_trapdoor",
           "count": 2,
-          "blockRuntimeId": 3903
+          "blockRuntimeId": 3887
         }
       ],
       "shape": [
@@ -20006,7 +20006,7 @@
         {
           "legacyId": -422,
           "id": "minecraft:cyan_candle",
-          "blockRuntimeId": 3929
+          "blockRuntimeId": 3921
         }
       ],
       "block": "crafting_table",
@@ -20384,7 +20384,7 @@
         {
           "legacyId": 186,
           "id": "minecraft:dark_oak_fence_gate",
-          "blockRuntimeId": 3997
+          "blockRuntimeId": 3981
         }
       ],
       "shape": [
@@ -20505,7 +20505,7 @@
           "legacyId": 164,
           "id": "minecraft:dark_oak_stairs",
           "count": 4,
-          "blockRuntimeId": 4021
+          "blockRuntimeId": 4013
         }
       ],
       "shape": [
@@ -20672,7 +20672,7 @@
         {
           "legacyId": 151,
           "id": "minecraft:daylight_detector",
-          "blockRuntimeId": 4083
+          "blockRuntimeId": 4067
         }
       ],
       "shape": [
@@ -20707,7 +20707,7 @@
         {
           "legacyId": 151,
           "id": "minecraft:daylight_detector",
-          "blockRuntimeId": 4083
+          "blockRuntimeId": 4067
         }
       ],
       "shape": [
@@ -20733,7 +20733,7 @@
           "legacyId": -392,
           "id": "minecraft:deepslate_brick_slab",
           "count": 6,
-          "blockRuntimeId": 4107
+          "blockRuntimeId": 4105
         }
       ],
       "shape": [
@@ -20757,7 +20757,7 @@
           "legacyId": -393,
           "id": "minecraft:deepslate_brick_stairs",
           "count": 4,
-          "blockRuntimeId": 4115
+          "blockRuntimeId": 4107
         }
       ],
       "shape": [
@@ -20783,7 +20783,7 @@
           "legacyId": -394,
           "id": "minecraft:deepslate_brick_wall",
           "count": 6,
-          "blockRuntimeId": 4277
+          "blockRuntimeId": 4115
         }
       ],
       "shape": [
@@ -20808,7 +20808,7 @@
           "legacyId": -391,
           "id": "minecraft:deepslate_bricks",
           "count": 4,
-          "blockRuntimeId": 4278
+          "blockRuntimeId": 4277
         }
       ],
       "shape": [
@@ -20833,7 +20833,7 @@
           "legacyId": -388,
           "id": "minecraft:deepslate_tile_slab",
           "count": 6,
-          "blockRuntimeId": 4290
+          "blockRuntimeId": 4288
         }
       ],
       "shape": [
@@ -20857,7 +20857,7 @@
           "legacyId": -389,
           "id": "minecraft:deepslate_tile_stairs",
           "count": 4,
-          "blockRuntimeId": 4298
+          "blockRuntimeId": 4290
         }
       ],
       "shape": [
@@ -29437,7 +29437,7 @@
           "legacyId": -3,
           "id": "minecraft:dark_prismarine_stairs",
           "count": 4,
-          "blockRuntimeId": 4045
+          "blockRuntimeId": 4037
         }
       ],
       "shape": [
@@ -35799,7 +35799,7 @@
           "legacyId": 237,
           "id": "minecraft:concrete_powder",
           "count": 8,
-          "blockRuntimeId": 3676
+          "blockRuntimeId": 3660
         }
       ],
       "block": "crafting_table",
@@ -35855,7 +35855,7 @@
           "legacyId": 237,
           "id": "minecraft:concrete_powder",
           "count": 8,
-          "blockRuntimeId": 3676
+          "blockRuntimeId": 3660
         }
       ],
       "block": "crafting_table",
@@ -55454,7 +55454,7 @@
       "output": {
         "legacyId": -410,
         "id": "minecraft:cracked_deepslate_bricks",
-        "blockRuntimeId": 3768
+        "blockRuntimeId": 3767
       },
       "block": "furnace"
     },
@@ -55468,7 +55468,7 @@
       "output": {
         "legacyId": -409,
         "id": "minecraft:cracked_deepslate_tiles",
-        "blockRuntimeId": 3769
+        "blockRuntimeId": 3768
       },
       "block": "furnace"
     },
@@ -55482,7 +55482,7 @@
       "output": {
         "legacyId": -378,
         "id": "minecraft:deepslate",
-        "blockRuntimeId": 4103
+        "blockRuntimeId": 4100
       },
       "block": "furnace"
     },
@@ -55552,7 +55552,7 @@
       "output": {
         "legacyId": -280,
         "id": "minecraft:cracked_polished_blackstone_bricks",
-        "blockRuntimeId": 3771
+        "blockRuntimeId": 3770
       },
       "block": "furnace"
     },
@@ -56192,7 +56192,7 @@
       "output": {
         "legacyId": -303,
         "id": "minecraft:cracked_nether_bricks",
-        "blockRuntimeId": 3770
+        "blockRuntimeId": 3769
       },
       "block": "furnace"
     },
@@ -56400,7 +56400,7 @@
       "output": {
         "legacyId": 229,
         "id": "minecraft:cyan_glazed_terracotta",
-        "blockRuntimeId": 3937
+        "blockRuntimeId": 3931
       },
       "block": "furnace"
     },

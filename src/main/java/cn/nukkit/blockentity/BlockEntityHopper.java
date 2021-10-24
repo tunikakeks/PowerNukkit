@@ -191,32 +191,29 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
             this.transferCooldown--;
             return true;
         }
-
+        
         if (disabled) {
-            return true;
+        	return false;
         }
 
-        if ((this.getLevel().getCurrentTick() % 2 == 0 && ((Math.max(x % 2, -x % 2) == Math.max(z % 2, -z % 2) && y % 2 == 0) || (Math.max(x % 2, -x % 2) != Math.max(z % 2, -z % 2) && y % 2 == 1))) || (this.getLevel().getCurrentTick() % 2 == 1 && ((Math.max(x % 2, -x % 2) != Math.max(z % 2, -z % 2) && y % 2 == 0) || (Math.max(x % 2, -x % 2) == Math.max(z % 2, -z % 2) && y % 2 == 1)))) {
-            Block blockSide = this.getBlock().getSide(BlockFace.UP);
-            BlockEntity blockEntity = this.level.getBlockEntity(temporalVector.setComponentsAdding(this, BlockFace.UP));
+        Block blockSide = this.getBlock().getSide(BlockFace.UP);
+        BlockEntity blockEntity = this.level.getBlockEntity(temporalVector.setComponentsAdding(this, BlockFace.UP));
 
-            boolean changed = pushItems();
+        boolean changed = pushItems();
 
-            if (blockEntity instanceof InventoryHolder || blockSide instanceof BlockComposter) {
-                changed = pullItems() || changed;
-            } else {
-                changed = pullMinecartItems() || changed;
-                changed = pickupItems() || changed;
-            }
-
-            if (changed) {
-                this.setTransferCooldown(8);
-                setDirty();
-            }
-
-
-            return true;
+        if (blockEntity instanceof InventoryHolder || blockSide instanceof BlockComposter)  {
+            changed = pullItems() || changed;
+        } else {
+            changed = pullMinecartItems() || changed;
+            changed = pickupItems() || changed;
         }
+
+        if (changed) {
+            this.setTransferCooldown(8);
+            setDirty();
+        }
+
+
         return true;
     }
 
@@ -271,19 +268,6 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
                 }
             }
         } else if (blockEntity instanceof InventoryHolder) {
-            if(blockEntity instanceof BlockEntityHopper) {
-                boolean skip = false;
-                if(!((BlockEntityHopper) blockEntity).isOnTransferCooldown()) {
-                    this.setTransferCooldown(1);
-                    skip = true;
-                }
-                if(((BlockHopper) blockEntity.getBlock()).getBlockFace() != BlockFace.DOWN) {
-                    ((BlockEntityHopper) blockEntity).setTransferCooldown(16);
-                }
-                if(skip) {
-                    return false;
-                }
-            }
             Inventory inv = ((InventoryHolder) blockEntity).getInventory();
 
             for (int i = 0; i < inv.getSize(); i++) {
@@ -313,6 +297,13 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
                     item.count--;
 
                     inv.setItem(i, item);
+
+                    Block blockDown = this.getBlock().down();
+                    if(blockDown instanceof BlockHopper) {
+                        BlockEntityHopper blockEntityHopper = ((BlockHopper) blockDown).getOrCreateBlockEntity();
+                        if(!blockEntityHopper.isOnTransferCooldown()) blockEntityHopper.transferCooldown = 1;
+                    }
+
                     return true;
                 }
             }
@@ -627,6 +618,13 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
 
                     item.count--;
                     this.inventory.setItem(i, item);
+                    if(be instanceof BlockEntityHopper) {
+                        if(!((BlockEntityHopper) be).isOnTransferCooldown()) ((BlockEntityHopper) be).transferCooldown = 1;
+                    }
+                    if(blockSide.down() instanceof BlockHopper) {
+                        BlockEntityHopper blockEntityHopper = ((BlockHopper) blockSide.down()).getOrCreateBlockEntity();
+                        if(!blockEntityHopper.isOnTransferCooldown()) blockEntityHopper.transferCooldown = 1;
+                    }
                     return true;
                 }
             }

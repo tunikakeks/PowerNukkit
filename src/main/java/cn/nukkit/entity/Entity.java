@@ -2771,9 +2771,14 @@ public abstract class Entity extends Location implements Metadatable {
 
     public boolean setDataProperty(EntityData data, boolean send) {
         if (!Objects.equals(data, this.getDataProperties().get(data.getId()))) {
-            this.getDataProperties().put(data);
+            this.dataProperties.put(data);
             if (send) {
-                this.sendData(this.hasSpawned.values().toArray(Player.EMPTY_ARRAY), new EntityMetadata().put(this.dataProperties.get(data.getId())));
+                EntityMetadata metadata = new EntityMetadata();
+                metadata.put(this.dataProperties.get(data.getId()));
+                if (data.getId() == DATA_FLAGS_EXTENDED) {
+                    metadata.put(this.dataProperties.get(DATA_FLAGS));
+                }
+                this.sendData(this.hasSpawned.values().toArray(Player.EMPTY_ARRAY), metadata);
             }
             return true;
         }

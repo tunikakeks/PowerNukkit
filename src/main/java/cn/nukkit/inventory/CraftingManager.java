@@ -466,6 +466,13 @@ public class CraftingManager {
         Item item;
         if (data.containsKey("blockRuntimeId")) {
             int blockRuntimeId = Utils.toInt(data.get("blockRuntimeId"));
+            if (blockRuntimeId >= 6748) {
+                blockRuntimeId += 4;
+            } else if (blockRuntimeId >= 5686) {
+                blockRuntimeId += 3;
+            } else if (blockRuntimeId >= 1140) {
+                blockRuntimeId += 1;
+            }
             try {
                 BlockState state = BlockStateRegistry.getBlockStateByRuntimeId(blockRuntimeId);
                 if (state == null || state.equals(BlockState.AIR)) {

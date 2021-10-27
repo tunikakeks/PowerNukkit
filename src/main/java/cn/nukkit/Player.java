@@ -68,6 +68,7 @@ import cn.nukkit.positiontracking.PositionTracking;
 import cn.nukkit.positiontracking.PositionTrackingService;
 import cn.nukkit.potion.Effect;
 import cn.nukkit.resourcepacks.ResourcePack;
+import cn.nukkit.resourcepacks.ResourcePackManager;
 import cn.nukkit.scheduler.AsyncTask;
 import cn.nukkit.scheduler.Task;
 import cn.nukkit.scheduler.TaskHandler;
@@ -1447,20 +1448,6 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     }
 
     @Override
-    public boolean setDataProperty(EntityData data) {
-        return setDataProperty(data, true);
-    }
-
-    @Override
-    public boolean setDataProperty(EntityData data, boolean send) {
-        if (super.setDataProperty(data, send)) {
-            if (send) this.sendData(this, new EntityMetadata().put(this.getDataProperty(data.getId())));
-            return true;
-        }
-        return false;
-    }
-
-    @Override
     protected void checkGroundState(double movX, double movY, double movZ, double dx, double dy, double dz) {
         if (!this.onGround || movX != 0 || movY != 0 || movZ != 0) {
             boolean onGround = false;
@@ -2432,7 +2419,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                             disconnectPacket.encode();
                             BatchPacket batch = new BatchPacket();
                             batch.payload = disconnectPacket.getBuffer();
-                            this.dataPacket(batch);
+                            this.dataPacketImmediately(batch);
                             // Still want to run close() to allow the player to be removed properly
                         }
                         this.close("", message, false);
@@ -2551,19 +2538,19 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                                 }
 
                                 ResourcePackDataInfoPacket dataInfoPacket = new ResourcePackDataInfoPacket();
-                                dataInfoPacket.packId = resourcePack.getPackId();
-                                dataInfoPacket.maxChunkSize = 1048576; //megabyte
-                                dataInfoPacket.chunkCount = resourcePack.getPackSize() / dataInfoPacket.maxChunkSize;
+                                dataInfoPacket.packInfo = resourcePack.getPackId().toString() + "_" + resourcePack.getPackVersion();
+                                dataInfoPacket.maxChunkSize = ResourcePackManager.getMaxChunkSize(); // 102400 is default
+                                dataInfoPacket.chunkCount = (int) Math.ceil(resourcePack.getPackSize() / (double) dataInfoPacket.maxChunkSize);
                                 dataInfoPacket.compressedPackSize = resourcePack.getPackSize();
                                 dataInfoPacket.sha256 = resourcePack.getSha256();
-                                this.dataPacket(dataInfoPacket);
+                                this.dataResourcePacket(dataInfoPacket);
                             }
                             break;
                         case ResourcePackClientResponsePacket.STATUS_HAVE_ALL_PACKS:
                             ResourcePackStackPacket stackPacket = new ResourcePackStackPacket();
                             stackPacket.mustAccept = this.server.getForceResources();
                             stackPacket.resourcePackStack = this.server.getResourcePackManager().getResourceStack();
-                            this.dataPacket(stackPacket);
+                            this.dataResourcePacket(stackPacket);
                             break;
                         case ResourcePackClientResponsePacket.STATUS_COMPLETED:
                             this.shouldLogin = true;
@@ -2576,18 +2563,18 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     break;
                 case ProtocolInfo.RESOURCE_PACK_CHUNK_REQUEST_PACKET:
                     ResourcePackChunkRequestPacket requestPacket = (ResourcePackChunkRequestPacket) packet;
-                    ResourcePack resourcePack = this.server.getResourcePackManager().getPackById(requestPacket.packId);
+                    ResourcePack resourcePack = this.server.getResourcePackManager().getPackById(UUID.fromString(requestPacket.packInfo.split("_")[0])); // TODO: Pack version check
                     if (resourcePack == null) {
                         this.close("", "disconnectionScreen.resourcePack");
                         break;
                     }
 
                     ResourcePackChunkDataPacket dataPacket = new ResourcePackChunkDataPacket();
-                    dataPacket.packId = resourcePack.getPackId();
+                    dataPacket.packInfo = resourcePack.getPackId().toString() + "_" + resourcePack.getPackVersion();
                     dataPacket.chunkIndex = requestPacket.chunkIndex;
-                    dataPacket.data = resourcePack.getPackChunk(1048576 * requestPacket.chunkIndex, 1048576);
-                    dataPacket.progress = 1048576 * requestPacket.chunkIndex;
-                    this.dataPacket(dataPacket);
+                    dataPacket.data = resourcePack.getPackChunk(ResourcePackManager.getMaxChunkSize() * requestPacket.chunkIndex, ResourcePackManager.getMaxChunkSize());
+                    dataPacket.progress = ResourcePackManager.getMaxChunkSize() * requestPacket.chunkIndex;
+                    this.dataResourcePacket(dataPacket);
                     break;
                 case ProtocolInfo.SET_LOCAL_PLAYER_AS_INITIALIZED_PACKET:
                     if (this.locallyInitialized) {
@@ -6255,6 +6242,30 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
             }
 
             this.interfaz.putPacket(this, packet, false, true);
+        }
+        
+        return true;
+    }
+    
+    @PowerNukkitOnly
+    @Since("FUTURE")
+    public boolean dataResourcePacket(DataPacket packet) {
+        if (!this.connected) {
+            return false;
+        }
+
+        try (Timing ignored = Timings.getSendDataPacketTiming(packet)) {
+            DataPacketSendEvent ev = new DataPacketSendEvent(this, packet);
+            this.server.getPluginManager().callEvent(ev);
+            if (ev.isCancelled()) {
+                return false;
+            }
+
+            if (log.isTraceEnabled() && !server.isIgnoredPacket(packet.getClass())) {
+                log.trace("Resource Outbound {}: {}", this.getName(), packet);
+            }
+
+            this.interfaz.putResourcePacket(this, packet);
         }
         
         return true;

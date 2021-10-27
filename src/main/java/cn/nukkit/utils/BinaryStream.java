@@ -473,10 +473,6 @@ public class BinaryStream {
             for (int i = 0; i < canBreak.length; i++) {
                 canBreak[i] = stream.readUTF();
             }
-
-            if (id != null && id == ItemID.SHIELD) {
-                stream.readLong();
-            }
         } catch (IOException e) {
             throw new IllegalStateException("Unable to read item user data", e);
         } finally {

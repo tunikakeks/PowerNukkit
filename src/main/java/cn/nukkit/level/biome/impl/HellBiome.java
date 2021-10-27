@@ -5,6 +5,10 @@ import cn.nukkit.api.Since;
 import cn.nukkit.level.biome.Biome;
 
 public class HellBiome extends Biome {
+
+    public HellBiome() {
+    }
+
     @Override
     public String getName() {
         return "Hell";

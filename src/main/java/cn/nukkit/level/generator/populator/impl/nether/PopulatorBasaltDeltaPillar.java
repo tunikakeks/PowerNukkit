@@ -9,7 +9,7 @@ import cn.nukkit.math.NukkitRandom;
 
 import java.util.ArrayList;
 
-public class PopulatorBasaltPillar extends Populator {
+public class PopulatorBasaltDeltaPillar extends Populator {
     private ChunkManager level;
 
     //Clumped together

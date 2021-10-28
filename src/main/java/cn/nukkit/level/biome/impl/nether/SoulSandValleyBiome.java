@@ -4,7 +4,6 @@ import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
 import cn.nukkit.level.generator.object.ore.OreType;
 import cn.nukkit.level.generator.populator.impl.PopulatorOre;
-import cn.nukkit.level.generator.populator.impl.nether.PopulatorBasaltPillar;
 import cn.nukkit.level.generator.populator.impl.nether.PopulatorGroundSoulFire;
 import cn.nukkit.level.generator.populator.impl.nether.PopulatorSoulsandFossils;
 
@@ -15,7 +14,6 @@ public class SoulSandValleyBiome extends NetherBiome {
         this.addPopulator(new PopulatorOre(BlockID.SOUL_SAND, new OreType[]{
                 new OreType(Block.get(SOUL_SOIL), 3, 128, 0, 128, SOUL_SAND)
         }));
-        this.addPopulator(new PopulatorBasaltPillar());
         PopulatorGroundSoulFire groundFire = new PopulatorGroundSoulFire();
         groundFire.setBaseAmount(1);
         groundFire.setRandomAmount(1);

@@ -6,7 +6,7 @@ import cn.nukkit.level.generator.object.ore.OreType;
 import cn.nukkit.level.generator.populator.impl.PopulatorOre;
 import cn.nukkit.level.generator.populator.impl.nether.PopulatorBasaltDeltaLava;
 import cn.nukkit.level.generator.populator.impl.nether.PopulatorBasaltDeltaMagma;
-import cn.nukkit.level.generator.populator.impl.nether.PopulatorBasaltPillar;
+import cn.nukkit.level.generator.populator.impl.nether.PopulatorBasaltDeltaPillar;
 
 public class BasaltDeltasBiome extends NetherBiome {
 
@@ -16,7 +16,7 @@ public class BasaltDeltasBiome extends NetherBiome {
         }));
         this.addPopulator(new PopulatorBasaltDeltaLava());
         this.addPopulator(new PopulatorBasaltDeltaMagma());
-        this.addPopulator(new PopulatorBasaltPillar());
+        this.addPopulator(new PopulatorBasaltDeltaPillar());
     }
 
     @Override

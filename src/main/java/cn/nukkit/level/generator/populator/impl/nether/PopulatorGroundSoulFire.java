@@ -13,6 +13,6 @@ public class PopulatorGroundSoulFire extends PopulatorGroundFire {
 
     @Override
     protected int belowBlock() {
-        return SOUL_SOIL;
+        return SOUL_SAND;
     }
 }

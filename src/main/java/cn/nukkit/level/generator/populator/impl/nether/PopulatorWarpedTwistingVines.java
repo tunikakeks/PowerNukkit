@@ -9,43 +9,44 @@ import cn.nukkit.math.NukkitRandom;
 
 import java.util.ArrayList;
 
-public class CrimsonWeepingVinesPopulator extends Populator {
+public class PopulatorWarpedTwistingVines extends Populator {
     private ChunkManager level;
 
     @Override
     public void populate(ChunkManager level, int chunkX, int chunkZ, NukkitRandom random, FullChunk chunk) {
         this.level = level;
-        int amount = random.nextBoundedInt(5)+1;
+        int amount = random.nextBoundedInt(5)+2;
 
         for (int i = 0; i < amount; ++i) {
             int x = NukkitMath.randomRange(random, chunkX << 4, (chunkX << 4) + 15);
             int z = NukkitMath.randomRange(random, chunkZ << 4, (chunkZ << 4) + 15);
             ArrayList<Integer> ys = this.getHighestWorkableBlocks(x, z);
             for(int y : ys) {
-                if(y <= 1) continue;
+                if (y <= 1) continue;
+                if(random.nextBoundedInt(4) == 0) continue;
                 int endY = this.getHighestEndingBlock(x, y, z);
-                int amountToDecrease = random.nextBoundedInt(y-endY);
-                for(int yPos = y; yPos > y-amountToDecrease; yPos--) {
-                    this.level.setBlockAt(x, yPos, z, WEEPING_VINES);
+                int amountToDecrease = random.nextBoundedInt(endY-y);
+                for(int yPos = y; yPos < y+(amountToDecrease/2); yPos++) {
+                    this.level.setBlockAt(x, yPos, z, TWISTING_VINES);
                 }
             }
         }
     }
 
     private int getHighestEndingBlock(int x, int y, int z) {
-        for (; y > 0; --y) {
+        for (; y < 128; ++y) {
             int b = this.level.getBlockIdAt(x, y, z);
             int higherBlockID = this.level.getBlockIdAt(x, y+1, z);
-            if (higherBlockID == 0 && (
-                    b == NETHERRACK || b == CRIMSON_NYLIUM || b == BLOCK_NETHER_WART_BLOCK ||
-                            b == STILL_LAVA || b == LAVA ||
-                            b == CRIMSON_FUNGUS || b == CRIMSON_ROOTS ||
-                            b == QUARTZ_ORE || b == NETHER_GOLD_ORE || b == ANCIENT_DERBRIS)) {
+            if (b == 0 && (
+                    higherBlockID == NETHERRACK || higherBlockID == WARPED_NYLIUM || higherBlockID == WARPED_WART_BLOCK ||
+                            higherBlockID == STILL_LAVA || higherBlockID == LAVA ||
+                            higherBlockID == WARPED_FUNGUS || higherBlockID == WARPED_ROOTS ||
+                            higherBlockID == QUARTZ_ORE || higherBlockID == NETHER_GOLD_ORE || higherBlockID == ANCIENT_DERBRIS)) {
                 break;
             }
         }
 
-        return ++y;
+        return y;
     }
 
     private ArrayList<Integer> getHighestWorkableBlocks(int x, int z) {
@@ -53,8 +54,8 @@ public class CrimsonWeepingVinesPopulator extends Populator {
         ArrayList<Integer> blockYs = new ArrayList<>();
         for (y = 128; y > 0; --y) {
             int b = this.level.getBlockIdAt(x, y, z);
-            if ((b == Block.CRIMSON_NYLIUM || b == Block.NETHERRACK) && this.level.getBlockIdAt(x, y-1, z) == 0) {
-                blockYs.add(y-1);
+            if ((b == Block.WARPED_NYLIUM || b == Block.NETHERRACK) && this.level.getBlockIdAt(x, y+1, z) == 0) {
+                blockYs.add(y+1);
             }
         }
         return blockYs;

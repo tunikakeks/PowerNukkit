@@ -10,13 +10,13 @@ import cn.nukkit.math.NukkitRandom;
 
 import java.util.ArrayList;
 
-public class BasaltDeltaMagmaPopulator extends Populator {
+public class PopulatorBasaltDeltaLava extends Populator {
     private ChunkManager level;
 
     @Override
     public void populate(ChunkManager level, int chunkX, int chunkZ, NukkitRandom random, FullChunk chunk) {
         this.level = level;
-        int amount = random.nextBoundedInt(4) + 20;
+        int amount = random.nextBoundedInt(64) + 64;
 
         for (int i = 0; i < amount; ++i) {
             int x = NukkitMath.randomRange(random, chunkX << 4, (chunkX << 4) + 15);
@@ -24,7 +24,7 @@ public class BasaltDeltaMagmaPopulator extends Populator {
             ArrayList<Integer> ys = this.getHighestWorkableBlocks(x, z);
             for(int y : ys) {
                 if(y <= 1) continue;
-                this.level.setBlockAt(x, y, z, BlockID.MAGMA);
+                this.level.setBlockAt(x, y, z, BlockID.STILL_LAVA);
             }
         }
     }
@@ -35,11 +35,11 @@ public class BasaltDeltaMagmaPopulator extends Populator {
         for (y = 128; y > 0; --y) {
             int b = this.level.getBlockIdAt(x, y, z);
             if ((b == Block.BASALT || b == Block.BLACKSTONE) &&
-                    this.level.getBlockIdAt(x, y+1, z) == 0 && (
-                    this.level.getBlockIdAt(x+1, y, z) == BlockID.STILL_LAVA ||
-                            this.level.getBlockIdAt(x-1, y, z) == BlockID.STILL_LAVA ||
-                            this.level.getBlockIdAt(x, y, z+1) == BlockID.STILL_LAVA ||
-                            this.level.getBlockIdAt(x, y, z-1) == BlockID.STILL_LAVA)
+                    this.level.getBlockIdAt(x, y+1, z) == 0 &&
+                    this.level.getBlockIdAt(x+1, y, z) != 0 &&
+                    this.level.getBlockIdAt(x-1, y, z) != 0 &&
+                    this.level.getBlockIdAt(x, y, z+1) != 0 &&
+                    this.level.getBlockIdAt(x, y, z-1) != 0
             ) {
                 blockYs.add(y);
             }

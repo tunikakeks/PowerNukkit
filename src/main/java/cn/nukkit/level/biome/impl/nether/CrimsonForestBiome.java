@@ -1,15 +1,15 @@
 package cn.nukkit.level.biome.impl.nether;
 
-import cn.nukkit.level.generator.populator.impl.nether.CrimsonFungiTreePopulator;
-import cn.nukkit.level.generator.populator.impl.nether.CrimsonGrassesPopulator;
-import cn.nukkit.level.generator.populator.impl.nether.CrimsonWeepingVinesPopulator;
+import cn.nukkit.level.generator.populator.impl.nether.PopulatorCrimsonFungiTree;
+import cn.nukkit.level.generator.populator.impl.nether.PopulatorCrimsonGrasses;
+import cn.nukkit.level.generator.populator.impl.nether.PopulatorCrimsonWeepingVines;
 
 public class CrimsonForestBiome extends NetherBiome {
 
     public CrimsonForestBiome() {
-        this.addPopulator(new CrimsonFungiTreePopulator());
-        this.addPopulator(new CrimsonGrassesPopulator());
-        this.addPopulator(new CrimsonWeepingVinesPopulator());
+        this.addPopulator(new PopulatorCrimsonFungiTree());
+        this.addPopulator(new PopulatorCrimsonGrasses());
+        this.addPopulator(new PopulatorCrimsonWeepingVines());
     }
 
     @Override

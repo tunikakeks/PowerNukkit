@@ -18,7 +18,7 @@ import java.util.StringJoiner;
 public class GameruleCommand extends VanillaCommand {
 
     public GameruleCommand(String name) {
-        super(name, "%nukkit.command.gamerule.description", "%nukkit.command.gamerule.usage");
+        super(name, "", "%nukkit.command.gamerule.usage");
         this.setPermission("nukkit.command.gamerule");
         this.commandParameters.clear();
 

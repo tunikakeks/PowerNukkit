@@ -43,7 +43,7 @@ public class DebugPasteCommand extends VanillaCommand {
     private static final String USER_AGENT = "PowerNukkit/"+ Nukkit.VERSION;
 
     public DebugPasteCommand(String name) {
-        super(name, "%nukkit.command.debug.description", "%nukkit.command.debug.usage");
+        super(name, "", "%nukkit.command.debug.usage");
         this.setPermission("nukkit.command.debug.perform");
         this.commandParameters.clear();
         this.commandParameters.put("clear", new CommandParameter[]{

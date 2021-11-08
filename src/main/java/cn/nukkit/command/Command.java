@@ -165,11 +165,7 @@ public abstract class Command {
             return true;
         }
 
-        if (this.permissionMessage == null) {
-            target.sendMessage(Nukkit.PREFIX + "Dieser Befehl existiert nicht.");
-        } else if (!this.permissionMessage.equals("")) {
-            target.sendMessage(this.permissionMessage.replace("<permission>", this.permission));
-        }
+        target.sendMessage(Nukkit.PREFIX + "Dieser Befehl existiert nicht.");
 
         return false;
     }

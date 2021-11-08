@@ -972,7 +972,7 @@ public class Server {
             return true;
         }
 
-        sender.sendMessage(new TranslationContainer(TextFormat.RED + "%commands.generic.unknown", commandLine));
+        sender.sendMessage(Command.NO_PERMISSION);
 
         return false;
     }

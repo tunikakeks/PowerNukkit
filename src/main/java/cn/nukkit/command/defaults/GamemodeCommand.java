@@ -19,11 +19,7 @@ public class GamemodeCommand extends VanillaCommand {
     public GamemodeCommand(String name) {
         super(name, "", "%commands.gamemode.usage",
                 new String[]{"gm"});
-        this.setPermission("nukkit.command.gamemode.survival;" +
-                "nukkit.command.gamemode.creative;" +
-                "nukkit.command.gamemode.adventure;" +
-                "nukkit.command.gamemode.spectator;" +
-                "nukkit.command.gamemode.other");
+        this.setPermission("nukkit.command.gamemode");
         this.commandParameters.clear();
         this.commandParameters.put("default", new CommandParameter[]{
                 CommandParameter.newType("gameMode", CommandParamType.INT),
@@ -37,6 +33,9 @@ public class GamemodeCommand extends VanillaCommand {
 
     @Override
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
+        if (!this.testPermission(sender)) {
+            return false;
+        }
         if (args.length == 0) {
             sender.sendMessage(new TranslationContainer("commands.generic.usage", this.usageMessage));
             return false;

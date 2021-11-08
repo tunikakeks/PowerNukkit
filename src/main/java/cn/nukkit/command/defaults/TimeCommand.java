@@ -18,10 +18,7 @@ public class TimeCommand extends VanillaCommand {
 
     public TimeCommand(String name) {
         super(name, "", "%nukkit.command.time.usage");
-        this.setPermission("nukkit.command.time.add;" +
-                "nukkit.command.time.set;" +
-                "nukkit.command.time.start;" +
-                "nukkit.command.time.stop");
+        this.setPermission("nukkit.command.time");
         this.commandParameters.clear();
         this.commandParameters.put("1arg", new CommandParameter[]{
                 CommandParameter.newEnum("mode", new CommandEnum("TimeMode", "query", "start", "stop"))
@@ -42,6 +39,10 @@ public class TimeCommand extends VanillaCommand {
 
     @Override
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
+        if (!this.testPermission(sender)) {
+            return false;
+        }
+
         if (args.length < 1) {
             sender.sendMessage(new TranslationContainer("commands.generic.usage", this.usageMessage));
 

@@ -21,6 +21,8 @@ import java.util.*;
  */
 public abstract class Command {
 
+    public static final String NO_PERMISSION = Nukkit.PREFIX + "Dieser Befehl existiert nicht.";
+
     protected CommandData commandData;
 
     private final String name;
@@ -165,7 +167,7 @@ public abstract class Command {
             return true;
         }
 
-        target.sendMessage(Nukkit.PREFIX + "Dieser Befehl existiert nicht.");
+        target.sendMessage(NO_PERMISSION);
 
         return false;
     }

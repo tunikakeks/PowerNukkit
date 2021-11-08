@@ -1,5 +1,6 @@
 package cn.nukkit.command;
 
+import cn.nukkit.Nukkit;
 import cn.nukkit.Player;
 import cn.nukkit.Server;
 import cn.nukkit.api.DeprecationDetails;
@@ -165,7 +166,7 @@ public abstract class Command {
         }
 
         if (this.permissionMessage == null) {
-            target.sendMessage("" + TextFormat.GOLD + TextFormat.BOLD + "ChickenMC" + TextFormat.DARK_GRAY + " » " + TextFormat.RESET + TextFormat.GRAY + "Dieser Befehl existiert nicht.");
+            target.sendMessage(Nukkit.PREFIX + "Dieser Befehl existiert nicht.");
         } else if (!this.permissionMessage.equals("")) {
             target.sendMessage(this.permissionMessage.replace("<permission>", this.permission));
         }

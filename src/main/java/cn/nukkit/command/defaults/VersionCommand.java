@@ -1,5 +1,6 @@
 package cn.nukkit.command.defaults;
 
+import cn.nukkit.Nukkit;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.command.data.CommandParamType;
 import cn.nukkit.command.data.CommandParameter;
@@ -31,12 +32,10 @@ public class VersionCommand extends VanillaCommand {
         if (!this.testPermission(sender)) {
             return true;
         }
-        sender.sendMessage(new TranslationContainer("nukkit.server.info.extended", sender.getServer().getName(),
-                sender.getServer().getNukkitVersion() + " ("+sender.getServer().getGitCommit()+")",
-                sender.getServer().getCodename(),
-                sender.getServer().getApiVersion(),
-                sender.getServer().getVersion(),
-                String.valueOf(ProtocolInfo.CURRENT_PROTOCOL)));
+
+        sender.sendMessage(Nukkit.PREFIX + "Version " + sender.getServer().getName() + sender.getServer().getNukkitVersion() + "(" + sender.getServer().getGitCommit() + ") [" + sender.getServer().getCodename() + "]" +
+                "\n" + TextFormat.DARK_GRAY + "» " + TextFormat.GRAY + "API: " + TextFormat.YELLOW + sender.getServer().getApiVersion() +
+                "\n" + TextFormat.DARK_GRAY + "» " + TextFormat.GRAY + "Minecraft-Version: " + TextFormat.YELLOW + sender.getServer().getVersion() + TextFormat.GRAY + " (Protokoll " + ProtocolInfo.CURRENT_PROTOCOL + ")");
         return true;
     }
 }

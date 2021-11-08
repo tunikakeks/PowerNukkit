@@ -3,6 +3,7 @@ package cn.nukkit;
 import cn.nukkit.math.NukkitMath;
 import cn.nukkit.network.protocol.ProtocolInfo;
 import cn.nukkit.utils.ServerKiller;
+import cn.nukkit.utils.TextFormat;
 import com.google.common.base.Preconditions;
 import io.netty.util.ResourceLeakDetector;
 import io.netty.util.internal.logging.InternalLoggerFactory;
@@ -56,6 +57,7 @@ public class Nukkit {
     public final static String GIT_COMMIT = getGitCommit();
     public final static String API_VERSION = dynamic("1.0.13");
     public final static String CODENAME = dynamic("PowerNukkit");
+    public final static String PREFIX = dynamic("" + TextFormat.GOLD + TextFormat.BOLD + "ChickenMC" + TextFormat.DARK_GRAY + " » " + TextFormat.RESET + TextFormat.GRAY);
     @Deprecated
     public final static String MINECRAFT_VERSION = ProtocolInfo.MINECRAFT_VERSION;
     @Deprecated

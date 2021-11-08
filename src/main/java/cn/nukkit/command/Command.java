@@ -165,7 +165,7 @@ public abstract class Command {
         }
 
         if (this.permissionMessage == null) {
-            target.sendMessage(new TranslationContainer(TextFormat.RED + "%commands.generic.unknown", this.name));
+            target.sendMessage("" + TextFormat.GOLD + TextFormat.BOLD + "ChickenMC" + TextFormat.DARK_GRAY + " » " + TextFormat.RESET + TextFormat.GRAY + "Dieser Befehl existiert nicht.");
         } else if (!this.permissionMessage.equals("")) {
             target.sendMessage(this.permissionMessage.replace("<permission>", this.permission));
         }

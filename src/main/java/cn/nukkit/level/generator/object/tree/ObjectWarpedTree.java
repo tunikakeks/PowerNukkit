@@ -1,6 +1,10 @@
 package cn.nukkit.level.generator.object.tree;
 
 import cn.nukkit.block.Block;
+import cn.nukkit.level.ChunkManager;
+import cn.nukkit.math.NukkitRandom;
+
+import java.util.ArrayList;
 
 /**
  * @author MagicDroidX (Nukkit Project)

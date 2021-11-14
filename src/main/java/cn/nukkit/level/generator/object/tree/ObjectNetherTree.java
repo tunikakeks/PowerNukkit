@@ -40,7 +40,7 @@ public abstract class ObjectNetherTree extends ObjectTree {
                         continue;
                     }
                     if (!Block.solid[level.getBlockIdAt(xx, yy, zz)]) {
-                        if(random.nextBoundedInt(20) == 0) level.setBlockAt(xx, yy, zz, Block.SHROOMLIGHT);
+                        if(random.nextBoundedInt(15) == 0) level.setBlockAt(xx, yy, zz, Block.SHROOMLIGHT);
                         else level.setBlockAt(xx, yy, zz, this.getLeafBlock());
                     }
                 }

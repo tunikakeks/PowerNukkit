@@ -37,9 +37,9 @@ public class PopulatorBasaltDeltaMagma extends Populator {
             if ((b == Block.BASALT || b == Block.BLACKSTONE) &&
                     this.level.getBlockIdAt(x, y+1, z) == 0 && (
                     this.level.getBlockIdAt(x+1, y, z) == BlockID.STILL_LAVA ||
-                            this.level.getBlockIdAt(x-1, y, z) == BlockID.STILL_LAVA ||
-                            this.level.getBlockIdAt(x, y, z+1) == BlockID.STILL_LAVA ||
-                            this.level.getBlockIdAt(x, y, z-1) == BlockID.STILL_LAVA)
+                    this.level.getBlockIdAt(x-1, y, z) == BlockID.STILL_LAVA ||
+                    this.level.getBlockIdAt(x, y, z+1) == BlockID.STILL_LAVA ||
+                    this.level.getBlockIdAt(x, y, z-1) == BlockID.STILL_LAVA)
             ) {
                 blockYs.add(y);
             }

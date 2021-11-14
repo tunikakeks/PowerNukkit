@@ -90,7 +90,8 @@ public class Nether extends Generator {
         PopulatorOre ores = new PopulatorOre(Block.NETHERRACK, new OreType[]{
                 new OreType(Block.get(BlockID.QUARTZ_ORE), 10, 16, 0, 128),
                 new OreType(Block.get(BlockID.SOUL_SAND), 5, 64, 0, 128),
-                new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 1, 7, 119),
+                new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 3, 8, 22),
+                new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 2, 7, 119),
                 new OreType(Block.get(BlockID.GRAVEL), 5, 64, 0, 128),
                 new OreType(Block.get(BlockID.FLOWING_LAVA), 1, 16, 0, (int) this.lavaHeight),
         });
@@ -112,7 +113,7 @@ public class Nether extends Generator {
                 new OreType(Block.get(BlockID.SOUL_SAND), 1, 64, 30, 35, NETHERRACK),
                 new OreType(Block.get(BlockID.FLOWING_LAVA), 32, 1, 0, 32, NETHERRACK),
                 new OreType(Block.get(BlockID.MAGMA), 32, 16, 26, 37, NETHERRACK),
-                new OreType(Block.get(BlockID.BLACKSTONE), 3, 16, 0, 37, NETHERRACK),
+                new OreType(Block.get(BlockID.BLACKSTONE), 3, 32, 0, 37, NETHERRACK),
                 new OreType(Block.get(BlockID.NETHER_GOLD_ORE), 5, 16, 10, 117, NETHERRACK),
                 new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 2, 2, 8, 119, NETHERRACK),
                 new OreType(Block.get(BlockID.ANCIENT_DERBRIS), 1, 3, 8, 22, NETHERRACK),
@@ -168,11 +169,10 @@ public class Nether extends Generator {
     @Override
     public void populateChunk(int chunkX, int chunkZ) {
         BaseFullChunk chunk = level.getChunk(chunkX, chunkZ);
-        this.nukkitRandom.setSeed(0xdeadbeef ^ ((long) chunkX << 8) ^ chunkZ ^ this.level.getSeed());
+        this.nukkitRandom.setSeed(0xdeadbeef ^ (chunkX << 8) ^ chunkZ ^ this.level.getSeed());
         for (Populator populator : this.populators) {
             populator.populate(this.level, chunkX, chunkZ, this.nukkitRandom, chunk);
         }
-
         Biome biome = EnumBiome.getBiome(chunk.getBiomeId(7, 7));
         biome.populateChunk(this.level, chunkX, chunkZ, this.nukkitRandom);
     }

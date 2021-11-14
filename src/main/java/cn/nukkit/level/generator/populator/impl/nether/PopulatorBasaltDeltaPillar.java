@@ -1,5 +1,6 @@
 package cn.nukkit.level.generator.populator.impl.nether;
 
+import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.format.FullChunk;
@@ -43,7 +44,7 @@ public class PopulatorBasaltDeltaPillar extends Populator {
         ArrayList<Integer> blockYs = new ArrayList<>();
         for (y = 128; y > 0; --y) {
             int b = this.level.getBlockIdAt(x, y, z);
-            if ((b == BASALT || b == BLACKSTONE || b == SOUL_SAND || b == SOUL_SOIL) && this.level.getBlockIdAt(x, y+1, z) == 0) {
+            if ((b == Block.BASALT || b == Block.BLACKSTONE) && this.level.getBlockIdAt(x, y+1, z) == 0) {
                 blockYs.add(y+1);
             }
         }

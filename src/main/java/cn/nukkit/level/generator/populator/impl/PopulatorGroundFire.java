@@ -14,7 +14,7 @@ import cn.nukkit.math.NukkitRandom;
 public class PopulatorGroundFire extends PopulatorSurfaceBlock {
     @Override
     protected boolean canStay(int x, int y, int z, FullChunk chunk) {
-        return EnsureCover.ensureCover(x, y, z, chunk) && EnsureBelow.ensureBelow(x, y, z, NETHERRACK, chunk);
+        return EnsureCover.ensureCover(x, y, z, chunk) && EnsureBelow.ensureBelow(x, y, z, belowBlock(), chunk);
     }
 
     @Override
@@ -38,5 +38,9 @@ public class PopulatorGroundFire extends PopulatorSurfaceBlock {
             }
         }
         return y == 0 ? -1 : y;
+    }
+
+    protected int belowBlock() {
+        return NETHERRACK;
     }
 }

@@ -15,7 +15,7 @@ public class PopulatorWarpedGrasses extends Populator {
     @Override
     public void populate(ChunkManager level, int chunkX, int chunkZ, NukkitRandom random, FullChunk chunk) {
         this.level = level;
-        int amount = random.nextBoundedInt(128) + 192;
+        int amount = random.nextBoundedInt(128) + 128;
 
         for (int i = 0; i < amount; ++i) {
             int x = NukkitMath.randomRange(random, chunkX << 4, (chunkX << 4) + 15);
@@ -28,7 +28,8 @@ public class PopulatorWarpedGrasses extends Populator {
                 int blockID;
 
                 if (randomType == 0) blockID = WARPED_FUNGUS;
-                else blockID = WARPED_ROOTS;
+                else if (random.nextBoundedInt(2) == 0) blockID = WARPED_ROOTS;
+                else blockID = NETHER_SPROUTS_BLOCK;
 
                 this.level.setBlockAt(x, y, z, blockID);
             }

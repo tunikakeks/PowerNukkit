@@ -1,23 +1,22 @@
 package cn.nukkit.network.protocol;
 
-import cn.nukkit.api.PowerNukkitOnly;
-import cn.nukkit.api.Since;
 import cn.nukkit.utils.Utils;
-import io.netty.util.internal.EmptyArrays;
 import lombok.ToString;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
- * @author CreeperFace
- * @since 5.3.2017
+ * Created by CreeperFace on 5.3.2017.
  */
 @ToString
-public class ClientboundMapItemDataPacket extends DataPacket { //TODO: update to 1.2
+public class ClientboundMapItemDataPacket extends DataPacket {
 
-    public int[] eids = EmptyArrays.EMPTY_INTS;
-
+    public static final byte NETWORK_ID = ProtocolInfo.CLIENTBOUND_MAP_ITEM_DATA_PACKET;
+    public static final int TEXTURE_UPDATE = 2;
+    public static final int DECORATIONS_UPDATE = 4;
+    public static final int ENTITIES_UPDATE = 8;
+    public int[] eids = new int[0];
     public long mapId;
     public int update;
     public byte scale;
@@ -26,21 +25,15 @@ public class ClientboundMapItemDataPacket extends DataPacket { //TODO: update to
     public int height;
     public int offsetX;
     public int offsetZ;
-
     public byte dimensionId;
-
-    public MapDecorator[] decorators = MapDecorator.EMPTY_ARRAY;
-    public int[] colors = EmptyArrays.EMPTY_INTS;
+    public MapDecorator[] decorators = new MapDecorator[0];
+    public MapTrackedObject[] trackedEntities = new MapTrackedObject[0];
+    public int[] colors = new int[0];
     public BufferedImage image = null;
-
-    //update
-    public static final int TEXTURE_UPDATE = 2;
-    public static final int DECORATIONS_UPDATE = 4;
-    public static final int ENTITIES_UPDATE = 8;
 
     @Override
     public byte pid() {
-        return ProtocolInfo.CLIENTBOUND_MAP_ITEM_DATA_PACKET;
+        return NETWORK_ID;
     }
 
     @Override
@@ -69,18 +62,28 @@ public class ClientboundMapItemDataPacket extends DataPacket { //TODO: update to
         this.putByte(this.dimensionId);
         this.putBoolean(this.isLocked);
 
-        if ((update & 0x08) != 0) { //TODO: find out what these are for
+        if ((update & 0x08) != 0) {
             this.putUnsignedVarInt(eids.length);
             for (int eid : eids) {
                 this.putEntityUniqueId(eid);
             }
         }
-        if ((update & (TEXTURE_UPDATE | DECORATIONS_UPDATE)) != 0) {
+        if ((update & (6)) != 0) {
             this.putByte(this.scale);
         }
 
         if ((update & DECORATIONS_UPDATE) != 0) {
-            this.putUnsignedVarInt(0);
+            this.putUnsignedVarInt(trackedEntities.length);
+            for (MapTrackedObject object : trackedEntities) {
+                this.putLInt(object.type);
+                if (object.type == MapTrackedObject.TYPE_BLOCK) {
+                    this.putBlockVector3(object.x, object.y, object.z);
+                } else if (object.type == MapTrackedObject.TYPE_ENTITY) {
+                    this.putEntityUniqueId(object.entityUniqueId);
+                } else {
+                    throw new IllegalArgumentException("Unknown map object type " + object.type);
+                }
+            }
 
             this.putUnsignedVarInt(decorators.length);
 
@@ -119,15 +122,23 @@ public class ClientboundMapItemDataPacket extends DataPacket { //TODO: update to
     }
 
     public static class MapDecorator {
-        @PowerNukkitOnly
-        @Since("1.4.0.0-PN")
-        public static final MapDecorator[] EMPTY_ARRAY = new MapDecorator[0];
-        
         public byte rotation;
         public byte icon;
         public byte offsetX;
         public byte offsetZ;
         public String label;
         public Color color;
+    }
+
+    public static class MapTrackedObject {
+        public static final int TYPE_ENTITY = 0;
+        public static final int TYPE_BLOCK = 1;
+
+        public int type;
+        public long entityUniqueId;
+
+        public int x;
+        public int y;
+        public int z;
     }
 }

@@ -90,6 +90,8 @@ import lombok.extern.log4j.Log4j2;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -98,6 +100,7 @@ import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteOrder;
 import java.util.*;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
@@ -3364,14 +3367,33 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                                 }
                             }
                         }
-                    }
-
-                    if (mapItem != null) {
+                    }  else {
                         PlayerMapInfoRequestEvent event;
                         getServer().getPluginManager().callEvent(event = new PlayerMapInfoRequestEvent(this, mapItem));
 
                         if (!event.isCancelled()) {
-                            ((ItemMap) mapItem).sendImage(this);
+                            ItemMap map = (ItemMap) mapItem;
+                            if (map.trySendImage(this)) {
+                                return;
+                            }
+                            try {
+                                BufferedImage image = new BufferedImage(128, 128, BufferedImage.TYPE_INT_RGB);
+                                Graphics2D graphics = image.createGraphics();
+
+                                int worldX = (this.getFloorX () / 128) << 7;
+                                int worldZ = (this.getFloorZ () / 128) << 7;
+                                for (int x = 0; x < 128; x++) {
+                                    for (int y = 0; y < 128; y++) {
+                                        graphics.setColor(new Color(this.getLevel().getMapColorAt(worldX + x, worldZ + y).getRGB()));
+                                        graphics.fillRect(x, y, x + 1, y + 1);
+                                    }
+                                }
+
+                                map.setImage(image);
+                                map.sendImage(this);
+                            } catch (Exception ex) {
+                                this.getServer().getLogger().debug("There was an error while generating map image", ex);
+                            }
                         }
                     }
 

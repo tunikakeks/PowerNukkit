@@ -80,6 +80,8 @@ public class ClientboundMapItemDataPacket extends DataPacket { //TODO: update to
         }
 
         if ((update & DECORATIONS_UPDATE) != 0) {
+            this.putUnsignedVarInt(0);
+
             this.putUnsignedVarInt(decorators.length);
 
             for (MapDecorator decorator : decorators) {
@@ -88,7 +90,7 @@ public class ClientboundMapItemDataPacket extends DataPacket { //TODO: update to
                 this.putByte(decorator.offsetX);
                 this.putByte(decorator.offsetZ);
                 this.putString(decorator.label);
-                this.putVarInt(decorator.color.getRGB());
+                this.putUnsignedVarInt(decorator.color.getRGB());
             }
         }
 

@@ -3,10 +3,10 @@ package cn.nukkit.item;
 import cn.nukkit.Player;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.network.protocol.ClientboundMapItemDataPacket;
-import lombok.extern.log4j.Log4j2;
+import cn.nukkit.utils.MainLogger;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -14,15 +14,12 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @author CreeperFace
- * @since 18.3.2017
+ * Created by CreeperFace on 18.3.2017.
  */
-@Log4j2
 public class ItemMap extends Item {
 
     public static int mapCount = 0;
 
-    // not very pretty but definitely better than before.
     private BufferedImage image;
 
     public ItemMap() {
@@ -35,11 +32,6 @@ public class ItemMap extends Item {
 
     public ItemMap(Integer meta, int count) {
         super(MAP, meta, count, "Map");
-        switch (meta) {
-            case 3: this.name = "Ocean Explorer Map"; break;
-            case 4: this.name = "Woodland Explorer Map"; break;
-            case 5: this.name = "Treasure Map"; break;
-        }
 
         if (!hasCompoundTag() || !getNamedTag().contains("map_uuid")) {
             CompoundTag tag = new CompoundTag();
@@ -54,7 +46,7 @@ public class ItemMap extends Item {
 
     public void setImage(BufferedImage image) {
         try {
-            if (image.getHeight() != 128 || image.getWidth() != 128) { //resize
+            if (image.getHeight() != 128 || image.getWidth() != 128) {
                 this.image = new BufferedImage(128, 128, image.getType());
                 Graphics2D g = this.image.createGraphics();
                 g.drawImage(image, 0, 0, 128, 128, null);
@@ -66,9 +58,10 @@ public class ItemMap extends Item {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ImageIO.write(this.image, "png", baos);
 
-            this.getNamedTag().putByteArray("Colors", baos.toByteArray());
+            this.setNamedTag(this.getNamedTag().putByteArray("Colors", baos.toByteArray()));
+            baos.close();
         } catch (IOException e) {
-            log.error("Error while adding an image to an ItemMap", e);
+            MainLogger.getLogger().logException(e);
         }
     }
 
@@ -78,7 +71,7 @@ public class ItemMap extends Item {
             image = ImageIO.read(new ByteArrayInputStream(data));
             return image;
         } catch (IOException e) {
-            log.error("Error while loading an image of an ItemMap from NBT", e);
+            MainLogger.getLogger().logException(e);
         }
 
         return null;
@@ -89,7 +82,7 @@ public class ItemMap extends Item {
     }
 
     public void sendImage(Player p) {
-        // don't load the image from NBT if it has been done before.
+        // Don't load the image from NBT if it has been done before
         BufferedImage image = this.image != null ? this.image : loadImageFromNBT();
 
         ClientboundMapItemDataPacket pk = new ClientboundMapItemDataPacket();
@@ -103,6 +96,22 @@ public class ItemMap extends Item {
         pk.image = image;
 
         p.dataPacket(pk);
+    }
+
+    public boolean trySendImage(Player p) {
+        BufferedImage image = this.image != null ? this.image : loadImageFromNBT();
+        if (image == null) return false;
+        ClientboundMapItemDataPacket pk = new ClientboundMapItemDataPacket();
+        pk.mapId = getMapId();
+        pk.update = 2;
+        pk.scale = 0;
+        pk.width = 128;
+        pk.height = 128;
+        pk.offsetX = 0;
+        pk.offsetZ = 0;
+        pk.image = image;
+        p.dataPacket(pk);
+        return true;
     }
 
     @Override

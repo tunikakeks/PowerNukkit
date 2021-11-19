@@ -1334,9 +1334,9 @@ public class Server {
         if (this.getAutoSave()) {
             Timings.levelSaveTimer.startTiming();
             for (Player player : new ArrayList<>(this.players.values())) {
-                if (player.isOnline()) {
+                if (player.isOnline() && !player.closed) {
                     player.save(true);
-                } else if (!player.isConnected()) {
+                } else if (!player.isConnected() || player.closed) {
                     this.removePlayer(player);
                 }
             }

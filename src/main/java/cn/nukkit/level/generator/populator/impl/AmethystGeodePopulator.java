@@ -67,26 +67,26 @@ public class AmethystGeodePopulator extends Populator {
                     }
                     yy = height + y;
                     if (yy <= 256) {
-                        chunk.setBlockId(px + x, height + y, pz + z, blockId);
+                        setBlockId(chunk, px + x, height + y, pz + z, blockId);
                         if (x != 0) {
-                            chunk.setBlockId(px - x, height + y, pz + z, blockId);
+                            setBlockId(chunk, px - x, height + y, pz + z, blockId);
                         }
                         if (z != 0) {
-                            chunk.setBlockId(px + x, height + y, pz - z, blockId);
+                            setBlockId(chunk, px + x, height + y, pz - z, blockId);
                             if (x != 0) {
-                                chunk.setBlockId(px - x, height + y, pz - z, blockId);
+                                setBlockId(chunk, px - x, height + y, pz - z, blockId);
                             }
                         }
                     }
                     if (y != 0 && (yy = height - y) >= 0) {
-                        chunk.setBlockId(px + x, yy, pz + z, blockId);
+                        setBlockId(chunk, px + x, yy, pz + z, blockId);
                         if (x != 0) {
-                            chunk.setBlockId(px - x, yy, pz + z, blockId);
+                            setBlockId(chunk, px - x, yy, pz + z, blockId);
                         }
                         if (z != 0) {
-                            chunk.setBlockId(px + x, yy, pz - z, blockId);
+                            setBlockId(chunk, px + x, yy, pz - z, blockId);
                             if (x != 0) {
-                                chunk.setBlockId(px - x, yy, pz - z, blockId);
+                                setBlockId(chunk, px - x, yy, pz - z, blockId);
                             }
                         }
                     }
@@ -184,6 +184,12 @@ public class AmethystGeodePopulator extends Populator {
                 block.setPropertyValue(CommonBlockProperties.FACING_DIRECTION, BlockFace.UP);
             }
             chunk.setBlockState(x, y, z, block.getCurrentState());
+        }
+    }
+
+    private void setBlockId(FullChunk chunk, int x, int y, int z, int id) {
+        if (chunk.getBlockId(x, y, z) != BEDROCK) {
+            chunk.setBlockId(x, y, z, id);
         }
     }
 }

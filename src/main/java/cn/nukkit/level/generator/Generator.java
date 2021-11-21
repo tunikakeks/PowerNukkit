@@ -13,6 +13,7 @@ import java.util.Map;
  * @author MagicDroidX (Nukkit Project)
  */
 public abstract class Generator implements BlockID {
+    public static final int TYPE_EMPTY = -1;
     public static final int TYPE_OLD = 0;
     public static final int TYPE_INFINITE = 1;
     public static final int TYPE_FLAT = 2;

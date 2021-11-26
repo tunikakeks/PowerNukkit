@@ -101,6 +101,10 @@ public class BlockCaveVines extends BlockTransparent {
             if (!event.isCancelled()) {
                 this.getLevel().setBlock(this, event.getNewState(), true, true);
                 this.getLevel().addParticle(new BoneMealParticle(this));
+
+                if (player != null && player.gamemode != 1) {
+                    item.count--;
+                }
             }
             return true;
         }

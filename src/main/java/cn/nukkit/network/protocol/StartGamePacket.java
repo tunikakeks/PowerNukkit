@@ -76,6 +76,7 @@ public class StartGamePacket extends DataPacket {
     public boolean isMovementServerAuthoritative;
     @Since("1.3.0.0-PN") public boolean isInventoryServerAuthoritative;
     public long currentTick;
+    public long blockRegistryChecksum = 0;
 
     public int enchantmentSeed;
 
@@ -154,5 +155,6 @@ public class StartGamePacket extends DataPacket {
         this.putString(this.multiplayerCorrelationId);
         this.putBoolean(this.isInventoryServerAuthoritative);
         this.putString(""); // Server Engine
+        this.putLLong(this.blockRegistryChecksum);
     }
 }

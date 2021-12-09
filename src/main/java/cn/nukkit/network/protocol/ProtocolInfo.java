@@ -19,7 +19,7 @@ public interface ProtocolInfo {
      */
     int CURRENT_PROTOCOL = dynamic(475);
 
-    List<Integer> SUPPORTED_PROTOCOLS = Ints.asList(CURRENT_PROTOCOL);
+    List<Integer> SUPPORTED_PROTOCOLS = Ints.asList(CURRENT_PROTOCOL, 471);
 
     String MINECRAFT_VERSION = dynamic("v1.18.0");
     String MINECRAFT_VERSION_NETWORK = dynamic("1.18.0");

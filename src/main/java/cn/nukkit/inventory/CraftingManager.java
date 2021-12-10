@@ -4,7 +4,6 @@ import cn.nukkit.Server;
 import cn.nukkit.api.DeprecationDetails;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
-import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
 import cn.nukkit.block.BlockUnknown;
 import cn.nukkit.blockproperty.UnknownRuntimeIdException;
@@ -227,11 +226,7 @@ public class CraftingManager {
 
         Config recipesConfig = new Config(Config.JSON);
         try(InputStream recipesStream = Server.class.getClassLoader().getResourceAsStream("recipes.json")) {
-            if (recipesStream == null) {
-                throw new AssertionError("Unable to find recipes.json");
-            }
-
-            recipesConfig.load(recipesStream);
+            recipesConfig.load(Objects.requireNonNull(recipesStream, "Unable to find recipes.json"));
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
@@ -472,26 +467,6 @@ public class CraftingManager {
         Item item;
         if (data.containsKey("blockState")) {
             String blockStateId = data.get("blockState").toString();
-            // TODO Remove this when the support is added to these blocks
-            if (Stream.of(
-                    "minecraft:candle",
-                    "minecraft:cracked_deepslate_bricks",
-                    "minecraft:cracked_deepslate_tiles",
-                    "minecraft:smooth_basalt",
-                    "minecraft:moss_block",
-                    "minecraft:deepslate",
-                    "minecraft:copper",
-                    "minecraft:raw_",
-                    "minecraft:pointed_dripstone"
-            ).anyMatch(blockStateId::startsWith)) {
-                return Item.get(BlockID.AIR);
-            }
-            if (Stream.of(
-                    "copper", "deepslate", "deepslate_slab",
-                    "copper_slab", "copper_stairs"
-                    ).anyMatch(name-> blockStateId.split(";", 2)[0].endsWith(name))) {
-                return Item.get(BlockID.AIR);
-            }
             try {
                 BlockState state = BlockState.of(blockStateId);
                 item = state.asItemBlock(count);
@@ -513,7 +488,7 @@ public class CraftingManager {
                     return Item.get(BlockID.AIR);
                 }
                 log.error("Failed to load a recipe with {}", blockStateId, e);
-                return Item.get(Block.AIR);
+                return Item.get(BlockID.AIR);
             } catch (Exception e) {
                 log.error("Failed to load the block state {}", blockStateId, e);
                 return Item.getBlock(BlockID.AIR);

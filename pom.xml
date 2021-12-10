@@ -14,7 +14,7 @@
     Upstream is the NukkitX major version
     PN is a indicator that software is running PowerNukkit, it must be present both in releases and snapshot versions
     -->
-    <version>1.5.2.0-PN-SNAPSHOT</version>
+    <version>1.6.0.0-PN-SNAPSHOT</version>
 
     <inceptionYear>2020</inceptionYear>
     <organization>
@@ -73,7 +73,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <junit.jupiter.version>5.7.2</junit.jupiter.version>
         <mockito.version>3.11.2</mockito.version>
-        <log4j2.version>2.13.3</log4j2.version>
+        <log4j2.version>2.15.0</log4j2.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <jline.version>3.9.0</jline.version>
@@ -131,6 +131,11 @@
             <version>8.5.4</version>
         </dependency>
         <dependency>
+            <groupId>org.powernukkit</groupId>
+            <artifactId>version-library</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>30.1.1-jre</version>
@@ -185,6 +190,14 @@
                 <exclusion>
                     <groupId>com.google.code.gson</groupId>
                     <artifactId>gson</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -414,6 +427,44 @@
                 <executions>
                     <execution>
                         <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok-maven-plugin</artifactId>
+                <version>1.18.20.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>delombok</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <addOutputDirectory>false</addOutputDirectory>
+                    <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+                    <outputDirectory>${project.build.directory}/delombok</outputDirectory>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration> <!-- add this to disable checking -->
+                    <source>8</source>
+                    <doclint>none</doclint>
+                    <quiet>true</quiet>
+                    <sourcepath>${project.build.directory}/delombok</sourcepath>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
                         <goals>
                             <goal>jar</goal>
                         </goals>

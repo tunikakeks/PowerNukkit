@@ -167,7 +167,7 @@ public final class BlockState implements Serializable, IBlockState {
      * @return The block state, never null
      */
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.2.0-PN")
     @Nonnull
     public static BlockState of(@Nonnull String persistedStateId) {
         return of(persistedStateId, true);
@@ -186,7 +186,7 @@ public final class BlockState implements Serializable, IBlockState {
      * @return The block state, never null
      */
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.2.0-PN")
     @Nonnull
     public static BlockState of(@Nonnull String persistedStateId, boolean useDefaultPropertyValues) {
         String[] stateParts = persistedStateId.split(";");

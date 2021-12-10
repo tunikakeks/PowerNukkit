@@ -507,23 +507,7 @@ public class Item implements Cloneable, BlockID, ItemID {
 
         if (data.containsKey("blockState")) {
             String blockStateId = data.get("blockState").toString();
-            // TODO Remove this when the support is added to these blocks
-            if (Stream.of(
-                    "minecraft:candle",
-                    "minecraft:deepslate",
-                    "minecraft:cracked_deepslate_bricks",
-                    "minecraft:cracked_deepslate_tiles",
-                    "minecraft:smooth_basalt"
-            ).anyMatch(blockStateId::startsWith)) {
-                return null;
-            }
             try {
-                // TODO Remove this when the support is added to these blocks
-                String[] stateParts = blockStateId.split(";", 2);
-                Integer blockId = BlockStateRegistry.getBlockId(stateParts[0]);
-                if (blockId != null && blockId > BlockID.QUARTZ_BRICKS) {
-                    return Item.getBlock(BlockID.AIR);
-                }
 
                 BlockState state = BlockState.of(blockStateId);
                 Item item = state.asItemBlock();

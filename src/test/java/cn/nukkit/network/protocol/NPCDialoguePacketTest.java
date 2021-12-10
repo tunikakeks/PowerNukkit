@@ -32,12 +32,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @since 2021-07-13
  */
 @PowerNukkitOnly
-@Since("FUTURE")
+@Since("1.5.2.0-PN")
 class NPCDialoguePacketTest {
     @Test
     void encodeDecode() {
         val packet = new NPCDialoguePacket();
-        packet.setUniqueEntityId(1L);
+        packet.setRuntimeEntityId(1L);
         packet.setAction(NPCDialogAction.CLOSE);
         packet.setDialogue("dialog");
         packet.setSceneName("scene");
@@ -50,7 +50,7 @@ class NPCDialoguePacketTest {
         packet2.getUnsignedVarInt();
         packet2.decode();
         
-        assertEquals(1L, packet2.getUniqueEntityId());
+        assertEquals(1L, packet2.getRuntimeEntityId());
         assertEquals(NPCDialogAction.CLOSE, packet2.getAction());
         assertEquals("dialog", packet2.getDialogue());
         assertEquals("scene", packet2.getSceneName());

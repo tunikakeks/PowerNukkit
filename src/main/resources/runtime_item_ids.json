@@ -5458,5 +5458,10 @@
     "name": "minecraft:end_crystal",
     "id": 631,
     "oldId": 426
+  },
+  {
+    "name": "minecraft:glow_berries",
+    "id": 632,
+    "oldId": 630
   }
 ]

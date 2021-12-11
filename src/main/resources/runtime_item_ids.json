@@ -5462,6 +5462,7 @@
   {
     "name": "minecraft:glow_berries",
     "id": 632,
-    "oldId": 630
+    "oldId": 630,
+    "oldData": 0
   }
 ]

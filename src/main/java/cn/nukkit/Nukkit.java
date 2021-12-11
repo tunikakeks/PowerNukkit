@@ -141,6 +141,8 @@ public class Nukkit {
         // Force IPv4 since Nukkit is not compatible with IPv6
         System.setProperty("java.net.preferIPv4Stack" , "true");
         System.setProperty("log4j.skipJansi", "false");
+        System.setProperty("java.awt.headless", "true");
+
         System.getProperties().putIfAbsent("io.netty.allocator.type", "unpooled"); // Disable memory pooling unless specified
 
         // Force Mapped ByteBuffers for LevelDB till fixed.

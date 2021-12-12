@@ -389,6 +389,8 @@ public class Item implements Cloneable, BlockID, ItemID {
 
             list[SHIELD] = ItemShield.class; //513
 
+            list[RECORD_OTHERSIDE] = ItemRecordOtherside.class; //634
+
             list[CAMPFIRE] = ItemCampfire.class; //720
 
             list[SUSPICIOUS_STEW] = ItemSuspiciousStew.class; //734

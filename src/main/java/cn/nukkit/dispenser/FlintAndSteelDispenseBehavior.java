@@ -1,5 +1,6 @@
 package cn.nukkit.dispenser;
 
+import cn.nukkit.Server;
 import cn.nukkit.api.PowerNukkitDifference;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockDispenser;
@@ -19,6 +20,7 @@ public class FlintAndSteelDispenseBehavior extends DefaultDispenseBehavior {
         item = item.clone();
 
         BlockIgniteEvent e = new BlockIgniteEvent(target, block, null, BlockIgniteEvent.BlockIgniteCause.FLINT_AND_STEEL);
+        Server.getInstance().getPluginManager().callEvent(e);
         if (e.isCancelled()) {
             return null;
         }

@@ -16,14 +16,11 @@ public class DyeDispenseBehavior extends DefaultDispenseBehavior {
                     || target instanceof BlockBamboo || target instanceof BlockCaveVines) {
                 if (!target.onActivate(item)) {
                     item.count++;
-                    return null;
                 }
-
+                return null;
             } else {
                 this.success = false;
             }
-
-            return null;
         }
 
         return super.dispense(block, face, item);

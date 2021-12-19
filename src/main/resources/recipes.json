@@ -12585,7 +12585,7 @@
           "fuzzy": true
         },
         "B": {
-          "blockState": "minecraft:double_stone_slab"
+          "blockState": "minecraft:stone_slab"
         }
       },
       "output": [

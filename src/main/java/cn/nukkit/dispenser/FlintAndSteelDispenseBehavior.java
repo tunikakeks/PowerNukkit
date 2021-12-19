@@ -4,6 +4,7 @@ import cn.nukkit.api.PowerNukkitDifference;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockDispenser;
 import cn.nukkit.block.BlockID;
+import cn.nukkit.event.block.BlockIgniteEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemFlintSteel;
 import cn.nukkit.level.Sound;
@@ -16,6 +17,11 @@ public class FlintAndSteelDispenseBehavior extends DefaultDispenseBehavior {
     public Item dispense(BlockDispenser block, BlockFace face, Item item) {
         Block target = block.getSide(face);
         item = item.clone();
+
+        BlockIgniteEvent e = new BlockIgniteEvent(target, block, null, BlockIgniteEvent.BlockIgniteCause.FLINT_AND_STEEL);
+        if (e.isCancelled()) {
+            return null;
+        }
 
         if (target.getId() == BlockID.AIR) {
             block.level.addSound(block, Sound.RANDOM_CLICK, 1.0f, 1.0f);

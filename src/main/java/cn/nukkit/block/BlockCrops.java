@@ -113,6 +113,8 @@ public abstract class BlockCrops extends BlockFlowable {
                 if (player != null && !player.isCreative()) {
                     item.count--;
                 }
+            } else {
+                return false;
             }
 
             return true;

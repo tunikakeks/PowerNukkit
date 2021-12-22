@@ -1,5 +1,6 @@
 package cn.nukkit.block;
 
+import cn.nukkit.Server;
 import cn.nukkit.api.PowerNukkitDifference;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.event.block.BlockFormEvent;
@@ -69,6 +70,7 @@ public class BlockSoulSand extends BlockSolid {
             Block up = up();
             if (up instanceof BlockWater && (up.getDamage() == 0 || up.getDamage() == 8)) {
                 BlockFormEvent event = new BlockFormEvent(up, new BlockBubbleColumn(0));
+                Server.getInstance().getPluginManager().callEvent(event);
                 if (!event.isCancelled()) {
                     if (event.getNewState().getWaterloggingLevel() > 0) {
                         this.getLevel().setBlock(up, 1, new BlockWater(), true, false);

@@ -959,20 +959,18 @@ public class Level implements ChunkManager, Metadatable {
         this.timings.entityTick.startTiming();
 
         if (!this.updateEntities.isEmpty()) {
-            if(this.updateEntities.keySet() != null) {
+            try {
                 for (Long id : new ArrayList<>(this.updateEntities.keySet())) {
-                    if(id != null) {
-                        long entityId = id.longValue();
+                    if (id != null) {
+                        long entityId = id;
                         Entity entity = this.updateEntities.get(entityId);
-                        if (entity == null) {
-                            this.updateEntities.remove(entityId);
-                            continue;
-                        }
-                        if (entity.closed || !entity.onUpdate(currentTick)) {
+                        if (entity == null || entity.closed || !entity.onUpdate(currentTick)) {
                             this.updateEntities.remove(entityId);
                         }
                     }
                 }
+            } catch (NullPointerException e) {
+                e.printStackTrace();
             }
         }
         this.timings.entityTick.stopTiming();

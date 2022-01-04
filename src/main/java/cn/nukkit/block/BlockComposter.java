@@ -266,7 +266,7 @@ public class BlockComposter extends BlockSolidMeta implements ItemID {
         return compostableStringItems.getInt(item.getNamespaceId());
     }
 
-    private static void registerDefaults() {
+    private static void registerDefaults() { // Todo: Update with wiki (https://minecraft.fandom.com/wiki/Composter)
         registerItems(30, KELP, BEETROOT_SEEDS, DRIED_KELP, MELON_SEEDS, PUMPKIN_SEEDS, SWEET_BERRIES, 
                                  WHEAT_SEEDS, MOSS_CARPET, HANGING_ROOTS, SMALL_DRIPLEAF_BLOCK);
         registerItems(30, MinecraftItemID.GLOW_BERRIES);
@@ -280,7 +280,7 @@ public class BlockComposter extends BlockSolidMeta implements ItemID {
                                   TWISTING_VINES, WEEPING_VINES);
         registerBlocks(65, DANDELION, RED_FLOWER, DOUBLE_PLANT, WITHER_ROSE, WATERLILY, MELON_BLOCK,
                                   PUMPKIN, CARVED_PUMPKIN, SEA_PICKLE, BROWN_MUSHROOM, RED_MUSHROOM, 
-                                  WARPED_ROOTS, CRIMSON_ROOTS, SHROOMLIGHT, AZALEA, BIG_DRIPLEAF, MOSS_BLOCK,
+                                  WARPED_ROOTS, CRIMSON_ROOTS, CRIMSON_FUNGUS, WARPED_FUNGUS, SHROOMLIGHT, AZALEA, BIG_DRIPLEAF, MOSS_BLOCK,
                                   SPORE_BLOSSOM);
         registerBlocks(85, HAY_BALE, BROWN_MUSHROOM_BLOCK, RED_MUSHROOM_BLOCK, MUSHROOM_STEW, FLOWERING_AZALEA);
         registerBlocks(100, CAKE_BLOCK);

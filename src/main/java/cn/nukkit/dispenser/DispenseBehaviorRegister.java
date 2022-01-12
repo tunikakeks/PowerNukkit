@@ -37,6 +37,7 @@ public final class DispenseBehaviorRegister {
         registerBehavior(BlockID.UNDYED_SHULKER_BOX, new ShulkerBoxDispenseBehavior());
         registerBehavior(ItemID.SPAWN_EGG, new SpawnEggDispenseBehavior());
         registerBehavior(BlockID.TNT, new TNTDispenseBehavior());
+        registerBehavior(ItemID.SHEARS, new ShearsDispenseBehaviour());
         registerBehavior(ItemID.ARROW, new ProjectileDispenseBehavior("Arrow") {
             @Override
             protected double getMotion() {

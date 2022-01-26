@@ -151,6 +151,7 @@ public class BlockFlower extends BlockFlowable {
             case FARMLAND:
             case PODZOL:
             case MOSS_BLOCK:
+            case MYCELIUM:
                 return true;
             default:
                 return false;

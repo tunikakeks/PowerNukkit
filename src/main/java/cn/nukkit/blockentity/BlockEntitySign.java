@@ -59,12 +59,8 @@ public class BlockEntitySign extends BlockEntitySpawnable {
             sanitizeText(text);
         }
 
-        this.setColor(this.getColor());
-
         if (!this.namedTag.contains("IgnoreLighting") || !(this.namedTag.get("IgnoreLighting") instanceof ByteTag)) {
             this.setGlowing(false);
-        } else {
-            this.setGlowing(isGlowing());
         }
 
         super.initBlockEntity();

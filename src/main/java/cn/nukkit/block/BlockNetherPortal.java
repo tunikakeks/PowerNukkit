@@ -116,6 +116,16 @@ public class BlockNetherPortal extends BlockFlowable implements Faceable {
     }
 
     @Override
+    public boolean canBePushed() {
+        return false;
+    }
+
+    @Override
+    public boolean canBePulled() {
+        return false;
+    }
+
+    @Override
     protected AxisAlignedBB recalculateBoundingBox() {
         return this;
     }

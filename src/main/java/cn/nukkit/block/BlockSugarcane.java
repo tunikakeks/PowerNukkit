@@ -190,7 +190,7 @@ public class BlockSugarcane extends BlockFlowable {
         if (downId == REEDS) {
             return true;
         }
-        if (downId != GRASS && downId != DIRT && downId != SAND || down.getId() == PODZOL) {
+        if (downId != GRASS && downId != DIRT && downId != SAND || down.getId() == PODZOL || down.getId() == MYCELIUM) {
             return false;
         }
         for (BlockFace face : BlockFace.Plane.HORIZONTAL) {

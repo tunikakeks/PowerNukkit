@@ -268,8 +268,8 @@ public class BlockComposter extends BlockSolidMeta implements ItemID {
 
     private static void registerDefaults() {
         registerItems(30, KELP, BEETROOT_SEEDS, DRIED_KELP, MELON_SEEDS, PUMPKIN_SEEDS, SWEET_BERRIES,
-                                 WHEAT_SEEDS);
-        registerItems(30, MinecraftItemID.GLOW_BERRIES, MinecraftItemID.HANGING_ROOTS, MinecraftItemID.MOSS_CARPET);
+                WHEAT_SEEDS);
+        registerItems(30, MinecraftItemID.GLOW_BERRIES, MinecraftItemID.HANGING_ROOTS, MinecraftItemID.MOSS_CARPET, MinecraftItemID.SMALL_DRIPLEAF_BLOCK);
         registerItems(50, MELON_SLICE, SUGAR_CANE, NETHER_SPROUTS, GLOW_LICHEN);
         registerItems(65, APPLE, BEETROOT, CARROT, COCOA, POTATO, WHEAT, NETHER_WART);
         registerItems(65, MinecraftItemID.WARPED_FUNGUS);
@@ -278,12 +278,12 @@ public class BlockComposter extends BlockSolidMeta implements ItemID {
         registerItems(100, CAKE, PUMPKIN_PIE);
 
         registerBlocks(30, GRASS, BLOCK_KELP, LEAVES, LEAVES2, AZALEA_LEAVES, SAPLING, SEAGRASS, SWEET_BERRY_BUSH,
-                                 HANGING_ROOTS);
+                                 HANGING_ROOTS, MOSS_CARPET, SMALL_DRIPLEAF_BLOCK);
         registerBlocks(50, CACTUS, DRIED_KELP_BLOCK, VINE, NETHER_SPROUTS_BLOCK,
                                   TWISTING_VINES, WEEPING_VINES, AZALEA_LEAVES_FLOWERED);
         registerBlocks(65, DANDELION, RED_FLOWER, DOUBLE_PLANT, WITHER_ROSE, WATERLILY, MELON_BLOCK,
                                   PUMPKIN, CARVED_PUMPKIN, SEA_PICKLE, BROWN_MUSHROOM, RED_MUSHROOM, 
-                                  WARPED_ROOTS, CRIMSON_ROOTS, SHROOMLIGHT, AZALEA, BIG_DRIPLEAF, MOSS_BLOCK,
+                                  WARPED_ROOTS, CRIMSON_ROOTS, CRIMSON_FUNGUS, WARPED_FUNGUS, SHROOMLIGHT, AZALEA, BIG_DRIPLEAF, MOSS_BLOCK,
                                   SPORE_BLOSSOM);
         registerBlocks(85, HAY_BALE, BROWN_MUSHROOM_BLOCK, RED_MUSHROOM_BLOCK, MUSHROOM_STEW, NETHER_WART_BLOCK, WARPED_WART_BLOCK, FLOWERING_AZALEA);
         registerBlocks(100, CAKE_BLOCK, PUMPKIN_PIE);

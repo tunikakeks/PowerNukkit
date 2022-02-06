@@ -14,6 +14,7 @@ import cn.nukkit.item.Item;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.CompoundTag;
+import cn.nukkit.nbt.tag.ListTag;
 import cn.nukkit.network.protocol.AddItemEntityPacket;
 import cn.nukkit.network.protocol.DataPacket;
 import cn.nukkit.network.protocol.EntityEventPacket;
@@ -118,20 +119,33 @@ public class EntityItem extends Entity {
     @PowerNukkitDifference(since = "1.4.0.0-PN", info = "Netherite stuff is immune to fire and lava damage")
     @Override
     public boolean attack(EntityDamageEvent source) {
-        if (item != null && item.isLavaResistant() && (
-                source.getCause() == DamageCause.LAVA ||
-                        source.getCause() == DamageCause.FIRE ||
-                        source.getCause() == DamageCause.FIRE_TICK)) {
-            return false;
+        DamageCause cause = source.getCause();
+        if ((cause == DamageCause.VOID || cause == DamageCause.CONTACT || cause == DamageCause.FIRE_TICK
+                || (cause == DamageCause.ENTITY_EXPLOSION || cause == DamageCause.BLOCK_EXPLOSION) && !this.isInsideOfWater()
+                && (this.item == null || this.item.getId() != Item.NETHER_STAR)) && super.attack(source)) {
+            if (this.item == null || this.isAlive()) {
+                return true;
+            }
+            int id = this.item.getId();
+            if (id != Item.SHULKER_BOX && id != Item.UNDYED_SHULKER_BOX) {
+                return true;
+            }
+            CompoundTag nbt = this.item.getNamedTag();
+            if (nbt == null) {
+                return true;
+            }
+            ListTag<CompoundTag> items = nbt.getList("Items", CompoundTag.class);
+            for (int i = 0; i < items.size(); i++) {
+                CompoundTag itemTag = items.get(i);
+                Item item = NBTIO.getItemHelper(itemTag);
+                if (item.isNull()) {
+                    continue;
+                }
+                this.level.dropItem(this, item);
+            }
+            return true;
         }
-
-        return (source.getCause() == DamageCause.VOID ||
-                source.getCause() == DamageCause.CONTACT ||
-                source.getCause() == DamageCause.FIRE_TICK ||
-                (source.getCause() == DamageCause.ENTITY_EXPLOSION ||
-                source.getCause() == DamageCause.BLOCK_EXPLOSION) &&
-                !this.isInsideOfWater() && (this.item == null ||
-                this.item.getId() != Item.NETHER_STAR)) && super.attack(source);
+        return false;
     }
 
     @Override

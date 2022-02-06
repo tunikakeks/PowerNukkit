@@ -2,6 +2,7 @@ package cn.nukkit.level.biome.impl.forest;
 
 import cn.nukkit.block.BlockDoublePlant;
 import cn.nukkit.block.BlockFlower;
+import cn.nukkit.blockproperty.value.SmallFlowerType;
 import cn.nukkit.level.generator.populator.impl.PopulatorFlower;
 
 /**
@@ -27,6 +28,8 @@ public class FlowerForestBiome extends ForestBiome {
         flower.addType(RED_FLOWER, BlockFlower.TYPE_WHITE_TULIP);
         flower.addType(RED_FLOWER, BlockFlower.TYPE_PINK_TULIP);
         flower.addType(RED_FLOWER, BlockFlower.TYPE_OXEYE_DAISY);
+        flower.addType(RED_FLOWER, BlockFlower.TYPE_CORNFLOWER);
+        flower.addType(RED_FLOWER, BlockFlower.TYPE_LILY_OF_THE_VALLEY );
         flower.addType(DOUBLE_PLANT, BlockDoublePlant.LILAC);
         flower.addType(DOUBLE_PLANT, BlockDoublePlant.ROSE_BUSH);
         flower.addType(DOUBLE_PLANT, BlockDoublePlant.PEONY);

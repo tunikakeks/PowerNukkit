@@ -81,6 +81,14 @@ public class BlockFlower extends BlockFlowable {
     @DeprecationDetails(since = "1.4.0.0-PN", by = "PowerNukkit", reason = "Magic value. Use FlowerType instead")
     public static final int TYPE_OXEYE_DAISY = 8;
 
+    @Deprecated
+    @DeprecationDetails(since = "1.4.0.0-PN", by = "PowerNukkit", reason = "Magic value. Use FlowerType instead")
+    public static final int TYPE_CORNFLOWER = 9;
+
+    @Deprecated
+    @DeprecationDetails(since = "1.4.0.0-PN", by = "PowerNukkit", reason = "Magic value. Use FlowerType instead")
+    public static final int TYPE_LILY_OF_THE_VALLEY = 10;
+
     public BlockFlower() {
         this(0);
     }
@@ -143,6 +151,7 @@ public class BlockFlower extends BlockFlowable {
             case FARMLAND:
             case PODZOL:
             case MOSS_BLOCK:
+            case MYCELIUM:
                 return true;
             default:
                 return false;

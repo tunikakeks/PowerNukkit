@@ -158,6 +158,7 @@ public class BlockDoublePlant extends BlockFlowable {
             case PODZOL:
             case FARMLAND:
             case MOSS_BLOCK:
+            case MYCELIUM:
                 return true;
             default:
                 return false;

@@ -9,7 +9,7 @@ import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageModifier;
-import cn.nukkit.event.item.ArmorDamageEvent;
+import cn.nukkit.event.player.PlayerArmorDamageEvent;
 import cn.nukkit.inventory.InventoryHolder;
 import cn.nukkit.inventory.PlayerEnderChestInventory;
 import cn.nukkit.inventory.PlayerInventory;
@@ -269,10 +269,12 @@ public abstract class EntityHumanType extends EntityCreature implements Inventor
         Item armorAfter = armor.clone();
         armorAfter.setDamage(armor.getDamage() + 1);
 
-        ArmorDamageEvent armorDamageEvent = new ArmorDamageEvent(armor, armorAfter);
-        Server.getInstance().getPluginManager().callEvent(armorDamageEvent);
-        if(armorDamageEvent.isCancelled()) {
-            return armor;
+        if(this instanceof Player) {
+            PlayerArmorDamageEvent playerArmorDamageEvent = new PlayerArmorDamageEvent((Player) this, armor, armorAfter);
+            Server.getInstance().getPluginManager().callEvent(playerArmorDamageEvent);
+            if(playerArmorDamageEvent.isCancelled()) {
+                return armor;
+            }
         }
 
         if (armor.getDamage() >= armor.getMaxDurability()) {

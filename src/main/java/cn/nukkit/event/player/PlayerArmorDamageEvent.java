@@ -1,10 +1,11 @@
-package cn.nukkit.event.item;
+package cn.nukkit.event.player;
 
+import cn.nukkit.Player;
 import cn.nukkit.event.Cancellable;
 import cn.nukkit.event.HandlerList;
 import cn.nukkit.item.Item;
 
-public class ArmorDamageEvent extends ItemDamageEvent implements Cancellable {
+public class PlayerArmorDamageEvent extends PlayerItemDamageEvent implements Cancellable {
 
     private static final HandlerList handlers = new HandlerList();
 
@@ -14,8 +15,8 @@ public class ArmorDamageEvent extends ItemDamageEvent implements Cancellable {
 
     private boolean cancelled;
 
-    public ArmorDamageEvent(Item before, Item after) {
-        super(before, after);
+    public PlayerArmorDamageEvent(Player player, Item before, Item after) {
+        super(player, before, after);
     }
 
     @Override

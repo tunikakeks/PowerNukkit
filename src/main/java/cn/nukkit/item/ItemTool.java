@@ -1,10 +1,12 @@
 package cn.nukkit.item;
 
+import cn.nukkit.Server;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
 import cn.nukkit.entity.Entity;
+import cn.nukkit.event.item.ToolDamageEvent;
 import cn.nukkit.item.enchantment.Enchantment;
 import cn.nukkit.nbt.tag.ByteTag;
 import cn.nukkit.nbt.tag.Tag;
@@ -107,6 +109,8 @@ public abstract class ItemTool extends Item implements ItemDurable {
             return true;
         }
 
+        Item after = this.clone();
+
         if (block.getToolType() == ItemTool.TYPE_PICKAXE && this.isPickaxe() ||
                 block.getToolType() == ItemTool.TYPE_SHOVEL && this.isShovel() ||
                 block.getToolType() == ItemTool.TYPE_AXE && this.isAxe() ||
@@ -115,16 +119,23 @@ public abstract class ItemTool extends Item implements ItemDurable {
                 block.getToolType() == ItemTool.TYPE_SHEARS && this.isShears() ||
                 block.getToolType() == ItemTool.TYPE_HOE && this.isHoe()
                 ) {
-            this.meta++;
+            after.meta++;
         } else if (!this.isShears() && block.calculateBreakTime(this) > 0) {
-            this.meta += 2;
+            after.meta += 2;
         } else if (this.isHoe()) {
             if (block.getId() == GRASS || block.getId() == DIRT) {
-                this.meta++;
+                after.meta++;
             }
         } else {
-            this.meta++;
+            after.meta++;
         }
+
+        ToolDamageEvent toolDamageEvent = new ToolDamageEvent(this, after);
+        Server.getInstance().getPluginManager().callEvent(toolDamageEvent);
+        if(!toolDamageEvent.isCancelled()) {
+            this.meta = after.meta;
+        }
+
         return true;
     }
 
@@ -134,10 +145,18 @@ public abstract class ItemTool extends Item implements ItemDurable {
             return true;
         }
 
+        Item after = this.clone();
+
         if ((entity != null) && !this.isSword()) {
-            this.meta += 2;
+            after.meta += 2;
         } else {
-            this.meta++;
+            after.meta++;
+        }
+
+        ToolDamageEvent toolDamageEvent = new ToolDamageEvent(this, after);
+        Server.getInstance().getPluginManager().callEvent(toolDamageEvent);
+        if(!toolDamageEvent.isCancelled()) {
+            this.meta = after.meta;
         }
 
         return true;

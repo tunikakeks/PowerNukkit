@@ -440,7 +440,7 @@ public class BinaryStream {
             }
 
             if (compoundTag != null && compoundTag.getAllTags().size() > 0) {
-                if (compoundTag.contains("Damage")) {
+                if (compoundTag.contains("Damage") && !legacyEntry.isHasDamage()) {
                     if (id > 255) {
                         damage = compoundTag.getInt("Damage");
                     }

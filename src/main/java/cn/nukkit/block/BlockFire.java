@@ -143,7 +143,7 @@ public class BlockFire extends BlockFlowable {
             int downId = down.getId();
 
             boolean forever = downId == BlockID.NETHERRACK || downId == BlockID.MAGMA
-                    || downId == BlockID.BEDROCK && ((BlockBedrock)down).getBurnIndefinitely();
+                    || downId == BlockID.BEDROCK && ((BlockBedrock) down).getBurnIndefinitely();
 
             ThreadLocalRandom random = ThreadLocalRandom.current();
 
@@ -163,7 +163,7 @@ public class BlockFire extends BlockFlowable {
                             this.getLevel().canBlockSeeSky(this.west()) ||
                             this.getLevel().canBlockSeeSky(this.south()) ||
                             this.getLevel().canBlockSeeSky(this.north()))
-                    ) {
+            ) {
                 BlockFadeEvent event = new BlockFadeEvent(this, get(AIR));
                 level.getServer().getPluginManager().callEvent(event);
                 if (!event.isCancelled()) {
@@ -341,10 +341,22 @@ public class BlockFire extends BlockFlowable {
             } else if (block instanceof BlockShulkerBox || block instanceof BlockChest || block instanceof BlockEnderChest) {
                 return false;
 
-            } else if (block instanceof BlockAnvil || block instanceof BlockEnchantingTable) {
+            } else if (block instanceof BlockAnvil || block instanceof BlockEnchantingTable || block instanceof BlockBrewingStand) {
                 return false;
 
             } else if (block instanceof BlockCampfire) {
+                return false;
+
+            } else if (block instanceof BlockCactus) {
+                return false;
+
+            } else if (block instanceof BlockDaylightDetector) {
+                return false;
+
+            } else if (block instanceof BlockIce) {
+                return false;
+
+            } else if (block instanceof BlockCake || block instanceof BlockCandleCake || block instanceof BlockCandle) {
                 return false;
 
             } else return block.isSolid();

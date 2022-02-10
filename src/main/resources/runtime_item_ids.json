@@ -5462,5 +5462,9 @@
   {
     "name": "minecraft:glow_berries",
     "id": 632
+  },
+  {
+    "name": "minecraft:globe_banner_pattern",
+    "id": 634
   }
 ]

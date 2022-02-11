@@ -335,7 +335,7 @@ public class BlockFire extends BlockFlowable {
             } else if (block instanceof BlockGlass || block instanceof BlockGlassPane) {
                 return false;
 
-            } else if (block instanceof BlockHopper) {
+            } else if (block instanceof BlockHopper ||block instanceof BlockBeacon) {
                 return false;
 
             } else if (block instanceof BlockShulkerBox || block instanceof BlockChest || block instanceof BlockEnderChest) {

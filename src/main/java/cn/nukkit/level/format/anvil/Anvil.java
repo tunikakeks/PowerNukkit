@@ -160,10 +160,10 @@ public class Anvil extends BaseLevelProvider {
 
         BinaryStream stream = ThreadCache.binaryStream.get().reset();
         // Build up 4 SubChunks for the extended negative height
-        for (int i = 0; i < EXTENDED_NEGATIVE_SUB_CHUNKS; i++) {
-            stream.putByte((byte) 8); // SubChunk version
-            stream.putByte((byte) 0); // 0 layers
-        }
+//        for (int i = 0; i < EXTENDED_NEGATIVE_SUB_CHUNKS; i++) {
+//            stream.putByte((byte) 8); // SubChunk version
+//            stream.putByte((byte) 0); // 0 layers
+//        }
 
         for (int i = 0; i < count; i++) {
             sections[i].writeTo(stream);
@@ -172,7 +172,8 @@ public class Anvil extends BaseLevelProvider {
         stream.put(biomePalettes);
         stream.putByte((byte) 0); // Border blocks
         stream.put(blockEntities);
-        this.getLevel().chunkRequestCallback(timestamp, x, z, EXTENDED_NEGATIVE_SUB_CHUNKS + count, stream.getBuffer());
+        //this.getLevel().chunkRequestCallback(timestamp, x, z, EXTENDED_NEGATIVE_SUB_CHUNKS + count, stream.getBuffer());
+        this.getLevel().chunkRequestCallback(timestamp, x, z, count, stream.getBuffer());
         return null;
     }
 

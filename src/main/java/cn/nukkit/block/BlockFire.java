@@ -115,10 +115,10 @@ public class BlockFire extends BlockFlowable {
     @PowerNukkitDifference(info = "Soul Fire Implementation", since = "1.4.0.0-PN")
     @Override
     public int onUpdate(int type) {
-        
+
         if (type == Level.BLOCK_UPDATE_NORMAL || type == Level.BLOCK_UPDATE_RANDOM) {
             Block down = down();
-            
+
             if (type == Level.BLOCK_UPDATE_NORMAL) {
                 int downId = down.getId();
                 if (downId == Block.SOUL_SAND || downId == Block.SOUL_SOIL) {
@@ -126,7 +126,7 @@ public class BlockFire extends BlockFlowable {
                     return type;
                 }
             }
-            
+
             if (!this.isBlockTopFacingSurfaceSolid(down) && !this.canNeighborBurn()) {
                 BlockFadeEvent event = new BlockFadeEvent(this, get(AIR));
                 level.getServer().getPluginManager().callEvent(event);
@@ -142,9 +142,9 @@ public class BlockFire extends BlockFlowable {
             Block down = down();
             int downId = down.getId();
 
-            boolean forever = downId == BlockID.NETHERRACK || downId == BlockID.MAGMA 
-                    || downId == BlockID.BEDROCK && ((BlockBedrock)down).getBurnIndefinitely();
-            
+            boolean forever = downId == BlockID.NETHERRACK || downId == BlockID.MAGMA
+                    || downId == BlockID.BEDROCK && ((BlockBedrock) down).getBurnIndefinitely();
+
             ThreadLocalRandom random = ThreadLocalRandom.current();
 
             //TODO: END
@@ -163,7 +163,7 @@ public class BlockFire extends BlockFlowable {
                             this.getLevel().canBlockSeeSky(this.west()) ||
                             this.getLevel().canBlockSeeSky(this.south()) ||
                             this.getLevel().canBlockSeeSky(this.north()))
-                    ) {
+            ) {
                 BlockFadeEvent event = new BlockFadeEvent(this, get(AIR));
                 level.getServer().getPluginManager().callEvent(event);
                 if (!event.isCancelled()) {
@@ -314,23 +314,52 @@ public class BlockFire extends BlockFlowable {
 
     public boolean isBlockTopFacingSurfaceSolid(Block block) {
         if (block != null) {
-            if (block.isSolid()) {
-                return true;
-            } else {
-                if (block instanceof BlockStairs &&
-                        (block.getDamage() & 4) == 4) {
+            if (block instanceof BlockStairs && !((BlockStairs) block).isBurnable()) {
+                return false;
 
-                    return true;
-                } else if (block instanceof BlockSlab &&
-                        (block.getDamage() & 8) == 8) {
+            } else if (block instanceof BlockSlab && block.getId() != BlockID.WOODEN_SLABS) {
+                return false;
 
-                    return true;
-                } else if (block instanceof BlockSnowLayer &&
-                        (block.getDamage() & 7) == 7) {
+            } else if (block instanceof BlockSnowLayer) {
+                return false;
 
-                    return true;
-                }
-            }
+            } else if (block instanceof BlockFence && block.getId() != BlockID.FENCE) {
+                return false;
+
+            } else if (block instanceof BlockFenceGate && !((BlockFenceGate) block).isBurnable()) {
+                return false;
+
+            } else if (block instanceof BlockTrapdoor) {
+                return false;
+
+            } else if (block instanceof BlockGlass || block instanceof BlockGlassPane) {
+                return false;
+
+            } else if (block instanceof BlockHopper) {
+                return false;
+
+            } else if (block instanceof BlockShulkerBox || block instanceof BlockChest || block instanceof BlockEnderChest) {
+                return false;
+
+            } else if (block instanceof BlockAnvil || block instanceof BlockEnchantingTable || block instanceof BlockBrewingStand) {
+                return false;
+
+            } else if (block instanceof BlockCampfire) {
+                return false;
+
+            } else if (block instanceof BlockCactus) {
+                return false;
+
+            } else if (block instanceof BlockDaylightDetector) {
+                return false;
+
+            } else if (block instanceof BlockIce) {
+                return false;
+
+            } else if (block instanceof BlockCake || block instanceof BlockCandleCake || block instanceof BlockCandle) {
+                return false;
+
+            } else return block.isSolid();
         }
 
         return false;

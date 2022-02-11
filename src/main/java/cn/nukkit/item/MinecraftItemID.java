@@ -1111,6 +1111,7 @@ public enum MinecraftItemID {
     @PowerNukkitOnly @Since("FUTURE") AMETHYST_SHARD,
     @PowerNukkitOnly @Since("FUTURE") SPYGLASS,
     @PowerNukkitOnly @Since("FUTURE") GLOW_BERRIES,
+    @PowerNukkitOnly @Since("FUTURE") GLOBE_BANNER_PATTERN,
     ;
     private static final Map<String, MinecraftItemID> namespacedIdMap = Arrays.stream(values())
             .flatMap(id-> 

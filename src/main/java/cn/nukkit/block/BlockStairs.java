@@ -180,4 +180,17 @@ public abstract class BlockStairs extends BlockTransparentMeta implements Faceab
     public void setBlockFace(BlockFace face) {
         setPropertyValue(STAIRS_DIRECTION, face);
     }
+
+    public boolean isBurnable() {
+        switch (this.getId()) {
+            case BlockID.OAK_STAIRS:
+            case BlockID.SPRUCE_STAIRS:
+            case BlockID.BIRCH_STAIRS:
+            case BlockID.JUNGLE_STAIRS:
+            case BlockID.ACACIA_WOOD_STAIRS:
+            case BlockID.DARK_OAK_WOOD_STAIRS:
+                return true;
+        }
+        return false;
+    }
 }

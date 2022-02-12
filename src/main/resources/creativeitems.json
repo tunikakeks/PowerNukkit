@@ -4357,6 +4357,9 @@
       "id": "minecraft:piglin_banner_pattern"
     },
     {
+      "id": "minecraft:globe_banner_pattern"
+    },
+    {
       "id": "minecraft:firework_rocket",
       "nbt_b64": "CgAACgkARmlyZXdvcmtzCQoARXhwbG9zaW9ucwAAAAAAAQYARmxpZ2h0AQAA"
     },

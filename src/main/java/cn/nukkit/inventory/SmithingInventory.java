@@ -74,7 +74,7 @@ public class SmithingInventory extends FakeBlockUIComponent {
     }
     
     private void setResult(Item result) {
-        playerUI.setItem(50, result);
+        // playerUI.setItem(50, result);
     }
 
     @PowerNukkitOnly

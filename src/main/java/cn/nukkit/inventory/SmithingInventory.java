@@ -70,18 +70,11 @@ public class SmithingInventory extends FakeBlockUIComponent {
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public void updateResult() {
-        Item result;
-        SmithingRecipe recipe = matchRecipe();
-        if (recipe == null) {
-            result =  Item.get(0);
-        } else {
-            result = recipe.getFinalResult(getEquipment());
-        }
-        setResult(result);
+        setResult(getResult());
     }
     
     private void setResult(Item result) {
-        //playerUI.setItem(50, result);
+        playerUI.setItem(50, result);
     }
 
     @PowerNukkitOnly

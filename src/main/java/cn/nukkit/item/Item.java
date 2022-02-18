@@ -346,7 +346,6 @@ public class Item implements Cloneable, BlockID, ItemID {
 
             list[SHULKER_SHELL] = ItemShulkerShell.class; //445
             list[BANNER] = ItemBanner.class; //446
-
             list[TOTEM] = ItemTotem.class; //450
 
             list[IRON_NUGGET] = ItemNuggetIron.class; //452
@@ -486,9 +485,13 @@ public class Item implements Cloneable, BlockID, ItemID {
         clearCreativeItems();
 
         Config config = new Config(Config.JSON);
-        try(InputStream resourceAsStream = Server.class.getClassLoader().getResourceAsStream("creativeitems.json")) {
-            config.load(resourceAsStream);
+      
+        if (Server.getInstance().isEducationEditionEnabled()) {
+            config.load(Server.class.getClassLoader().getResourceAsStream("creativeitems_educationedition.json"));
+        } else {
+            config.load(Server.class.getClassLoader().getResourceAsStream("creativeitems.json"));
         }
+      
         List<Map> list = config.getMapList("items");
 
         for (Map map : list) {

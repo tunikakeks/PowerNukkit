@@ -10,6 +10,7 @@ import cn.nukkit.nbt.tag.CompoundTag;
 /**
  * @author good777LUCKY
  */
+
 @Since("1.4.0.0-PN")
 @PowerNukkitOnly
 public class EntityNPCEntity extends EntityLiving implements EntityNPC, EntityInteractable {
@@ -28,34 +29,38 @@ public class EntityNPCEntity extends EntityLiving implements EntityNPC, EntityIn
     public int getNetworkId() {
         return NETWORK_ID;
     }
-
+  
     @Override
     public float getWidth() {
         return 0.6f;
     }
-
+  
     @Override
     public float getHeight() {
         return 2.1f;
     }
-
+  
     @Override
     public boolean canDoInteraction() {
         return true;
     }
-
+  
     @Override
     public String getInteractButtonText() {
         return "action.interact.edit";
     }
+<<<<<<< HEAD
 
     @PowerNukkitOnly
     @Since("1.5.1.0-PN")
+=======
+  
+>>>>>>> d8b90d2f38bfb551d8099534be64b91f3af5032f
     @Override
     public String getOriginalName() {
         return "NPC";
     }
-
+  
     @Override
     public void initEntity() {
         super.initEntity();

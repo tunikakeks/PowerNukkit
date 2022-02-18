@@ -7,6 +7,7 @@ import static cn.nukkit.utils.Utils.dynamic;
 
 public interface ItemID {
     @PowerNukkitOnly @Since("FUTURE") int STRING_IDENTIFIED_ITEM = dynamic(255);
+    int GLOW_STICK = 166;
     int IRON_SHOVEL = 256;
     int IRON_PICKAXE = 257;
     int IRON_AXE = 258;
@@ -211,15 +212,19 @@ public interface ItemID {
     int SPLASH_POTION = 438;
 
     int LINGERING_POTION = 441;
-
+    int SPARKLER = 442;
     int COMMAND_BLOCK_MINECART = 443;
     int ELYTRA = 444;
     int SHULKER_SHELL = 445;
     int BANNER = 446;
+    int MEDICINE = 447;
+    int BALLOON = 448;
+    int RAPID_FERTILIZER = 449;
     int TOTEM = 450;
-    
+    int BLEACH = 451;
     int IRON_NUGGET = 452;
-
+    int ICE_BOMB = 453;
+    
     int TRIDENT = 455;
 
     int BEETROOT = 457;
@@ -245,7 +250,9 @@ public interface ItemID {
     @PowerNukkitOnly int DARKOAK_SIGN = 476;
     @PowerNukkitOnly int DARK_OAK_SIGN = 476;
     int SWEET_BERRIES = 477;
-
+    
+    int CAMERA = 498;
+    int COMPOUND = 499;
     int RECORD_13 = 500;
     int RECORD_CAT = 501;
     int RECORD_BLOCKS = 502;

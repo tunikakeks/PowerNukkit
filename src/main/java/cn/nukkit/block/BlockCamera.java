@@ -1,24 +1,17 @@
 package cn.nukkit.block;
 
 import cn.nukkit.Player;
-import cn.nukkit.block.Block;
 import cn.nukkit.item.Item;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.utils.BlockColor;
 
+import javax.annotation.Nonnull;
+
 /**
  * @author good777LUCKY
  */
-public class BlockCamera extends BlockSolidMeta {
-// TODO: Add Block State
-    public BlockCamera() {
-        this(0);
-    }
-    
-    public BlockCamera(int meta) {
-        super(meta);
-    }
-    
+public class BlockCamera extends BlockSolid {
+
     @Override
     public int getId() {
         return CAMERA;
@@ -40,7 +33,7 @@ public class BlockCamera extends BlockSolidMeta {
     }
     
     @Override
-    public boolean place(Item item, Block block, Block target, BlockFace face, double fx, double fy, double fz, Player player) {
+    public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, Player player) {
         //TODO: Add Block face?
         return super.place(item, block, target, face, fx, fy, fz, player);
     }

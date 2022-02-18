@@ -49,13 +49,9 @@ public class EntityNPCEntity extends EntityLiving implements EntityNPC, EntityIn
     public String getInteractButtonText() {
         return "action.interact.edit";
     }
-<<<<<<< HEAD
 
     @PowerNukkitOnly
     @Since("1.5.1.0-PN")
-=======
-  
->>>>>>> d8b90d2f38bfb551d8099534be64b91f3af5032f
     @Override
     public String getOriginalName() {
         return "NPC";

@@ -382,7 +382,9 @@ public interface BlockID {
     int FENCE_GATE_JUNGLE = 185;
     int FENCE_GATE_DARK_OAK = 186;
     int FENCE_GATE_ACACIA = 187;
-    
+
+    int HARD_GLASS = 188;
+    int HARD_STAINED_GLASS = 189;
     int HARD_GLASS_PANE = 190;
     int HARD_STAINED_GLASS_PANE = 191;
     int CHEMICAL_HEAT = 192;

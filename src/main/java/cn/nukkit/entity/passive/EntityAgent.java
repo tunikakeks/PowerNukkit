@@ -28,12 +28,12 @@ public class EntityAgent extends EntityLiving {
 
     @Override
     public float getWidth() {
-        return super.getWidth();
+        return 0.5F;
     }
 
     @Override
     public float getHeight() {
-        return super.getHeight();
+        return 0.5F;
     }
 
     @Override

@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
  */
 
 @PowerNukkitDifference(info = "Implements RedstoneComponent.", since = "1.4.0.0-PN")
-public class BlockTNT extends BlockSolid implements RedstoneComponent {
+public class BlockTNT extends BlockSolidMeta implements RedstoneComponent {
 
     @PowerNukkitOnly
     @Since("1.5.0.0-PN")
@@ -147,6 +147,10 @@ public class BlockTNT extends BlockSolid implements RedstoneComponent {
     
     @Override
     public boolean onActivate(@Nonnull Item item, @Nullable Player player) {
+        if (player == null) {
+            return false;
+        }
+
         if (item.getId() == Item.FLINT_STEEL) {
             item.useOn(this);
             this.prime(80, player);
@@ -172,19 +176,19 @@ public class BlockTNT extends BlockSolid implements RedstoneComponent {
     }
     
     public boolean isUnderwaterAllowed() {
-        return getBooleanValue(ALLOW_UNDERWATER_BIT);
+        return this.getPropertyValue(ALLOW_UNDERWATER);
     }
     
     public void setUnderwaterAllowed(boolean underwater) {
-        setBooleanValue(ALLOW_UNDERWATER_BIT, underwater);
+        this.setPropertyValue(ALLOW_UNDERWATER, underwater);
     }
     
     public boolean isExplode() {
-        return getBooleanValue(EXPLODE_BIT);
+        return this.getPropertyValue(EXPLODE_ON_BREAK);
     }
     
     public void setExplode(boolean explode) {
-        setBooleanValue(EXPLODE_BIT, explode);
+        this.setPropertyValue(EXPLODE_ON_BREAK, explode);
     }
     
     @Since("1.4.0.0-PN")

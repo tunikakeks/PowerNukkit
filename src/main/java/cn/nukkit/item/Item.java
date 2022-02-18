@@ -32,7 +32,6 @@ import lombok.extern.log4j.Log4j2;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
@@ -346,9 +345,12 @@ public class Item implements Cloneable, BlockID, ItemID {
 
             list[SHULKER_SHELL] = ItemShulkerShell.class; //445
             list[BANNER] = ItemBanner.class; //446
+            list[MEDICINE] = ItemMedicine.class; //447
+            list[BALLOON] = ItemBalloon.class; //448
             list[TOTEM] = ItemTotem.class; //450
 
             list[IRON_NUGGET] = ItemNuggetIron.class; //452
+            list[ICE_BOMB] = ItemIceBomb.class; //453
 
             list[TRIDENT] = ItemTrident.class; //455
 
@@ -372,6 +374,8 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[ACACIA_SIGN] = ItemAcaciaSign.class; //475
             list[DARKOAK_SIGN] = ItemDarkOakSign.class; //476
             list[SWEET_BERRIES] = ItemSweetBerries.class; //477
+
+            list[COMPOUND] = ItemCompound.class; //499
 
             list[RECORD_13] = ItemRecord13.class; //500
             list[RECORD_CAT] = ItemRecordCat.class; //501

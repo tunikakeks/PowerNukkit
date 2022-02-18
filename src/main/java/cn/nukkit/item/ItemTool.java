@@ -125,6 +125,7 @@ public abstract class ItemTool extends Item implements ItemDurable {
         } else {
             this.meta++;
         }
+
         return true;
     }
 

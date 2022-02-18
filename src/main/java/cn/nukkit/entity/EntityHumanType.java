@@ -1,6 +1,7 @@
 package cn.nukkit.entity;
 
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
 import cn.nukkit.block.BlockID;
@@ -8,6 +9,7 @@ import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageModifier;
+import cn.nukkit.event.player.PlayerArmorDamageEvent;
 import cn.nukkit.inventory.InventoryHolder;
 import cn.nukkit.inventory.PlayerEnderChestInventory;
 import cn.nukkit.inventory.PlayerInventory;
@@ -264,12 +266,23 @@ public abstract class EntityHumanType extends EntityCreature implements Inventor
             return armor;
         }
 
-        armor.setDamage(armor.getDamage() + 1);
+        Item armorAfter = armor.clone();
+        armorAfter.setDamage(armor.getDamage() + 1);
+
+        if(this instanceof Player) {
+            PlayerArmorDamageEvent playerArmorDamageEvent = new PlayerArmorDamageEvent((Player) this, armor, armorAfter);
+            Server.getInstance().getPluginManager().callEvent(playerArmorDamageEvent);
+            if(playerArmorDamageEvent.isCancelled()) {
+                return armor;
+            }
+        }
 
         if (armor.getDamage() >= armor.getMaxDurability()) {
             getLevel().addSound(this, Sound.RANDOM_BREAK);
             return Item.get(BlockID.AIR, 0, 0);
         }
+
+
 
         return armor;
     }

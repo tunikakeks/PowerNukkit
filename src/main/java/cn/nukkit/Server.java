@@ -2563,6 +2563,7 @@ public class Server {
         Entity.registerEntity("ZombieVillager", EntityZombieVillager.class);
         Entity.registerEntity("ZombieVillagerV1", EntityZombieVillagerV1.class);
         //Passive
+        Entity.registerEntity("Agent", EntityAgent.class);
         Entity.registerEntity("Axolotl", EntityAxolotl.class);
         Entity.registerEntity("Bat", EntityBat.class);
         Entity.registerEntity("Bee", EntityBee.class);

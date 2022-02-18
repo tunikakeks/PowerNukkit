@@ -114,7 +114,7 @@ public class AddEntityPacket extends DataPacket {
             .put(103, "minecraft:evocation_fang")
             .put(104, "minecraft:evocation_illager")
             .put(EntityVex.NETWORK_ID, "minecraft:vex")
-            .put(56, "minecraft:agent")
+            .put(EntityAgent.NETWORK_ID, "minecraft:agent")
             .put(EntityIceBomb.NETWORK_ID, "minecraft:ice_bomb")
             .put(EntityPhantom.NETWORK_ID, "minecraft:phantom")
             .put(EntityTripodCamera.NETWORK_ID, "minecraft:tripod_camera")

@@ -38,7 +38,8 @@ public class ObectMoss {
                 y += random.nextRange(-1, 1) * random.nextBoundedInt(3) / 2;
                 z += random.nextRange(-1, 1);
 
-                if (level.getBlockIdAt(x, y - 1, z) != Block.GRASS || y > 255 || y < 0) {
+                int blockId = level.getBlockIdAt(x, y - 1, z);
+                if ((blockId != Block.GRASS && blockId != Block.STONE) || y > 255 || y < 0) {
                     break;
                 }
 

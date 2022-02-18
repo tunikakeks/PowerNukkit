@@ -482,7 +482,6 @@ public class Item implements Cloneable, BlockID, ItemID {
 
     private static final ArrayList<Item> creative = new ArrayList<>();
 
-    @SneakyThrows(IOException.class)
     @SuppressWarnings("unchecked")
     private static void initCreativeItems() {
         clearCreativeItems();

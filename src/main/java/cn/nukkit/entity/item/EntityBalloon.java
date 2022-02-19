@@ -134,7 +134,7 @@ public class EntityBalloon extends Entity {
                     return false;
                 }
 
-                if (attached != null) {
+                if (attached != null && !attached.isClosed()) {
                     return true;
                 }
 

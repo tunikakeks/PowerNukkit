@@ -87,6 +87,7 @@ public class ItemBalloon extends Item {
                         .add(new FloatTag("", 0))
                         .add(new FloatTag("", 0)))
                 .putByte("Color", this.getDamage() & 0xf)
+                .putFloat("balloon_max_height", (float) Math.min(block.y + 3.0D, 256.0D))
                 .putLong("balloon_attached", entityLeashKnot.getId());
 
         CreatureSpawnEvent ev = new CreatureSpawnEvent(EntityBalloon.NETWORK_ID, block, nbtBalloon, SpawnReason.BALLOON);

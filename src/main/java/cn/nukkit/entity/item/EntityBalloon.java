@@ -140,21 +140,9 @@ public class EntityBalloon extends Entity {
         attachedNetworkId = isAttached() ? getAttachedEntity().getNetworkId() : -1;
         
         if (this.isAlive()) {
-
             if (this.y >= this.balloonMaxHeight) {
-                if (!isAttached()) {
-                    this.close();
-                    return false;
-                }
-
                 if (isLeashed()) {
-                    if (!getAttachedEntity().isClosed()) {
-                        return true;
-                    }
-
-                    if (this.balloonMaxHeight < 256.0F) {
-                        this.balloonMaxHeight = 256.0F;
-                    }
+                    return true;
                 }
 
                 this.close();
@@ -207,7 +195,7 @@ public class EntityBalloon extends Entity {
     }
 
     public Entity getAttachedEntity() {
-        return this.isAttached() ? this.level.getEntity(this.balloonAttached) : null;
+        return this.balloonAttached != -1 ? this.level.getEntity(this.balloonAttached) : null;
     }
 
     public boolean isAttached() {

@@ -129,7 +129,11 @@ public class EntityBalloon extends Entity {
         
         if (this.isAlive()) {
             if (this.y >= balloonMaxHeight) {
+                if (balloonAttached != -1L) {
+                    return true;
+                }
                 this.close();
+                return false;
             }
             
             motionY -= getGravity() * 0.1f;

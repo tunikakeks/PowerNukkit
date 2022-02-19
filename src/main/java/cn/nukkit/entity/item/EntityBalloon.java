@@ -186,7 +186,10 @@ public class EntityBalloon extends Entity {
         super.close();
         
         if (isAttached()) {
-            this.getAttachedEntity().close();
+            Entity entity = this.getAttachedEntity();
+            if (entity != null && !entity.isClosed()) {
+                entity.close();
+            }
         }
     }
 

@@ -1,6 +1,5 @@
 package cn.nukkit.entity.item;
 
-import cn.nukkit.Player;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
@@ -128,12 +127,22 @@ public class EntityBalloon extends Entity {
         boolean hasUpdate = this.entityBaseTick(tickDiff);
         
         if (this.isAlive()) {
+            Entity attached = getAttachedEntity();
             if (this.y >= balloonMaxHeight) {
-                if (balloonAttached != -1L) {
+                if (!isAttached()) {
+                    this.close();
+                    return false;
+                }
+
+                if (attached != null) {
                     return true;
                 }
-                this.close();
-                return false;
+
+                if (this.balloonMaxHeight == 256.0F) {
+                    this.close();
+                    return false;
+                }
+                this.balloonMaxHeight = 256.0F;
             }
             
             motionY -= getGravity() * 0.1f;
@@ -176,8 +185,16 @@ public class EntityBalloon extends Entity {
     public void close() {
         super.close();
         
-        if (this.balloonAttached != -1L) {
-            this.level.getEntity(this.balloonAttached).close();
+        if (isAttached()) {
+            this.getAttachedEntity().close();
         }
+    }
+
+    public Entity getAttachedEntity() {
+        return this.isAttached() ? this.level.getEntity(this.balloonAttached) : null;
+    }
+
+    public boolean isAttached() {
+        return this.balloonAttached != -1;
     }
 }

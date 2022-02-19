@@ -492,7 +492,7 @@ public class Item implements Cloneable, BlockID, ItemID {
 
         if (Server.getInstance().isEducationEditionEnabled()) {
             // TODO: Add education edition items
-            
+
             /*Config edu = new Config(Config.JSON);
             edu.load(Server.class.getClassLoader().getResourceAsStream("creativeitems_edu.json"));
             List<Map> items = config.getMapList("items");

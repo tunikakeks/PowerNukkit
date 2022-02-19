@@ -130,6 +130,7 @@ public class EntityBalloon extends Entity {
 
         if (attachedNetworkId != -1 && !isAttached()) {
             if (attachedNetworkId == EntityLeashKnot.NETWORK_ID) {
+                this.setDataFlag(DATA_FLAGS, DATA_FLAG_LEASHED, false);
                 balloonMaxHeight = 256.0F;
             }
 

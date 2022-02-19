@@ -86,9 +86,7 @@ public class ItemBalloon extends Item {
                 .putList(new ListTag<FloatTag>("Rotation")
                         .add(new FloatTag("", 0))
                         .add(new FloatTag("", 0)))
-                .putByte("Color", this.getDamage() & 0xf)
-                .putFloat("balloon_max_height", (float) Math.min(block.y + 3.0D, 256.0D))
-                .putLong("balloon_attached", entityLeashKnot.getId());
+                .putByte("Color", this.getDamage() & 0xf);
 
         CreatureSpawnEvent ev = new CreatureSpawnEvent(EntityBalloon.NETWORK_ID, block, nbtBalloon, SpawnReason.BALLOON);
         level.getServer().getPluginManager().callEvent(ev);
@@ -97,12 +95,16 @@ public class ItemBalloon extends Item {
             return false;
         }
 
-        Entity entityBalloon = Entity.createEntity("Balloon", chunk, nbtBalloon);
+        entityLeashKnot.spawnToAll();
+
+        Entity entityBalloon = Entity.createEntity("Balloon", chunk, nbtBalloon
+                .putFloat("balloon_max_height", (float) Math.min(block.y + 3.0D, 256.0D))
+                .putLong("balloon_attached", entityLeashKnot.getId()));
 
         if (!player.isCreative()) {
             player.getInventory().decreaseCount(player.getInventory().getHeldItemIndex());
         }
-        entityLeashKnot.spawnToAll();
+
         entityBalloon.spawnToAll();
         return true;
     }

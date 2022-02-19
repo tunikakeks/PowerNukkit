@@ -18,6 +18,8 @@ public class EntityBalloon extends Entity {
     protected long balloonAttached;
     protected float balloonMaxHeight;
     protected boolean balloonShouldDrop;
+
+    protected int attachedNetworkId = -1;
     
     public EntityBalloon(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
@@ -125,24 +127,38 @@ public class EntityBalloon extends Entity {
         this.timing.startTiming();
         
         boolean hasUpdate = this.entityBaseTick(tickDiff);
+
+        if (attachedNetworkId != -1 && !isAttached()) {
+            if (attachedNetworkId == EntityLeashKnot.NETWORK_ID) {
+                balloonMaxHeight = 256.0F;
+            }
+
+            attachedNetworkId = -1;
+            balloonAttached = -1L;
+        }
+
+        attachedNetworkId = isAttached() ? getAttachedEntity().getNetworkId() : -1;
         
         if (this.isAlive()) {
-            Entity attached = getAttachedEntity();
-            if (this.y >= balloonMaxHeight) {
+
+            if (this.y >= this.balloonMaxHeight) {
                 if (!isAttached()) {
                     this.close();
                     return false;
                 }
 
-                if (attached != null && !attached.isClosed()) {
-                    return true;
+                if (isLeashed()) {
+                    if (!getAttachedEntity().isClosed()) {
+                        return true;
+                    }
+
+                    if (this.balloonMaxHeight < 256.0F) {
+                        this.balloonMaxHeight = 256.0F;
+                    }
                 }
 
-                if (this.balloonMaxHeight == 256.0F) {
-                    this.close();
-                    return false;
-                }
-                this.balloonMaxHeight = 256.0F;
+                this.close();
+                return false;
             }
             
             motionY -= getGravity() * 0.1f;
@@ -186,10 +202,7 @@ public class EntityBalloon extends Entity {
         super.close();
         
         if (isAttached()) {
-            Entity entity = this.getAttachedEntity();
-            if (entity != null && !entity.isClosed()) {
-                entity.close();
-            }
+            this.getAttachedEntity().close();
         }
     }
 
@@ -198,6 +211,10 @@ public class EntityBalloon extends Entity {
     }
 
     public boolean isAttached() {
-        return this.balloonAttached != -1;
+        return this.balloonAttached != -1 && getAttachedEntity() != null && !getAttachedEntity().isClosed();
+    }
+
+    public boolean isLeashed() {
+        return getAttachedEntity() instanceof EntityLeashKnot;
     }
 }

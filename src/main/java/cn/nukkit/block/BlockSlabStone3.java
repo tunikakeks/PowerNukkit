@@ -10,6 +10,7 @@ import cn.nukkit.utils.BlockColor;
 
 import javax.annotation.Nonnull;
 
+@PowerNukkitOnly
 public class BlockSlabStone3 extends BlockSlab {
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
@@ -18,15 +19,16 @@ public class BlockSlabStone3 extends BlockSlab {
             TOP_SLOT_PROPERTY
     );
     
-    public static final int END_STONE_BRICKS = 0;
-    public static final int SMOOTH_RED_SANDSTONE = 1;
-    public static final int POLISHED_ANDESITE = 2;
-    public static final int ANDESITE = 3;
-    public static final int DIORITE = 4;
-    public static final int POLISHED_DIORITE = 5;
-    public static final int GRANITE = 6;
-    public static final int POLISHED_GRANITE = 7;
+    @PowerNukkitOnly public static final int END_STONE_BRICKS = 0;
+    @PowerNukkitOnly public static final int SMOOTH_RED_SANDSTONE = 1;
+    @PowerNukkitOnly public static final int POLISHED_ANDESITE = 2;
+    @PowerNukkitOnly public static final int ANDESITE = 3;
+    @PowerNukkitOnly public static final int DIORITE = 4;
+    @PowerNukkitOnly public static final int POLISHED_DIORITE = 5;
+    @PowerNukkitOnly public static final int GRANITE = 6;
+    @PowerNukkitOnly public static final int POLISHED_GRANITE = 7;
 
+    @PowerNukkitOnly
     public BlockSlabStone3() {
         this(0);
     }
@@ -40,6 +42,7 @@ public class BlockSlabStone3 extends BlockSlab {
 
     }
 
+    @PowerNukkitOnly
     public BlockSlabStone3(int meta) {
         super(meta, DOUBLE_STONE_SLAB3);
     }
@@ -57,6 +60,7 @@ public class BlockSlabStone3 extends BlockSlab {
         return PROPERTIES;
     }
 
+    @PowerNukkitOnly
     @Override
     public String getSlabName() {
         return getSlabType().getEnglishName();
@@ -75,6 +79,7 @@ public class BlockSlabStone3 extends BlockSlab {
     }
 
 
+    @PowerNukkitOnly
     @Override
     public boolean isSameType(BlockSlab slab) {
         return slab.getId() == getId() && getSlabType().equals(slab.getPropertyValue(StoneSlab3Type.PROPERTY));
@@ -87,6 +92,7 @@ public class BlockSlabStone3 extends BlockSlab {
     }
 
     @Override
+    @PowerNukkitOnly
     public int getToolTier() {
         return ItemTool.TIER_WOODEN;
     }

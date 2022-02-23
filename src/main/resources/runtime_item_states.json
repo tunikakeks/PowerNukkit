@@ -52,10 +52,6 @@
         "id" : -158
     },
     {
-        "name" : "minecraft:allay_spawn_egg",
-        "id" : 631
-    },
-    {
         "name" : "minecraft:allow",
         "id" : 210
     },
@@ -69,7 +65,7 @@
     },
     {
         "name" : "minecraft:amethyst_shard",
-        "id" : 625
+        "id" : 624
     },
     {
         "name" : "minecraft:ancient_debris",
@@ -121,7 +117,7 @@
     },
     {
         "name" : "minecraft:balloon",
-        "id" : 598
+        "id" : 597
     },
     {
         "name" : "minecraft:bamboo",
@@ -137,7 +133,7 @@
     },
     {
         "name" : "minecraft:banner_pattern",
-        "id" : 635
+        "id" : 629
     },
     {
         "name" : "minecraft:barrel",
@@ -297,7 +293,7 @@
     },
     {
         "name" : "minecraft:bleach",
-        "id" : 596
+        "id" : 595
     },
     {
         "name" : "minecraft:blue_candle",
@@ -321,7 +317,7 @@
     },
     {
         "name" : "minecraft:boat",
-        "id" : 633
+        "id" : 627
     },
     {
         "name" : "minecraft:bone",
@@ -433,11 +429,11 @@
     },
     {
         "name" : "minecraft:camera",
-        "id" : 593
+        "id" : 592
     },
     {
         "name" : "minecraft:campfire",
-        "id" : 589
+        "id" : 588
     },
     {
         "name" : "minecraft:candle",
@@ -497,7 +493,7 @@
     },
     {
         "name" : "minecraft:chain",
-        "id" : 619
+        "id" : 618
     },
     {
         "name" : "minecraft:chain_command_block",
@@ -677,7 +673,7 @@
     },
     {
         "name" : "minecraft:compound",
-        "id" : 594
+        "id" : 593
     },
     {
         "name" : "minecraft:concrete",
@@ -801,7 +797,7 @@
     },
     {
         "name" : "minecraft:crimson_door",
-        "id" : 616
+        "id" : 615
     },
     {
         "name" : "minecraft:crimson_double_slab",
@@ -841,7 +837,7 @@
     },
     {
         "name" : "minecraft:crimson_sign",
-        "id" : 614
+        "id" : 613
     },
     {
         "name" : "minecraft:crimson_slab",
@@ -1177,7 +1173,7 @@
     },
     {
         "name" : "minecraft:dye",
-        "id" : 634
+        "id" : 628
     },
     {
         "name" : "minecraft:egg",
@@ -1705,7 +1701,7 @@
     },
     {
         "name" : "minecraft:end_crystal",
-        "id" : 637
+        "id" : 631
     },
     {
         "name" : "minecraft:end_gateway",
@@ -1812,10 +1808,6 @@
         "id" : 509
     },
     {
-        "name" : "minecraft:firefly_spawn_egg",
-        "id" : 632
-    },
-    {
         "name" : "minecraft:firework_rocket",
         "id" : 519
     },
@@ -1868,14 +1860,6 @@
         "id" : 513
     },
     {
-        "name" : "minecraft:frog_egg",
-        "id" : -468
-    },
-    {
-        "name" : "minecraft:frog_spawn_egg",
-        "id" : 628
-    },
-    {
         "name" : "minecraft:frosted_ice",
         "id" : 207
     },
@@ -1912,16 +1896,12 @@
         "id" : 434
     },
     {
-        "name" : "minecraft:globe_banner_pattern",
-        "id" : 588
-    },
-    {
         "name" : "minecraft:glow_berries",
-        "id" : 638
+        "id" : 632
     },
     {
         "name" : "minecraft:glow_frame",
-        "id" : 623
+        "id" : 622
     },
     {
         "name" : "minecraft:glow_ink_sac",
@@ -1937,7 +1917,7 @@
     },
     {
         "name" : "minecraft:glow_stick",
-        "id" : 601
+        "id" : 600
     },
     {
         "name" : "minecraft:glowingobsidian",
@@ -1953,7 +1933,7 @@
     },
     {
         "name" : "minecraft:goat_horn",
-        "id" : 624
+        "id" : 623
     },
     {
         "name" : "minecraft:goat_spawn_egg",
@@ -2133,11 +2113,11 @@
     },
     {
         "name" : "minecraft:honey_bottle",
-        "id" : 592
+        "id" : 591
     },
     {
         "name" : "minecraft:honeycomb",
-        "id" : 591
+        "id" : 590
     },
     {
         "name" : "minecraft:honeycomb_block",
@@ -2165,7 +2145,7 @@
     },
     {
         "name" : "minecraft:ice_bomb",
-        "id" : 595
+        "id" : 594
     },
     {
         "name" : "minecraft:infested_deepslate",
@@ -2593,7 +2573,7 @@
     },
     {
         "name" : "minecraft:lodestone_compass",
-        "id" : 602
+        "id" : 601
     },
     {
         "name" : "minecraft:log",
@@ -2637,7 +2617,7 @@
     },
     {
         "name" : "minecraft:medicine",
-        "id" : 599
+        "id" : 598
     },
     {
         "name" : "minecraft:medium_amethyst_bud",
@@ -2749,11 +2729,11 @@
     },
     {
         "name" : "minecraft:music_disc_otherside",
-        "id" : 627
+        "id" : 626
     },
     {
         "name" : "minecraft:music_disc_pigstep",
-        "id" : 620
+        "id" : 619
     },
     {
         "name" : "minecraft:music_disc_stal",
@@ -2813,7 +2793,7 @@
     },
     {
         "name" : "minecraft:nether_sprouts",
-        "id" : 621
+        "id" : 620
     },
     {
         "name" : "minecraft:nether_star",
@@ -2833,7 +2813,7 @@
     },
     {
         "name" : "minecraft:netherite_axe",
-        "id" : 607
+        "id" : 606
     },
     {
         "name" : "minecraft:netherite_block",
@@ -2841,43 +2821,43 @@
     },
     {
         "name" : "minecraft:netherite_boots",
-        "id" : 612
-    },
-    {
-        "name" : "minecraft:netherite_chestplate",
-        "id" : 610
-    },
-    {
-        "name" : "minecraft:netherite_helmet",
-        "id" : 609
-    },
-    {
-        "name" : "minecraft:netherite_hoe",
-        "id" : 608
-    },
-    {
-        "name" : "minecraft:netherite_ingot",
-        "id" : 603
-    },
-    {
-        "name" : "minecraft:netherite_leggings",
         "id" : 611
     },
     {
+        "name" : "minecraft:netherite_chestplate",
+        "id" : 609
+    },
+    {
+        "name" : "minecraft:netherite_helmet",
+        "id" : 608
+    },
+    {
+        "name" : "minecraft:netherite_hoe",
+        "id" : 607
+    },
+    {
+        "name" : "minecraft:netherite_ingot",
+        "id" : 602
+    },
+    {
+        "name" : "minecraft:netherite_leggings",
+        "id" : 610
+    },
+    {
         "name" : "minecraft:netherite_pickaxe",
-        "id" : 606
-    },
-    {
-        "name" : "minecraft:netherite_scrap",
-        "id" : 613
-    },
-    {
-        "name" : "minecraft:netherite_shovel",
         "id" : 605
     },
     {
-        "name" : "minecraft:netherite_sword",
+        "name" : "minecraft:netherite_scrap",
+        "id" : 612
+    },
+    {
+        "name" : "minecraft:netherite_shovel",
         "id" : 604
+    },
+    {
+        "name" : "minecraft:netherite_sword",
+        "id" : 603
     },
     {
         "name" : "minecraft:netherrack",
@@ -2922,10 +2902,6 @@
     {
         "name" : "minecraft:ocelot_spawn_egg",
         "id" : 451
-    },
-    {
-        "name" : "minecraft:ochre_froglight",
-        "id" : -471
     },
     {
         "name" : "minecraft:orange_candle",
@@ -2982,10 +2958,6 @@
     {
         "name" : "minecraft:parrot_spawn_egg",
         "id" : 478
-    },
-    {
-        "name" : "minecraft:pearlescent_froglight",
-        "id" : -469
     },
     {
         "name" : "minecraft:phantom_membrane",
@@ -3301,7 +3273,7 @@
     },
     {
         "name" : "minecraft:rapid_fertilizer",
-        "id" : 597
+        "id" : 596
     },
     {
         "name" : "minecraft:ravager_spawn_egg",
@@ -3621,7 +3593,7 @@
     },
     {
         "name" : "minecraft:soul_campfire",
-        "id" : 622
+        "id" : 621
     },
     {
         "name" : "minecraft:soul_fire",
@@ -3645,11 +3617,11 @@
     },
     {
         "name" : "minecraft:sparkler",
-        "id" : 600
+        "id" : 599
     },
     {
         "name" : "minecraft:spawn_egg",
-        "id" : 636
+        "id" : 630
     },
     {
         "name" : "minecraft:spider_eye",
@@ -3713,7 +3685,7 @@
     },
     {
         "name" : "minecraft:spyglass",
-        "id" : 626
+        "id" : 625
     },
     {
         "name" : "minecraft:squid_spawn_egg",
@@ -3873,7 +3845,7 @@
     },
     {
         "name" : "minecraft:suspicious_stew",
-        "id" : 590
+        "id" : 589
     },
     {
         "name" : "minecraft:sweet_berries",
@@ -3882,14 +3854,6 @@
     {
         "name" : "minecraft:sweet_berry_bush",
         "id" : -207
-    },
-    {
-        "name" : "minecraft:tadpole_bucket",
-        "id" : 630
-    },
-    {
-        "name" : "minecraft:tadpole_spawn_egg",
-        "id" : 629
     },
     {
         "name" : "minecraft:tallgrass",
@@ -3996,10 +3960,6 @@
         "id" : 93
     },
     {
-        "name" : "minecraft:verdant_froglight",
-        "id" : -470
-    },
-    {
         "name" : "minecraft:vex_spawn_egg",
         "id" : 476
     },
@@ -4033,7 +3993,7 @@
     },
     {
         "name" : "minecraft:warped_door",
-        "id" : 617
+        "id" : 616
     },
     {
         "name" : "minecraft:warped_double_slab",
@@ -4053,7 +4013,7 @@
     },
     {
         "name" : "minecraft:warped_fungus_on_a_stick",
-        "id" : 618
+        "id" : 617
     },
     {
         "name" : "minecraft:warped_hyphae",
@@ -4077,7 +4037,7 @@
     },
     {
         "name" : "minecraft:warped_sign",
-        "id" : 615
+        "id" : 614
     },
     {
         "name" : "minecraft:warped_slab",

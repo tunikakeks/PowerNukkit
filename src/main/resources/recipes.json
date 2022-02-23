@@ -1,6 +1,195 @@
 {
-  "version": 475,
+  "version": 486,
   "recipes": [
+    {
+      "id": "minecraft:smithingtable_diamond_axe_to_netherite_axe",
+      "type": 0,
+      "input": [
+        {
+          "id": "minecraft:diamond_axe",
+          "fuzzy": true
+        },
+        {
+          "id": "minecraft:netherite_ingot",
+          "fuzzy": true
+        }
+      ],
+      "output": [
+        {
+          "id": "minecraft:netherite_axe"
+        }
+      ],
+      "block": "smithing_table",
+      "priority": 2
+    },
+    {
+      "id": "minecraft:smithingtable_diamond_boots_to_netherite_boots",
+      "type": 0,
+      "input": [
+        {
+          "id": "minecraft:diamond_boots",
+          "fuzzy": true
+        },
+        {
+          "id": "minecraft:netherite_ingot",
+          "fuzzy": true
+        }
+      ],
+      "output": [
+        {
+          "id": "minecraft:netherite_boots"
+        }
+      ],
+      "block": "smithing_table",
+      "priority": 2
+    },
+    {
+      "id": "minecraft:smithingtable_diamond_chestplate_to_netherite_chestplate",
+      "type": 0,
+      "input": [
+        {
+          "id": "minecraft:diamond_chestplate",
+          "fuzzy": true
+        },
+        {
+          "id": "minecraft:netherite_ingot",
+          "fuzzy": true
+        }
+      ],
+      "output": [
+        {
+          "id": "minecraft:netherite_chestplate"
+        }
+      ],
+      "block": "smithing_table",
+      "priority": 2
+    },
+    {
+      "id": "minecraft:smithingtable_diamond_helmet_to_netherite_helmet",
+      "type": 0,
+      "input": [
+        {
+          "id": "minecraft:diamond_helmet",
+          "fuzzy": true
+        },
+        {
+          "id": "minecraft:netherite_ingot",
+          "fuzzy": true
+        }
+      ],
+      "output": [
+        {
+          "id": "minecraft:netherite_helmet"
+        }
+      ],
+      "block": "smithing_table",
+      "priority": 2
+    },
+    {
+      "id": "minecraft:smithingtable_diamond_hoe_to_netherite_hoe",
+      "type": 0,
+      "input": [
+        {
+          "id": "minecraft:diamond_hoe",
+          "fuzzy": true
+        },
+        {
+          "id": "minecraft:netherite_ingot",
+          "fuzzy": true
+        }
+      ],
+      "output": [
+        {
+          "id": "minecraft:netherite_hoe"
+        }
+      ],
+      "block": "smithing_table",
+      "priority": 2
+    },
+    {
+      "id": "minecraft:smithingtable_diamond_leggings_to_netherite_leggings",
+      "type": 0,
+      "input": [
+        {
+          "id": "minecraft:diamond_leggings",
+          "fuzzy": true
+        },
+        {
+          "id": "minecraft:netherite_ingot",
+          "fuzzy": true
+        }
+      ],
+      "output": [
+        {
+          "id": "minecraft:netherite_leggings"
+        }
+      ],
+      "block": "smithing_table",
+      "priority": 2
+    },
+    {
+      "id": "minecraft:smithingtable_diamond_pickaxe_to_netherite_pickaxe",
+      "type": 0,
+      "input": [
+        {
+          "id": "minecraft:diamond_pickaxe",
+          "fuzzy": true
+        },
+        {
+          "id": "minecraft:netherite_ingot",
+          "fuzzy": true
+        }
+      ],
+      "output": [
+        {
+          "id": "minecraft:netherite_pickaxe"
+        }
+      ],
+      "block": "smithing_table",
+      "priority": 2
+    },
+    {
+      "id": "minecraft:smithingtable_diamond_shovel_to_netherite_shovel",
+      "type": 0,
+      "input": [
+        {
+          "id": "minecraft:diamond_shovel",
+          "fuzzy": true
+        },
+        {
+          "id": "minecraft:netherite_ingot",
+          "fuzzy": true
+        }
+      ],
+      "output": [
+        {
+          "id": "minecraft:netherite_shovel"
+        }
+      ],
+      "block": "smithing_table",
+      "priority": 2
+    },
+    {
+      "id": "minecraft:smithingtable_diamond_sword_to_netherite_sword",
+      "type": 0,
+      "input": [
+        {
+          "id": "minecraft:diamond_sword",
+          "fuzzy": true
+        },
+        {
+          "id": "minecraft:netherite_ingot",
+          "fuzzy": true
+        }
+      ],
+      "output": [
+        {
+          "id": "minecraft:netherite_sword"
+        }
+      ],
+      "block": "smithing_table",
+      "priority": 2
+    },
     {
       "type": 4,
       "uuid": "442d85ed-8272-4543-a6f1-418f90ded05d"

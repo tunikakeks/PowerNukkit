@@ -72,6 +72,12 @@ public class CraftingManager {
         } else return Integer.compare(i1.getCount(), i2.getCount());
     };
 
+    @PowerNukkitOnly
+    @Since("1.4.0.0-PN")
+    public static DataPacket getCraftingPacket() {
+        return packet;
+    }
+
     //<editor-fold desc="constructors and setup" defaultstate="collapsed">
     public CraftingManager() {
         registerSmithingRecipes();

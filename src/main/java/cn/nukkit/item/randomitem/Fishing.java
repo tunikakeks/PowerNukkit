@@ -1,6 +1,9 @@
 package cn.nukkit.item.randomitem;
 
+import cn.nukkit.api.Since;
+import cn.nukkit.block.BlockID;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemID;
 import cn.nukkit.item.enchantment.Enchantment;
 import cn.nukkit.math.NukkitMath;
 import cn.nukkit.potion.Potion;
@@ -43,11 +46,8 @@ public final class Fishing {
         int fortuneLevel = 0;
         int lureLevel = 0;
         if (rod != null) {
-            if (rod.getEnchantment(Enchantment.ID_FORTUNE_FISHING) != null) {
-                fortuneLevel = rod.getEnchantment(Enchantment.ID_FORTUNE_FISHING).getLevel();
-            } else if (rod.getEnchantment(Enchantment.ID_LURE) != null) {
-                lureLevel = rod.getEnchantment(Enchantment.ID_LURE).getLevel();
-            }
+            fortuneLevel = rod.getEnchantmentLevel(Enchantment.ID_FORTUNE_FISHING);
+            lureLevel = rod.getEnchantmentLevel(Enchantment.ID_LURE);
         }
         return getFishingResult(fortuneLevel, lureLevel);
     }
@@ -60,8 +60,7 @@ public final class Fishing {
         putSelector(TREASURES, treasureChance);
         putSelector(JUNKS, junkChance);
         Object result = selectFrom(ROOT_FISHING);
-        if (result instanceof Item) return (Item) result;
-        return null;
+        return (Item) result;
     }
 
     static {

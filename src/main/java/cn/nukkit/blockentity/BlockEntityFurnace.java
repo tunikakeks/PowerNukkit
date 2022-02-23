@@ -1,6 +1,7 @@
 package cn.nukkit.blockentity;
 
 import cn.nukkit.Player;
+import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockID;
 import cn.nukkit.entity.Entity;
@@ -41,6 +42,7 @@ public class BlockEntityFurnace extends BlockEntitySpawnable implements Inventor
         super(chunk, nbt);
     }
 
+    @PowerNukkitOnly
     protected InventoryType getInventoryType() {
         return InventoryType.FURNACE;
     }
@@ -100,10 +102,12 @@ public class BlockEntityFurnace extends BlockEntitySpawnable implements Inventor
         super.initBlockEntity();
     }
 
+    @PowerNukkitOnly
     protected String getFurnaceName() {
         return "Furnace";
     }
 
+    @PowerNukkitOnly
     protected String getClientName() {
         return FURNACE;
     }
@@ -215,14 +219,17 @@ public class BlockEntityFurnace extends BlockEntitySpawnable implements Inventor
         return inventory;
     }
 
+    @PowerNukkitOnly
     protected int getIdleBlockId() {
         return Block.FURNACE;
     }
 
+    @PowerNukkitOnly
     protected int getBurningBlockId() {
         return Block.LIT_FURNACE;
     }
 
+    @PowerNukkitOnly
     protected void setBurning(boolean burning) {
         if (burning) {
             if (this.getBlock().getId() == getIdleBlockId()) {
@@ -259,10 +266,12 @@ public class BlockEntityFurnace extends BlockEntitySpawnable implements Inventor
         }
     }
 
+    @PowerNukkitOnly
     protected SmeltingRecipe matchRecipe(Item raw) {
         return this.server.getCraftingManager().matchFurnaceRecipe(raw);
     }
 
+    @PowerNukkitOnly
     protected int getSpeedMultiplier() {
         return speedMultiplier;
     }

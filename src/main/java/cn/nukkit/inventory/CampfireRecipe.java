@@ -28,6 +28,7 @@ public class CampfireRecipe implements SmeltingRecipe {
         this.ingredient = item.clone();
     }
 
+    @PowerNukkitOnly
     @Override
     public Item getInput() {
         return this.ingredient.clone();

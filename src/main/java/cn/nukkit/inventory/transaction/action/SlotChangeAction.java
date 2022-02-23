@@ -6,7 +6,6 @@ import cn.nukkit.inventory.FurnaceInventory;
 import cn.nukkit.inventory.Inventory;
 import cn.nukkit.inventory.transaction.InventoryTransaction;
 import cn.nukkit.item.Item;
-import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +13,6 @@ import java.util.Set;
 /**
  * @author CreeperFace
  */
-@ToString(callSuper = true)
 public class SlotChangeAction extends InventoryAction {
 
     protected Inventory inventory;
@@ -50,6 +48,7 @@ public class SlotChangeAction extends InventoryAction {
      * @param source player
      * @return valid
      */
+    @Override
     public boolean isValid(Player source) {
         Item check = inventory.getItem(this.inventorySlot);
 
@@ -62,6 +61,7 @@ public class SlotChangeAction extends InventoryAction {
      * @param source player
      * @return successfully executed
      */
+    @Override
     public boolean execute(Player source) {
         return this.inventory.setItem(this.inventorySlot, this.targetItem, false);
     }
@@ -71,6 +71,7 @@ public class SlotChangeAction extends InventoryAction {
      *
      * @param source player
      */
+    @Override
     public void onExecuteSuccess(Player source) {
         Set<Player> viewers = new HashSet<>(this.inventory.getViewers());
         viewers.remove(source);
@@ -90,6 +91,7 @@ public class SlotChangeAction extends InventoryAction {
      *
      * @param source player
      */
+    @Override
     public void onExecuteFail(Player source) {
         this.inventory.sendSlot(this.inventorySlot, source);
     }

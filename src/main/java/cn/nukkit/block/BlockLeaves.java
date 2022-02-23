@@ -282,6 +282,7 @@ public class BlockLeaves extends BlockTransparentMeta {
         return Item.get(BlockID.SAPLING, getIntValue(OLD_LEAF_TYPE));
     }
 
+    @PowerNukkitOnly
     @Override
     public boolean diffusesSkyLight() {
         return true;
@@ -289,12 +290,14 @@ public class BlockLeaves extends BlockTransparentMeta {
 
 
     @Override
+    @PowerNukkitOnly
     public boolean breaksWhenMoved() {
         return true;
     }
 
     @Override
-    public boolean sticksToPiston() {
+    @PowerNukkitOnly
+    public  boolean sticksToPiston() {
         return false;
     }
 }

@@ -101,6 +101,7 @@ public class BlockWall extends BlockWallBase {
     }
 
     @Override
+    @PowerNukkitOnly
     public int getToolTier() {
         return ItemTool.TIER_WOODEN;
     }

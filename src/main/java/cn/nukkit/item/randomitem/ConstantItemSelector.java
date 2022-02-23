@@ -45,6 +45,7 @@ public class ConstantItemSelector extends Selector {
         return item;
     }
 
+    @Override
     public Object select() {
         if(minCount != maxCount) {
             Item item = getItem().clone();

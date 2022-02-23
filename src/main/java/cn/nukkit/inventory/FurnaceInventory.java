@@ -1,5 +1,6 @@
 package cn.nukkit.inventory;
 
+import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.blockentity.BlockEntityFurnace;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.item.EntityXPOrb;
@@ -15,6 +16,7 @@ public class FurnaceInventory extends ContainerInventory {
         super(furnace, InventoryType.FURNACE);
     }
 
+    @PowerNukkitOnly
     public FurnaceInventory(BlockEntityFurnace furnace, InventoryType inventoryType) {
         super(furnace, inventoryType);
     }

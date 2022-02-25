@@ -198,7 +198,7 @@ public class BlockCampfire extends BlockTransparentMeta implements Faceable, Blo
     }
     
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     protected EntityDamageEvent getDamageEvent(Entity entity) {
         return new EntityDamageByBlockEvent(this, entity, EntityDamageEvent.DamageCause.FIRE, 1);
     }
@@ -272,12 +272,11 @@ public class BlockCampfire extends BlockTransparentMeta implements Faceable, Blo
             setExtinguished(false);
             level.setBlock(this, this, true);
             return true;
-        } else if (projectile instanceof EntityPotion && !isExtinguished()) {
-            if (((EntityPotion) projectile).potionId == 0) {
-                setExtinguished(true);
-                level.setBlock(this, this, true);
-                return true;
-            }
+        } else if (projectile instanceof EntityPotion && !isExtinguished() 
+                && ((EntityPotion) projectile).potionId == 0) {
+            setExtinguished(true);
+            level.setBlock(this, this, true);
+            return true;
         }
         return false;
     }
@@ -303,10 +302,12 @@ public class BlockCampfire extends BlockTransparentMeta implements Faceable, Blo
         return BlockColor.SPRUCE_BLOCK_COLOR;
     }
 
+    @PowerNukkitOnly
     public boolean isExtinguished() {
         return getBooleanValue(EXTINGUISHED);
     }
 
+    @PowerNukkitOnly
     public void setExtinguished(boolean extinguished) {
         setBooleanValue(EXTINGUISHED, extinguished);
     }
@@ -350,12 +351,14 @@ public class BlockCampfire extends BlockTransparentMeta implements Faceable, Blo
     }
 
     @Override
+    @PowerNukkitOnly
     public boolean breaksWhenMoved() {
         return true;
     }
 
     @Override
-    public boolean canBePulled() {
+    @PowerNukkitOnly
+    public  boolean canBePulled() {
         return false;
     }
 

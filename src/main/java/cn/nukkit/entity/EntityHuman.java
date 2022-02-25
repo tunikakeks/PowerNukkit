@@ -52,7 +52,7 @@ public class EntityHuman extends EntityHumanType {
         return 1.8f;
     }
 
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     @PowerNukkitOnly
     @Override
     public float getSwimmingHeight() {
@@ -219,6 +219,13 @@ public class EntityHuman extends EntityHumanType {
         super.initEntity();
     }
 
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
+    @Override
+    public String getOriginalName() {
+        return "Human";
+    }
+    
     @Override
     public String getName() {
         return this.getNameTag();
@@ -370,6 +377,7 @@ public class EntityHuman extends EntityHumanType {
         }
     }
 
+    @PowerNukkitOnly
     @Override
     protected void onBlock(Entity entity, boolean animate) {
         super.onBlock(entity, animate);

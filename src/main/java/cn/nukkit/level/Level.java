@@ -551,6 +551,7 @@ public class Level implements ChunkManager, Metadatable {
     }
 
     public void addSound(Vector3 pos, Sound sound, float volume, float pitch, Player... players) {
+        Preconditions.checkArgument(!sound.isEdu() || this.server.isEducationEditionEnabled(), "Selected sound is from education edition! Enable education edition in nukkit.yml to play this sound.");
         Preconditions.checkArgument(volume >= 0 && volume <= 1, "Sound volume must be between 0 and 1");
         Preconditions.checkArgument(pitch >= 0, "Sound pitch must be higher than 0");
 

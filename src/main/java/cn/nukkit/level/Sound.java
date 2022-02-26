@@ -33,6 +33,7 @@ public enum Sound {
     ARMOR_EQUIP_IRON("armor.equip_iron"),
     ARMOR_EQUIP_LEATHER("armor.equip_leather"),
     @Since("1.4.0.0-PN") ARMOR_EQUIP_NETHERITE("armor.equip_netherite"),
+    @Since("FUTURE") BALLOON_POP("balloon.pop", true),
     BEACON_ACTIVATE("beacon.activate"),
     BEACON_AMBIENT("beacon.ambient"),
     BEACON_DEACTIVATE("beacon.deactivate"),
@@ -191,6 +192,7 @@ public enum Sound {
     DIG_WOOD("dig.wood"),
     @Since("FUTURE") DRIP_LAVA_POINTED_DRIPSTONE("drip.lava.pointed_dripstone"),
     @Since("FUTURE") DRIP_WATER_POINTED_DRIPSTONE("drip.water.pointed_dripstone"),
+    ELEMCONSTRUCT_ACTIVE("elemconstruct.active", true),
     ELYTRA_LOOP("elytra.loop"),
     ENTITY_ZOMBIE_CONVERTED_TO_DROWNED("entity.zombie.converted_to_drowned"),
     @Since("FUTURE") EXTINGUISH_CANDLE("extinguish.candle"),
@@ -999,12 +1001,22 @@ public enum Sound {
     VR_STUTTERTURN("vr.stutterturn");
 
     private final String sound;
+    private final boolean edu;
 
     Sound(String sound) {
+        this(sound, false);
+    }
+
+    Sound(String sound, boolean edu) {
         this.sound = sound;
+        this.edu = edu;
     }
 
     public String getSound() {
         return this.sound;
+    }
+
+    public boolean isEdu() {
+        return edu;
     }
 }

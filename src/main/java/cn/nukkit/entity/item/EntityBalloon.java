@@ -6,9 +6,13 @@ import cn.nukkit.entity.EntityCreature;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
+import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemID;
 import cn.nukkit.level.Location;
 import cn.nukkit.level.ParticleEffect;
+import cn.nukkit.level.Sound;
 import cn.nukkit.level.format.FullChunk;
+import cn.nukkit.math.NukkitMath;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.DoubleTag;
@@ -19,6 +23,7 @@ import cn.nukkit.utils.DyeColor;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Objects;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author good777LUCKY
@@ -30,6 +35,8 @@ public class EntityBalloon extends Entity {
     protected Entity balloonAttached;
     protected float balloonMaxHeight;
     protected boolean balloonShouldDrop;
+
+    protected DyeColor color;
 
     protected int attachedNetworkId = -1;
 
@@ -46,7 +53,7 @@ public class EntityBalloon extends Entity {
         
         this.setDataFlag(DATA_FLAGS, DATA_FLAG_GRAVITY, false);
         if (this.namedTag.contains("Color")) {
-            this.dataProperties.putByte(DATA_COLOR, this.namedTag.getByte("Color"));
+            this.setColor(DyeColor.getByDyeData(this.namedTag.getByte("Color")));
         } else {
             this.dataProperties.putByte(DATA_COLOR, 0);
         }
@@ -76,6 +83,7 @@ public class EntityBalloon extends Entity {
         return NETWORK_ID;
     }
     
+    @Nonnull
     @Override
     public String getName() {
         return "Balloon";
@@ -104,7 +112,6 @@ public class EntityBalloon extends Entity {
     @Override
     public boolean attack(EntityDamageEvent source) {
         DamageCause cause = source.getCause();
-        // TODO: Add Functionality
         if (cause == DamageCause.PROJECTILE) {
             this.close();
             this.level.addParticleEffect(this, ParticleEffect.ENDROD);
@@ -116,7 +123,7 @@ public class EntityBalloon extends Entity {
             
             double deltaX = this.x - damager.x;
             double deltaZ = this.z - damager.z;
-            this.knockBack(damager, source.getDamage(), deltaX, deltaZ, 0.1);
+            this.knockBack(deltaX, deltaZ, 0.1);
         }
         return true;
     }
@@ -125,12 +132,17 @@ public class EntityBalloon extends Entity {
     public void saveNBT() {
         super.saveNBT();
         
-        this.namedTag.putByte("Color", this.dataProperties.getByte(DATA_COLOR));
+        this.namedTag.putByte("Color", this.color.getDyeData());
         this.namedTag.putLong("balloon_attached", balloonAttached.getId());
         this.namedTag.putFloat("balloon_max_height", balloonMaxHeight);
         this.namedTag.putBoolean("balloon_should_drop", balloonShouldDrop);
     }
-    
+
+    public void setColor(DyeColor color) {
+        this.color = color;
+        this.dataProperties.putByte(DATA_COLOR, color.getDyeData() & 0xf);
+    }
+
     @Override
     public boolean onUpdate(int currentTick) {
         if (this.closed) {
@@ -150,6 +162,7 @@ public class EntityBalloon extends Entity {
 
         if (!this.getLevelBlock().canPassThrough()) {
             this.close();
+            this.level.addSound(this, Sound.BALLOON_POP, 0.25F, (float) NukkitMath.round(ThreadLocalRandom.current().nextDouble(1.75D, 2.0D), 2));
             this.level.addParticleEffect(this, ParticleEffect.ENDROD);
             return false;
         }
@@ -192,9 +205,9 @@ public class EntityBalloon extends Entity {
             updateMovement();
             if (this.getLevelBlock().up().isSolid() && !this.getLevelBlock().up().canPassThrough()) {
                 this.close();
+                this.level.addSound(this, Sound.BALLOON_POP, 0.25F, (float) NukkitMath.round(ThreadLocalRandom.current().nextDouble(1.75D, 2.0D), 2));
                 this.level.addParticleEffect(this, ParticleEffect.ENDROD);
             }
-            // TODO: Add Functionality
         }
         
         this.timing.stopTiming();
@@ -202,7 +215,7 @@ public class EntityBalloon extends Entity {
         return hasUpdate || !this.onGround || Math.abs(this.motionX) > 0.00001 || Math.abs(this.motionY) > 0.00001 || Math.abs(this.motionZ) > 0.00001;
     }
     
-    public void knockBack(Entity attacker, double damage, double x, double z, double base) {
+    public void knockBack(double x, double z, double base) {
         double f = Math.sqrt(x * x + z * z);
         if (f <= 0) {
             return;
@@ -222,6 +235,10 @@ public class EntityBalloon extends Entity {
 
     public void close(boolean killAttached) {
         super.close();
+
+        if (this.balloonShouldDrop) {
+            this.getLevel().dropItem(this, Item.get(ItemID.BALLOON, this.color.getDyeData(), 1));
+        }
 
         if (isAttached()) {
             if (killAttached) {
@@ -263,8 +280,9 @@ public class EntityBalloon extends Entity {
                 .putList(new ListTag<FloatTag>("Rotation")
                         .add(new FloatTag("", 0))
                         .add(new FloatTag("", 0)))
-                .putByte("Color", color.getDyeData() & 0xf)
-                .putFloat("balloon_max_height", (float) maxHeight);
+                .putByte("Color", color.getDyeData())
+                .putFloat("balloon_max_height", (float) maxHeight)
+                .putBoolean("balloon_should_drop", dropWhenClosed);
 
         if (attachedEntity != null) {
             nbt.putLong("balloon_attached", attachedEntity.getId());

@@ -59,7 +59,7 @@ public class ItemBalloon extends Item {
             return false;
         }
 
-        if (target.up().getId() != AIR || target.up(1).getId() != AIR) {
+        if (target.up().getId() != AIR || target.up(2).getId() != AIR) {
             return false;
         }
 

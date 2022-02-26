@@ -55,61 +55,47 @@ public class ItemBalloon extends Item {
             return false;
         }
 
-        if (!(target instanceof BlockFence)) {
-            return false;
+        if (target instanceof BlockFence) {
+            if (target.up().getId() != AIR || target.up(2).getId() != AIR) {
+                return false;
+            }
+
+            CompoundTag nbtLeashKnot = new CompoundTag()
+                    .putList(new ListTag<DoubleTag>("Pos")
+                            .add(new DoubleTag("", target.getX() + 0.5))
+                            .add(new DoubleTag("", target.getY() + 0.25))
+                            .add(new DoubleTag("", target.getZ() + 0.5)))
+                    .putList(new ListTag<DoubleTag>("Motion")
+                            .add(new DoubleTag("", 0))
+                            .add(new DoubleTag("", 0))
+                            .add(new DoubleTag("", 0)))
+                    .putList(new ListTag<FloatTag>("Rotation")
+                            .add(new FloatTag("", 0))
+                            .add(new FloatTag("", 0)));
+
+            Entity entityLeashKnot = Entity.createEntity("LeashKnot", chunk, nbtLeashKnot);
+
+            if (entityLeashKnot == null) {
+                return false;
+            }
+
+            EntityBalloon entityBalloon = EntityBalloon.create(target.getLocation().add(1.0D, 1.75D, 0.5D), this.getDyeColor(), block.y + 2.0D, false, entityLeashKnot);
+
+            CreatureSpawnEvent ev = new CreatureSpawnEvent(EntityBalloon.NETWORK_ID, block, entityBalloon.namedTag, SpawnReason.BALLOON);
+            level.getServer().getPluginManager().callEvent(ev);
+
+            if (ev.isCancelled()) {
+                return false;
+            }
+
+            if (!player.isCreative()) {
+                player.getInventory().decreaseCount(player.getInventory().getHeldItemIndex());
+            }
+
+            entityLeashKnot.spawnToAll();
+            entityBalloon.spawnToAll();
+            return true;
         }
-
-        if (target.up().getId() != AIR || target.up(2).getId() != AIR) {
-            return false;
-        }
-
-        CompoundTag nbtLeashKnot = new CompoundTag()
-                .putList(new ListTag<DoubleTag>("Pos")
-                        .add(new DoubleTag("", target.getX() + 0.5))
-                        .add(new DoubleTag("", target.getY() + 0.25))
-                        .add(new DoubleTag("", target.getZ() + 0.5)))
-                .putList(new ListTag<DoubleTag>("Motion")
-                        .add(new DoubleTag("", 0))
-                        .add(new DoubleTag("", 0))
-                        .add(new DoubleTag("", 0)))
-                .putList(new ListTag<FloatTag>("Rotation")
-                        .add(new FloatTag("", 0))
-                        .add(new FloatTag("", 0)));
-
-        Entity entityLeashKnot = Entity.createEntity("LeashKnot", chunk, nbtLeashKnot);
-
-        CompoundTag nbtBalloon = new CompoundTag()
-                .putList(new ListTag<DoubleTag>("Pos")
-                        .add(new DoubleTag("", target.getX() + 1.0))
-                        .add(new DoubleTag("", target.getY() + 1.75))
-                        .add(new DoubleTag("", target.getZ() + 0.5)))
-                .putList(new ListTag<DoubleTag>("Motion")
-                        .add(new DoubleTag("", 0))
-                        .add(new DoubleTag("", 0))
-                        .add(new DoubleTag("", 0)))
-                .putList(new ListTag<FloatTag>("Rotation")
-                        .add(new FloatTag("", 0))
-                        .add(new FloatTag("", 0)))
-                .putByte("Color", this.getDamage() & 0xf);
-
-        CreatureSpawnEvent ev = new CreatureSpawnEvent(EntityBalloon.NETWORK_ID, block, nbtBalloon, SpawnReason.BALLOON);
-        level.getServer().getPluginManager().callEvent(ev);
-
-        if (ev.isCancelled()) {
-            return false;
-        }
-
-        entityLeashKnot.spawnToAll();
-
-        Entity entityBalloon = Entity.createEntity("Balloon", chunk, nbtBalloon
-                .putFloat("balloon_max_height", (float) (block.y + 2.0D))
-                .putLong("balloon_attached", entityLeashKnot.getId()));
-
-        if (!player.isCreative()) {
-            player.getInventory().decreaseCount(player.getInventory().getHeldItemIndex());
-        }
-
-        entityBalloon.spawnToAll();
         return true;
     }
 }

@@ -1,13 +1,24 @@
 package cn.nukkit.entity.item;
 
 import cn.nukkit.entity.Entity;
+import cn.nukkit.entity.EntityBalloonable;
+import cn.nukkit.entity.EntityCreature;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
+import cn.nukkit.level.Location;
 import cn.nukkit.level.ParticleEffect;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.nbt.tag.CompoundTag;
+import cn.nukkit.nbt.tag.DoubleTag;
+import cn.nukkit.nbt.tag.FloatTag;
+import cn.nukkit.nbt.tag.ListTag;
+import cn.nukkit.utils.DyeColor;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.Objects;
 
 /**
  * @author good777LUCKY
@@ -16,7 +27,7 @@ public class EntityBalloon extends Entity {
 
     public static final int NETWORK_ID = 107;
     
-    protected long balloonAttached;
+    protected Entity balloonAttached;
     protected float balloonMaxHeight;
     protected boolean balloonShouldDrop;
 
@@ -40,11 +51,13 @@ public class EntityBalloon extends Entity {
             this.dataProperties.putByte(DATA_COLOR, 0);
         }
         if (this.namedTag.contains("balloon_attached")) {
-            this.balloonAttached = this.namedTag.getLong("balloon_attached");
-            this.dataProperties.putLong(DATA_BALLOON_ATTACHED_ENTITY, this.balloonAttached); // TODO: Or DATA_LEAD_HOLDER_EID?
-            this.setDataFlag(DATA_FLAGS, DATA_FLAG_LEASHED, true);
+            this.balloonAttached = this.level.getEntity(this.namedTag.getLong("balloon_attached"));
+            if (this.balloonAttached != null) {
+                this.dataProperties.putLong(DATA_BALLOON_ATTACHED_ENTITY, this.balloonAttached.getId()); // TODO: Or DATA_LEAD_HOLDER_EID?
+                this.setDataFlag(DATA_FLAGS, DATA_FLAG_LEASHED, true);
+            }
         } else {
-            this.balloonAttached = -1L; // Not Attached
+            this.balloonAttached = null; // Not Attached
         }
         if (this.namedTag.contains("balloon_max_height")) {
             this.balloonMaxHeight = this.namedTag.getFloat("balloon_max_height");
@@ -113,7 +126,7 @@ public class EntityBalloon extends Entity {
         super.saveNBT();
         
         this.namedTag.putByte("Color", this.dataProperties.getByte(DATA_COLOR));
-        this.namedTag.putLong("balloon_attached", balloonAttached);
+        this.namedTag.putLong("balloon_attached", balloonAttached.getId());
         this.namedTag.putFloat("balloon_max_height", balloonMaxHeight);
         this.namedTag.putBoolean("balloon_should_drop", balloonShouldDrop);
     }
@@ -148,7 +161,7 @@ public class EntityBalloon extends Entity {
             }
 
             attachedNetworkId = -1;
-            balloonAttached = -1L;
+            balloonAttached = null;
         }
 
         attachedNetworkId = isAttached() ? getAttachedEntity().getNetworkId() : -1;
@@ -163,9 +176,13 @@ public class EntityBalloon extends Entity {
                 return false;
             }
             
-            motionY -= getGravity() * 0.1f;
+            motionY -= getGravity() * 0.1F * (this.getAttachedEntity() instanceof EntityBalloonable ? ((EntityBalloonable) this.getAttachedEntity()).getBalloonMass() : 1.0F);
             
             move(motionX, motionY, motionZ);
+
+            if (this.getAttachedEntity() instanceof EntityBalloonable) {
+                this.getAttachedEntity().move(motionX, motionY, motionZ);
+            }
             
             float friction = 1 - getDrag();
             
@@ -208,19 +225,47 @@ public class EntityBalloon extends Entity {
         super.close();
         
         if (isAttached()) {
-            this.getAttachedEntity().close();
+            if (isLeashed()) {
+                this.getAttachedEntity().close();
+                return;
+            }
+
+            ((EntityCreature) this.getAttachedEntity()).setBalloon(null);
         }
     }
 
     public Entity getAttachedEntity() {
-        return this.balloonAttached != -1 ? this.level.getEntity(this.balloonAttached) : null;
+        return this.balloonAttached;
     }
 
     public boolean isAttached() {
-        return this.balloonAttached != -1 && getAttachedEntity() != null && !getAttachedEntity().isClosed();
+        return this.balloonAttached != null && !this.balloonAttached.isClosed();
     }
 
     public boolean isLeashed() {
-        return getAttachedEntity() instanceof EntityLeashKnot;
+        return this.balloonAttached instanceof EntityLeashKnot;
+    }
+
+    public static EntityBalloon create(@Nonnull Location location, @Nonnull DyeColor color, double maxHeight, boolean dropWhenClosed, @Nullable Entity attachedEntity) {
+        CompoundTag nbt = new CompoundTag()
+                .putList(new ListTag<DoubleTag>("Pos")
+                        .add(new DoubleTag("", location.getX()))
+                        .add(new DoubleTag("", location.getY()))
+                        .add(new DoubleTag("", location.getZ())))
+                .putList(new ListTag<DoubleTag>("Motion")
+                        .add(new DoubleTag("", 0))
+                        .add(new DoubleTag("", 0))
+                        .add(new DoubleTag("", 0)))
+                .putList(new ListTag<FloatTag>("Rotation")
+                        .add(new FloatTag("", 0))
+                        .add(new FloatTag("", 0)))
+                .putByte("Color", color.getDyeData() & 0xf)
+                .putFloat("balloon_max_height", (float) maxHeight);
+
+        if (attachedEntity != null) {
+            nbt.putLong("balloon_attached", attachedEntity.getId());
+        }
+
+        return (EntityBalloon) Entity.createEntity("Balloon", Objects.requireNonNull(location.getChunk()), nbt);
     }
 }

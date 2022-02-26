@@ -4,7 +4,9 @@ import cn.nukkit.Player;
 import cn.nukkit.api.PowerNukkitDifference;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.entity.item.EntityBalloon;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemBalloon;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.nbt.tag.CompoundTag;
@@ -16,6 +18,8 @@ import javax.annotation.Nonnull;
  */
 @PowerNukkitDifference(since = "1.4.0.0-PN", info = "Implements EntityNameable only in PowerNukkit")
 public abstract class EntityCreature extends EntityLiving implements EntityNameable {
+    private EntityBalloon balloon = null;
+
     public EntityCreature(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
     }
@@ -23,8 +27,19 @@ public abstract class EntityCreature extends EntityLiving implements EntityNamea
     // Armor stands, when implemented, should also check this.
     @Override
     public boolean onInteract(Player player, Item item, Vector3 clickedPos) {
-        if (item.getId() == Item.NAME_TAG && !player.isAdventure()) {
-            return applyNameTag(player, item);
+        switch (item.getId()) {
+            case Item.NAME_TAG:
+                if (!player.isAdventure()) {
+                    return applyNameTag(player, item);
+                }
+                break;
+            case Item.BALLOON:
+                if (this instanceof EntityBalloonable && item instanceof ItemBalloon) {
+                    this.setBalloon(EntityBalloon.create(this.add(0.0D, 1.75D, 0.0D), ((ItemBalloon) item).getDyeColor(), 256.0F, false, this));
+                    this.balloon.spawnToAll();
+                    return true;
+                }
+                break;
         }
         return false;
     }
@@ -44,4 +59,13 @@ public abstract class EntityCreature extends EntityLiving implements EntityNamea
         return EntityNameable.super.playerApplyNameTag(player, item);
     }
 
+    public EntityBalloon getBalloon() {
+        return this instanceof EntityBalloonable ? balloon : null;
+    }
+
+    public void setBalloon(EntityBalloon balloon) {
+        if (this instanceof EntityBalloonable) {
+            this.balloon = balloon;
+        }
+    }
 }

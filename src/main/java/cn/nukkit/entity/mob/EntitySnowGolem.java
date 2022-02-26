@@ -2,11 +2,12 @@ package cn.nukkit.entity.mob;
 
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.entity.EntityBalloonable;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.nbt.tag.CompoundTag;
 
 @Since("1.4.0.0-PN")
-public class EntitySnowGolem extends EntityMob {
+public class EntitySnowGolem extends EntityMob implements EntityBalloonable {
     @Since("1.4.0.0-PN")
     public EntitySnowGolem(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
@@ -41,5 +42,10 @@ public class EntitySnowGolem extends EntityMob {
     protected void initEntity() {
         super.initEntity();
         this.setMaxHealth(4);
+    }
+
+    @Override
+    public float getBalloonMass() {
+        return 1.0F;
     }
 }

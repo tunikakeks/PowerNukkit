@@ -2,6 +2,7 @@ package cn.nukkit.entity.passive;
 
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.entity.EntityBalloonable;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.nbt.tag.CompoundTag;
 
@@ -10,7 +11,7 @@ import cn.nukkit.nbt.tag.CompoundTag;
  * @since 2020-08-14
  */
 @Since("1.4.0.0-PN")
-public class EntityFox extends EntityAnimal {
+public class EntityFox extends EntityAnimal implements EntityBalloonable {
 
     @Since("1.4.0.0-PN")
     public static final int NETWORK_ID = 121;
@@ -46,5 +47,10 @@ public class EntityFox extends EntityAnimal {
     @Override
     public String getOriginalName() {
         return "Fox";
+    }
+
+    @Override
+    public float getBalloonMass() {
+        return 0.6F;
     }
 }

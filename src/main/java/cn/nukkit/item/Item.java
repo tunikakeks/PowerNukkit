@@ -235,7 +235,6 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[BOAT] = ItemBoat.class; //333
             list[LEATHER] = ItemLeather.class; //334
             list[KELP] = ItemKelp.class; //335
-
             list[BRICK] = ItemBrick.class; //336
             list[CLAY] = ItemClay.class; //337
             list[SUGARCANE] = ItemSugarcane.class; //338
@@ -302,7 +301,7 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[NETHER_STAR] = ItemNetherStar.class; //399
             list[PUMPKIN_PIE] = ItemPumpkinPie.class; //400
             list[FIREWORKS] = ItemFirework.class; //401
-
+            list[FIREWORKSCHARGE] = ItemFireworkStar.class; //402
             list[ENCHANTED_BOOK] = ItemBookEnchanted.class; //403
             list[COMPARATOR] = ItemRedstoneComparator.class; //404
             list[NETHER_BRICK] = ItemNetherBrick.class; //405
@@ -342,7 +341,6 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[LINGERING_POTION] = ItemPotionLingering.class; //441
 
             list[ELYTRA] = ItemElytra.class; //444
-
             list[SHULKER_SHELL] = ItemShulkerShell.class; //445
             list[BANNER] = ItemBanner.class; //446
             list[MEDICINE] = ItemMedicine.class; //447
@@ -353,7 +351,6 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[ICE_BOMB] = ItemIceBomb.class; //453
 
             list[TRIDENT] = ItemTrident.class; //455
-
             list[BEETROOT] = ItemBeetroot.class; //457
             list[BEETROOT_SEEDS] = ItemSeedsBeetroot.class; //458
             list[BEETROOT_SOUP] = ItemBeetrootSoup.class; //459
@@ -362,11 +359,12 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[PUFFERFISH] = ItemPufferfish.class; //462
             list[COOKED_SALMON] = ItemSalmonCooked.class; //463
             list[DRIED_KELP] = ItemDriedKelp.class; //464
-
+            list[NAUTILUS_SHELL] = ItemNautilusShell.class; //465
             list[GOLDEN_APPLE_ENCHANTED] = ItemAppleGoldEnchanted.class; //466
-
+            list[HEART_OF_THE_SEA] = ItemHeartOfTheSea.class; //467
+            list[SCUTE] = ItemScute.class; //468
             list[TURTLE_SHELL] = ItemTurtleShell.class; //469
-
+            list[PHANTOM_MEMBRANE] = ItemPhantomMembrane.class; //470
             list[CROSSBOW] = ItemCrossbow.class; //471
             list[SPRUCE_SIGN] = ItemSpruceSign.class; //472
             list[BIRCH_SIGN] = ItemBirchSign.class; //473
@@ -448,7 +446,7 @@ public class Item implements Cloneable, BlockID, ItemID {
             runtimeMapping.registerNamespacedIdItem(ItemIngotCopper.class);
             runtimeMapping.registerNamespacedIdItem(ItemItemFrameGlow.class);
             runtimeMapping.registerNamespacedIdItem(ItemAmethystShard.class);
-            runtimeMapping.registerNamespacedIdItem(ItemSpyGlass.class);
+            runtimeMapping.registerNamespacedIdItem(ItemSpyglass.class);
             runtimeMapping.registerNamespacedIdItem(ItemGlowInkSac.class);
             runtimeMapping.registerNamespacedIdItem(ItemGlowBerries.class);
             runtimeMapping.registerNamespacedIdItem(ItemBucketPowderSnow.class);
@@ -616,18 +614,22 @@ public class Item implements Cloneable, BlockID, ItemID {
         return -1;
     }
 
+    @PowerNukkitOnly
     public static Item getBlock(int id) {
         return getBlock(id, 0);
     }
 
+    @PowerNukkitOnly
     public static Item getBlock(int id, Integer meta) {
         return getBlock(id, meta, 1);
     }
 
+    @PowerNukkitOnly
     public static Item getBlock(int id, Integer meta, int count) {
         return getBlock(id, meta, count, EmptyArrays.EMPTY_BYTES);
     }
 
+    @PowerNukkitOnly
     public static Item getBlock(int id, Integer meta, int count, byte[] tags) {
         if (id > 255) {
             id = 255 - id;
@@ -1007,15 +1009,6 @@ public class Item implements Cloneable, BlockID, ItemID {
         return false;
     }
 
-    /**
-     * Convenience method to check if the item stack has positive level on a specific enchantment by it's id.
-     * @param id The enchantment ID from {@link Enchantment} constants.
-     */
-    @PowerNukkitOnly
-    @Since("1.4.0.0-PN")
-    public boolean hasEnchantment(int id) {
-        return getEnchantmentLevel(id) > 0;
-    }
 
     /**
      * Find the enchantment level by the enchantment id.
@@ -1119,6 +1112,15 @@ public class Item implements Cloneable, BlockID, ItemID {
         }
 
         return enchantments.toArray(Enchantment.EMPTY_ARRAY);
+    }
+
+    /**
+     * Convenience method to check if the item stack has positive level on a specific enchantment by it's id.
+     * @param id The enchantment ID from {@link Enchantment} constants.
+     */
+    @Since("1.4.0.0-PN")
+    public boolean hasEnchantment(int id) {
+        return this.getEnchantmentLevel(id) > 0;
     }
 
     @PowerNukkitOnly
@@ -1379,11 +1381,6 @@ public class Item implements Cloneable, BlockID, ItemID {
         }
     }
 
-    @Since("1.4.0.0-PN")
-    public final int getNetworkId() throws UnknownNetworkIdException {
-        return RuntimeItems.getNetworkId(getNetworkFullId());
-    }
-    
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public String getNamespaceId() {
@@ -1392,7 +1389,7 @@ public class Item implements Cloneable, BlockID, ItemID {
                 RuntimeItems.getNetworkId(runtimeMapping.getNetworkFullId(this))
         );
     }
-    
+
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public int getBlockId() {
@@ -1414,7 +1411,7 @@ public class Item implements Cloneable, BlockID, ItemID {
             this.hasMeta = false;
         }
     }
-    
+
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public Item createFuzzyCraftingRecipe() {
@@ -1530,18 +1527,20 @@ public class Item implements Cloneable, BlockID, ItemID {
     public boolean isLavaResistant() {
         return false;
     }
-    
+
     public boolean onUse(Player player, int ticksUsed) {
         return false;
     }
 
+    /**
+     * Allows the item to execute code when the player releases the item after long clicking it.
+     * @param player The player who released the click button
+     * @param ticksUsed How many ticks the item was held.
+     * @return If an inventory contents update should be sent to the player
+     */
     public boolean onRelease(Player player, int ticksUsed) {
         return false;
     }
-
-    @PowerNukkitOnly
-    @Since("1.4.0.0-PN")
-    public boolean damageWhenBreaking() { return true; }
 
     @Override
     final public String toString() {
@@ -1638,6 +1637,8 @@ public class Item implements Cloneable, BlockID, ItemID {
      * Same as {@link #equals(Item, boolean)} but the enchantment order of the items does not affect the result.
      * @since 1.2.1.0-PN
      */
+    @PowerNukkitOnly
+    @Since("1.2.1.0-PN")
     public final boolean equalsIgnoringEnchantmentOrder(Item item, boolean checkDamage) {
         if (!this.equals(item, checkDamage, false)) {
             return false;
@@ -1711,5 +1712,10 @@ public class Item implements Cloneable, BlockID, ItemID {
         } catch (CloneNotSupportedException e) {
             return null;
         }
+    }
+
+    @Since("1.4.0.0-PN")
+    public final int getNetworkId() throws UnknownNetworkIdException {
+        return RuntimeItems.getNetworkId(getNetworkFullId());
     }
 }

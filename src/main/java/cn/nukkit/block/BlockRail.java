@@ -436,7 +436,8 @@ public class BlockRail extends BlockFlowable implements Faceable {
     }
 
     @Override
-    public boolean canBePulled() {
+    @PowerNukkitOnly
+    public  boolean canBePulled() {
         return true;
     }
 }

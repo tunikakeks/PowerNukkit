@@ -34,7 +34,7 @@ public class ItemFirework extends Item {
 
     @PowerNukkitDifference(info = "Will not add compound tag automatically")
     public ItemFirework(Integer meta, int count) {
-        super(FIREWORKS, meta, count, "Fireworks");
+        super(FIREWORKS, meta, count, "Firework Rocket");
     }
 
     @Override

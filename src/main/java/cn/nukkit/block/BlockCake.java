@@ -174,21 +174,25 @@ public class BlockCake extends BlockTransparentMeta {
         return BlockColor.AIR_BLOCK_COLOR;
     }
 
+    @Override
     public int getComparatorInputOverride() {
         return (7 - this.getBites()) * 2;
     }
 
+    @Override
     public boolean hasComparatorInputOverride() {
         return true;
     }
 
     @Override
+    @PowerNukkitOnly
     public boolean breaksWhenMoved() {
         return true;
     }
 
     @Override
-    public boolean sticksToPiston() {
+    @PowerNukkitOnly
+    public  boolean sticksToPiston() {
         return false;
     }
 }

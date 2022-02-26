@@ -24,12 +24,12 @@ public class BlockSlabRedSandstone extends BlockSlab {
 
     public static final int RED_SANDSTONE = 0;
     public static final int PURPUR = 1;
-    public static final int PRISMARINE = 2;
-    public static final int PRISMARINE_BRICKS = 3;
-    public static final int DARK_PRISMARINE = 4;
-    public static final int MOSSY_COBBLESTONE = 5;
-    public static final int SMOOTH_SANDSTONE = 6;
-    public static final int RED_NETHER_BRICK = 7;
+    @PowerNukkitOnly public static final int PRISMARINE = 2;
+    @PowerNukkitOnly public static final int PRISMARINE_BRICKS = 3;
+    @PowerNukkitOnly public static final int DARK_PRISMARINE = 4;
+    @PowerNukkitOnly public static final int MOSSY_COBBLESTONE = 5;
+    @PowerNukkitOnly public static final int SMOOTH_SANDSTONE = 6;
+    @PowerNukkitOnly public static final int RED_NETHER_BRICK = 7;
 
     public BlockSlabRedSandstone() {
         this(0);
@@ -61,6 +61,7 @@ public class BlockSlabRedSandstone extends BlockSlab {
         return PROPERTIES;
     }
 
+    @PowerNukkitOnly
     @Override
     public String getSlabName() {
         return getSlabType().getEnglishName();
@@ -78,6 +79,7 @@ public class BlockSlabRedSandstone extends BlockSlab {
         setPropertyValue(StoneSlab2Type.PROPERTY, type);
     }
 
+    @PowerNukkitOnly
     @Override
     public boolean isSameType(BlockSlab slab) {
         return slab.getId() == getId() && getSlabType().equals(slab.getPropertyValue(StoneSlab2Type.PROPERTY));
@@ -94,6 +96,7 @@ public class BlockSlabRedSandstone extends BlockSlab {
     }
 
     @Override
+    @PowerNukkitOnly
     public int getToolTier() {
         return ItemTool.TIER_WOODEN;
     }

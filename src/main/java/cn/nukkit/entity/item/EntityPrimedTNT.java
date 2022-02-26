@@ -81,6 +81,7 @@ public class EntityPrimedTNT extends Entity implements EntityExplosive {
         return source.getCause() == DamageCause.VOID && super.attack(source);
     }
 
+    @Override
     @PowerNukkitDifference(info = "Using new method to play sounds", since = "1.4.0.0-PN")
     protected void initEntity() {
         super.initEntity();
@@ -103,16 +104,19 @@ public class EntityPrimedTNT extends Entity implements EntityExplosive {
     }
 
 
+    @Override
     public boolean canCollideWith(Entity entity) {
         return false;
     }
 
+    @Override
     public void saveNBT() {
         super.saveNBT();
         namedTag.putByte("Fuse", fuse);
         namedTag.putBoolean("AllowUnderwater", this.allowUnderwater);
     }
 
+    @Override
     public boolean onUpdate(int currentTick) {
 
         if (closed) {
@@ -170,6 +174,7 @@ public class EntityPrimedTNT extends Entity implements EntityExplosive {
         return hasUpdate || fuse >= 0 || Math.abs(motionX) > 0.00001 || Math.abs(motionY) > 0.00001 || Math.abs(motionZ) > 0.00001;
     }
 
+    @Override
     public void explode() {
         EntityExplosionPrimeEvent event = new EntityExplosionPrimeEvent(this, 4);
         server.getPluginManager().callEvent(event);

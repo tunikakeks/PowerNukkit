@@ -1,6 +1,6 @@
 package cn.nukkit.resourcepacks;
 
-public abstract class AbstractChemistryPack implements ResourcePack {
+public abstract class AbstractEducationPack implements ResourcePack {
 
     private static final byte[] EMPTY_DATA = new byte[0];
     
@@ -11,7 +11,7 @@ public abstract class AbstractChemistryPack implements ResourcePack {
     
     @Override
     public String getPackName() {
-        return "Chemistry";
+        return "Education";
     }
     
     @Override

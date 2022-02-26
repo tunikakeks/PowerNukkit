@@ -2,7 +2,7 @@ package cn.nukkit.resourcepacks;
 
 import java.util.UUID;
 
-public class ChemistryResourcePack extends AbstractChemistryPack {
+public class ChemistryResourcePack extends AbstractEducationPack {
 
     public static final UUID CHEMISTRY_RESOURCE_PACK_ID = UUID.fromString("0fba4063-dba1-4281-9b89-ff9390653530");
     

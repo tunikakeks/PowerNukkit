@@ -31,10 +31,10 @@ public enum InventoryType {
     // 14 STRUCTURE_EDITOR
     // 15 TRADE
     // 18 ARMOR
-    //COMPOUND_CREATOR typeId:20
-    //ELEMENT_CONSTRUCTOR typeId:21
-    //MATERIAL_REDUCER typeId:22
-    //LAB_TABLE typeId:23
+    COMPOUND_CREATOR(10, "Compound Creator", 20),
+    ELEMENT_CONSTRUCTOR(1, "Element Constructor", 21),
+    MATERIAL_REDUCER(10, "Material Reducer", 22),
+    LAB_TABLE(9, "Lab Table", 23),
     // 25 LECTERN
     // 31 HUD
     // 32 JIGSAW_EDITOR

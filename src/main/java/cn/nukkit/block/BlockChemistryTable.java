@@ -5,11 +5,17 @@ import cn.nukkit.blockproperty.ArrayBlockProperty;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.BlockProperty;
 import cn.nukkit.blockproperty.value.ChemistryTableType;
+import cn.nukkit.inventory.CompoundCreatorInventory;
+import cn.nukkit.inventory.ElementConstructorInventory;
+import cn.nukkit.inventory.LabTableInventory;
+import cn.nukkit.inventory.MaterialReducerInventory;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.utils.BlockColor;
 import cn.nukkit.utils.Faceable;
+
+import javax.annotation.Nonnull;
 
 import static cn.nukkit.blockproperty.CommonBlockProperties.DIRECTION;
 
@@ -71,11 +77,25 @@ public class BlockChemistryTable extends BlockSolidMeta implements Faceable {
     @Override
     public boolean onActivate(Item item, Player player) {
         //TODO: Add UI
+        switch (getChemistryTableType()) {
+            case COMPOUND_CREATOR:
+                player.addWindow(new CompoundCreatorInventory(player.getUIInventory(), this));
+                break;
+            case MATERIAL_REDUCER:
+                player.addWindow(new MaterialReducerInventory(player.getUIInventory(), this));
+                break;
+            case ELEMENT_CONSTRUCTOR:
+                player.addWindow(new ElementConstructorInventory(player.getUIInventory(), this));
+                break;
+            case LAB_TABLE:
+                player.addWindow(new LabTableInventory(player.getUIInventory(), this));
+                break;
+        }
         return true;
     }
     
     @Override
-    public boolean place(Item item, Block block, Block target, BlockFace face, double fx, double fy, double fz, Player player) {
+    public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, Player player) {
         if (player == null) {
             setBlockFace(BlockFace.SOUTH);
         } else {

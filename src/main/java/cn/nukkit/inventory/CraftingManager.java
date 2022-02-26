@@ -220,6 +220,7 @@ public class CraftingManager {
     //</editor-fold>
 
     //<editor-fold desc="constructors and setup" defaultstate="collapsed">
+    @SuppressWarnings("rawtypes")
     public CraftingManager() {
         registerSmithingRecipes();
 
@@ -228,6 +229,22 @@ public class CraftingManager {
             recipesConfig.load(Objects.requireNonNull(recipesStream, "Unable to find recipes.json"));
         } catch (IOException e) {
             throw new UncheckedIOException(e);
+        }
+
+        if (Server.getInstance().isEducationEditionEnabled()) {
+            Config edu = new Config(Config.JSON);
+            edu.load(Server.class.getClassLoader().getResourceAsStream("creativeitems_edu.json"));
+
+            List<Map> recipes = recipesConfig.getMapList("recipes");
+            recipes.addAll(edu.getMapList("recipes"));
+            List<Map> potionMixes = recipesConfig.getMapList("potionMixes");
+            potionMixes.addAll(edu.getMapList("potionMixes"));
+            List<Map> containerMixes = recipesConfig.getMapList("containerMixes");
+            containerMixes.addAll(edu.getMapList("containerMixes"));
+
+            recipesConfig.set("recipes", recipes);
+            recipesConfig.set("potionMixes", potionMixes);
+            recipesConfig.set("containerMixes", containerMixes);
         }
 
         this.loadRecipes(recipesConfig);

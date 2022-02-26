@@ -233,7 +233,7 @@ public class CraftingManager {
 
         if (Server.getInstance().isEducationEditionEnabled()) {
             Config edu = new Config(Config.JSON);
-            edu.load(Server.class.getClassLoader().getResourceAsStream("creativeitems_edu.json"));
+            edu.load(Server.class.getClassLoader().getResourceAsStream("recipes_edu.json"));
 
             List<Map> recipes = recipesConfig.getMapList("recipes");
             recipes.addAll(edu.getMapList("recipes"));

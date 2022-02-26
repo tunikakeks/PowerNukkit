@@ -127,10 +127,12 @@ public class BlockSignPost extends BlockTransparentMeta implements Faceable, Blo
         return 1;
     }
 
+    @PowerNukkitOnly
     protected int getPostId() {
         return getId();
     }
 
+    @PowerNukkitOnly
     public int getWallId() {
         return WALL_SIGN;
     }
@@ -312,6 +314,7 @@ public class BlockSignPost extends BlockTransparentMeta implements Faceable, Blo
     }
 
     @Override
+    @PowerNukkitOnly
     public boolean breaksWhenMoved() {
         return true;
     }

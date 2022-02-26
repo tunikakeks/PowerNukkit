@@ -1,8 +1,14 @@
 package cn.nukkit.item;
 
-public class ItemSpyGlass extends StringItem {
+import cn.nukkit.api.Since;
 
-    public ItemSpyGlass() {
+/**
+ * @author LT_Name
+ */
+@Since("FUTURE")
+public class ItemSpyglass extends StringItem {
+
+    public ItemSpyglass() {
         super(MinecraftItemID.SPYGLASS.getNamespacedId(), "Spy Glass");
     }
 

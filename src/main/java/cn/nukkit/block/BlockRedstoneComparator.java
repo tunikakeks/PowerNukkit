@@ -127,6 +127,7 @@ public abstract class BlockRedstoneComparator extends BlockRedstoneDiode impleme
         }
     }
 
+    @Override
     protected int calculateInputStrength() {
         int power = super.calculateInputStrength();
         BlockFace face = getFacing();
@@ -145,6 +146,7 @@ public abstract class BlockRedstoneComparator extends BlockRedstoneDiode impleme
         return power;
     }
 
+    @Override
     protected boolean shouldBePowered() {
         int input = this.calculateInputStrength();
 

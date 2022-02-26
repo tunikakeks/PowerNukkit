@@ -135,6 +135,12 @@ public class EntityBalloon extends Entity {
         
         boolean hasUpdate = this.entityBaseTick(tickDiff);
 
+        if (this.getCollisionBlocks().size() > 0) {
+            this.close();
+            this.level.addParticleEffect(this, ParticleEffect.ENDROD);
+            return false;
+        }
+
         if (attachedNetworkId != -1 && !isAttached()) {
             if (attachedNetworkId == EntityLeashKnot.NETWORK_ID) {
                 this.setDataFlag(DATA_FLAGS, DATA_FLAG_LEASHED, false);
@@ -167,11 +173,6 @@ public class EntityBalloon extends Entity {
             motionY *= friction;
             
             updateMovement();
-            
-            if (this.getCollisionBlocks().size() > 0) {
-                this.close();
-                this.level.addParticleEffect(this, ParticleEffect.ENDROD);
-            }
             // TODO: Add Functionality
         }
         

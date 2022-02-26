@@ -135,7 +135,7 @@ public class EntityBalloon extends Entity {
         
         boolean hasUpdate = this.entityBaseTick(tickDiff);
 
-        if (this.getCollisionBlocks().size() > 0) {
+        if (!this.getLevelBlock().canPassThrough()) {
             this.close();
             this.level.addParticleEffect(this, ParticleEffect.ENDROD);
             return false;
@@ -173,6 +173,10 @@ public class EntityBalloon extends Entity {
             motionY *= friction;
             
             updateMovement();
+            if (this.getLevelBlock().up().isSolid() && !this.getLevelBlock().up().canPassThrough()) {
+                this.close();
+                this.level.addParticleEffect(this, ParticleEffect.ENDROD);
+            }
             // TODO: Add Functionality
         }
         

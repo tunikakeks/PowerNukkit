@@ -176,7 +176,7 @@ public class EntityBalloon extends Entity {
                 return false;
             }
             
-            motionY -= getGravity() * 0.1F * (this.getAttachedEntity() instanceof EntityBalloonable ? ((EntityBalloonable) this.getAttachedEntity()).getBalloonMass() : 1.0F);
+            motionY -= getGravity() * 0.1F / (this.getAttachedEntity() instanceof EntityBalloonable ? ((EntityBalloonable) this.getAttachedEntity()).getBalloonMass() : 1.0F);
             
             move(motionX, motionY, motionZ);
 

@@ -36,7 +36,7 @@ public class EntityLeashKnot extends Entity {
     @Override
     public void initEntity() {
         super.initEntity();
-        this.level.addLevelSoundEvent(this, LevelSoundEventPacket.SOUND_LEASHKNOT_PLACE, -1, NETWORK_ID);
+        this.level.addSound(this, Sound.LEASHKNOT_PLACE, 1.0F, 1.0F);
     }
     
     @Override

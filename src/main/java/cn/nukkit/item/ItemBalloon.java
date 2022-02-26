@@ -59,6 +59,10 @@ public class ItemBalloon extends Item {
             return false;
         }
 
+        if (target.up().getId() != AIR || target.up(1).getId() != AIR) {
+            return false;
+        }
+
         CompoundTag nbtLeashKnot = new CompoundTag()
                 .putList(new ListTag<DoubleTag>("Pos")
                         .add(new DoubleTag("", target.getX() + 0.5))
@@ -98,7 +102,7 @@ public class ItemBalloon extends Item {
         entityLeashKnot.spawnToAll();
 
         Entity entityBalloon = Entity.createEntity("Balloon", chunk, nbtBalloon
-                .putFloat("balloon_max_height", (float) Math.min(block.y + 3.0D, 256.0D))
+                .putFloat("balloon_max_height", (float) (block.y + 2.0D))
                 .putLong("balloon_attached", entityLeashKnot.getId()));
 
         if (!player.isCreative()) {

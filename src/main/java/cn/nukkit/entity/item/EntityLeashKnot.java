@@ -5,6 +5,7 @@ import cn.nukkit.entity.Entity;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
 import cn.nukkit.item.Item;
+import cn.nukkit.level.Sound;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.network.protocol.LevelSoundEventPacket;
@@ -54,7 +55,7 @@ public class EntityLeashKnot extends Entity {
 
     public void close(boolean playsound) {
         if (playsound) {
-            this.level.addLevelSoundEvent(this, LevelSoundEventPacket.SOUND_LEASHKNOT_BREAK, -1, NETWORK_ID);
+            this.level.addSound(this, Sound.LEASHKNOT_BREAK, 1.0F, 1.0F);
         }
 
         super.close();

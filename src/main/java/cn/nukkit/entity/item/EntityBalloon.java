@@ -4,6 +4,7 @@ import cn.nukkit.entity.Entity;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
+import cn.nukkit.level.ParticleEffect;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.nbt.tag.CompoundTag;
@@ -20,7 +21,7 @@ public class EntityBalloon extends Entity {
     protected boolean balloonShouldDrop;
 
     protected int attachedNetworkId = -1;
-    
+
     public EntityBalloon(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
     }
@@ -91,6 +92,12 @@ public class EntityBalloon extends Entity {
     public boolean attack(EntityDamageEvent source) {
         DamageCause cause = source.getCause();
         // TODO: Add Functionality
+        if (cause == DamageCause.PROJECTILE) {
+            this.close();
+            this.level.addParticleEffect(this, ParticleEffect.ENDROD);
+            return true;
+        }
+
         if (source instanceof EntityDamageByEntityEvent) {
             Entity damager = ((EntityDamageByEntityEvent) source).getDamager();
             
@@ -142,7 +149,7 @@ public class EntityBalloon extends Entity {
         
         if (this.isAlive()) {
             if (this.y >= this.balloonMaxHeight) {
-                if (isLeashed()) {
+                if (isLeashed() && this.y < 256.0F) {
                     return true;
                 }
 
@@ -160,6 +167,11 @@ public class EntityBalloon extends Entity {
             motionY *= friction;
             
             updateMovement();
+            
+            if (this.getCollisionBlocks().size() > 0) {
+                this.close();
+                this.level.addParticleEffect(this, ParticleEffect.ENDROD);
+            }
             // TODO: Add Functionality
         }
         
@@ -185,7 +197,7 @@ public class EntityBalloon extends Entity {
         
         this.setMotion(motion);
     }
-    
+
     @Override
     public void close() {
         super.close();

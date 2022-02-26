@@ -4,7 +4,7 @@
     {
       "inputId": "minecraft:potion",
       "inputMeta": 4,
-      "reagentId": "minecraft:element_47",
+      "reagentId": "minecraft:element_20",
       "reagentMeta": 0,
       "outputId": "minecraft:medicine",
       "outputMeta": 0
@@ -12,7 +12,7 @@
     {
       "inputId": "minecraft:potion",
       "inputMeta": 4,
-      "reagentId": "minecraft:element_27",
+      "reagentId": "minecraft:element_83",
       "reagentMeta": 0,
       "outputId": "minecraft:medicine",
       "outputMeta": 1
@@ -20,7 +20,7 @@
     {
       "inputId": "minecraft:potion",
       "inputMeta": 4,
-      "reagentId": "minecraft:element_20",
+      "reagentId": "minecraft:element_47",
       "reagentMeta": 0,
       "outputId": "minecraft:medicine",
       "outputMeta": 2
@@ -28,7 +28,7 @@
     {
       "inputId": "minecraft:potion",
       "inputMeta": 4,
-      "reagentId": "minecraft:element_83",
+      "reagentId": "minecraft:element_27",
       "reagentMeta": 0,
       "outputId": "minecraft:medicine",
       "outputMeta": 3

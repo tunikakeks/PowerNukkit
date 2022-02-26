@@ -172,7 +172,7 @@ public class EntityBalloon extends Entity {
                     return true;
                 }
 
-                this.close();
+                this.close(this.getAttachedEntity() instanceof EntityBalloonable);
                 return false;
             }
             
@@ -220,18 +220,22 @@ public class EntityBalloon extends Entity {
         this.setMotion(motion);
     }
 
-    @Override
-    public void close() {
+    public void close(boolean killAttached) {
         super.close();
-        
+
         if (isAttached()) {
-            if (isLeashed()) {
+            if (killAttached) {
                 this.getAttachedEntity().close();
                 return;
             }
 
             ((EntityCreature) this.getAttachedEntity()).setBalloon(null);
         }
+    }
+
+    @Override
+    public void close() {
+        this.close(isLeashed());
     }
 
     public Entity getAttachedEntity() {

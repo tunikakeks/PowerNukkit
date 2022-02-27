@@ -3,6 +3,7 @@ package cn.nukkit.entity.passive;
 import cn.nukkit.Player;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.entity.EntityBalloonable;
 import cn.nukkit.entity.data.ByteEntityData;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.item.Item;
@@ -17,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * @author BeYkeRYkt (Nukkit Project)
  */
-public class EntitySheep extends EntityAnimal {
+public class EntitySheep extends EntityAnimal implements EntityBalloonable {
 
     public static final int NETWORK_ID = 13;
 
@@ -140,5 +141,10 @@ public class EntitySheep extends EntityAnimal {
         }
 
         return DyeColor.WHITE.getWoolData();
+    }
+
+    @Override
+    public float getBalloonMass() {
+        return 0.75F;
     }
 }

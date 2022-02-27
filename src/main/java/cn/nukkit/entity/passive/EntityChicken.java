@@ -2,6 +2,7 @@ package cn.nukkit.entity.passive;
 
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.entity.EntityBalloonable;
 import cn.nukkit.item.Item;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.nbt.tag.CompoundTag;
@@ -9,7 +10,7 @@ import cn.nukkit.nbt.tag.CompoundTag;
 /**
  * @author BeYkeRYkt (Nukkit Project)
  */
-public class EntityChicken extends EntityAnimal {
+public class EntityChicken extends EntityAnimal implements EntityBalloonable {
 
     public static final int NETWORK_ID = 10;
 
@@ -61,5 +62,10 @@ public class EntityChicken extends EntityAnimal {
         int id = item.getId();
 
         return id == Item.WHEAT_SEEDS || id == Item.MELON_SEEDS || id == Item.PUMPKIN_SEEDS || id == Item.BEETROOT_SEEDS;
+    }
+
+    @Override
+    public float getBalloonMass() {
+        return 0.6F;
     }
 }

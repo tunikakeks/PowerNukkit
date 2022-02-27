@@ -27,6 +27,7 @@ import cn.nukkit.event.server.ServerStopEvent;
 import cn.nukkit.inventory.CraftingManager;
 import cn.nukkit.inventory.Recipe;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.RuntimeItems;
 import cn.nukkit.item.enchantment.Enchantment;
 import cn.nukkit.lang.BaseLang;
 import cn.nukkit.lang.TextContainer;
@@ -169,6 +170,8 @@ public class Server {
 
     private boolean redstoneEnabled = true;
 
+    private boolean educationEditionEnabled = false;
+
     private RCON rcon;
 
     private EntityMetadataStore entityMetadata;
@@ -220,18 +223,21 @@ public class Server {
     private PositionTrackingService positionTrackingService;
 
     private final Map<Integer, Level> levels = new HashMap<Integer, Level>() {
+        @Override
         public Level put(Integer key, Level value) {
             Level result = super.put(key, value);
             levelArray = levels.values().toArray(Level.EMPTY_ARRAY);
             return result;
         }
 
+        @Override
         public boolean remove(Object key, Object value) {
             boolean result = super.remove(key, value);
             levelArray = levels.values().toArray(Level.EMPTY_ARRAY);
             return result;
         }
 
+        @Override
         public Level remove(Object key) {
             Level result = super.remove(key);
             levelArray = levels.values().toArray(Level.EMPTY_ARRAY);
@@ -273,8 +279,6 @@ public class Server {
      * Minimal initializer for testing
      */
     @SuppressWarnings("UnstableApiUsage")
-    @PowerNukkitOnly
-    @Since("1.4.0.0-PN")
     Server(File tempDir) throws IOException {
         if (tempDir.isFile() && !tempDir.delete()) {
             throw new IOException("Failed to delete " + tempDir);
@@ -587,6 +591,7 @@ public class Server {
         this.safeSpawn = this.getConfig().getBoolean("settings.safe-spawn", true);
         this.forceSkinTrusted = this.getConfig().getBoolean("player.force-skin-trusted", false);
         this.checkMovement = this.getConfig().getBoolean("player.check-movement", true);
+        this.educationEditionEnabled = this.getConfig("level-settings.education-edition", false);
 
         this.scheduler = new ServerScheduler();
 
@@ -648,10 +653,11 @@ public class Server {
 
         Block.init();
         Enchantment.init();
+        RuntimeItems.getRuntimeMapping();
+        Potion.init();
         Item.init();
         EnumBiome.values(); //load class, this also registers biomes
         Effect.init();
-        Potion.init();
         Attribute.init();
         DispenseBehaviorRegister.init();
         GlobalBlockPalette.getOrCreateRuntimeId(0, 0); //Force it to load
@@ -1498,6 +1504,7 @@ public class Server {
         return Nukkit.VERSION;
     }
 
+    @PowerNukkitOnly
     public String getGitCommit() {
         return Nukkit.GIT_COMMIT;
     }
@@ -2291,12 +2298,22 @@ public class Server {
         return forceLanguage;
     }
 
+    @PowerNukkitOnly
     public boolean isRedstoneEnabled() {
         return redstoneEnabled;
     }
 
+    @PowerNukkitOnly
     public void setRedstoneEnabled(boolean redstoneEnabled) {
         this.redstoneEnabled = redstoneEnabled;
+    }
+
+    public boolean isEducationEditionEnabled() {
+        return educationEditionEnabled;
+    }
+
+    public void setEducationEditionEnabled(boolean educationEditionEnabled) {
+        this.educationEditionEnabled = educationEditionEnabled;
     }
 
     public Network getNetwork() {
@@ -2430,7 +2447,7 @@ public class Server {
     }
 
     public boolean isOp(String name) {
-        return this.operators.exists(name, true);
+        return name != null && this.operators.exists(name, true);
     }
 
     public Config getWhitelist() {
@@ -2502,13 +2519,16 @@ public class Server {
     private void registerEntities() {
         Entity.registerEntity("Lightning", EntityLightning.class);
         Entity.registerEntity("Arrow", EntityArrow.class);
+        Entity.registerEntity("Balloon", EntityBalloon.class);
         Entity.registerEntity("EnderPearl", EntityEnderPearl.class);
         Entity.registerEntity("FallingSand", EntityFallingBlock.class);
         Entity.registerEntity("Firework", EntityFirework.class);
         Entity.registerEntity("Item", EntityItem.class);
+        Entity.registerEntity("LeashKnot", EntityLeashKnot.class);
         Entity.registerEntity("Painting", EntityPainting.class);
         Entity.registerEntity("PrimedTnt", EntityPrimedTNT.class);
         Entity.registerEntity("Snowball", EntitySnowball.class);
+        Entity.registerEntity("TripodCamera", EntityTripodCamera.class);
         //Monsters
         Entity.registerEntity("Blaze", EntityBlaze.class);
         Entity.registerEntity("CaveSpider", EntityCaveSpider.class);
@@ -2549,6 +2569,7 @@ public class Server {
         Entity.registerEntity("ZombieVillager", EntityZombieVillager.class);
         Entity.registerEntity("ZombieVillagerV1", EntityZombieVillagerV1.class);
         //Passive
+        Entity.registerEntity("Agent", EntityAgent.class);
         Entity.registerEntity("Axolotl", EntityAxolotl.class);
         Entity.registerEntity("Bat", EntityBat.class);
         Entity.registerEntity("Bee", EntityBee.class);
@@ -2564,6 +2585,7 @@ public class Server {
         Entity.registerEntity("Llama", EntityLlama.class);
         Entity.registerEntity("Mooshroom", EntityMooshroom.class);
         Entity.registerEntity("Mule", EntityMule.class);
+        Entity.registerEntity("NPC", EntityNPCEntity.class);
         Entity.registerEntity("Ocelot", EntityOcelot.class);
         Entity.registerEntity("Panda", EntityPanda.class);
         Entity.registerEntity("Parrot", EntityParrot.class);
@@ -2587,6 +2609,7 @@ public class Server {
         //Projectile
         Entity.registerEntity("AreaEffectCloud", EntityAreaEffectCloud.class);
         Entity.registerEntity("Egg", EntityEgg.class);
+        Entity.registerEntity("IceBomb", EntityIceBomb.class);
         Entity.registerEntity("LingeringPotion", EntityPotionLingering.class);
         Entity.registerEntity("ThrownExpBottle", EntityExpBottle.class);
         Entity.registerEntity("ThrownPotion", EntityPotion.class);

@@ -2,10 +2,11 @@ package cn.nukkit.entity.passive;
 
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.entity.EntityBalloonable;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.nbt.tag.CompoundTag;
 
-public class EntityPanda extends EntityAnimal {
+public class EntityPanda extends EntityAnimal implements EntityBalloonable {
 
     public static final int NETWORK_ID = 113;
 
@@ -40,5 +41,10 @@ public class EntityPanda extends EntityAnimal {
     @Override
     public String getOriginalName() {
         return "Panda";
+    }
+
+    @Override
+    public float getBalloonMass() {
+        return 1.5F;
     }
 }

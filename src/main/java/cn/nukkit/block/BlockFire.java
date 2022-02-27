@@ -41,14 +41,10 @@ public class BlockFire extends BlockFlowable {
     @Since("1.4.0.0-PN")
     public static final BlockProperties PROPERTIES = new BlockProperties(FIRE_AGE);
 
-    @PowerNukkitOnly
-    @Since("1.4.0.0-PN")
     public BlockFire() {
         this(0);
     }
 
-    @PowerNukkitOnly
-    @Since("1.4.0.0-PN")
     public BlockFire(int meta) {
         super(meta);
     }
@@ -335,7 +331,7 @@ public class BlockFire extends BlockFlowable {
             } else if (block instanceof BlockGlass || block instanceof BlockGlassPane) {
                 return false;
 
-            } else if (block instanceof BlockHopper) {
+            } else if (block instanceof BlockHopper ||block instanceof BlockBeacon) {
                 return false;
 
             } else if (block instanceof BlockShulkerBox || block instanceof BlockChest || block instanceof BlockEnderChest) {

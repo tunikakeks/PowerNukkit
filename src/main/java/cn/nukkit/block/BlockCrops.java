@@ -8,12 +8,10 @@ import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.IntBlockProperty;
 import cn.nukkit.event.block.BlockGrowEvent;
 import cn.nukkit.item.Item;
-import cn.nukkit.item.ItemID;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.particle.BoneMealParticle;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.utils.BlockColor;
-import cn.nukkit.utils.DyeColor;
 
 import javax.annotation.Nonnull;
 import java.util.concurrent.ThreadLocalRandom;
@@ -115,6 +113,24 @@ public abstract class BlockCrops extends BlockFlowable {
                 }
             } else {
                 return false;
+            }
+        } else if (item.getId() == Item.RAPID_FERTILIZER) { // Super Fertilizer
+            if (this.getDamage() < 7) {
+                BlockCrops block = (BlockCrops) this.clone();
+                block.setDamage(7);
+                BlockGrowEvent ev = new BlockGrowEvent(this, block);
+                Server.getInstance().getPluginManager().callEvent(ev);
+
+                if (ev.isCancelled()) {
+                    return false;
+                }
+
+                this.getLevel().setBlock(this, ev.getNewState(), false, true);
+                this.level.addParticle(new BoneMealParticle(this));
+
+                if (player != null && (player.gamemode & 0x01) == 0) {
+                    item.count--;
+                }
             }
 
             return true;

@@ -133,10 +133,12 @@ public abstract class BlockEntity extends Position {
 
     }
 
+    @PowerNukkitOnly
     public static BlockEntity createBlockEntity(String type, Position position, Object... args) {
         return createBlockEntity(type, position, BlockEntity.getDefaultCompound(position, type), args);
     }
 
+    @PowerNukkitOnly
     public static BlockEntity createBlockEntity(String type, Position pos, CompoundTag nbt, Object... args) {
         return createBlockEntity(type, pos.getLevel().getChunk(pos.getFloorX() >> 4, pos.getFloorZ() >> 4), nbt, args);
     }
@@ -261,7 +263,8 @@ public abstract class BlockEntity extends Position {
     public void onBreak() {
 
     }
-    
+
+    @PowerNukkitOnly
     public void onBreak(boolean isSilkTouch) {
         onBreak();
     }
@@ -306,6 +309,7 @@ public abstract class BlockEntity extends Position {
                 .putInt("z", pos.getFloorZ());
     }
 
+    @PowerNukkitOnly
     @Nullable
     @Override
     public final BlockEntity getLevelBlockEntity() {

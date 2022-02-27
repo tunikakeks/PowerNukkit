@@ -5,6 +5,7 @@ import cn.nukkit.Player;
 import cn.nukkit.Server;
 import cn.nukkit.api.DeprecationDetails;
 import cn.nukkit.api.PowerNukkitDifference;
+import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.command.data.*;
 import cn.nukkit.lang.TextContainer;
 import cn.nukkit.lang.TranslationContainer;
@@ -137,7 +138,8 @@ public abstract class Command {
     public Map<String, CommandOverload> getOverloads() {
         return this.commandData.overloads;
     }
-    
+
+    @PowerNukkitOnly
     protected double parseTilde(String arg, double pos) {
         if (arg.equals("~")) {
             return pos;

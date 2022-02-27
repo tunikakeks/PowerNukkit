@@ -1,5 +1,6 @@
 package cn.nukkit.network.protocol;
 
+import cn.nukkit.Server;
 import cn.nukkit.api.Since;
 import cn.nukkit.item.RuntimeItems;
 import cn.nukkit.level.GameRules;
@@ -45,7 +46,7 @@ public class StartGamePacket extends DataPacket {
     public boolean hasAchievementsDisabled = true;
     public int dayCycleStopTime = -1; //-1 = not stopped, any positive value = stopped at that time
     public int eduEditionOffer = 0;
-    public boolean hasEduFeaturesEnabled = false;
+    public boolean hasEduFeaturesEnabled = Server.getInstance().isEducationEditionEnabled();
     public float rainLevel;
     public float lightningLevel;
     public boolean hasConfirmedPlatformLockedContent = false;

@@ -26,6 +26,7 @@ import cn.nukkit.potion.Effect;
 import cn.nukkit.utils.BlockColor;
 import cn.nukkit.utils.InvalidBlockDamageException;
 import com.google.common.base.Preconditions;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.extern.log4j.Log4j2;
 
 import javax.annotation.Nonnegative;
@@ -56,6 +57,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     public static final Block[] EMPTY_ARRAY = new Block[0];
 
     //<editor-fold desc="static fields" defaultstate="collapsed">
+    @SuppressWarnings("DeprecatedIsStillUsed")
     @Deprecated
     @DeprecationDetails(since = "1.4.0.0-PN", reason = "It is being replaced by an other solution that don't require a fixed size")
     @PowerNukkitOnly
@@ -68,6 +70,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     @PowerNukkitOnly
     public static final int DATA_BITS = dynamic(4);
 
+    @SuppressWarnings("DeprecatedIsStillUsed")
     @Deprecated
     @DeprecationDetails(since = "1.4.0.0-PN", reason = "It's not a constant value, it may be changed on major updates and" +
             " plugins will have to be recompiled in order to update this value in the binary files, " +
@@ -86,6 +89,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     @DeprecationDetails(since = "1.4.0.0-PN", reason = "Not encapsulated, easy to break", 
             replaceWith = "Block.get(int).getClass(), to register new blocks use registerBlockImplementation()")
     @SuppressWarnings({"java:S1444", "java:S2386"})
+    @SuppressFBWarnings(value = "MS_PKGPROTECT", justification = "Changing it would break compatibility with some regular Nukkit plugins")
     public static Class<? extends Block>[] list = null;
     
     @DeprecationDetails(reason = "The meta is limited to 32 bits", since = "1.3.0.0-PN", 
@@ -93,43 +97,45 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
                     "to get the block with a given state use BlockState.of and than BlockState.getBlock()")
     @Deprecated
     @SuppressWarnings({"java:S1444", "java:S2386", "java:S1123", "java:S1133", "DeprecatedIsStillUsed"})
+    @SuppressFBWarnings(value = "MS_PKGPROTECT", justification = "Changing it would break compatibility with some regular Nukkit plugins")
     public static Block[] fullList = null;
     
     @Deprecated
     @DeprecationDetails(reason = "Not encapsulated, easy to break", since = "1.4.0.0-PN",
-            replaceWith = "Block.getLightLevel()")
+            replaceWith = "Block.getLightLevel() or Block.getLightLevel(int)")
     @SuppressWarnings({"java:S1444", "java:S2386"})
+    @SuppressFBWarnings(value = "MS_PKGPROTECT", justification = "Changing it would break compatibility with some regular Nukkit plugins")
     public static int[] light = null;
 
     @Deprecated
     @DeprecationDetails(reason = "Not encapsulated, easy to break", since = "1.4.0.0-PN", 
-            replaceWith = "Block.getLightFilter()")
-    @SuppressWarnings({"java:S1444", "java:S2386"})
+            replaceWith = "Block.getLightFilter() or Block.getLightFilter(int)")
+    @SuppressWarnings({"java:S1444", "java:S2386", "DeprecatedIsStillUsed"})
+    @SuppressFBWarnings(value = "MS_PKGPROTECT", justification = "Changing it would break compatibility with some regular Nukkit plugins")
     public static int[] lightFilter = null;
 
     @Deprecated
     @DeprecationDetails(reason = "Not encapsulated, easy to break", since = "1.4.0.0-PN",
-            replaceWith = "Block.isSolid()")
+            replaceWith = "Block.isSolid() or Block.isSolid(int)")
     @SuppressWarnings({"java:S1444", "java:S2386"})
+    @SuppressFBWarnings(value = "MS_PKGPROTECT", justification = "Changing it would break compatibility with some regular Nukkit plugins")
     public static boolean[] solid = null;
 
     @Deprecated
     @DeprecationDetails(reason = "Not encapsulated, easy to break", since = "1.4.0.0-PN",
-            replaceWith = "Block.getHardness()")
-    @SuppressWarnings({"java:S1444", "java:S2386"})
+            replaceWith = "Block.getHardness() or Block.getHardness(int)")
+    @SuppressWarnings({"java:S1444", "java:S2386", "DeprecatedIsStillUsed"})
+    @SuppressFBWarnings(value = "MS_PKGPROTECT", justification = "Changing it would break compatibility with some regular Nukkit plugins")
     public static double[] hardness = null;
 
     @Deprecated
     @DeprecationDetails(reason = "Not encapsulated, easy to break", since = "1.4.0.0-PN",
-            replaceWith = "Block.isTransparent()")
-    @SuppressWarnings({"java:S1444", "java:S2386"})
+            replaceWith = "Block.isTransparent() or Block.isTransparent(int)")
+    @SuppressWarnings({"java:S1444", "java:S2386", "DeprecatedIsStillUsed"})
+    @SuppressFBWarnings(value = "MS_PKGPROTECT", justification = "Changing it would break compatibility with some regular Nukkit plugins")
     public static boolean[] transparent = null;
 
-    @Deprecated
-    @DeprecationDetails(reason = "Not encapsulated, easy to break", since = "1.4.0.0-PN",
-            replaceWith = "Block.diffusesSkyLight()")
-    @SuppressWarnings({"java:S1444", "java:S2386"})
-    public static boolean[] diffusesSkyLight = null;
+    private static boolean[] diffusesSkyLight = null;
     
     /**
      * if a block has can have variants
@@ -198,6 +204,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[PISTON] = BlockPiston.class; //33
             list[PISTON_HEAD] = BlockPistonHead.class; //34
             list[WOOL] = BlockWool.class; //35
+            list[ELEMENT_0] = BlockElement0.class; //36
             list[DANDELION] = BlockDandelion.class; //37
             list[RED_FLOWER] = BlockFlower.class; //38
             list[BROWN_MUSHROOM] = BlockMushroomBrown.class; //39
@@ -322,13 +329,12 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[WOOD_SLAB] = BlockSlabWood.class; //158
             list[STAINED_TERRACOTTA] = BlockTerracottaStained.class; //159
             list[STAINED_GLASS_PANE] = BlockGlassPaneStained.class; //160
-
             list[LEAVES2] = BlockLeaves2.class; //161
             list[WOOD2] = BlockWood2.class; //162
             list[ACACIA_WOOD_STAIRS] = BlockStairsAcacia.class; //163
             list[DARK_OAK_WOOD_STAIRS] = BlockStairsDarkOak.class; //164
             list[SLIME_BLOCK] = BlockSlime.class; //165
-
+            list[GLOW_STICK] = BlockGlowStick.class; //166
             list[IRON_TRAPDOOR] = BlockTrapdoorIron.class; //167
             list[PRISMARINE] = BlockPrismarine.class; //168
             list[SEA_LANTERN] = BlockSeaLantern.class; //169
@@ -350,7 +356,10 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[FENCE_GATE_JUNGLE] = BlockFenceGateJungle.class; //185
             list[FENCE_GATE_DARK_OAK] = BlockFenceGateDarkOak.class; //186
             list[FENCE_GATE_ACACIA] = BlockFenceGateAcacia.class; //187
-
+            
+            list[HARD_GLASS_PANE] = BlockGlassPaneHardened.class; //190
+            list[HARD_STAINED_GLASS_PANE] = BlockGlassPaneStainedHardened.class; //191
+            list[CHEMICAL_HEAT] = BlockHeat.class; //192
             list[SPRUCE_DOOR_BLOCK] = BlockDoorSpruce.class; //193
             list[BIRCH_DOOR_BLOCK] = BlockDoorBirch.class; //194
             list[JUNGLE_DOOR_BLOCK] = BlockDoorJungle.class; //195
@@ -360,9 +369,9 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[ITEM_FRAME_BLOCK] = BlockItemFrame.class; //199
             list[CHORUS_FLOWER] = BlockChorusFlower.class; //200
             list[PURPUR_BLOCK] = BlockPurpur.class; //201
-
+            list[COLORED_TORCH_RG] = BlockTorchColoredRG.class; //202
             list[PURPUR_STAIRS] = BlockStairsPurpur.class; //203
-            
+            list[COLORED_TORCH_BP] = BlockTorchColoredBP.class; //204
             list[UNDYED_SHULKER_BOX] = BlockUndyedShulkerBox.class; //205
             list[END_BRICKS] = BlockBricksEndStone.class; //206
             list[ICE_FROSTED] = BlockIceFrosted.class; //207
@@ -396,9 +405,11 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[BLACK_GLAZED_TERRACOTTA] = BlockTerracottaGlazedBlack.class; //235
             list[CONCRETE] = BlockConcrete.class; //236
             list[CONCRETE_POWDER] = BlockConcretePowder.class; //237
-
+            list[CHEMISTRY_TABLE] = BlockChemistryTable.class; //238
+            list[UNDERWATER_TORCH] = BlockTorchUnderwater.class; //239
             list[CHORUS_PLANT] = BlockChorusPlant.class; //240
             list[STAINED_GLASS] = BlockGlassStained.class; //241
+            list[CAMERA] = BlockCamera.class; //242
             list[PODZOL] = BlockPodzol.class; //243
             list[BEETROOT_BLOCK] = BlockBeetroot.class; //244
             list[STONECUTTER] = BlockStonecutter.class; //245
@@ -408,6 +419,8 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[MOVING_BLOCK] = BlockMoving.class; //250
             list[OBSERVER] = BlockObserver.class; //251
             list[STRUCTURE_BLOCK] = BlockStructure.class; //252
+            list[HARD_GLASS] = BlockGlassHardened.class; //253
+            list[HARD_STAINED_GLASS] = BlockGlassStainedHardened.class; //254
             
             list[PRISMARINE_STAIRS] = BlockStairsPrismarine.class; //257
             list[DARK_PRISMARINE_STAIRS] = BlockStairsDarkPrismarine.class; //258
@@ -419,7 +432,124 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[STRIPPED_DARK_OAK_LOG] = BlockWoodStrippedDarkOak.class; //264
             list[STRIPPED_OAK_LOG] = BlockWoodStrippedOak.class; //265
             list[BLUE_ICE] = BlockBlueIce.class; //266
-
+            list[ELEMENT_1] = BlockElement1.class; //267
+            list[ELEMENT_2] = BlockElement2.class; //268
+            list[ELEMENT_3] = BlockElement3.class; //269
+            list[ELEMENT_4] = BlockElement4.class; //270
+            list[ELEMENT_5] = BlockElement5.class; //271
+            list[ELEMENT_6] = BlockElement6.class; //272
+            list[ELEMENT_7] = BlockElement7.class; //273
+            list[ELEMENT_8] = BlockElement8.class; //274
+            list[ELEMENT_9] = BlockElement9.class; //275
+            list[ELEMENT_10] = BlockElement10.class; //276
+            list[ELEMENT_11] = BlockElement11.class; //277
+            list[ELEMENT_12] = BlockElement12.class; //278
+            list[ELEMENT_13] = BlockElement13.class; //279
+            list[ELEMENT_14] = BlockElement14.class; //280
+            list[ELEMENT_15] = BlockElement15.class; //281
+            list[ELEMENT_16] = BlockElement16.class; //282
+            list[ELEMENT_17] = BlockElement17.class; //283
+            list[ELEMENT_18] = BlockElement18.class; //284
+            list[ELEMENT_19] = BlockElement19.class; //285
+            list[ELEMENT_20] = BlockElement20.class; //286
+            list[ELEMENT_21] = BlockElement21.class; //287
+            list[ELEMENT_22] = BlockElement22.class; //288
+            list[ELEMENT_23] = BlockElement23.class; //289
+            list[ELEMENT_24] = BlockElement24.class; //290
+            list[ELEMENT_25] = BlockElement25.class; //291
+            list[ELEMENT_26] = BlockElement26.class; //292
+            list[ELEMENT_27] = BlockElement27.class; //293
+            list[ELEMENT_28] = BlockElement28.class; //294
+            list[ELEMENT_29] = BlockElement29.class; //295
+            list[ELEMENT_30] = BlockElement30.class; //296
+            list[ELEMENT_31] = BlockElement31.class; //297
+            list[ELEMENT_32] = BlockElement32.class; //298
+            list[ELEMENT_33] = BlockElement33.class; //299
+            list[ELEMENT_34] = BlockElement34.class; //300
+            list[ELEMENT_35] = BlockElement35.class; //301
+            list[ELEMENT_36] = BlockElement36.class; //302
+            list[ELEMENT_37] = BlockElement37.class; //303
+            list[ELEMENT_38] = BlockElement38.class; //304
+            list[ELEMENT_39] = BlockElement39.class; //305
+            list[ELEMENT_40] = BlockElement40.class; //306
+            list[ELEMENT_41] = BlockElement41.class; //307
+            list[ELEMENT_42] = BlockElement42.class; //308
+            list[ELEMENT_43] = BlockElement43.class; //309
+            list[ELEMENT_44] = BlockElement44.class; //310
+            list[ELEMENT_45] = BlockElement45.class; //311
+            list[ELEMENT_46] = BlockElement46.class; //312
+            list[ELEMENT_47] = BlockElement47.class; //313
+            list[ELEMENT_48] = BlockElement48.class; //314
+            list[ELEMENT_49] = BlockElement49.class; //315
+            list[ELEMENT_50] = BlockElement50.class; //316
+            list[ELEMENT_51] = BlockElement51.class; //317
+            list[ELEMENT_52] = BlockElement52.class; //318
+            list[ELEMENT_53] = BlockElement53.class; //319
+            list[ELEMENT_54] = BlockElement54.class; //320
+            list[ELEMENT_55] = BlockElement55.class; //321
+            list[ELEMENT_56] = BlockElement56.class; //322
+            list[ELEMENT_57] = BlockElement57.class; //323
+            list[ELEMENT_58] = BlockElement58.class; //324
+            list[ELEMENT_59] = BlockElement59.class; //325
+            list[ELEMENT_60] = BlockElement60.class; //326
+            list[ELEMENT_61] = BlockElement61.class; //327
+            list[ELEMENT_62] = BlockElement62.class; //328
+            list[ELEMENT_63] = BlockElement63.class; //329
+            list[ELEMENT_64] = BlockElement64.class; //330
+            list[ELEMENT_65] = BlockElement65.class; //331
+            list[ELEMENT_66] = BlockElement66.class; //332
+            list[ELEMENT_67] = BlockElement67.class; //333
+            list[ELEMENT_68] = BlockElement68.class; //334
+            list[ELEMENT_69] = BlockElement69.class; //335
+            list[ELEMENT_70] = BlockElement70.class; //336
+            list[ELEMENT_71] = BlockElement71.class; //337
+            list[ELEMENT_72] = BlockElement72.class; //338
+            list[ELEMENT_73] = BlockElement73.class; //339
+            list[ELEMENT_74] = BlockElement74.class; //340
+            list[ELEMENT_75] = BlockElement75.class; //341
+            list[ELEMENT_76] = BlockElement76.class; //342
+            list[ELEMENT_77] = BlockElement77.class; //343
+            list[ELEMENT_78] = BlockElement78.class; //344
+            list[ELEMENT_79] = BlockElement79.class; //345
+            list[ELEMENT_80] = BlockElement80.class; //346
+            list[ELEMENT_81] = BlockElement81.class; //347
+            list[ELEMENT_82] = BlockElement82.class; //348
+            list[ELEMENT_83] = BlockElement83.class; //349
+            list[ELEMENT_84] = BlockElement84.class; //350
+            list[ELEMENT_85] = BlockElement85.class; //351
+            list[ELEMENT_86] = BlockElement86.class; //352
+            list[ELEMENT_87] = BlockElement87.class; //353
+            list[ELEMENT_88] = BlockElement88.class; //354
+            list[ELEMENT_89] = BlockElement89.class; //355
+            list[ELEMENT_90] = BlockElement90.class; //356
+            list[ELEMENT_91] = BlockElement91.class; //357
+            list[ELEMENT_92] = BlockElement92.class; //358
+            list[ELEMENT_93] = BlockElement93.class; //359
+            list[ELEMENT_94] = BlockElement94.class; //360
+            list[ELEMENT_95] = BlockElement95.class; //361
+            list[ELEMENT_96] = BlockElement96.class; //362
+            list[ELEMENT_97] = BlockElement97.class; //363
+            list[ELEMENT_98] = BlockElement98.class; //364
+            list[ELEMENT_99] = BlockElement99.class; //365
+            list[ELEMENT_100] = BlockElement100.class; //366
+            list[ELEMENT_101] = BlockElement101.class; //367
+            list[ELEMENT_102] = BlockElement102.class; //368
+            list[ELEMENT_103] = BlockElement103.class; //369
+            list[ELEMENT_104] = BlockElement104.class; //370
+            list[ELEMENT_105] = BlockElement105.class; //371
+            list[ELEMENT_106] = BlockElement106.class; //372
+            list[ELEMENT_107] = BlockElement107.class; //373
+            list[ELEMENT_108] = BlockElement108.class; //374
+            list[ELEMENT_109] = BlockElement109.class; //375
+            list[ELEMENT_110] = BlockElement110.class; //376
+            list[ELEMENT_111] = BlockElement111.class; //377
+            list[ELEMENT_112] = BlockElement112.class; //378
+            list[ELEMENT_113] = BlockElement113.class; //379
+            list[ELEMENT_114] = BlockElement114.class; //380
+            list[ELEMENT_115] = BlockElement115.class; //381
+            list[ELEMENT_116] = BlockElement116.class; //382
+            list[ELEMENT_117] = BlockElement117.class; //383
+            list[ELEMENT_118] = BlockElement118.class; //384
             list[SEAGRASS] = BlockSeagrass.class; //385
             list[CORAL] = BlockCoral.class; //386
             list[CORAL_BLOCK] = BlockCoralBlock.class; //387
@@ -851,6 +981,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         return get(id, meta, pos, 0);
     }
 
+    @PowerNukkitOnly
     @Deprecated
     @DeprecationDetails(reason = "The meta is limited to 32 bits", replaceWith = "BlockState.getBlock()", since = "1.4.0.0-PN")
     @SuppressWarnings("unchecked")
@@ -898,6 +1029,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         return get(fullId, level, x, y, z, 0);
     }
 
+    @PowerNukkitOnly
     @Deprecated
     @DeprecationDetails(reason = "The meta is limited to 32 bits", since = "1.3.0.0-PN")
     public static Block get(int fullId, Level level, int x, int y, int z, int layer) {
@@ -938,6 +1070,65 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         return block;
     }
     //</editor-fold>
+
+    @PowerNukkitOnly
+    @Since("FUTURE")
+    @SuppressWarnings("java:S1874")
+    public static boolean isSolid(int blockId) {
+        if (blockId < 0 || blockId >= solid.length) {
+            return true;
+        }
+        return solid[blockId];
+    }
+
+    @PowerNukkitOnly
+    @Since("FUTURE")
+    public static boolean diffusesSkyLight(int blockId) {
+        if (blockId < 0 || blockId >= diffusesSkyLight.length) {
+            return false;
+        }
+        return diffusesSkyLight[blockId];
+    }
+
+    @PowerNukkitOnly
+    @Since("FUTURE")
+    @SuppressWarnings("java:S1874")
+    public static double getHardness(int blockId) {
+        if (blockId < 0 || blockId >= hardness.length) {
+            return Double.MAX_VALUE;
+        }
+        return hardness[blockId];
+    }
+
+    @PowerNukkitOnly
+    @Since("FUTURE")
+    @SuppressWarnings("java:S1874")
+    public static int getLightLevel(int blockId) {
+        if (blockId < 0 || blockId >= light.length) {
+            return 0;
+        }
+        return light[blockId];
+    }
+
+    @PowerNukkitOnly
+    @Since("FUTURE")
+    @SuppressWarnings("java:S1874")
+    public static int getLightFilter(int blockId) {
+        if (blockId < 0 || blockId >= lightFilter.length) {
+            return 15;
+        }
+        return lightFilter[blockId];
+    }
+
+    @PowerNukkitOnly
+    @Since("FUTURE")
+    @SuppressWarnings("java:S1874")
+    public static boolean isTransparent(int blockId) {
+        if (blockId < 0 || blockId >= transparent.length) {
+            return false;
+        }
+        return transparent[blockId];
+    }
 
     /**
      * Register a new block implementation overriding the existing one.
@@ -1049,8 +1240,6 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         Level.setCanRandomTick(blockId, receivesRandomTick);
     }
     
-    @PowerNukkitOnly
-    @Since("1.4.0.0-PN")
     @Nullable
     private MutableBlockState mutableState;
     
@@ -1192,6 +1381,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     }
 
     // https://minecraft.gamepedia.com/Opacity#Lighting
+    @PowerNukkitOnly
     public boolean diffusesSkyLight() {
         return false;
     }
@@ -1205,6 +1395,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         return 0;
     }
 
+    @PowerNukkitOnly
     public final boolean canWaterloggingFlowInto() {
         return canBeFlowedInto() || getWaterloggingLevel() > 1;
     }
@@ -1225,14 +1416,17 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         return true;
     }
 
+    @PowerNukkitOnly
     public boolean canBePulled() {
         return true;
     }
 
+    @PowerNukkitOnly
     public boolean breaksWhenMoved() {
         return false;
     }
 
+    @PowerNukkitOnly
     public boolean sticksToPiston() {
         return true;
     }
@@ -1267,6 +1461,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     
     public abstract int getId();
 
+    @PowerNukkitOnly
     public int getItemId() {
         int id = getId();
         if (id > 255) {
@@ -1281,6 +1476,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
      * @return full id
      * @deprecated PowerNukkit: The meta is limited to 32 bits
      */
+    @Override
     @Deprecated
     @DeprecationDetails(reason = "The meta is limited to 32 bits", since = "1.3.0.0-PN")
     public int getFullId() {
@@ -1290,6 +1486,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     /**
      * The properties that fully describe all possible and valid states that this block can have. 
      */
+    @Override
     @Nonnull
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
@@ -1297,6 +1494,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         return CommonBlockProperties.EMPTY_PROPERTIES;
     }
     
+    @Override
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     @Nonnull
@@ -1304,6 +1502,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         return mutableState == null? BlockState.of(getId()) : mutableState.getCurrentState();
     }
     
+    @Override
     @PowerNukkitOnly
     @Since("1.3.0.0-PN")
     public final int getRuntimeId() {
@@ -1439,7 +1638,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         double baseTime = ((correctTool || canHarvestWithHand) ? 1.5 : 5.0) * blockHardness;
         double speed = 1.0 / baseTime;
         if (correctTool) speed *= toolBreakTimeBonus0(toolType, toolTier, blockId);
-        speed += speedBonusByEfficiencyLore0(efficiencyLoreLevel);
+        speed += correctTool ? speedBonusByEfficiencyLore0(efficiencyLoreLevel) : 0;
         speed *= speedRateByHasteLore0(hasteEffectLevel);
         if (insideOfWaterWithoutAquaAffinity) speed *= 0.2;
         if (outOfWaterButNotOnGround) speed *= 0.2;
@@ -1611,14 +1810,17 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         return this.getHardness() != -1;
     }
 
+    @Override
     public Block getSide(BlockFace face) {
         return getSideAtLayer(layer, face);
     }
 
+    @Override
     public Block getSide(BlockFace face, int step) {
         return getSideAtLayer(layer, face, step);
     }
 
+    @PowerNukkitOnly
     public Block getSideAtLayer(int layer, BlockFace face) {
         if (this.isValid()) {
             return this.getLevel().getBlock((int) x + face.getXOffset(), (int) y + face.getYOffset(), (int) z + face.getZOffset(), layer);
@@ -1626,6 +1828,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         return this.getSide(face, 1);
     }
 
+    @PowerNukkitOnly
     public Block getSideAtLayer(int layer, BlockFace face, int step) {
         if (this.isValid()) {
             if (step == 1) {
@@ -1642,74 +1845,92 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         return block;
     }
 
+    @Override
     public Block up() {
         return up(1);
     }
 
+    @Override
     public Block up(int step) {
         return getSide(BlockFace.UP, step);
     }
 
+    @PowerNukkitOnly
     public Block up(int step, int layer) {
         return getSideAtLayer(layer, BlockFace.UP, step);
     }
 
+    @Override
     public Block down() {
         return down(1);
     }
 
+    @Override
     public Block down(int step) {
         return getSide(BlockFace.DOWN, step);
     }
 
+    @PowerNukkitOnly
     public Block down(int step, int layer) {
         return getSideAtLayer(layer, BlockFace.DOWN, step);
     }
 
+    @Override
     public Block north() {
         return north(1);
     }
 
+    @Override
     public Block north(int step) {
         return getSide(BlockFace.NORTH, step);
     }
 
+    @PowerNukkitOnly
     public Block north(int step, int layer) {
         return getSideAtLayer(layer, BlockFace.NORTH, step);
     }
 
+    @Override
     public Block south() {
         return south(1);
     }
 
+    @Override
     public Block south(int step) {
         return getSide(BlockFace.SOUTH, step);
     }
 
+    @PowerNukkitOnly
     public Block south(int step, int layer) {
         return getSideAtLayer(layer, BlockFace.SOUTH, step);
     }
 
+    @Override
     public Block east() {
         return east(1);
     }
 
+    @Override
     public Block east(int step) {
         return getSide(BlockFace.EAST, step);
     }
 
+    @PowerNukkitOnly
     public Block east(int step, int layer) {
         return getSideAtLayer(layer, BlockFace.EAST, step);
     }
 
+    @Override
     public Block west() {
         return west(1);
     }
 
+    @Override
     public Block west(int step) {
         return getSide(BlockFace.WEST, step);
     }
 
+    @PowerNukkitOnly
     public Block west(int step, int layer) {
         return getSideAtLayer(layer, BlockFace.WEST, step);
     }
@@ -1779,6 +2000,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         return getBoundingBox();
     }
 
+    @Override
     public MovingObjectPosition calculateIntercept(Vector3 pos1, Vector3 pos2) {
         AxisAlignedBB bb = this.getBoundingBox();
         if (bb == null) {
@@ -1894,6 +2116,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         }
     }
 
+    @Override
     public Block clone() {
         Block clone = (Block) super.clone();
         clone.mutableState = mutableState != null? mutableState.copy() : null;
@@ -2041,6 +2264,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
 
     @Nonnull
     @Override
+    @PowerNukkitOnly
     public final ItemBlock asItemBlock() {
         return asItemBlock(1);
     }
@@ -2060,11 +2284,13 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     public boolean mustDrop(Vector3 vector, int layer, BlockFace face, Item item, Player player) {
         return false;
     }
-    
+
+    @PowerNukkitOnly
     public Optional<Block> firstInLayers(Predicate<Block> condition) {
         return firstInLayers(0, condition);
     }
-    
+
+    @PowerNukkitOnly
     public Optional<Block> firstInLayers(int startingLayer, Predicate<Block> condition) {
         int maximumLayer = this.level.requireProvider().getMaximumLayer();
         for (int layer = startingLayer; layer <= maximumLayer; layer++) {
@@ -2311,6 +2537,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
         return false;
     }
 
+    @PowerNukkitOnly
     @Nonnull
     @Override
     public final Block getBlock() {

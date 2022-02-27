@@ -6,6 +6,9 @@ import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.value.WoodType;
+import cn.nukkit.entity.Entity;
+import cn.nukkit.entity.item.EntityLeashKnot;
+import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.math.AxisAlignedBB;
 import cn.nukkit.math.SimpleAxisAlignedBB;
@@ -23,6 +26,7 @@ import static cn.nukkit.math.VectorMath.calculateFace;
  */
 @PowerNukkitDifference(info = "Implements BlockConnectable only on PowerNukkit", since = "1.3.0.0-PN")
 public class BlockFence extends BlockTransparentMeta implements BlockConnectable {
+    @PowerNukkitOnly
     public static final BlockProperties PROPERTIES = new BlockProperties(WoodType.PROPERTY);
 
     @Deprecated @DeprecationDetails(reason = "Moved to the block property system", since = "1.4.0.0-PN", replaceWith = "getWoodType()")
@@ -115,6 +119,16 @@ public class BlockFence extends BlockTransparentMeta implements BlockConnectable
                 this.y + 1.5,
                 this.z + s
         );
+    }
+
+    @Override
+    public boolean onBreak(Item item) {
+        for (Entity entity : this.level.getNearbyEntities(recalculateBoundingBox())) {
+            if (entity.getNetworkId() == EntityLeashKnot.NETWORK_ID) {
+                entity.close();
+            }
+        }
+        return super.onBreak(item);
     }
 
     @Override

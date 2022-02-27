@@ -182,11 +182,6 @@ public class EntityBalloon extends Entity {
         if (this.isAlive()) {
             if (this.y >= this.balloonMaxHeight) {
                 if (isLeashed() && this.y < 256.0F) {
-                    if (this.x != this.getAttachedEntity().x || this.z != this.getAttachedEntity().z) {
-                        motionX += (this.x - this.getAttachedEntity().x);
-                        motionZ += (this.z - this.getAttachedEntity().z);
-                        move(motionX, motionY, motionZ);
-                    }
                     return true;
                 }
 

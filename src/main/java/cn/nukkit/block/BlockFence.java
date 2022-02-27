@@ -128,7 +128,7 @@ public class BlockFence extends BlockTransparentMeta implements BlockConnectable
                 entity.close();
             }
         }
-        return true;
+        return super.onBreak(item);
     }
 
     @Override

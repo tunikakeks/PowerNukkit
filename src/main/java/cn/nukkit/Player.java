@@ -4237,6 +4237,11 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     tickSyncPacketToClient.setResponseTimestamp(this.getServer().getTick());
                     this.dataPacketImmediately(tickSyncPacketToClient);
                     break;
+                case ProtocolInfo.PHOTO_TRANSFER_PACKET:
+                    PhotoTransferPacket photoTransferPacket = (PhotoTransferPacket) packet;
+                    PlayerCreatePhotoEvent playerCreatePhotoEvent = new PlayerCreatePhotoEvent(new Photo(photoTransferPacket.name, photoTransferPacket.data, photoTransferPacket.bookId, photoTransferPacket.photoType, photoTransferPacket.sourceType, photoTransferPacket.ownerId, photoTransferPacket.newPhotoName));
+                    Server.getInstance().getPluginManager().callEvent(playerCreatePhotoEvent);
+                    break;
                 default:
                     break;
             }

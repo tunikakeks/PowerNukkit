@@ -10,11 +10,11 @@ pipeline {
     stages {
         stage ('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn -B package -DskipTests=true -Darguments="-Dmaven.javadoc.skip=true"'
             }
             post {
                 success {
-                    archiveArtifacts artifacts: 'target/PowerNukkit-*.jar', fingerprint: true
+                    archiveArtifacts artifacts: 'target/powernukkit-*.jar', fingerprint: true
                 }
             }
         }

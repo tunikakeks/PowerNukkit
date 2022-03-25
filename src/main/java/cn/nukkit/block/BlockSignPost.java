@@ -272,7 +272,7 @@ public class BlockSignPost extends BlockTransparentMeta implements Faceable, Blo
             }
             return true;
 
-        } else if (item.getId() == MinecraftItemID.GLOW_INK_SAC.get(1).getId()) {
+        } else if (item.getNamespaceId().equals(MinecraftItemID.GLOW_INK_SAC.getNamespacedId())) {
             BlockEntity blockEntity = this.level.getBlockEntity(this);
             if (!(blockEntity instanceof BlockEntitySign)) {
                 return false;

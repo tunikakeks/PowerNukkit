@@ -33,6 +33,7 @@ import cn.nukkit.event.player.PlayerTeleportEvent.TeleportCause;
 import cn.nukkit.event.server.DataPacketReceiveEvent;
 import cn.nukkit.event.server.DataPacketSendEvent;
 import cn.nukkit.event.vehicle.VehicleMoveEvent;
+import cn.nukkit.form.handler.FormHandler;
 import cn.nukkit.form.window.FormWindow;
 import cn.nukkit.form.window.FormWindowCustom;
 import cn.nukkit.inventory.*;
@@ -3031,6 +3032,10 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     if (formWindows.containsKey(modalFormPacket.formId)) {
                         FormWindow window = formWindows.remove(modalFormPacket.formId);
                         window.setResponse(modalFormPacket.data.trim());
+
+                        for (FormHandler handler : window.getHandlers()) {
+                            handler.handle(this, window);
+                        }
 
                         PlayerFormRespondedEvent event = new PlayerFormRespondedEvent(this, modalFormPacket.formId, window);
                         getServer().getPluginManager().callEvent(event);

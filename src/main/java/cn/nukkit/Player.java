@@ -33,6 +33,7 @@ import cn.nukkit.event.player.PlayerTeleportEvent.TeleportCause;
 import cn.nukkit.event.server.DataPacketReceiveEvent;
 import cn.nukkit.event.server.DataPacketSendEvent;
 import cn.nukkit.event.vehicle.VehicleMoveEvent;
+import cn.nukkit.form.handler.FormHandler;
 import cn.nukkit.form.window.FormWindow;
 import cn.nukkit.form.window.FormWindowCustom;
 import cn.nukkit.inventory.*;
@@ -1780,7 +1781,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
         if (!revert && delta > 0.0001d) {
             Enchantment frostWalker = inventory.getBoots().getEnchantment(Enchantment.ID_FROST_WALKER);
-            if (frostWalker != null && frostWalker.getLevel() > 0 && !this.isSpectator() && this.y >= 1 && this.y <= 255) {
+            if (frostWalker != null && frostWalker.getLevel() > 0 && frostWalker.getLevel() <= 2 && !this.isSpectator() && this.y >= 1 && this.y <= 255) {
                 int radius = 2 + frostWalker.getLevel();
                 for (int coordX = this.getFloorX() - radius; coordX < this.getFloorX() + radius + 1; coordX++) {
                     for (int coordZ = this.getFloorZ() - radius; coordZ < this.getFloorZ() + radius + 1; coordZ++) {
@@ -3062,6 +3063,10 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                         FormWindow window = formWindows.remove(modalFormPacket.formId);
                         window.setResponse(modalFormPacket.data.trim());
 
+                        for (FormHandler handler : window.getHandlers()) {
+                            handler.handle(this, window);
+                        }
+
                         PlayerFormRespondedEvent event = new PlayerFormRespondedEvent(this, modalFormPacket.formId, window);
                         getServer().getPluginManager().callEvent(event);
                     } else if (serverSettings.containsKey(modalFormPacket.formId)) {
@@ -4266,6 +4271,11 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     tickSyncPacketToClient.setRequestTimestamp(tickSyncPacket.getRequestTimestamp());
                     tickSyncPacketToClient.setResponseTimestamp(this.getServer().getTick());
                     this.dataPacketImmediately(tickSyncPacketToClient);
+                    break;
+                case ProtocolInfo.PHOTO_TRANSFER_PACKET:
+                    PhotoTransferPacket photoTransferPacket = (PhotoTransferPacket) packet;
+                    PlayerCreatePhotoEvent playerCreatePhotoEvent = new PlayerCreatePhotoEvent(new Photo(photoTransferPacket.name, photoTransferPacket.data, photoTransferPacket.bookId, photoTransferPacket.photoType, photoTransferPacket.sourceType, photoTransferPacket.ownerId, photoTransferPacket.newPhotoName));
+                    Server.getInstance().getPluginManager().callEvent(playerCreatePhotoEvent);
                     break;
                 default:
                     break;

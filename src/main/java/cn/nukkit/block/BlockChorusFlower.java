@@ -206,10 +206,7 @@ public class BlockChorusFlower extends BlockTransparentMeta {
 
     @Override
     public Item[] getDrops(Item item) {
-        if (item.hasEnchantment(Enchantment.ID_SILK_TOUCH)) {
-            return new Item[]{ this.toItem() };
-        }
-        return new Item[]{Item.get(ItemID.CHORUS_FRUIT)};
+        return new Item[]{ this.toItem() };
     }
 
     @Override

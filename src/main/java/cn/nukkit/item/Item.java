@@ -984,6 +984,64 @@ public class Item implements Cloneable, BlockID, ItemID {
         return null;
     }
 
+    public boolean hasCustomEntityData() {
+        if (!this.hasCompoundTag()) {
+            return false;
+        }
+
+        CompoundTag tag = this.getNamedTag();
+        return tag.contains("EntityTag") && tag.get("EntityTag") instanceof CompoundTag;
+
+    }
+
+    public Item clearCustomEntityData() {
+        if (!this.hasCompoundTag()) {
+            return this;
+        }
+        CompoundTag tag = this.getNamedTag();
+
+        if (tag.contains("EntityTag") && tag.get("EntityTag") instanceof CompoundTag) {
+            tag.remove("EntityTag");
+            this.setNamedTag(tag);
+        }
+
+        return this;
+    }
+
+    public Item setCustomEntityData(CompoundTag compoundTag) {
+        CompoundTag tags = compoundTag.copy();
+        tags.setName("EntityTag");
+
+        CompoundTag tag;
+        if (!this.hasCompoundTag()) {
+            tag = new CompoundTag();
+        } else {
+            tag = this.getNamedTag();
+        }
+
+        tag.putCompound("EntityTag", tags);
+        this.setNamedTag(tag);
+
+        return this;
+    }
+
+    public CompoundTag getCustomEntityData() {
+        if (!this.hasCompoundTag()) {
+            return null;
+        }
+
+        CompoundTag tag = this.getNamedTag();
+
+        if (tag.contains("EntityTag")) {
+            Tag bet = tag.get("EntityTag");
+            if (bet instanceof CompoundTag) {
+                return (CompoundTag) bet;
+            }
+        }
+
+        return null;
+    }
+
     public boolean hasEnchantments() {
         if (!this.hasCompoundTag()) {
             return false;

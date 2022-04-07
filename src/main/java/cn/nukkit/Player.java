@@ -3186,6 +3186,12 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                 case ProtocolInfo.ENTITY_PICK_REQUEST_PACKET:
                     EntityPickRequestPacket entityPickRequestPacket = (EntityPickRequestPacket) packet;
                     Entity entity = this.level.getEntity(entityPickRequestPacket.eid);
+
+                    if (entity == null) {
+                        log.warn("Got entity-pick request with invalid entity id {}", entityPickRequestPacket.eid);
+                        break;
+                    }
+
                     item = Item.get(ItemID.SPAWN_EGG, entity.getNetworkId());
 
                     if (entityPickRequestPacket.addUserData) {
@@ -3199,7 +3205,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
                     PlayerEntityPickEvent entityPickEvent = new PlayerEntityPickEvent(this, entity, item);
                     if (this.isSpectator()) {
-                        log.debug("Got block-pick request from {} when in spectator mode", this.getName());
+                        log.debug("Got entity-pick request from {} when in spectator mode", this.getName());
                         entityPickEvent.setCancelled();
                     }
 

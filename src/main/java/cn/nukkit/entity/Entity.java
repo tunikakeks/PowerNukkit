@@ -1930,7 +1930,10 @@ public abstract class Entity extends Location implements Metadatable {
 
             if (fallDistance > 0) {
                 // check if we fell into at least 1 block of water
-                if (this instanceof EntityLiving && !(this.getLevelBlock() instanceof BlockWater) && !(this.getLevelBlock() instanceof BlockPowderSnow)) {
+                Block lb = this.getLevelBlock();
+                Block lb2 = this.getLevelBlockAtLayer(1);
+                // TODO: BlockFenceGate
+                if (this instanceof EntityLiving &&  !(this.getLevelBlock() instanceof BlockPowderSnow) && !(lb instanceof BlockWater || lb instanceof BlockFence || (lb2 instanceof BlockWater && lb2.getMaxY() == 1d))) {
                     this.fall(fallDistance);
                 }
                 this.resetFallDistance();

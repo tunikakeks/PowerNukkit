@@ -61,6 +61,11 @@ public class BlockPointedDripstone extends BlockFallableMeta {
         return true;
     }
 
+    @Override
+    public int getWaterloggingLevel() {
+        return 1;
+    }
+
     public boolean isHanging() {
         return this.getPropertyValue(HANGING);
     }

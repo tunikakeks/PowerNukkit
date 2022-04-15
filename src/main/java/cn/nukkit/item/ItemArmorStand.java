@@ -106,6 +106,6 @@ public class ItemArmorStand extends Item {
             default:
         }
         
-        return block.getLevel().setBlock(block, Block.get(BlockID.AIR));
+        return true;
     }
 }

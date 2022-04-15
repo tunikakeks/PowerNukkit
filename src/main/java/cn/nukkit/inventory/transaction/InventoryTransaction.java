@@ -3,9 +3,11 @@ package cn.nukkit.inventory.transaction;
 import cn.nukkit.Player;
 import cn.nukkit.api.PowerNukkitDifference;
 import cn.nukkit.api.Since;
+import cn.nukkit.block.BlockID;
 import cn.nukkit.event.inventory.InventoryClickEvent;
 import cn.nukkit.event.inventory.InventoryTransactionEvent;
 import cn.nukkit.inventory.Inventory;
+import cn.nukkit.inventory.ShulkerBoxInventory;
 import cn.nukkit.inventory.transaction.action.InventoryAction;
 import cn.nukkit.inventory.transaction.action.SlotChangeAction;
 import cn.nukkit.inventory.transaction.action.TakeLevelAction;
@@ -236,6 +238,15 @@ public class InventoryTransaction {
                             }
                         }
                     }
+                }
+                if (action.getTargetItem().getCount() > action.getTargetItem().getMaxStackSize()) {
+                    this.sendInventories();
+                    return false;
+                }
+                int itemId = action.getTargetItem().getId();
+                if (((SlotChangeAction) action).getInventory() instanceof ShulkerBoxInventory && (itemId == BlockID.UNDYED_SHULKER_BOX || itemId == BlockID.SHULKER_BOX)) {
+                    this.sendInventories();
+                    return false;
                 }
             }
         }

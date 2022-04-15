@@ -84,10 +84,11 @@ public class BlockPointedDripstone extends BlockFallableMeta {
 
     @Override
     public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, @Nullable Player player) {
-        if(face != BlockFace.UP && face != BlockFace.DOWN || !target.isSolid()) {
+        Block down = this.down();
+        if(!down.isSolid() && !this.up().isSolid()) {
             return false;
         }
-        this.setHanging(face == BlockFace.DOWN);
+        this.setHanging(face == BlockFace.DOWN || !down.isSolid());
         return this.getLevel().setBlock(this, this, true, true);
     }
 

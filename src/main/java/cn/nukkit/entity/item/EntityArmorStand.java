@@ -496,10 +496,11 @@ public class EntityArmorStand extends Entity implements InventoryHolder, EntityI
             double highestPosition = this.highestPosition;
             move(motionX, motionY, motionZ);
 
-            float friction = 1 - getDrag();
+            float drag = getDrag();
+            float friction = drag == 0 ? 0 : 1 - drag;
 
             motionX *= friction;
-            motionY *= 1 - getDrag();
+            motionY *= 1 - drag;
             motionZ *= friction;
 
             updateMovement();
@@ -516,8 +517,8 @@ public class EntityArmorStand extends Entity implements InventoryHolder, EntityI
 
     @Override
     protected float getDrag() {
-        if (hasWaterAt(getHeight() / 2f)) {
-            return 0.25f;
+        if (hasWaterAt(0.1f)) {
+            return 0.40f;
         }
         return 0f;
     }

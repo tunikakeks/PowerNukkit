@@ -76,7 +76,7 @@ public class ItemSpawnEgg extends Item {
             return false;
         }
 
-        CompoundTag nbt = new CompoundTag()
+        CompoundTag nbt = (this.hasCustomEntityData() ? this.getCustomEntityData() : new CompoundTag())
                 .putList(new ListTag<DoubleTag>("Pos")
                         .add(new DoubleTag("", block.getX() + 0.5))
                         .add(new DoubleTag("", target.getBoundingBox() == null ? block.getY() : target.getBoundingBox().getMaxY() + 0.0001f))

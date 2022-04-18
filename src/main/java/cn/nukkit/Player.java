@@ -2690,6 +2690,10 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                         break;
                     }
 
+                    if (this.inventoryOpen) {
+                        break;
+                    }
+
                     MovePlayerPacket movePlayerPacket = (MovePlayerPacket) packet;
                     Vector3 newPos = new Vector3(movePlayerPacket.x, movePlayerPacket.y - this.getBaseOffset(), movePlayerPacket.z);
 
@@ -3198,6 +3202,82 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                         if (!itemExists && this.isCreative()) {
                             Item itemInHand = this.inventory.getItemInHand();
                             this.inventory.setItemInHand(pickEvent.getItem());
+                            if (!this.inventory.isFull()) {
+                                for (int slot = 0; slot < this.inventory.getSize(); slot++) {
+                                    if (this.inventory.getItem(slot).isNull()) {
+                                        this.inventory.setItem(slot, itemInHand);
+                                        break;
+                                    }
+                                }
+                            }
+                        } else if (itemSlot > -1) {
+                            Item itemInHand = this.inventory.getItemInHand();
+                            this.inventory.setItemInHand(this.inventory.getItem(itemSlot));
+                            this.inventory.setItem(itemSlot, itemInHand);
+                        }
+                    }
+                    break;
+                case ProtocolInfo.ENTITY_PICK_REQUEST_PACKET:
+                    EntityPickRequestPacket entityPickRequestPacket = (EntityPickRequestPacket) packet;
+                    Entity entity = this.level.getEntity(entityPickRequestPacket.eid);
+
+                    if (entity == null) {
+                        log.warn("Got entity-pick request with invalid entity id {}", entityPickRequestPacket.eid);
+                        break;
+                    }
+
+                    item = Item.get(ItemID.SPAWN_EGG, entity.getNetworkId());
+
+                    if (entityPickRequestPacket.addUserData) {
+                        entity.saveNBT();
+                        CompoundTag nbt = entity.namedTag;
+                        if (nbt != null) {
+                            item.setCustomEntityData(nbt);
+                            item.setLore("+(DATA)");
+                        }
+                    }
+
+                    PlayerEntityPickEvent entityPickEvent = new PlayerEntityPickEvent(this, entity, item);
+                    if (this.isSpectator()) {
+                        log.debug("Got entity-pick request from {} when in spectator mode", this.getName());
+                        entityPickEvent.setCancelled();
+                    }
+
+                    this.server.getPluginManager().callEvent(entityPickEvent);
+
+                    if (!entityPickEvent.isCancelled()) {
+                        boolean itemExists = false;
+                        int itemSlot = -1;
+                        for (int slot = 0; slot < this.inventory.getSize(); slot++) {
+                            if (this.inventory.getItem(slot).equals(entityPickEvent.getItem())) {
+                                if (slot < this.inventory.getHotbarSize()) {
+                                    this.inventory.setHeldItemSlot(slot);
+                                } else {
+                                    itemSlot = slot;
+                                }
+                                itemExists = true;
+                                break;
+                            }
+                        }
+
+                        for (int slot = 0; slot < this.inventory.getHotbarSize(); slot++) {
+                            if (this.inventory.getItem(slot).isNull()) {
+                                if (!itemExists && this.isCreative()) {
+                                    this.inventory.setHeldItemSlot(slot);
+                                    this.inventory.setItemInHand(entityPickEvent.getItem());
+                                    break packetswitch;
+                                } else if (itemSlot > -1) {
+                                    this.inventory.setHeldItemSlot(slot);
+                                    this.inventory.setItemInHand(this.inventory.getItem(itemSlot));
+                                    this.inventory.clear(itemSlot, true);
+                                    break packetswitch;
+                                }
+                            }
+                        }
+
+                        if (!itemExists && this.isCreative()) {
+                            Item itemInHand = this.inventory.getItemInHand();
+                            this.inventory.setItemInHand(entityPickEvent.getItem());
                             if (!this.inventory.isFull()) {
                                 for (int slot = 0; slot < this.inventory.getSize(); slot++) {
                                     if (this.inventory.getItem(slot).isNull()) {

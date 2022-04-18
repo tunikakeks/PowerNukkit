@@ -15,6 +15,7 @@ import cn.nukkit.event.entity.*;
 import cn.nukkit.event.entity.EntityDamageEvent.DamageCause;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTurtleShell;
+import cn.nukkit.item.enchantment.Enchantment;
 import cn.nukkit.level.GameRule;
 import cn.nukkit.level.Sound;
 import cn.nukkit.level.format.FullChunk;
@@ -313,8 +314,25 @@ public abstract class EntityLiving extends Entity implements EntityDamageable {
         }
 
         // Used to check collisions with magma blocks
-        Block block = this.level.getBlock((int) x, (int) y - 1, (int) z);
-        if (block instanceof BlockMagma) block.onEntityCollide(this);
+        Block block = this.level.getBlock((int) Math.floor(x), (int) y - 1, (int) Math.floor(z));
+        if (block instanceof BlockMagma) {
+            if (this.hasEffect(Effect.FIRE_RESISTANCE)) {
+                return true;
+            }
+
+            if (this instanceof Player) {
+                Player p = (Player) this;
+                if (p.getInventory().getBoots().getEnchantment(Enchantment.ID_FROST_WALKER) != null
+                        || p.isCreative() || p.isSpectator() || p.isSneaking()) {
+                    return true;
+                }
+                if (!p.level.gameRules.getBoolean(GameRule.FIRE_DAMAGE)) {
+                    return true;
+                }
+            }
+
+            this.attack(new EntityDamageByBlockEvent(new BlockMagma(), this, EntityDamageEvent.DamageCause.HOT_FLOOR, 1));
+        }
 
         Timings.livingEntityBaseTickTimer.stopTiming();
 

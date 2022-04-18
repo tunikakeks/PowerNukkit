@@ -1,6 +1,7 @@
 package cn.nukkit.level.generator;
 
 import cn.nukkit.block.*;
+import cn.nukkit.blockstate.BlockState;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.biome.Biome;
 import cn.nukkit.level.biome.BiomeSelector;
@@ -228,7 +229,9 @@ public class Normal extends Generator {
                         new DeepslateOreType(Block.get(BlockID.COPPER_ORE), Block.get(BlockID.DEEPSLATE_COPPER_ORE), 2, 16, 0, 64),
                 }),
                 new PopulatorCaves(),
-                new AmethystGeodePopulator()//,
+                new AmethystGeodePopulator(),
+                new PopulatorSpring(BlockState.of(BlockID.FLOWING_WATER), ImmutableList.of(BlockState.of(BlockID.STONE)), 50, 8, 255),
+                new PopulatorSpring(BlockState.of(BlockID.FLOWING_LAVA), ImmutableList.of(BlockState.of(BlockID.STONE)), 20, 16, 255)//,
                 //new PopulatorRavines()
         );
     }

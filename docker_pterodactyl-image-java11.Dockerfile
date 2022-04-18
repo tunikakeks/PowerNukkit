@@ -1,8 +1,11 @@
 #
 # Get the pterodacty egg from https://github.com/PowerNukkit/PowerNukkit-Pterodactyl-Egg!
 #
+
 # Prepare the source
-FROM alpine/git:v2.26.2 AS prepare
+FROM maven:3.8-jdk-8-slim as build
+
+RUN DEBIAN_FRONTEND=noninteractive apt update && DEBIAN_FRONTEND=noninteractive apt install -y git && rm -rf /var/lib/apt/lists/*
 
 # Copy the source
 WORKDIR /src
@@ -19,18 +22,11 @@ COPY .git /src/.git
 # Update the language submodule
 RUN if [ -z "$(ls -A /src/src/main/resources/lang)" ]; then git submodule update --init; fi
 
-# Prepare to build the source
-FROM maven:3.8.1-jdk-11-slim as build
-
-# Copy the source
-WORKDIR /src
-COPY --from=prepare /src /src
-
 # Build the source
-RUN mvn -Dmaven.javadoc.skip=true -Denforcer.skip=true --no-transfer-progress clean package
+RUN mvn --no-transfer-progress -Dmaven.javadoc.skip=true clean package
 
 # Final image
-FROM quay.io/pterodactyl/core:java-11 as pterodactyl
+FROM ghcr.io/pterodactyl/yolks:java_11 as pterodactyl
 
 LABEL author="José Roberto de Araújo Júnior" maintainer="joserobjr@powernukkit.org"
 

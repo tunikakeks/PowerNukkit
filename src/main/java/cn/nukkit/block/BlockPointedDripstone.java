@@ -1,20 +1,23 @@
 package cn.nukkit.block;
 
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.blockentity.BlockEntityCauldron;
 import cn.nukkit.blockproperty.ArrayBlockProperty;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.BooleanBlockProperty;
+import cn.nukkit.event.block.BlockFallEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.level.Level;
 import cn.nukkit.math.BlockFace;
+import cn.nukkit.nbt.tag.CompoundTag;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class BlockPointedDripstone extends BlockSolid {
+public class BlockPointedDripstone extends BlockFallableMeta {
 
     public static final ArrayBlockProperty<DripstoneThickness> THICKNESS = new ArrayBlockProperty<>("dripstone_thickness", false, DripstoneThickness.class);
 
@@ -58,6 +61,11 @@ public class BlockPointedDripstone extends BlockSolid {
         return true;
     }
 
+    @Override
+    public int getWaterloggingLevel() {
+        return 1;
+    }
+
     public boolean isHanging() {
         return this.getPropertyValue(HANGING);
     }
@@ -76,10 +84,11 @@ public class BlockPointedDripstone extends BlockSolid {
 
     @Override
     public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, @Nullable Player player) {
-        if(face != BlockFace.UP && face != BlockFace.DOWN || !target.isSolid()) {
+        Block down = this.down();
+        if(!down.isSolid() && !this.up().isSolid()) {
             return false;
         }
-        this.setHanging(face == BlockFace.DOWN);
+        this.setHanging(face == BlockFace.DOWN || !down.isSolid());
         return this.getLevel().setBlock(this, this, true, true);
     }
 
@@ -88,7 +97,7 @@ public class BlockPointedDripstone extends BlockSolid {
         if(type == Level.BLOCK_UPDATE_NORMAL) {
             BlockFace side = this.isHanging() ? BlockFace.UP : BlockFace.DOWN;
             Block against = this.getSide(side);
-            if(!against.isSolid()) {
+            if(!against.isSolid() && !this.isHanging()) {
                 this.getLevel().useBreakOn(this);
                 return type;
             }
@@ -111,6 +120,7 @@ public class BlockPointedDripstone extends BlockSolid {
             if(against instanceof BlockPointedDripstone) {
                 against.onUpdate(type);
             }
+            this.tryDrop();
             return type;
         }
         if(type == Level.BLOCK_UPDATE_RANDOM) {
@@ -209,6 +219,30 @@ public class BlockPointedDripstone extends BlockSolid {
             }
         }
         return 0;
+    }
+
+    public void tryDrop() {
+        if (!this.isHanging()) return;
+        boolean AirUp = false;
+        Block blockUp = this.getBlock();
+        while (blockUp.getSide(BlockFace.UP).getId() == POINTED_DRIPSTONE) {
+            blockUp = blockUp.getSide(BlockFace.UP);
+        }
+        if (!blockUp.getSide(BlockFace.UP).isSolid())
+            AirUp = true;
+        if (AirUp) {
+            BlockFallEvent event = new BlockFallEvent(this);
+            Server.getInstance().getPluginManager().callEvent(event);
+            if (event.isCancelled()){
+                return;
+            }
+            BlockPointedDripstone block = (BlockPointedDripstone) blockUp;
+            block.drop(new CompoundTag().putBoolean("BreakOnGround", true));
+            while (block.getSide(BlockFace.DOWN).getId() == POINTED_DRIPSTONE) {
+                block = (BlockPointedDripstone) block.getSide(BlockFace.DOWN);
+                block.drop(new CompoundTag().putBoolean("BreakOnGround", true));
+            }
+        }
     }
 
     public enum DripstoneThickness {

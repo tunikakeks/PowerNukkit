@@ -187,6 +187,17 @@ public class BlockEntityChest extends BlockEntitySpawnableContainer implements B
     }
 
     @Override
+    public CompoundTag getCleanedNBT() {
+        CompoundTag tag = super.getCleanedNBT();
+        tag.remove("pairx").remove("pairz");
+        if (tag.getTags().size() > 0) {
+            return tag;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
     public String getName() {
         return this.hasName() ? this.namedTag.getString("CustomName") : "Chest";
     }

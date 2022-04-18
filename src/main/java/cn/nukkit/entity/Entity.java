@@ -1208,7 +1208,7 @@ public abstract class Entity extends Location implements Metadatable {
         addEntity.headYaw = (float) this.yaw;
         addEntity.pitch = (float) this.pitch;
         addEntity.x = (float) this.x;
-        addEntity.y = (float) this.y;
+        addEntity.y = (float) this.y + this.getBaseOffset();
         addEntity.z = (float) this.z;
         addEntity.speedX = (float) this.motionX;
         addEntity.speedY = (float) this.motionY;
@@ -1934,7 +1934,10 @@ public abstract class Entity extends Location implements Metadatable {
 
             if (fallDistance > 0) {
                 // check if we fell into at least 1 block of water
-                if (this instanceof EntityLiving && !(this.getLevelBlock() instanceof BlockWater) && !(this.getLevelBlock() instanceof BlockPowderSnow)) {
+                Block lb = this.getLevelBlock();
+                Block lb2 = this.getLevelBlockAtLayer(1);
+                // TODO: BlockFenceGate
+                if (this instanceof EntityLiving &&  !(this.getLevelBlock() instanceof BlockPowderSnow) && !(lb instanceof BlockWater || lb instanceof BlockFence || (lb2 instanceof BlockWater && lb2.getMaxY() == 1d))) {
                     this.fall(fallDistance);
                 }
                 this.resetFallDistance();

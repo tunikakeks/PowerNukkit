@@ -1550,7 +1550,7 @@ public class Server {
     }
 
     public String getIp() {
-        return this.getPropertyString("server-ip", "0.0.0.0");
+        return this.getPropertyString("server-ip", this.getPropertyBoolean("xbox-auth") ? "0.0.0.0" : "127.0.0.1");
     }
 
     public UUID getServerUniqueId() {

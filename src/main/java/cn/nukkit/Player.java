@@ -33,6 +33,7 @@ import cn.nukkit.event.player.PlayerTeleportEvent.TeleportCause;
 import cn.nukkit.event.server.DataPacketReceiveEvent;
 import cn.nukkit.event.server.DataPacketSendEvent;
 import cn.nukkit.event.vehicle.VehicleMoveEvent;
+import cn.nukkit.form.handler.FormHandler;
 import cn.nukkit.form.window.FormWindow;
 import cn.nukkit.form.window.FormWindowCustom;
 import cn.nukkit.inventory.*;
@@ -1780,7 +1781,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
         if (!revert && delta > 0.0001d) {
             Enchantment frostWalker = inventory.getBoots().getEnchantment(Enchantment.ID_FROST_WALKER);
-            if (frostWalker != null && frostWalker.getLevel() > 0 && !this.isSpectator() && this.y >= 1 && this.y <= 255) {
+            if (frostWalker != null && frostWalker.getLevel() > 0 && frostWalker.getLevel() <= 2 && !this.isSpectator() && this.y >= 1 && this.y <= 255) {
                 int radius = 2 + frostWalker.getLevel();
                 for (int coordX = this.getFloorX() - radius; coordX < this.getFloorX() + radius + 1; coordX++) {
                     for (int coordZ = this.getFloorZ() - radius; coordZ < this.getFloorZ() + radius + 1; coordZ++) {
@@ -2689,6 +2690,10 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                         break;
                     }
 
+                    if (this.inventoryOpen) {
+                        break;
+                    }
+
                     MovePlayerPacket movePlayerPacket = (MovePlayerPacket) packet;
                     Vector3 newPos = new Vector3(movePlayerPacket.x, movePlayerPacket.y - this.getBaseOffset(), movePlayerPacket.z);
 
@@ -3062,6 +3067,10 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                         FormWindow window = formWindows.remove(modalFormPacket.formId);
                         window.setResponse(modalFormPacket.data.trim());
 
+                        for (FormHandler handler : window.getHandlers()) {
+                            handler.handle(this, window);
+                        }
+
                         PlayerFormRespondedEvent event = new PlayerFormRespondedEvent(this, modalFormPacket.formId, window);
                         getServer().getPluginManager().callEvent(event);
                     } else if (serverSettings.containsKey(modalFormPacket.formId)) {
@@ -3193,6 +3202,82 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                         if (!itemExists && this.isCreative()) {
                             Item itemInHand = this.inventory.getItemInHand();
                             this.inventory.setItemInHand(pickEvent.getItem());
+                            if (!this.inventory.isFull()) {
+                                for (int slot = 0; slot < this.inventory.getSize(); slot++) {
+                                    if (this.inventory.getItem(slot).isNull()) {
+                                        this.inventory.setItem(slot, itemInHand);
+                                        break;
+                                    }
+                                }
+                            }
+                        } else if (itemSlot > -1) {
+                            Item itemInHand = this.inventory.getItemInHand();
+                            this.inventory.setItemInHand(this.inventory.getItem(itemSlot));
+                            this.inventory.setItem(itemSlot, itemInHand);
+                        }
+                    }
+                    break;
+                case ProtocolInfo.ENTITY_PICK_REQUEST_PACKET:
+                    EntityPickRequestPacket entityPickRequestPacket = (EntityPickRequestPacket) packet;
+                    Entity entity = this.level.getEntity(entityPickRequestPacket.eid);
+
+                    if (entity == null) {
+                        log.warn("Got entity-pick request with invalid entity id {}", entityPickRequestPacket.eid);
+                        break;
+                    }
+
+                    item = Item.get(ItemID.SPAWN_EGG, entity.getNetworkId());
+
+                    if (entityPickRequestPacket.addUserData) {
+                        entity.saveNBT();
+                        CompoundTag nbt = entity.namedTag;
+                        if (nbt != null) {
+                            item.setCustomEntityData(nbt);
+                            item.setLore("+(DATA)");
+                        }
+                    }
+
+                    PlayerEntityPickEvent entityPickEvent = new PlayerEntityPickEvent(this, entity, item);
+                    if (this.isSpectator()) {
+                        log.debug("Got entity-pick request from {} when in spectator mode", this.getName());
+                        entityPickEvent.setCancelled();
+                    }
+
+                    this.server.getPluginManager().callEvent(entityPickEvent);
+
+                    if (!entityPickEvent.isCancelled()) {
+                        boolean itemExists = false;
+                        int itemSlot = -1;
+                        for (int slot = 0; slot < this.inventory.getSize(); slot++) {
+                            if (this.inventory.getItem(slot).equals(entityPickEvent.getItem())) {
+                                if (slot < this.inventory.getHotbarSize()) {
+                                    this.inventory.setHeldItemSlot(slot);
+                                } else {
+                                    itemSlot = slot;
+                                }
+                                itemExists = true;
+                                break;
+                            }
+                        }
+
+                        for (int slot = 0; slot < this.inventory.getHotbarSize(); slot++) {
+                            if (this.inventory.getItem(slot).isNull()) {
+                                if (!itemExists && this.isCreative()) {
+                                    this.inventory.setHeldItemSlot(slot);
+                                    this.inventory.setItemInHand(entityPickEvent.getItem());
+                                    break packetswitch;
+                                } else if (itemSlot > -1) {
+                                    this.inventory.setHeldItemSlot(slot);
+                                    this.inventory.setItemInHand(this.inventory.getItem(itemSlot));
+                                    this.inventory.clear(itemSlot, true);
+                                    break packetswitch;
+                                }
+                            }
+                        }
+
+                        if (!itemExists && this.isCreative()) {
+                            Item itemInHand = this.inventory.getItemInHand();
+                            this.inventory.setItemInHand(entityPickEvent.getItem());
                             if (!this.inventory.isFull()) {
                                 for (int slot = 0; slot < this.inventory.getSize(); slot++) {
                                     if (this.inventory.getItem(slot).isNull()) {
@@ -4266,6 +4351,11 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     tickSyncPacketToClient.setRequestTimestamp(tickSyncPacket.getRequestTimestamp());
                     tickSyncPacketToClient.setResponseTimestamp(this.getServer().getTick());
                     this.dataPacketImmediately(tickSyncPacketToClient);
+                    break;
+                case ProtocolInfo.PHOTO_TRANSFER_PACKET:
+                    PhotoTransferPacket photoTransferPacket = (PhotoTransferPacket) packet;
+                    PlayerCreatePhotoEvent playerCreatePhotoEvent = new PlayerCreatePhotoEvent(new Photo(photoTransferPacket.name, photoTransferPacket.data, photoTransferPacket.bookId, photoTransferPacket.photoType, photoTransferPacket.sourceType, photoTransferPacket.ownerId, photoTransferPacket.newPhotoName));
+                    Server.getInstance().getPluginManager().callEvent(playerCreatePhotoEvent);
                     break;
                 default:
                     break;

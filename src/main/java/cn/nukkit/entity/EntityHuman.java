@@ -305,10 +305,14 @@ public class EntityHuman extends EntityHumanType {
 
     @Override
     public void spawnTo(Player player) {
+        this.spawnTo(player, true);
+    }
+
+    public void spawnTo(Player player, boolean checkValid) {
         if (this != player && !this.hasSpawned.containsKey(player.getLoaderId())) {
             this.hasSpawned.put(player.getLoaderId(), player);
 
-            if (!this.skin.isValid()) {
+            if (checkValid && !this.skin.isValid()) {
                 throw new IllegalStateException(this.getClass().getSimpleName() + " must have a valid skin set");
             }
 

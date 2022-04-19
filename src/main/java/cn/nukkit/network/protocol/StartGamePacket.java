@@ -83,6 +83,8 @@ public class StartGamePacket extends DataPacket {
     public long blockRegistryChecksum = 0;
 
     public int enchantmentSeed;
+    
+    public long levelSeed = -1L;
 
     public String multiplayerCorrelationId = "";
 
@@ -160,5 +162,6 @@ public class StartGamePacket extends DataPacket {
         this.putBoolean(this.isInventoryServerAuthoritative);
         this.putString(""); // Server Engine
         this.putLLong(this.blockRegistryChecksum);
+        this.putLLong(this.levelSeed);
     }
 }

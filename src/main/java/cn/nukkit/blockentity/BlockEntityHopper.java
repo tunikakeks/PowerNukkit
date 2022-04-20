@@ -65,7 +65,7 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
             this.inventory.setItem(i, this.getItem(i));
         }
 
-        this.pickupArea = new SimpleAxisAlignedBB(this.x - 0.1, this.y, this.z - 0.1, this.x + 1.1, this.y + 2, this.z + 1.1);
+        this.pickupArea = new SimpleAxisAlignedBB(this.x, this.y, this.z - 0.0001, this.x + 1, this.y + 1.6, this.z + 1);
         
         this.scheduleUpdate();
 

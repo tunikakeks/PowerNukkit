@@ -3900,7 +3900,7 @@ public class Level implements ChunkManager, Metadatable {
         this.sendWeather(players.toArray(Player.EMPTY_ARRAY));
     }
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public DimensionData getDimensionData() {
         return this.dimensionData;
     }

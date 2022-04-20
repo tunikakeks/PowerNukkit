@@ -15,23 +15,23 @@ public class PalettedBlockStorage {
     private final IntList palette;
     private BitArray bitArray;
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public static PalettedBlockStorage createFromBlockPalette() {
         return createFromBlockPalette(BitArrayVersion.V2);
     }
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public static PalettedBlockStorage createFromBlockPalette(BitArrayVersion version) {
         int runtimeId = GlobalBlockPalette.getOrCreateRuntimeId(0); // Air is first
         return new PalettedBlockStorage(version, runtimeId);
     }
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public static PalettedBlockStorage createWithDefaultState(int defaultState) {
         return createWithDefaultState(BitArrayVersion.V2, defaultState);
     }
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public static PalettedBlockStorage createWithDefaultState(BitArrayVersion version, int defaultState) {
         return new PalettedBlockStorage(version, defaultState);
     }
@@ -55,7 +55,7 @@ public class PalettedBlockStorage {
         return (x << 8) | (z << 4) | y;
     }
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public void setBlock(int x, int y, int z, int runtimeId) {
         this.setBlock(this.getIndex(x, y, z), runtimeId);
     }

@@ -76,7 +76,7 @@ public class BlockPistonHead extends BlockTransparentMeta implements Faceable {
         return true;
     }
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public BlockFace getFacing() {
         return getBlockFace();
     }

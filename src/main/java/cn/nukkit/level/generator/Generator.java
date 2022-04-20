@@ -23,7 +23,7 @@ public abstract class Generator implements BlockID {
 
     public abstract int getId();
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public DimensionData getDimensionData() {
         DimensionData dimensionData = DimensionEnum.getDataFromId(this.getDimension());
         if (dimensionData == null) {

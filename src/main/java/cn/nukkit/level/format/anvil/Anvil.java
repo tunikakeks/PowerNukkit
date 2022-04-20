@@ -33,7 +33,7 @@ import java.util.regex.Pattern;
 public class Anvil extends BaseLevelProvider {
     public static final int VERSION = 19133;
     private static final byte[] PAD_256 = new byte[256];
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public static final int EXTENDED_NEGATIVE_SUB_CHUNKS = 4;
 
     public Anvil(Level level, String path) throws IOException {

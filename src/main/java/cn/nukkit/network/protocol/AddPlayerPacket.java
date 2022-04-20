@@ -35,7 +35,7 @@ public class AddPlayerPacket extends DataPacket {
     public float pitch;
     public float yaw;
     public Item item;
-    @Since("FUTURE") public int gameType = Server.getInstance().getGamemode();
+    @Since("1.6.0.0-PN") public int gameType = Server.getInstance().getGamemode();
     public EntityMetadata metadata = new EntityMetadata();
     //public EntityLink links = new EntityLink[0];
     public String deviceId = "";

@@ -4284,7 +4284,7 @@ public class Level implements ChunkManager, Metadatable {
     public String toString() {
         return "Level{" +
                 "folderName='" + folderName + '\'' +
-                ", dimension=" + dimension +
+                ", dimension=" + dimensionData.getDimensionId() +
                 '}';
     }
 

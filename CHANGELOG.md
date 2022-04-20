@@ -6,10 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 with an added upstream's major version number in front of the major version, so we have a better distinction from
 Nukkit 1.X and 2.X.
 
-## [Unreleased 1.6.0.0-PN] - Future ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/29?closed=1))
+## [Unreleased 1.6.0.1-PN] - Future ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/27?closed=1))
 Click the link above to see the future.
 
-This work in progress version supports Minecraft `1.18.30`.
+## [1.6.0.0-PN] - 2022-04-20 ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/29?closed=1))
+Major version change adding support to Minecraft `1.18.30`.
 
 ### Breaking changes
 - [#1267] Changed Nimbus Jose JWT library from `7.9` to `9.13`
@@ -49,8 +50,7 @@ This work in progress version supports Minecraft `1.18.30`.
 ### Others
 There are many other fixes, additions and changes not documented in this file due to the size of this update.
 
-Check the [git logs](https://github.com/PowerNukkit/PowerNukkit/pull/1341/commits) 
-for details on what has changed since 1.5.2.1-PN
+Check the [git logs][1.6.0.0-PN] for details on what has changed since 1.5.2.1-PN
 
 ## [1.5.2.1-PN] - 2021-12-21 ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/30?closed=1))
 
@@ -811,7 +811,8 @@ Fixes several anvil issues.
 [updated changelog]:https://github.com/PowerNukkit/PowerNukkit/blob/bleeding/CHANGELOG.md
 [discord guild]: https://powernukkit.org/discord
 
-[Unreleased 1.6.0.0-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.5.2.1-PN...bleeding
+[Unreleased 1.6.0.1-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.6.0.0-PN...bleeding
+[1.6.0.0-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.5.2.1-PN...v1.6.0.0-PN
 [1.5.2.1-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.5.2.0-PN...v1.5.2.1-PN
 [1.5.2.0-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.5.1.0-PN...v1.5.2.0-PN
 [1.5.1.0-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.5.0.0-PN...v1.5.1.0-PN

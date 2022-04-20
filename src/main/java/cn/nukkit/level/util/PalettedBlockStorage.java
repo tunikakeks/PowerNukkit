@@ -1,5 +1,6 @@
 package cn.nukkit.level.util;
 
+import cn.nukkit.api.Since;
 import cn.nukkit.level.GlobalBlockPalette;
 import cn.nukkit.utils.BinaryStream;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -14,14 +15,31 @@ public class PalettedBlockStorage {
     private final IntList palette;
     private BitArray bitArray;
 
-    public PalettedBlockStorage() {
-        this(BitArrayVersion.V2);
+    @Since("1.6.0.0-PN")
+    public static PalettedBlockStorage createFromBlockPalette() {
+        return createFromBlockPalette(BitArrayVersion.V2);
     }
 
-    public PalettedBlockStorage(BitArrayVersion version) {
+    @Since("1.6.0.0-PN")
+    public static PalettedBlockStorage createFromBlockPalette(BitArrayVersion version) {
+        int runtimeId = GlobalBlockPalette.getOrCreateRuntimeId(0); // Air is first
+        return new PalettedBlockStorage(version, runtimeId);
+    }
+
+    @Since("1.6.0.0-PN")
+    public static PalettedBlockStorage createWithDefaultState(int defaultState) {
+        return createWithDefaultState(BitArrayVersion.V2, defaultState);
+    }
+
+    @Since("1.6.0.0-PN")
+    public static PalettedBlockStorage createWithDefaultState(BitArrayVersion version, int defaultState) {
+        return new PalettedBlockStorage(version, defaultState);
+    }
+
+    private PalettedBlockStorage(BitArrayVersion version, int defaultState) {
         this.bitArray = version.createPalette(SIZE);
         this.palette = new IntArrayList(16);
-        this.palette.add(GlobalBlockPalette.getOrCreateRuntimeId(0)); // Air is at the start of every palette.
+        this.palette.add(defaultState);
     }
 
     private PalettedBlockStorage(BitArray bitArray, IntList palette) {
@@ -31,6 +49,15 @@ public class PalettedBlockStorage {
 
     private int getPaletteHeader(BitArrayVersion version, boolean runtime) {
         return (version.getId() << 1) | (runtime ? 1 : 0);
+    }
+
+    private int getIndex(int x, int y, int z) {
+        return (x << 8) | (z << 4) | y;
+    }
+
+    @Since("1.6.0.0-PN")
+    public void setBlock(int x, int y, int z, int runtimeId) {
+        this.setBlock(this.getIndex(x, y, z), runtimeId);
     }
 
     public void setBlock(int index, int runtimeId) {

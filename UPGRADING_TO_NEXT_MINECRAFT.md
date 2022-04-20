@@ -38,7 +38,7 @@ Now that we know what have change, we need to update:
 - Checkout but **don't open as a project, only download the source**: https://github.com/PowerNukkit/Bedrock-Protocol
 - Open the **Maven** tab, click the **+** button to add a maven project to the current project (That should be Bedrock-ProxyPass)
 - Add: **Bedrock-Network**, and **Bedrock-Protocol** that you have just downloaded
-- Press **Shift** two times to open the sarch window and search for the **Action**: `manage git remotes`
+- Press **Shift** two times to open the search window and search for the **Action**: `manage git remotes`
 - Add a new remote for all 3 git repositores, pointing to the cloudburst equivalent of the project:
     * Bedrock-Network: https://github.com/CloudburstMC/Network.git
     * Bedrock-Protocol: https://github.com/CloudburstMC/Protocol.git
@@ -57,7 +57,7 @@ Now that we know what have change, we need to update:
   with the config to export data enabled
 - Connect to the vanilla bedrock server thought the proxy for it to extract the necessary data from the connection.
 
-#### Run the update tools
+### Run the update tools
 Now that you have extracted the data, confirm that PMMP have released the last BedrockData,
 the update tools make use of that: https://github.com/pmmp/BedrockData
 
@@ -71,10 +71,13 @@ make sure they are fulfilled before running or things can go wrong...
 - Run `mvn clean package` (Don't skip!)
 - Run `org.powernukkit.updater.RuntimeItemIdUpdater.main(String[])`
 - Run `mvn clean package` (Don't skip!)
+- Run `org.powernukkit.dumps.ItemIdDumper.main(String[])`
+- Run `org.powernukkit.dumps.RuntimeBlockStateDumper.main(String[])`
+- Adjust all necessary block properties
 - Run `org.powernukkit.updater.AllResourceUpdater.main(String[])`
 - Run `mvn clean package` (Don't skip!)
 
-#### After the update
+### After the update
 Try to start the server, make sure no error or warning is logged,
 new blocks/items may cause issues, and we need to fix or handle them
 from the Java classes, **without changing any resource**, only Java code!

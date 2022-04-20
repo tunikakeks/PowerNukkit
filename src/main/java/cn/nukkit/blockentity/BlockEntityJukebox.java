@@ -91,6 +91,9 @@ public class BlockEntityJukebox extends BlockEntitySpawnable {
                 case Item.RECORD_PIGSTEP:
                     this.getLevel().addSound(this, Sound.RECORD_PIGSTEP);
                     break;
+                case Item.RECORD_OTHERSIDE:
+                    this.getLevel().addSound(this, Sound.RECORD_OTHERSIDE);
+                    break;
             }
         }
     }

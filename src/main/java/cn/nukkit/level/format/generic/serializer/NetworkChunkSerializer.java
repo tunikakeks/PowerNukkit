@@ -8,7 +8,6 @@ import cn.nukkit.level.biome.Biome;
 import cn.nukkit.level.format.ChunkSection;
 import cn.nukkit.level.format.generic.BaseChunk;
 import cn.nukkit.level.format.generic.BaseFullChunk;
-import cn.nukkit.level.util.BitArrayVersion;
 import cn.nukkit.level.util.PalettedBlockStorage;
 import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.CompoundTag;
@@ -95,10 +94,10 @@ public class NetworkChunkSerializer {
     }
 
     private static byte[] convert2DBiomesTo3D(BaseFullChunk chunk, int sections) {
-        PalettedBlockStorage palette = new PalettedBlockStorage(BitArrayVersion.V2, Biome.getBiome(chunk.getBiomeId(0, 0)).getId());
+        PalettedBlockStorage palette = PalettedBlockStorage.createWithDefaultState(Biome.getBiomeIdOrCorrect(chunk.getBiomeId(0, 0)));
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
-                int biomeId = Biome.getBiome(chunk.getBiomeId(x, z)).getId();
+                int biomeId = Biome.getBiomeIdOrCorrect(chunk.getBiomeId(x, z));
                 for (int y = 0; y < 16; y++) {
                     palette.setBlock(x, y, z, biomeId);
                 }

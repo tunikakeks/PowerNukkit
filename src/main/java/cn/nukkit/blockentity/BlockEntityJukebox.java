@@ -101,7 +101,6 @@ public class BlockEntityJukebox extends BlockEntitySpawnable {
         }
     }
 
-    //TODO: Transfer the stop sound to the new sound method
     public void stop() {
         if (this.recordItem instanceof ItemRecord) {
             StopSoundPacket stopSoundPacket = new StopSoundPacket();

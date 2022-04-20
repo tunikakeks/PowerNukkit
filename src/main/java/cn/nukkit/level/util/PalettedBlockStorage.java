@@ -19,9 +19,13 @@ public class PalettedBlockStorage {
     }
 
     public PalettedBlockStorage(BitArrayVersion version) {
+        this(version, GlobalBlockPalette.getOrCreateRuntimeId(0)); // Air is at the start of every palette.
+    }
+
+    public PalettedBlockStorage(BitArrayVersion version, int defaultState) {
         this.bitArray = version.createPalette(SIZE);
         this.palette = new IntArrayList(16);
-        this.palette.add(GlobalBlockPalette.getOrCreateRuntimeId(0)); // Air is at the start of every palette.
+        this.palette.add(defaultState);
     }
 
     private PalettedBlockStorage(BitArray bitArray, IntList palette) {
@@ -31,6 +35,10 @@ public class PalettedBlockStorage {
 
     private int getPaletteHeader(BitArrayVersion version, boolean runtime) {
         return (version.getId() << 1) | (runtime ? 1 : 0);
+    }
+
+    public void setBlock(int x, int y, int z, int runtimeId) {
+        this.setBlock(this.getIndex(x, y, z), runtimeId);
     }
 
     public void setBlock(int index, int runtimeId) {
@@ -78,6 +86,10 @@ public class PalettedBlockStorage {
         }
         this.palette.add(runtimeId);
         return index;
+    }
+
+    public int getIndex(int x, int y, int z) {
+        return (x << 8) | (z << 4) | y;
     }
 
     public boolean isEmpty() {

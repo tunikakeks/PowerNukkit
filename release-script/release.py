@@ -133,7 +133,7 @@ try:
             log('-> Executing a docker build for tags', tag_list)
             cmd_parts = ['docker', 'buildx', 'build', '--platform', 'linux/arm64,linux/amd64', '--pull']
             if run_docker_push:
-                cmd_parts = ['--push']
+                cmd_parts += ['--push']
             for tag in tag_list:
                 cmd_parts += ['-t', tag]
             cmd_parts += [source]

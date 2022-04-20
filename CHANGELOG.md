@@ -9,7 +9,7 @@ Nukkit 1.X and 2.X.
 ## [Unreleased 1.6.0.0-PN] - Future ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/29?closed=1))
 Click the link above to see the future.
 
-This work in progress version supports Minecraft `1.18.0`.
+This work in progress version supports Minecraft `1.18.30`.
 
 ### Breaking changes
 - [#1267] Changed Nimbus Jose JWT library from `7.9` to `9.13`
@@ -20,10 +20,13 @@ This work in progress version supports Minecraft `1.18.0`.
 ### Depreciation
 - [#1266] Some APIs become deprecated, check the JDiff for details.
 - [#1266] `ItemTrident.setCreative` and `getCreative` are now deprecated.
+- [#1341] Some items had their name changed and their ID on `ItemID` are now deprecated
 
 ### Added
 - [#1266] API to get the potion names, level in roman string and tipped arrow potion.
 - [#1266] API for the banner pattern snout (Piglin)
+- [#1341] New sounds to the sound enum
+- [#1341] New particles effects to the relevant enums
 
 ### Changed
 - [#1258] Changed supported version to Minecraft Bedrock Edition `1.18.0`.
@@ -42,6 +45,12 @@ This work in progress version supports Minecraft `1.18.0`.
 - [#1267] Added all missing `@PowerNukkitOnly` annotations
 - [#1267] Added all missing `@Override` annotations
 - [#1267] Removed all incorrect `@PowerNukkitOnly` annotations
+
+### Others
+There are many other fixes, additions and changes not documented in this file due to the size of this update.
+
+Check the [git logs](https://github.com/PowerNukkit/PowerNukkit/pull/1341/commits) 
+for details on what has changed since 1.5.2.1-PN
 
 ## [1.5.2.1-PN] - 2021-12-21 ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/30?closed=1))
 
@@ -1001,3 +1010,4 @@ Fixes several anvil issues.
 [#1266]: https://github.com/PowerNukkit/PowerNukkit/issues/1266
 [#1267]: https://github.com/PowerNukkit/PowerNukkit/issues/1267
 [#1270]: https://github.com/PowerNukkit/PowerNukkit/issues/1270
+[#1341]: https://github.com/PowerNukkit/PowerNukkit/issues/1341

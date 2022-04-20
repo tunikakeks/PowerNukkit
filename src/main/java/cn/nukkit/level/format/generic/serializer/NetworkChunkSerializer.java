@@ -95,10 +95,10 @@ public class NetworkChunkSerializer {
     }
 
     private static byte[] convert2DBiomesTo3D(BaseFullChunk chunk, int sections) {
-        PalettedBlockStorage palette = new PalettedBlockStorage(BitArrayVersion.V2, chunk.getBiomeId(0, 0));
+        PalettedBlockStorage palette = new PalettedBlockStorage(BitArrayVersion.V2, Biome.getBiome(chunk.getBiomeId(0, 0)).getId());
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
-                int biomeId = chunk.getBiomeId(x, z);
+                int biomeId = Biome.getBiome(chunk.getBiomeId(x, z)).getId();
                 for (int y = 0; y < 16; y++) {
                     palette.setBlock(x, y, z, biomeId);
                 }

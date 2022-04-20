@@ -9,6 +9,7 @@ import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.level.format.generic.BaseFullChunk;
 import cn.nukkit.level.format.generic.BaseLevelProvider;
 import cn.nukkit.level.format.generic.BaseRegionLoader;
+import cn.nukkit.level.format.generic.serializer.NetworkChunkSerializer;
 import cn.nukkit.level.generator.Generator;
 import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.CompoundTag;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
 import java.util.regex.Pattern;
 
 /**
@@ -160,8 +162,9 @@ public class Anvil extends BaseLevelProvider {
         stream.putByte((byte) 0); // Border blocks
         stream.put(blockEntities);
 
-        this.getLevel().chunkRequestCallback(timestamp, x, z, count, stream.getBuffer());
-
+        BiConsumer<BinaryStream, Integer> callback = (st, subchunks) ->
+                this.getLevel().chunkRequestCallback(timestamp, x, z, subchunks, stream.getBuffer());
+        NetworkChunkSerializer.serialize(chunk, callback, this.level.getDimensionData());
         return null;
     }
 

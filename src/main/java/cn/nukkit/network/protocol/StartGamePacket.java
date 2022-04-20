@@ -83,8 +83,6 @@ public class StartGamePacket extends DataPacket {
     public long blockRegistryChecksum = 0;
 
     public int enchantmentSeed;
-    
-    public long levelSeed = -1L;
 
     public String multiplayerCorrelationId = "";
 
@@ -103,7 +101,7 @@ public class StartGamePacket extends DataPacket {
         this.putLFloat(this.yaw);
         this.putLFloat(this.pitch);
 
-        this.putVarInt(this.seed);
+        this.putLLong(this.seed);
         this.putLShort(0x00); // SpawnBiomeType - Default
         this.putString("plains"); // UserDefinedBiomeName
         this.putVarInt(this.dimension);
@@ -162,6 +160,5 @@ public class StartGamePacket extends DataPacket {
         this.putBoolean(this.isInventoryServerAuthoritative);
         this.putString(""); // Server Engine
         this.putLLong(this.blockRegistryChecksum);
-        this.putLLong(this.levelSeed);
     }
 }

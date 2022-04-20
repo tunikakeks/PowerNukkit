@@ -320,7 +320,7 @@ public class Level implements ChunkManager, Metadatable {
 
     private long levelCurrentTick = 0;
 
-    private int dimension;
+    private DimensionData dimensionData;
 
     public GameRules gameRules;
 
@@ -473,7 +473,7 @@ public class Level implements ChunkManager, Metadatable {
 
     public void initLevel() {
         Generator generator = generators.get();
-        this.dimension = generator.getDimension();
+        this.dimensionData = generator.getDimensionData();
         this.gameRules = this.requireProvider().getGamerules();
 
         log.info("Preparing start region for level \"{}\"", this.getFolderName());
@@ -698,11 +698,11 @@ public class Level implements ChunkManager, Metadatable {
     }
 
     public void addParticleEffect(Vector3 pos, ParticleEffect particleEffect) {
-        this.addParticleEffect(pos, particleEffect, -1, this.dimension, (Player[]) null);
+        this.addParticleEffect(pos, particleEffect, -1, this.getDimension(), (Player[]) null);
     }
 
     public void addParticleEffect(Vector3 pos, ParticleEffect particleEffect, long uniqueEntityId) {
-        this.addParticleEffect(pos, particleEffect, uniqueEntityId, this.dimension, (Player[]) null);
+        this.addParticleEffect(pos, particleEffect, uniqueEntityId, this.getDimension(), (Player[]) null);
     }
 
     public void addParticleEffect(Vector3 pos, ParticleEffect particleEffect, long uniqueEntityId, int dimensionId) {
@@ -897,7 +897,7 @@ public class Level implements ChunkManager, Metadatable {
         }
 
         // Tick Weather
-        if (this.dimension != DIMENSION_NETHER && this.dimension != DIMENSION_THE_END && gameRules.getBoolean(GameRule.DO_WEATHER_CYCLE)) {
+        if (this.getDimension() != DIMENSION_NETHER && this.getDimension() != DIMENSION_THE_END && gameRules.getBoolean(GameRule.DO_WEATHER_CYCLE)) {
             this.rainTime--;
             if (this.rainTime <= 0) {
                 if (!this.setRaining(!this.raining)) {
@@ -3928,8 +3928,12 @@ public class Level implements ChunkManager, Metadatable {
         this.sendWeather(players.toArray(Player.EMPTY_ARRAY));
     }
 
+    public DimensionData getDimensionData() {
+        return this.dimensionData;
+    }
+
     public int getDimension() {
-        return dimension;
+        return this.dimensionData.getDimensionId();
     }
 
     public boolean canBlockSeeSky(Vector3 pos) {
@@ -4059,7 +4063,7 @@ public class Level implements ChunkManager, Metadatable {
 
     @PowerNukkitDifference(info = "Using new method to play sounds", since = "1.4.0.0-PN")
     public boolean createPortal(Block target) {
-        if (this.dimension == DIMENSION_THE_END) return false;
+        if (this.getDimension() == DIMENSION_THE_END) return false;
         int maxPortalSize = 23;
         final int targX = target.getFloorX();
         final int targY = target.getFloorY();

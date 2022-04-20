@@ -1771,11 +1771,7 @@ public class Level implements ChunkManager, Metadatable {
             }
         }
         Block block = fullState.getBlockRepairing(this, x, y, z, layer);
-<<<<<<< HEAD
-        //setBlock(x, y, z, layer, block, false, false); // Update set to false to fix PowerNukkit#650
-=======
         setBlock(x, y, z, layer, block, false, false); // Update set to false to fix PowerNukkit#650
->>>>>>> e6badfe8dfe9e276622a9453a985eb44cc23cc8a
         return block;
     }
 

@@ -302,8 +302,6 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     private float soulSpeedMultiplier = 1;
     private boolean wasInSoulSandCompatible;
     
-    @PowerNukkitOnly
-    @Since("FUTURE")
     private boolean isIgnoringMobEquipmentPacket;
     
     @PowerNukkitOnly

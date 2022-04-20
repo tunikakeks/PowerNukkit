@@ -2,6 +2,7 @@ package cn.nukkit.level.format.anvil;
 
 import cn.nukkit.api.PowerNukkitDifference;
 import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.level.format.generic.BaseFullChunk;
@@ -32,6 +33,7 @@ import java.util.regex.Pattern;
 public class Anvil extends BaseLevelProvider {
     public static final int VERSION = 19133;
     private static final byte[] PAD_256 = new byte[256];
+    @Since("FUTURE")
     public static final int EXTENDED_NEGATIVE_SUB_CHUNKS = 4;
 
     public Anvil(Level level, String path) throws IOException {

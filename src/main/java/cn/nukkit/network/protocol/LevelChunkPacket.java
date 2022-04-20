@@ -1,5 +1,6 @@
 package cn.nukkit.network.protocol;
 
+import cn.nukkit.api.Since;
 import lombok.ToString;
 
 /**
@@ -18,8 +19,8 @@ public class LevelChunkPacket extends DataPacket {
     public int chunkZ;
     public int subChunkCount;
     public boolean cacheEnabled;
-    public boolean requestSubChunks;
-    public int subChunkLimit;
+    @Since("FUTURE") public boolean requestSubChunks;
+    @Since("FUTURE") public int subChunkLimit;
     public long[] blobIds;
     public byte[] data;
 

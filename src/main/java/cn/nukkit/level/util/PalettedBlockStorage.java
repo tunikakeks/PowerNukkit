@@ -1,5 +1,6 @@
 package cn.nukkit.level.util;
 
+import cn.nukkit.api.Since;
 import cn.nukkit.level.GlobalBlockPalette;
 import cn.nukkit.utils.BinaryStream;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -14,19 +15,23 @@ public class PalettedBlockStorage {
     private final IntList palette;
     private BitArray bitArray;
 
+    @Since("FUTURE")
     public static PalettedBlockStorage createFromBlockPalette() {
         return createFromBlockPalette(BitArrayVersion.V2);
     }
 
+    @Since("FUTURE")
     public static PalettedBlockStorage createFromBlockPalette(BitArrayVersion version) {
         int runtimeId = GlobalBlockPalette.getOrCreateRuntimeId(0); // Air is first
         return new PalettedBlockStorage(version, runtimeId);
     }
 
+    @Since("FUTURE")
     public static PalettedBlockStorage createWithDefaultState(int defaultState) {
         return createWithDefaultState(BitArrayVersion.V2, defaultState);
     }
 
+    @Since("FUTURE")
     public static PalettedBlockStorage createWithDefaultState(BitArrayVersion version, int defaultState) {
         return new PalettedBlockStorage(version, defaultState);
     }
@@ -50,6 +55,7 @@ public class PalettedBlockStorage {
         return (x << 8) | (z << 4) | y;
     }
 
+    @Since("FUTURE")
     public void setBlock(int x, int y, int z, int runtimeId) {
         this.setBlock(this.getIndex(x, y, z), runtimeId);
     }

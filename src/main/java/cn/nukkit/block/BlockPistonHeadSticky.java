@@ -18,7 +18,7 @@ public class BlockPistonHeadSticky extends BlockPistonHead {
     
     @Override
     public int getId() {
-        return PISTON_HEAD_STICKY;
+        return STICKY_PISTON_ARM_COLLISION;
     }
     
     @Override

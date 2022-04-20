@@ -120,9 +120,7 @@ if create_git_tag:
 finish_progress()
 
 docker_tags = []
-pterodactyl_tags = []
-pterodactyl_tags[8] = []
-pterodactyl_tags[11] = []
+pterodactyl_tags = {8: [], 11: []}
 try:
     if run_docker_build or run_docker_build_pterodactyl:
         def prepare_docker():

@@ -1,15 +1,22 @@
 package cn.nukkit.level;
 
-import lombok.Builder;
+import cn.nukkit.api.Since;
 import lombok.Data;
+import lombok.Getter;
 
+@Since("FUTURE")
 @Data
 public class DimensionData {
+    @Getter(onMethod = @__(@Since("FUTURE")))
     private final int dimensionId;
+    @Getter(onMethod = @__(@Since("FUTURE")))
     private final int minHeight;
+    @Getter(onMethod = @__(@Since("FUTURE")))
     private final int maxHeight;
+    @Getter(onMethod = @__(@Since("FUTURE")))
     private final int height;
 
+    @Since("FUTURE")
     public DimensionData(int dimensionId, int minHeight, int maxHeight) {
         this.dimensionId = dimensionId;
         this.minHeight = minHeight;

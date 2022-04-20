@@ -1,5 +1,6 @@
 package cn.nukkit.level.generator;
 
+import cn.nukkit.api.Since;
 import cn.nukkit.block.BlockID;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.DimensionData;
@@ -22,6 +23,7 @@ public abstract class Generator implements BlockID {
 
     public abstract int getId();
 
+    @Since("FUTURE")
     public DimensionData getDimensionData() {
         DimensionData dimensionData = DimensionEnum.getDataFromId(this.getDimension());
         if (dimensionData == null) {

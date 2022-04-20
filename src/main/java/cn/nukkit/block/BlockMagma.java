@@ -62,6 +62,23 @@ public class BlockMagma extends BlockSolid {
     }
 
     @Override
+    public void onEntityCollide(Entity entity) {
+        if (entity.hasEffect(Effect.FIRE_RESISTANCE)) {
+            return;
+        }
+
+        if (entity instanceof Player) {
+            Player p = (Player) entity;
+            if (p.getInventory().getBoots().getEnchantment(Enchantment.ID_FROST_WALKER) != null
+                    || p.isCreative() || p.isSpectator() || p.isSneaking() || !p.level.getGameRules().getBoolean(GameRule.FIRE_DAMAGE)) {
+                return;
+            }
+        }
+
+        entity.attack(new EntityDamageByBlockEvent(this, entity, EntityDamageEvent.DamageCause.HOT_FLOOR, 1));
+    }
+
+    @Override
     public int onUpdate(int type) {
         if (type == Level.BLOCK_UPDATE_NORMAL) {
             Block up = up();

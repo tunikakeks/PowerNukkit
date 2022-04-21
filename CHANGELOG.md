@@ -9,6 +9,12 @@ Nukkit 1.X and 2.X.
 ## [Unreleased 1.6.0.1-PN] - Future ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/27?closed=1))
 Click the link above to see the future.
 
+### Fixes
+- [#1344] Backward compatibility with PowerNukkit port of Wode's AntiXRay plugin
+
+### Changed
+- [#1344] Log4J version to `2.17.1` (seriously, stop hacking it people)
+
 ## [1.6.0.0-PN] - 2022-04-20 ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/29?closed=1))
 Major version change adding support to Minecraft `1.18.30`.
 
@@ -1012,3 +1018,4 @@ Fixes several anvil issues.
 [#1267]: https://github.com/PowerNukkit/PowerNukkit/issues/1267
 [#1270]: https://github.com/PowerNukkit/PowerNukkit/issues/1270
 [#1341]: https://github.com/PowerNukkit/PowerNukkit/issues/1341
+[#1344]: https://github.com/PowerNukkit/PowerNukkit/issues/1344

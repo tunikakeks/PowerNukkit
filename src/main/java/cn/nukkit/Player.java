@@ -3196,7 +3196,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                         break;
                     }
 
-                    item = Item.get(ItemID.SPAWN_EGG, entity.getNetworkId());
+                    item = entity.toItem();
 
                     if (entityPickRequestPacket.addUserData) {
                         entity.saveNBT();

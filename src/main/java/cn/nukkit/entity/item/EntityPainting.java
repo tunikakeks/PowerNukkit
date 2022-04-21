@@ -8,6 +8,7 @@ import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.EntityHanging;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
+import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemPainting;
 import cn.nukkit.level.GameRule;
 import cn.nukkit.level.format.FullChunk;
@@ -127,6 +128,11 @@ public class EntityPainting extends EntityHanging {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public Item toItem() {
+        return Item.get(Item.PAINTING);
     }
 
     @Override

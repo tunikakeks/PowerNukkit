@@ -38,6 +38,11 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
         setDisplayBlock(Block.get(Block.HOPPER_BLOCK), false);
     }
 
+    @Override
+    public Item toItem() {
+        return Item.get(Item.MINECART_WITH_HOPPER);
+    }
+
     @PowerNukkitOnly
     @Since("1.5.1.0-PN")
     @Override

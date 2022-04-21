@@ -2081,6 +2081,10 @@ public abstract class Entity extends Location implements Metadatable {
         return false;
     }
 
+    public Item toItem() {
+        return Item.get(Item.AIR);
+    }
+
     protected boolean switchLevel(Level targetLevel) {
         if (this.closed) {
             return false;
@@ -2460,7 +2464,7 @@ public abstract class Entity extends Location implements Metadatable {
                 if (this.getRiding() == null && this.getPassengers().isEmpty() && !(this instanceof EntityEnderDragon)) {
                     EntityPortalEnterEvent ev = new EntityPortalEnterEvent(this, PortalType.END);
                     getServer().getPluginManager().callEvent(ev);
-                    
+
                     if (!ev.isCancelled() && (level == EnumLevel.OVERWORLD.getLevel() || level == EnumLevel.THE_END.getLevel())) {
                         final Position newPos = EnumLevel.moveToTheEnd(this);
                         if (newPos != null) {
@@ -2995,7 +2999,7 @@ public abstract class Entity extends Location implements Metadatable {
         this.noClip = noClip;
         this.setDataFlag(DATA_FLAGS, DATA_FLAG_HAS_COLLISION, noClip);
     }
-    
+
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public boolean isBoss() {

@@ -197,13 +197,21 @@ public class BlockChest extends BlockTransparentMeta implements Faceable, BlockE
         if (player == null) {
             return false;
         }
-        
-        Block top = up();
-        if (!top.isTransparent() && !player.isSpectator()) {
-            return false;
-        }
 
         BlockEntityChest chest = getOrCreateBlockEntity();
+        if (!player.isSpectator()) {
+            Block top = up();
+            if (!top.isTransparent()) {
+                return false;
+            }
+            if (chest.isPaired()) {
+                top = chest.getPair().getSide(BlockFace.UP).getLevelBlock();
+                if (!top.isTransparent()) {
+                    return false;
+                }
+            }
+        }
+
         if (chest.namedTag.contains("Lock") && chest.namedTag.get("Lock") instanceof StringTag 
                 && !chest.namedTag.getString("Lock").equals(item.getCustomName())) {
             return false;

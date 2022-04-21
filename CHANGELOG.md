@@ -6,14 +6,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 with an added upstream's major version number in front of the major version, so we have a better distinction from
 Nukkit 1.X and 2.X.
 
-## [Unreleased 1.6.0.1-PN] - Future ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/27?closed=1))
+## [Unreleased 1.6.1.0-PN] - Future ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/25?closed=1))
 Click the link above to see the future.
 
+## [1.6.0.1-PN] - Future ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/27?closed=1))
+Fixes backward compatibility with some important plugins, also pull some changes from NukkitX
+
 ### Fixes
+- [#1343] Fix player data properties being sent twice
+- [#1343] Client side issues caused by normal data flags not being sent with extended flags
+- [#1343] Item Net ID should be 1 if the item is not air
+- [#1343] Accuracy of player movements
+- [#1343] Maximum chat message size was too low
 - [#1344] Backward compatibility with PowerNukkit port of Wode's AntiXRay plugin
 
 ### Changed
 - [#1344] Log4J version to `2.17.1` (seriously, stop hacking it people)
+- [#1343] Cornflower and Lily of the Valley will now be generated in flower forest biomes
 
 ## [1.6.0.0-PN] - 2022-04-20 ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/29?closed=1))
 Major version change adding support to Minecraft `1.18.30`.
@@ -1018,4 +1027,5 @@ Fixes several anvil issues.
 [#1267]: https://github.com/PowerNukkit/PowerNukkit/issues/1267
 [#1270]: https://github.com/PowerNukkit/PowerNukkit/issues/1270
 [#1341]: https://github.com/PowerNukkit/PowerNukkit/issues/1341
+[#1343]: https://github.com/PowerNukkit/PowerNukkit/issues/1343
 [#1344]: https://github.com/PowerNukkit/PowerNukkit/issues/1344

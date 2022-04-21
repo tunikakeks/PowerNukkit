@@ -26,7 +26,7 @@ public class PalettedBlockStorage {
     @Since("1.6.0.0-PN")
     public static PalettedBlockStorage createFromBlockPalette(BitArrayVersion version) {
         int runtimeId = BlockStateRegistry.getRuntimeId(BlockID.AIR);
-        return new PalettedBlockStorage(version, runtimeId, null);
+        return new PalettedBlockStorage(version, runtimeId);
     }
 
     @Since("1.6.0.0-PN")
@@ -36,7 +36,7 @@ public class PalettedBlockStorage {
 
     @Since("1.6.0.0-PN")
     public static PalettedBlockStorage createWithDefaultState(BitArrayVersion version, int defaultState) {
-        return new PalettedBlockStorage(version, defaultState, null);
+        return new PalettedBlockStorage(version, defaultState);
     }
 
     @PowerNukkitOnly("This was removed on 1.6.0.0-PN by Cloudburst Nukkit and re-added to fix plugin compatibility issue on 1.6.0.1-PN")
@@ -47,7 +47,7 @@ public class PalettedBlockStorage {
             replaceWith = "createFromBlockPalette()"
     )
     public PalettedBlockStorage() {
-        this(BitArrayVersion.V2, BlockStateRegistry.getRuntimeId(BlockID.AIR), null);
+        this(BitArrayVersion.V2);
     }
 
     @PowerNukkitOnly("This was removed on 1.6.0.0-PN by Cloudburst Nukkit and re-added to fix plugin compatibility issue on 1.6.0.1-PN")
@@ -57,11 +57,11 @@ public class PalettedBlockStorage {
             reason = "Refactored by Cloudburst Nukkit to use static method instead of constructor",
             replaceWith = "createFromBlockPalette(BitArrayVersion)"
     )
-    public PalettedBlockStorage(BitArrayVersion version, int defaultState) {
-        this(version, defaultState, null);
+    public PalettedBlockStorage(BitArrayVersion version) {
+        this(version, BlockStateRegistry.getRuntimeId(BlockID.AIR));
     }
 
-    private PalettedBlockStorage(BitArrayVersion version, int defaultState, @SuppressWarnings("unused") Void differentiator) {
+    private PalettedBlockStorage(BitArrayVersion version, int defaultState) {
         this.bitArray = version.createPalette(SIZE);
         this.palette = new IntArrayList(16);
         this.palette.add(defaultState);

@@ -51,7 +51,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'org.powernukkit', name: 'powernukkit', version: '1.6.0.0-PN'
+    compile group: 'org.powernukkit', name: 'powernukkit', version: '1.6.0.1-PN'
 }
 ```
 
@@ -61,7 +61,7 @@ dependencies {
     <dependency>
         <groupId>org.powernukkit</groupId>
         <artifactId>powernukkit</artifactId>
-        <version>1.6.0.0-PN</version>
+        <version>1.6.0.1-PN</version>
     </dependency>
 </dependencies>
 ```
@@ -134,7 +134,8 @@ Check the [docker-compose.yml](docker-compose.yml) file for more details.
 
 ### Supported tags
 * _bleeding_ (⚠️ **use with care, may contain unstable code!** ⚠️)
-* 1.6.0.0, 1.6.0, 1.6, 1, latest
+* 1.6.0.1, 1.6.0, 1.6, 1, latest
+* 1.6.0.0
 * 1.5.2.0, 1.5.2, 1.5
 * 1.5.1.0, 1.5.1
 * 1.5.0.0, 1.5.0

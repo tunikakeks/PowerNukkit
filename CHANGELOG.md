@@ -9,7 +9,7 @@ Nukkit 1.X and 2.X.
 ## [Unreleased 1.6.1.0-PN] - Future ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/25?closed=1))
 Click the link above to see the future.
 
-## [1.6.0.1-PN] - Future ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/27?closed=1))
+## [1.6.0.1-PN] - 2022-04-21 ([Check the milestone](https://github.com/PowerNukkit/PowerNukkit/milestone/27?closed=1))
 Fixes backward compatibility with some important plugins, also pull some changes from NukkitX
 
 ### Fixes
@@ -826,7 +826,8 @@ Fixes several anvil issues.
 [updated changelog]:https://github.com/PowerNukkit/PowerNukkit/blob/bleeding/CHANGELOG.md
 [discord guild]: https://powernukkit.org/discord
 
-[Unreleased 1.6.0.1-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.6.0.0-PN...bleeding
+[Unreleased 1.6.1.0-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.6.0.1-PN...bleeding
+[1.6.0.1-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.6.0.0-PN...v1.6.0.1-PN
 [1.6.0.0-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.5.2.1-PN...v1.6.0.0-PN
 [1.5.2.1-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.5.2.0-PN...v1.5.2.1-PN
 [1.5.2.0-PN]: https://github.com/PowerNukkit/PowerNukkit/compare/v1.5.1.0-PN...v1.5.2.0-PN

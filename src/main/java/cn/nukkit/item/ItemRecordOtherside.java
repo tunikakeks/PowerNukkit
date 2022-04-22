@@ -21,6 +21,11 @@ public class ItemRecordOtherside extends ItemRecord {
     }
 
     @Override
+    public String getDiscName() {
+        return "Lena Raine - otherside";
+    }
+
+    @Override
     public String getSoundId() {
         return "record.otherside";
     }

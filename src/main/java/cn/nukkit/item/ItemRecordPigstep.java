@@ -25,6 +25,11 @@ public class ItemRecordPigstep extends ItemRecord {
     }
 
     @Override
+    public String getDiscName() {
+        return "C418 - Pigstep";
+    }
+
+    @Override
     public String getSoundId() {
         return "record.pigstep";
     }

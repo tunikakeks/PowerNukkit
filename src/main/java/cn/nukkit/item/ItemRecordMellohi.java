@@ -19,6 +19,11 @@ public class ItemRecordMellohi extends ItemRecord {
     }
 
     @Override
+    public String getDiscName() {
+        return "C418 - mellohi";
+    }
+
+    @Override
     public String getSoundId() {
         return "record.mellohi";
     }

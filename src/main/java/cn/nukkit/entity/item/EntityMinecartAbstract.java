@@ -131,6 +131,9 @@ public abstract class EntityMinecartAbstract extends EntityVehicle {
         if (isAlive()) {
             super.onUpdate(currentTick);
 
+            this.blocksAround = null;
+            this.collisionBlocks = null;
+
             // The damage token
             if (getHealth() < 20) {
                 setHealth(getHealth() + 1);

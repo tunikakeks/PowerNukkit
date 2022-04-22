@@ -1764,6 +1764,12 @@ public class Item implements Cloneable, BlockID, ItemID {
         }
     }
 
+    @Since("1.6.0.0-PN")
+    public final RuntimeItemMapping.RuntimeEntry getRuntimeEntry() {
+        //TODO Implement
+        throw new UnsupportedOperationException();
+    }
+
     @Since("1.4.0.0-PN")
     public final int getNetworkId() throws UnknownNetworkIdException {
         return RuntimeItems.getNetworkId(getNetworkFullId());

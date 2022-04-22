@@ -10,6 +10,7 @@ import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.BlockProperty;
 import cn.nukkit.blockproperty.exception.InvalidBlockPropertyValueException;
 import cn.nukkit.blockproperty.value.SmallFlowerType;
+import cn.nukkit.api.Since;
 import cn.nukkit.item.Item;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.particle.BoneMealParticle;
@@ -44,7 +45,7 @@ public class BlockFlower extends BlockFlowable {
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public static final BlockProperties PROPERTIES = new BlockProperties(RED_FLOWER_TYPE);
-    
+
     @Deprecated
     @DeprecationDetails(since = "1.4.0.0-PN", by = "PowerNukkit", reason = "Magic value. Use FlowerType instead")
     public static final int TYPE_POPPY = 0;
@@ -82,11 +83,13 @@ public class BlockFlower extends BlockFlowable {
     public static final int TYPE_OXEYE_DAISY = 8;
 
     @Deprecated
-    @DeprecationDetails(since = "1.4.0.0-PN", by = "PowerNukkit", reason = "Magic value. Use FlowerType instead")
+    @DeprecationDetails(since = "FUTURE", by = "PowerNukkit", reason = "Magic value. Use FlowerType instead")
+    @Since("FUTURE")
     public static final int TYPE_CORNFLOWER = 9;
 
     @Deprecated
-    @DeprecationDetails(since = "1.4.0.0-PN", by = "PowerNukkit", reason = "Magic value. Use FlowerType instead")
+    @DeprecationDetails(since = "FUTURE", by = "PowerNukkit", reason = "Magic value. Use FlowerType instead")
+    @Since("FUTURE")
     public static final int TYPE_LILY_OF_THE_VALLEY = 10;
 
     public BlockFlower() {
@@ -114,7 +117,7 @@ public class BlockFlower extends BlockFlowable {
     public String getName() {
         return getFlowerType().getEnglishName();
     }
-    
+
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public SmallFlowerType getFlowerType() {
@@ -141,7 +144,7 @@ public class BlockFlower extends BlockFlowable {
     public void setFlowerType(SmallFlowerType flowerType) {
         setPropertyValue(RED_FLOWER_TYPE, flowerType);
     }
-    
+
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     public static boolean isSupportValid(Block block) {

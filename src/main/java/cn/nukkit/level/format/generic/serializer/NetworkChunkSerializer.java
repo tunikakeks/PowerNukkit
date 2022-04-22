@@ -21,7 +21,7 @@ import java.nio.ByteOrder;
 import java.util.List;
 import java.util.function.BiConsumer;
 
-@Since("FUTURE")
+@Since("1.6.0.0-PN")
 public class NetworkChunkSerializer {
 
     private static final int EXTENDED_NEGATIVE_SUB_CHUNKS = 4;
@@ -38,7 +38,7 @@ public class NetworkChunkSerializer {
         negativeSubChunks = stream.getBuffer();
     }
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public static void serialize(BaseChunk chunk, BiConsumer<BinaryStream, Integer> callback, DimensionData dimensionData) {
         byte[] blockEntities;
         if (chunk.getBlockEntities().isEmpty()) {

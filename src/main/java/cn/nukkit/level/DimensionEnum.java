@@ -2,15 +2,15 @@ package cn.nukkit.level;
 
 import cn.nukkit.api.Since;
 
-@Since("FUTURE")
+@Since("1.6.0.0-PN")
 public enum DimensionEnum {
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     OVERWORLD(new DimensionData(Level.DIMENSION_OVERWORLD, -64, 319)),
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     NETHER(new DimensionData(Level.DIMENSION_NETHER, 0, 127)),
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     END(new DimensionData(Level.DIMENSION_THE_END, 0, 255));
 
     private final DimensionData dimensionData;
@@ -19,12 +19,12 @@ public enum DimensionEnum {
         this.dimensionData = dimensionData;
     }
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public DimensionData getDimensionData() {
         return this.dimensionData;
     }
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public static DimensionData getDataFromId(int dimension) {
         for (DimensionEnum value : values()) {
             if (value.getDimensionData().getDimensionId() == dimension) {

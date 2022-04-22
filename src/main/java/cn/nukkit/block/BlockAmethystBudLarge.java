@@ -1,8 +1,10 @@
 package cn.nukkit.block;
 
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.CommonBlockProperties;
+import cn.nukkit.event.block.BlockGrowEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemAmethystShard;
 import cn.nukkit.item.ItemTool;
@@ -98,6 +100,11 @@ public class BlockAmethystBudLarge extends BlockTransparent {
             if (this.getSide(face.getOpposite()) instanceof BlockBuddingAmethyst) {
                 BlockAmethystCluster cluster = new BlockAmethystCluster();
                 cluster.setPropertyValue(CommonBlockProperties.FACING_DIRECTION, face);
+                BlockGrowEvent growEvent = new BlockGrowEvent(this, cluster);
+                Server.getInstance().getPluginManager().callEvent(growEvent);
+                if (growEvent.isCancelled()) {
+                    return type;
+                }
                 this.getLevel().setBlock(this, cluster, true, true);
             }
             return type;

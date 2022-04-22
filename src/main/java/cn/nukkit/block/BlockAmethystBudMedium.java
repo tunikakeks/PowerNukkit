@@ -1,8 +1,10 @@
 package cn.nukkit.block;
 
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.CommonBlockProperties;
+import cn.nukkit.event.block.BlockGrowEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.item.MinecraftItemID;
@@ -97,6 +99,11 @@ public class BlockAmethystBudMedium extends BlockTransparent {
             if (this.getSide(face.getOpposite()) instanceof BlockBuddingAmethyst) {
                 BlockAmethystBudLarge bud = new BlockAmethystBudLarge();
                 bud.setPropertyValue(CommonBlockProperties.FACING_DIRECTION, face);
+                BlockGrowEvent growEvent = new BlockGrowEvent(this, bud);
+                Server.getInstance().getPluginManager().callEvent(growEvent);
+                if (growEvent.isCancelled()) {
+                    return type;
+                }
                 this.getLevel().setBlock(this, bud, true, true);
             }
             return type;

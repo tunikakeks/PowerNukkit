@@ -1,6 +1,8 @@
 package cn.nukkit.block;
 
+import cn.nukkit.Server;
 import cn.nukkit.blockproperty.CommonBlockProperties;
+import cn.nukkit.event.block.BlockGrowEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.level.Level;
@@ -64,6 +66,11 @@ public class BlockBuddingAmethyst extends BlockSolid {
                     if (side instanceof BlockAir || side instanceof BlockWater) {
                         BlockAmethystBudSmall bud = new BlockAmethystBudSmall();
                         bud.setPropertyValue(CommonBlockProperties.FACING_DIRECTION, face);
+                        BlockGrowEvent growEvent = new BlockGrowEvent(side, bud);
+                        Server.getInstance().getPluginManager().callEvent(growEvent);
+                        if (growEvent.isCancelled()) {
+                            return type;
+                        }
                         this.getLevel().setBlock(side, bud, true, true);
                         if (side instanceof BlockWater && ((BlockWater) side).isSource()) {
                             this.getLevel().setBlock(side, 1, side, false, false);

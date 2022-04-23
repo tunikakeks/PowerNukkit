@@ -1770,11 +1770,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                         Block block = level.getBlock(coordX, this.getFloorY() - 1, coordZ);
                         int layer = 0;
                         if ((block.getId() != Block.STILL_WATER && (block.getId() != Block.FLOWING_WATER || block.getDamage() != 0)) || block.up().getId() != Block.AIR) {
-                            block = block.getLevelBlockAtLayer(1);
-                            layer = 1;
-                            if ((block.getId() != Block.STILL_WATER && (block.getId() != Block.FLOWING_WATER || block.getDamage() != 0)) || block.up().getId() != Block.AIR) {
-                                continue;
-                            }
+                            continue;
                         }
                         WaterFrostEvent ev = new WaterFrostEvent(block, this);
                         server.getPluginManager().callEvent(ev);

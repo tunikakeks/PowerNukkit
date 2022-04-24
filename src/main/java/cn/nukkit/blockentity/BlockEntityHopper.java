@@ -243,7 +243,7 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
             FurnaceInventory inv = ((BlockEntityFurnace) blockEntity).getInventory();
             Item item = inv.getFuel();
 
-            if (!item.isNull()) {
+            if (item instanceof ItemBucket && ((ItemBucket) item).isEmpty()) {
                 Item itemToAdd = item.clone();
                 itemToAdd.count = 1;
 
@@ -268,7 +268,7 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
             }
             item = inv.getResult();
 
-            if (item instanceof ItemBucket && ((ItemBucket) item).isEmpty()) {
+            if (!item.isNull()) {
                 Item itemToAdd = item.clone();
                 itemToAdd.count = 1;
 

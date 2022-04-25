@@ -5,10 +5,13 @@ import cn.nukkit.api.Since;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.item.EntityMinecartAbstract;
+import cn.nukkit.inventory.ContainerInventory;
+import cn.nukkit.inventory.InventoryHolder;
 import cn.nukkit.level.Level;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.math.SimpleAxisAlignedBB;
 import cn.nukkit.utils.OptionalBoolean;
+import cn.nukkit.utils.RedstoneComponent;
 
 import javax.annotation.Nonnull;
 
@@ -57,7 +60,7 @@ public class BlockRailDetector extends BlockRail {
 
     @Override
     public int getStrongPower(BlockFace side) {
-        return isActive() ? 0 : (side == BlockFace.UP ? 15 : 0);
+        return !isActive() ? 0 : (side == BlockFace.UP ? 15 : 0);
     }
 
     @Override
@@ -93,17 +96,13 @@ public class BlockRailDetector extends BlockRail {
 
         if (isPowered && !wasPowered) {
             setActive(true);
-            level.scheduleUpdate(this, this, 0);
-            level.scheduleUpdate(this, this.down(), 0);
         }
 
         if (!isPowered && wasPowered) {
             setActive(false);
-            level.scheduleUpdate(this, this, 0);
-            level.scheduleUpdate(this, this.down(), 0);
         }
 
-        level.updateComparatorOutputLevel(this);
+        RedstoneComponent.updateAllAroundRedstone(this);
     }
 
     @Override
@@ -123,5 +122,26 @@ public class BlockRailDetector extends BlockRail {
     @Override
     public void setRailActive(boolean active) {
         setBooleanValue(ACTIVE, active);
+    }
+
+    @Override
+    public boolean hasComparatorInputOverride() {
+        return true;
+    }
+
+    @Override
+    public int getComparatorInputOverride() {
+        for (Entity entity : level.getCollidingEntities(new SimpleAxisAlignedBB(
+                getFloorX() + 0.125D,
+                getFloorY(),
+                getFloorZ() + 0.125D,
+                getFloorX() + 0.875D,
+                getFloorY() + 0.750D,
+                getFloorZ() + 0.875D))) {
+            if (entity instanceof EntityMinecartAbstract && entity instanceof InventoryHolder) {
+                return ContainerInventory.calculateRedstone(((InventoryHolder) entity).getInventory());
+            }
+        }
+        return 0;
     }
 }

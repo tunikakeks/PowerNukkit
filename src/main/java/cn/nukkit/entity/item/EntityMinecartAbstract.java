@@ -157,10 +157,7 @@ public abstract class EntityMinecartAbstract extends EntityVehicle {
             if(lastBlock != null && !(lastBlock.equals(block))) {
                 if(Rail.isRailBlock(lastBlock)) {
                     if(lastBlock instanceof BlockRailDetector) {
-                        ((BlockRailDetector) lastBlock).setActive(false);
-                        level.scheduleUpdate(lastBlock, this, 0);
-                        level.scheduleUpdate(lastBlock, lastBlock.down(), 0);
-                        level.updateComparatorOutputLevel(lastBlock);
+                        level.scheduleUpdate(lastBlock, 10);
                     }
                 }
             }

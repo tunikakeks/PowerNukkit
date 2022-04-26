@@ -371,6 +371,9 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
     }
 
     public boolean pullMinecartItems() {
+        if (this.inventory.isFull()) {
+            return false;
+        }
         for(Entity entity : level.getCollidingEntities(new SimpleAxisAlignedBB(this.x + 0.125, this.y + 1, this.z + 0.125, this.x + 0.875, this.y + 1.875, this.z + 0.875))) {
             if(!(entity instanceof EntityMinecartAbstract) || entity instanceof EntityMinecartEmpty || entity instanceof EntityMinecartTNT) {
                 continue;
@@ -378,10 +381,6 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
 
             InventoryHolder inventoryHolder = (InventoryHolder) entity;
             Inventory inventory = inventoryHolder.getInventory();
-
-            if(inventory.isFull()) {
-                continue;
-            }
 
             for (int i = 0; i < inventory.getSize(); i++) {
                 Item item = inventory.getItem(i);

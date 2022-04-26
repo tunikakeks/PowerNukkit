@@ -371,7 +371,7 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
     }
 
     public boolean pullMinecartItems() {
-        for(Entity entity : level.getCollidingEntities(new SimpleAxisAlignedBB(this.x, this.y + 1, this.z, this.x + 1, this.y + 2, this.z + 1))) {
+        for(Entity entity : level.getCollidingEntities(new SimpleAxisAlignedBB(this.x + 0.125, this.y + 1, this.z + 0.125, this.x + 0.875, this.y + 1.875, this.z + 0.875))) {
             if(!(entity instanceof EntityMinecartAbstract) || entity instanceof EntityMinecartEmpty || entity instanceof EntityMinecartTNT) {
                 continue;
             }
@@ -401,9 +401,18 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
                         continue;
                     }
 
-                    Item[] items = this.inventory.addItem(itemToAdd);
+                    int slotPulled = -1;
+                    for (int j = 0; j < this.inventory.getSize(); j++) {
+                        Item itemInInventory = this.inventory.getItem(j);
+                        if (itemInInventory.getId() == 0 || (itemInInventory.getCount() < itemInInventory.getMaxStackSize() && itemInInventory.equals(itemToAdd))) {
+                            itemToAdd.count += itemInInventory.count;
+                            this.inventory.setItem(j, itemToAdd);
+                            slotPulled = j;
+                            break;
+                        }
+                    }
 
-                    if (items.length >= 1) {
+                    if (slotPulled == -1) {
                         continue;
                     }
 
@@ -691,9 +700,18 @@ public class BlockEntityHopper extends BlockEntitySpawnable implements Inventory
                         continue;
                     }
 
-                    Item[] items = inventory.addItem(itemToAdd);
+                    int slotPushed = -1;
+                    for (int j = 0; j < inventory.getSize(); j++) {
+                        Item itemInInventory = inventory.getItem(j);
+                        if (itemInInventory.getId() == 0 || (itemInInventory.getCount() < itemInInventory.getMaxStackSize() && itemInInventory.equals(itemToAdd))) {
+                            itemToAdd.count += itemInInventory.count;
+                            inventory.setItem(j, itemToAdd);
+                            slotPushed = j;
+                            break;
+                        }
+                    }
 
-                    if (items.length > 0) {
+                    if (slotPushed == -1) {
                         continue;
                     }
 

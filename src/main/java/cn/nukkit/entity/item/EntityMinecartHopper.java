@@ -155,7 +155,7 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
         boolean changed = false;
 
         if (blockEntity instanceof InventoryHolder || blockSide instanceof BlockComposter)  {
-            changed = pullItems() || changed;
+            changed = pullItems();
         }
         changed = pickupItems() || changed;
 
@@ -171,13 +171,15 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
             return false;
         }
 
+        boolean changed = this.pullMinecartItems();
+
         Block blockSide = this.getLevelBlock().getSide(BlockFace.UP);
         BlockEntity blockEntity = this.level.getBlockEntity(temporalVector.setComponentsAdding(this, BlockFace.UP));
 
         if (blockEntity instanceof BlockEntityHopper) {
             BlockEntityHopper hopper = (BlockEntityHopper) blockEntity;
             if (hopper.isDisabled())
-                return false;
+                return changed;
         }
 
         if (blockEntity instanceof BlockEntityFurnace) {
@@ -189,14 +191,14 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
                 itemToAdd.count = 1;
 
                 if (!this.inventory.canAddItem(itemToAdd)) {
-                    return false;
+                    return changed;
                 }
 
                 InventoryMoveItemEvent ev = new InventoryMoveItemEvent(inv, this.inventory, this, itemToAdd, InventoryMoveItemEvent.Action.SLOT_CHANGE);
                 this.server.getPluginManager().callEvent(ev);
 
                 if (ev.isCancelled()) {
-                    return false;
+                    return changed;
                 }
 
                 Item[] items = this.inventory.addItem(itemToAdd);
@@ -204,7 +206,7 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
                 if (items.length <= 0) {
                     item.count--;
                     inv.setResult(item);
-                    return true;
+                    return changed;
                 }
             }
         } else if (blockEntity instanceof InventoryHolder) {
@@ -237,7 +239,7 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
                     item.count--;
 
                     inv.setItem(i, item);
-                    return true;
+                    return changed;
                 }
             }
         } else if (blockSide instanceof BlockComposter) {
@@ -246,19 +248,74 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
                 Item item = blockComposter.empty();
 
                 if (item == null || item.isNull()) {
-                    return false;
+                    return changed;
                 }
 
                 Item itemToAdd = item.clone();
                 itemToAdd.count = 1;
 
                 if (!this.inventory.canAddItem(itemToAdd)) {
-                    return false;
+                    return changed;
                 }
 
                 Item[] items = this.inventory.addItem(itemToAdd);
 
-                return items.length < 1;
+                return changed || items.length < 1;
+            }
+        }
+        return changed;
+    }
+
+    public boolean pullMinecartItems() {
+        if (this.inventory.isFull()) {
+            return false;
+        }
+        for(Entity entity : level.getCollidingEntities(new SimpleAxisAlignedBB(this.x + 0.125, this.y + 1, this.z + 0.125, this.x + 0.875, this.y + 1.875, this.z + 0.875))) {
+            if(!(entity instanceof EntityMinecartAbstract) || !(entity instanceof InventoryHolder)) {
+                continue;
+            }
+
+            InventoryHolder inventoryHolder = (InventoryHolder) entity;
+            Inventory inventory = inventoryHolder.getInventory();
+
+            for (int i = 0; i < inventory.getSize(); i++) {
+                Item item = inventory.getItem(i);
+
+                if (!item.isNull()) {
+                    Item itemToAdd = item.clone();
+                    itemToAdd.count = 1;
+
+                    if (!this.inventory.canAddItem(itemToAdd)) {
+                        continue;
+                    }
+
+                    InventoryMoveItemEvent ev = new InventoryMoveItemEvent(inventory, this.inventory, this, itemToAdd, InventoryMoveItemEvent.Action.SLOT_CHANGE);
+                    this.server.getPluginManager().callEvent(ev);
+
+                    if (ev.isCancelled()) {
+                        continue;
+                    }
+
+                    int slotPulled = -1;
+                    for (int j = 0; j < this.inventory.getSize(); j++) {
+                        Item itemInInventory = this.inventory.getItem(j);
+                        if (itemInInventory.getId() == 0 || (itemInInventory.getCount() < itemInInventory.getMaxStackSize() && itemInInventory.equals(itemToAdd))) {
+                            itemToAdd.count += itemInInventory.count;
+                            this.inventory.setItem(j, itemToAdd);
+                            slotPulled = j;
+                            break;
+                        }
+                    }
+
+                    if (slotPulled == -1) {
+                        continue;
+                    }
+
+                    item.count--;
+
+                    inventory.setItem(i, item);
+                    return true;
+                }
             }
         }
         return false;

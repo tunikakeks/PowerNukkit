@@ -157,6 +157,7 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
         if (blockEntity instanceof InventoryHolder || blockSide instanceof BlockComposter)  {
             changed = pullItems();
         }
+        changed = pullMinecartItems() || changed;
         changed = pickupItems() || changed;
 
         if(changed) {
@@ -171,15 +172,13 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
             return false;
         }
 
-        boolean changed = this.pullMinecartItems();
-
         Block blockSide = this.getLevelBlock().getSide(BlockFace.UP);
         BlockEntity blockEntity = this.level.getBlockEntity(temporalVector.setComponentsAdding(this, BlockFace.UP));
 
         if (blockEntity instanceof BlockEntityHopper) {
             BlockEntityHopper hopper = (BlockEntityHopper) blockEntity;
             if (hopper.isDisabled())
-                return changed;
+                return false;
         }
 
         if (blockEntity instanceof BlockEntityFurnace) {
@@ -191,14 +190,14 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
                 itemToAdd.count = 1;
 
                 if (!this.inventory.canAddItem(itemToAdd)) {
-                    return changed;
+                    return false;
                 }
 
                 InventoryMoveItemEvent ev = new InventoryMoveItemEvent(inv, this.inventory, this, itemToAdd, InventoryMoveItemEvent.Action.SLOT_CHANGE);
                 this.server.getPluginManager().callEvent(ev);
 
                 if (ev.isCancelled()) {
-                    return changed;
+                    return false;
                 }
 
                 Item[] items = this.inventory.addItem(itemToAdd);
@@ -206,7 +205,7 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
                 if (items.length <= 0) {
                     item.count--;
                     inv.setResult(item);
-                    return changed;
+                    return false;
                 }
             }
         } else if (blockEntity instanceof InventoryHolder) {
@@ -239,7 +238,7 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
                     item.count--;
 
                     inv.setItem(i, item);
-                    return changed;
+                    return false;
                 }
             }
         } else if (blockSide instanceof BlockComposter) {
@@ -248,29 +247,29 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
                 Item item = blockComposter.empty();
 
                 if (item == null || item.isNull()) {
-                    return changed;
+                    return false;
                 }
 
                 Item itemToAdd = item.clone();
                 itemToAdd.count = 1;
 
                 if (!this.inventory.canAddItem(itemToAdd)) {
-                    return changed;
+                    return false;
                 }
 
                 Item[] items = this.inventory.addItem(itemToAdd);
 
-                return changed || items.length < 1;
+                return items.length < 1;
             }
         }
-        return changed;
+        return false;
     }
 
     public boolean pullMinecartItems() {
         if (this.inventory.isFull()) {
             return false;
         }
-        for(Entity entity : level.getCollidingEntities(new SimpleAxisAlignedBB(this.x + 0.125, this.y + 1, this.z + 0.125, this.x + 0.875, this.y + 1.875, this.z + 0.875))) {
+        for(Entity entity : level.getNearbyEntities(new SimpleAxisAlignedBB(this.getBoundingBox().getMinX(), this.getBoundingBox().getMinY() + 0.875, this.getBoundingBox().getMinZ(), this.getBoundingBox().getMaxX(), this.getBoundingBox().getMaxY() + 1.125, this.getBoundingBox().getMaxZ()), this)) {
             if(!(entity instanceof EntityMinecartAbstract) || !(entity instanceof InventoryHolder)) {
                 continue;
             }

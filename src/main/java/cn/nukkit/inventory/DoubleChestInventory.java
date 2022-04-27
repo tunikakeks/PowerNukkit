@@ -2,12 +2,16 @@ package cn.nukkit.inventory;
 
 import cn.nukkit.Player;
 import cn.nukkit.api.PowerNukkitDifference;
+import cn.nukkit.block.BlockTrappedChest;
 import cn.nukkit.blockentity.BlockEntityChest;
+import cn.nukkit.event.redstone.RedstoneUpdateEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.Sound;
 import cn.nukkit.network.protocol.BlockEventPacket;
 import cn.nukkit.network.protocol.InventorySlotPacket;
+import cn.nukkit.utils.LevelException;
+import cn.nukkit.utils.RedstoneComponent;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -143,6 +147,25 @@ public class DoubleChestInventory extends ContainerInventory implements Inventor
                 level.addSound(this.right.getHolder().add(0.5, 0.5, 0.5), Sound.RANDOM_CHESTOPEN);
                 level.addChunkPacket((int) this.right.getHolder().getX() >> 4, (int) this.right.getHolder().getZ() >> 4, pk2);
             }
+        }
+        try {
+            if (this.left.getHolder().getBlock() instanceof BlockTrappedChest) {
+                BlockTrappedChest trappedChest = (BlockTrappedChest) this.left.getHolder().getBlock();
+                RedstoneUpdateEvent event = new RedstoneUpdateEvent(trappedChest);
+                this.getHolder().level.getServer().getPluginManager().callEvent(event);
+                if (!event.isCancelled()) {
+                    RedstoneComponent.updateAllAroundRedstone(this.getHolder());
+                }
+            }
+            if (this.right.getHolder().getBlock() instanceof BlockTrappedChest) {
+                BlockTrappedChest trappedChest = (BlockTrappedChest) this.right.getHolder().getBlock();
+                RedstoneUpdateEvent event = new RedstoneUpdateEvent(trappedChest);
+                this.getHolder().level.getServer().getPluginManager().callEvent(event);
+                if (!event.isCancelled()) {
+                    RedstoneComponent.updateAllAroundRedstone(this.getHolder());
+                }
+            }
+        } catch (LevelException ignored) {
         }
     }
 

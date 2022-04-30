@@ -111,7 +111,7 @@ public class BlockAmethystCluster extends BlockTransparent {
 
     @Override
     public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, @Nullable Player player) {
-        if(!(target instanceof BlockSolid || target instanceof BlockSolidMeta)) {
+        if (!target.isSolid(face)) {
             return false;
         }
         setPropertyValue(CommonBlockProperties.FACING_DIRECTION, face);
@@ -120,9 +120,9 @@ public class BlockAmethystCluster extends BlockTransparent {
 
     @Override
     public int onUpdate(int type) {
-        if(type == Level.BLOCK_UPDATE_NORMAL) {
+        if (type == Level.BLOCK_UPDATE_NORMAL) {
             BlockFace face = this.getPropertyValue(CommonBlockProperties.FACING_DIRECTION).getOpposite();
-            if(!(this.getSide(face) instanceof BlockSolid || this.getSide(face) instanceof BlockSolidMeta)) {
+            if (!this.getSide(face).isSolid(face.getOpposite())) {
                 this.getLevel().useBreakOn(this);
             }
             return type;

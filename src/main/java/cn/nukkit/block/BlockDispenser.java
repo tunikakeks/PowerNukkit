@@ -153,11 +153,7 @@ public class BlockDispenser extends BlockSolidMeta implements RedstoneComponent,
             return false;
         }
 
-        InventoryHolder blockEntity = getBlockEntity();
-
-        if (blockEntity == null) {
-            return false;
-        }
+        InventoryHolder blockEntity = getOrCreateBlockEntity();
 
         player.addWindow(blockEntity.getInventory());
         return true;

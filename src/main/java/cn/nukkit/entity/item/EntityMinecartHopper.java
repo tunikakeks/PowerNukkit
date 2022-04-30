@@ -38,6 +38,11 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
         setDisplayBlock(Block.get(Block.HOPPER_BLOCK), false);
     }
 
+    @Override
+    public Item toItem() {
+        return Item.get(Item.MINECART_WITH_HOPPER);
+    }
+
     @PowerNukkitOnly
     @Since("1.5.1.0-PN")
     @Override
@@ -150,8 +155,9 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
         boolean changed = false;
 
         if (blockEntity instanceof InventoryHolder || blockSide instanceof BlockComposter)  {
-            changed = pullItems() || changed;
+            changed = pullItems();
         }
+        changed = pullMinecartItems() || changed;
         changed = pickupItems() || changed;
 
         if(changed) {
@@ -199,7 +205,7 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
                 if (items.length <= 0) {
                     item.count--;
                     inv.setResult(item);
-                    return true;
+                    return false;
                 }
             }
         } else if (blockEntity instanceof InventoryHolder) {
@@ -232,7 +238,7 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
                     item.count--;
 
                     inv.setItem(i, item);
-                    return true;
+                    return false;
                 }
             }
         } else if (blockSide instanceof BlockComposter) {
@@ -254,6 +260,61 @@ public class EntityMinecartHopper extends EntityMinecartAbstract implements Inve
                 Item[] items = this.inventory.addItem(itemToAdd);
 
                 return items.length < 1;
+            }
+        }
+        return false;
+    }
+
+    public boolean pullMinecartItems() {
+        if (this.inventory.isFull()) {
+            return false;
+        }
+        for(Entity entity : level.getNearbyEntities(new SimpleAxisAlignedBB(this.getBoundingBox().getMinX(), this.getBoundingBox().getMinY() + 0.875, this.getBoundingBox().getMinZ(), this.getBoundingBox().getMaxX(), this.getBoundingBox().getMaxY() + 1.125, this.getBoundingBox().getMaxZ()), this)) {
+            if(!(entity instanceof EntityMinecartAbstract) || !(entity instanceof InventoryHolder)) {
+                continue;
+            }
+
+            InventoryHolder inventoryHolder = (InventoryHolder) entity;
+            Inventory inventory = inventoryHolder.getInventory();
+
+            for (int i = 0; i < inventory.getSize(); i++) {
+                Item item = inventory.getItem(i);
+
+                if (!item.isNull()) {
+                    Item itemToAdd = item.clone();
+                    itemToAdd.count = 1;
+
+                    if (!this.inventory.canAddItem(itemToAdd)) {
+                        continue;
+                    }
+
+                    InventoryMoveItemEvent ev = new InventoryMoveItemEvent(inventory, this.inventory, this, itemToAdd, InventoryMoveItemEvent.Action.SLOT_CHANGE);
+                    this.server.getPluginManager().callEvent(ev);
+
+                    if (ev.isCancelled()) {
+                        continue;
+                    }
+
+                    int slotPulled = -1;
+                    for (int j = 0; j < this.inventory.getSize(); j++) {
+                        Item itemInInventory = this.inventory.getItem(j);
+                        if (itemInInventory.getId() == 0 || (itemInInventory.getCount() < itemInInventory.getMaxStackSize() && itemInInventory.equals(itemToAdd))) {
+                            itemToAdd.count += itemInInventory.count;
+                            this.inventory.setItem(j, itemToAdd);
+                            slotPulled = j;
+                            break;
+                        }
+                    }
+
+                    if (slotPulled == -1) {
+                        continue;
+                    }
+
+                    item.count--;
+
+                    inventory.setItem(i, item);
+                    return true;
+                }
             }
         }
         return false;

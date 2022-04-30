@@ -105,6 +105,11 @@ public class EntityBoat extends EntityVehicle {
     }
 
     @Override
+    public Item toItem() {
+        return Item.get(Item.BOAT, this.getVariant());
+    }
+
+    @Override
     public float getHeight() {
         return 0.455f;
     }

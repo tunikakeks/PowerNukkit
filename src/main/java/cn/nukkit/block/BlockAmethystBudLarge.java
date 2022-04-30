@@ -1,8 +1,10 @@
 package cn.nukkit.block;
 
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.CommonBlockProperties;
+import cn.nukkit.event.block.BlockGrowEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemAmethystShard;
 import cn.nukkit.item.ItemTool;
@@ -78,7 +80,7 @@ public class BlockAmethystBudLarge extends BlockTransparent {
 
     @Override
     public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, @Nullable Player player) {
-        if(!(target instanceof BlockSolid || target instanceof BlockSolidMeta)) {
+        if (!target.isSolid()) {
             return false;
         }
         setPropertyValue(CommonBlockProperties.FACING_DIRECTION, face);
@@ -87,10 +89,23 @@ public class BlockAmethystBudLarge extends BlockTransparent {
 
     @Override
     public int onUpdate(int type) {
-        if(type == Level.BLOCK_UPDATE_NORMAL) {
+        if (type == Level.BLOCK_UPDATE_NORMAL) {
             BlockFace face = this.getPropertyValue(CommonBlockProperties.FACING_DIRECTION).getOpposite();
-            if(!(this.getSide(face) instanceof BlockSolid || this.getSide(face) instanceof BlockSolidMeta)) {
+            if (!this.getSide(face).isSolid(face.getOpposite())) {
                 this.getLevel().useBreakOn(this);
+            }
+            return type;
+        } else if (type == Level.BLOCK_UPDATE_RANDOM) {
+            BlockFace face = this.getPropertyValue(CommonBlockProperties.FACING_DIRECTION);
+            if (this.getSide(face.getOpposite()) instanceof BlockBuddingAmethyst) {
+                BlockAmethystCluster cluster = new BlockAmethystCluster();
+                cluster.setPropertyValue(CommonBlockProperties.FACING_DIRECTION, face);
+                BlockGrowEvent growEvent = new BlockGrowEvent(this, cluster);
+                Server.getInstance().getPluginManager().callEvent(growEvent);
+                if (growEvent.isCancelled()) {
+                    return type;
+                }
+                this.getLevel().setBlock(this, cluster, true, true);
             }
             return type;
         }

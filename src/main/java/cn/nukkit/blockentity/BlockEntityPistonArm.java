@@ -44,10 +44,10 @@ public class BlockEntityPistonArm extends BlockEntitySpawnable {
 
     public boolean sticky;
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public byte state;
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public byte newState = 1;
 
     @PowerNukkitOnly

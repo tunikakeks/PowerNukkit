@@ -390,6 +390,8 @@ public class Item implements Cloneable, BlockID, ItemID {
 
             list[SHIELD] = ItemShield.class; //513
 
+            list[RECORD_OTHERSIDE] = ItemRecordOtherside.class; //627
+
             list[CAMPFIRE] = ItemCampfire.class; //720
 
             list[SUSPICIOUS_STEW] = ItemSuspiciousStew.class; //734
@@ -1770,6 +1772,12 @@ public class Item implements Cloneable, BlockID, ItemID {
         } catch (CloneNotSupportedException e) {
             return null;
         }
+    }
+
+    @Since("1.6.0.0-PN")
+    public final RuntimeItemMapping.RuntimeEntry getRuntimeEntry() {
+        //TODO Implement
+        throw new UnsupportedOperationException();
     }
 
     @Since("1.4.0.0-PN")

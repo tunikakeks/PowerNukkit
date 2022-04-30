@@ -12188,7 +12188,7 @@
       "type": 1,
       "input": {
         "A": {
-          "blockState": "minecraft:double_stone_slab;stone_slab_type=quartz"
+          "blockState": "minecraft:stone_slab;stone_slab_type=quartz"
         }
       },
       "output": [
@@ -12208,7 +12208,7 @@
       "type": 1,
       "input": {
         "A": {
-          "blockState": "minecraft:double_stone_slab;stone_slab_type=stone_brick"
+          "blockState": "minecraft:stone_slab;stone_slab_type=stone_brick"
         }
       },
       "output": [
@@ -12258,7 +12258,7 @@
       "type": 1,
       "input": {
         "A": {
-          "blockState": "minecraft:double_stone_slab2"
+          "blockState": "minecraft:stone_slab2"
         }
       },
       "output": [
@@ -12278,7 +12278,7 @@
       "type": 1,
       "input": {
         "A": {
-          "blockState": "minecraft:double_stone_slab;stone_slab_type=sandstone"
+          "blockState": "minecraft:stone_slab;stone_slab_type=sandstone"
         }
       },
       "output": [
@@ -16136,7 +16136,7 @@
       "type": 1,
       "input": {
         "A": {
-          "blockState": "minecraft:double_stone_slab;stone_slab_type=nether_brick"
+          "blockState": "minecraft:stone_slab;stone_slab_type=nether_brick"
         }
       },
       "output": [

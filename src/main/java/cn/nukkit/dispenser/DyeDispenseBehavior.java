@@ -25,7 +25,7 @@ public class DyeDispenseBehavior extends DefaultDispenseBehavior {
                     || target instanceof BlockDoublePlant || target instanceof BlockMushroom
                     || target instanceof BlockBambooSapling || target instanceof BlockBamboo
                     || target instanceof BlockCaveVines || target instanceof BlockNylium
-                    || target instanceof BlockGrass) {
+                    || target instanceof BlockGrass || target instanceof BlockMoss) {
                 if (!target.onActivate(item)) {
                     target.getLevel().addParticle(new SmokeParticle(block.getDispensePosition()));
                     item.count++;

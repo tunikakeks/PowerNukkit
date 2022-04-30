@@ -19,6 +19,11 @@ public class ItemRecordBlocks extends ItemRecord {
     }
 
     @Override
+    public String getDiscName() {
+        return "C418 - blocks";
+    }
+
+    @Override
     public String getSoundId() {
         return "record.blocks";
     }

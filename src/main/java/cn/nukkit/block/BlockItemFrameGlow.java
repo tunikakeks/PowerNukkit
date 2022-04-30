@@ -2,7 +2,9 @@ package cn.nukkit.block;
 
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.blockentity.BlockEntityItemFrame;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemItemFrame;
 import cn.nukkit.item.ItemItemFrameGlow;
 
 /**
@@ -38,6 +40,11 @@ public class BlockItemFrameGlow extends BlockItemFrame {
 
     @Override
     public Item toItem() {
+        BlockEntityItemFrame itemFrame = this.getBlockEntity();
+        if (itemFrame != null) {
+            Item itemInFrame = itemFrame.getItem();
+            return itemInFrame.isNull() ? new ItemItemFrameGlow() : itemInFrame;
+        }
         return new ItemItemFrameGlow();
     }
 }

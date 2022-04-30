@@ -131,6 +131,9 @@ public abstract class EntityMinecartAbstract extends EntityVehicle {
         if (isAlive()) {
             super.onUpdate(currentTick);
 
+            this.blocksAround = null;
+            this.collisionBlocks = null;
+
             // The damage token
             if (getHealth() < 20) {
                 setHealth(getHealth() + 1);
@@ -154,10 +157,7 @@ public abstract class EntityMinecartAbstract extends EntityVehicle {
             if(lastBlock != null && !(lastBlock.equals(block))) {
                 if(Rail.isRailBlock(lastBlock)) {
                     if(lastBlock instanceof BlockRailDetector) {
-                        ((BlockRailDetector) lastBlock).setActive(false);
-                        level.scheduleUpdate(lastBlock, this, 0);
-                        level.scheduleUpdate(lastBlock, lastBlock.down(), 0);
-                        level.updateComparatorOutputLevel(lastBlock);
+                        level.scheduleUpdate(lastBlock, 10);
                     }
                 }
             }
@@ -590,16 +590,16 @@ public abstract class EntityMinecartAbstract extends EntityVehicle {
                 motionX += motionX / newMovie * nextMovie;
                 motionZ += motionZ / newMovie * nextMovie;
             } else if (block.getOrientation() == Orientation.STRAIGHT_NORTH_SOUTH) {
-                if (level.getBlock(new Vector3(dx - 1, dy, dz)).isNormalBlock()) {
-                    motionX = 0.02D;
-                } else if (level.getBlock(new Vector3(dx + 1, dy, dz)).isNormalBlock()) {
-                    motionX = -0.02D;
-                }
-            } else if (block.getOrientation() == Orientation.STRAIGHT_EAST_WEST) {
                 if (level.getBlock(new Vector3(dx, dy, dz - 1)).isNormalBlock()) {
                     motionZ = 0.02D;
                 } else if (level.getBlock(new Vector3(dx, dy, dz + 1)).isNormalBlock()) {
                     motionZ = -0.02D;
+                }
+            } else if (block.getOrientation() == Orientation.STRAIGHT_EAST_WEST) {
+                if (level.getBlock(new Vector3(dx - 1, dy, dz)).isNormalBlock()) {
+                    motionX = 0.02D;
+                } else if (level.getBlock(new Vector3(dx + 1, dy, dz)).isNormalBlock()) {
+                    motionX = -0.02D;
                 }
             }
         }

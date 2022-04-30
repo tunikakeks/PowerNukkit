@@ -185,6 +185,10 @@ public class Level implements ChunkManager, Metadatable {
         randomTickBlocks[BlockID.CAVE_VINES] = true;
         randomTickBlocks[BlockID.CAVE_VINES_BODY_WITH_BERRIES] = true;
         randomTickBlocks[BlockID.CAVE_VINES_HEAD_WITH_BERRIES] = true;
+        randomTickBlocks[BlockID.BUDDING_AMETHYST] = true;
+        randomTickBlocks[BlockID.SMALL_AMETHYST_BUD] = true;
+        randomTickBlocks[BlockID.MEDIUM_AMETHYST_BUD] = true;
+        randomTickBlocks[BlockID.LARGE_AMETHYST_BUD] = true;
     }
 
     @PowerNukkitOnly
@@ -3928,6 +3932,7 @@ public class Level implements ChunkManager, Metadatable {
         this.sendWeather(players.toArray(Player.EMPTY_ARRAY));
     }
 
+    @Since("1.6.0.0-PN")
     public DimensionData getDimensionData() {
         return this.dimensionData;
     }

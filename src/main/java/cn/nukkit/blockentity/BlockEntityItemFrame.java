@@ -126,6 +126,11 @@ public class BlockEntityItemFrame extends BlockEntitySpawnable {
         return tag;
     }
 
+    @Override
+    public CompoundTag getCleanedNBT() {
+        return new CompoundTag();
+    }
+
     public int getAnalogOutput() {
         return this.getItem() == null || this.getItem().getId() == 0 ? 0 : this.getItemRotation() % 8 + 1;
     }

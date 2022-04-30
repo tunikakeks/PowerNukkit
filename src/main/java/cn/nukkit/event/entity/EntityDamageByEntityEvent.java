@@ -58,7 +58,7 @@ public class EntityDamageByEntityEvent extends EntityDamageEvent {
         this.addAttackerModifiers(damager);
     }
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public EntityDamageByEntityEvent(@Nonnull Entity damager, @Nonnull Entity entity, @Nonnull DamageCause cause, @Nonnull Map<DamageModifier, Float> modifiers, float knockBack, @Nullable Enchantment[] enchantments) {
         this(damager, entity, cause, modifiers, knockBack, enchantments, 0);
     }
@@ -104,7 +104,7 @@ public class EntityDamageByEntityEvent extends EntityDamageEvent {
         this.knockBack = knockBack;
     }
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     @Nullable
     public Enchantment[] getWeaponEnchantments() {
         if (enchantments == null) {

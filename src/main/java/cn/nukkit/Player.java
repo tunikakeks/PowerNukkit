@@ -157,7 +157,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     public static final @PowerNukkitOnly int GRINDSTONE_WINDOW_ID = dynamic(5);
     public static final @Since("1.4.0.0-PN") @PowerNukkitOnly int SMITHING_WINDOW_ID = dynamic(6);
 
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     protected static final int RESOURCE_PACK_CHUNK_SIZE = 8 * 1024; // 8KB
 
     protected final SourceInterface interfaz;
@@ -311,8 +311,6 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     private float soulSpeedMultiplier = 1;
     private boolean wasInSoulSandCompatible;
     
-    @PowerNukkitOnly
-    @Since("FUTURE")
     private boolean isIgnoringMobEquipmentPacket;
     
     @PowerNukkitOnly
@@ -1788,11 +1786,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                         Block block = level.getBlock(coordX, this.getFloorY() - 1, coordZ);
                         int layer = 0;
                         if ((block.getId() != Block.STILL_WATER && (block.getId() != Block.FLOWING_WATER || block.getDamage() != 0)) || block.up().getId() != Block.AIR) {
-                            block = block.getLevelBlockAtLayer(1);
-                            layer = 1;
-                            if ((block.getId() != Block.STILL_WATER && (block.getId() != Block.FLOWING_WATER || block.getDamage() != 0)) || block.up().getId() != Block.AIR) {
-                                continue;
-                            }
+                            continue;
                         }
                         WaterFrostEvent ev = new WaterFrostEvent(block, this);
                         server.getPluginManager().callEvent(ev);
@@ -2697,11 +2691,12 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     MovePlayerPacket movePlayerPacket = (MovePlayerPacket) packet;
                     Vector3 newPos = new Vector3(movePlayerPacket.x, movePlayerPacket.y - this.getBaseOffset(), movePlayerPacket.z);
 
-                    if (newPos.distanceSquared(this) < 0.01 && movePlayerPacket.yaw % 360 == this.yaw && movePlayerPacket.pitch % 360 == this.pitch) {
+                    double dis = newPos.distanceSquared(this);
+                    if (dis == 0 && movePlayerPacket.yaw % 360 == this.yaw && movePlayerPacket.pitch % 360 == this.pitch) {
                         break;
                     }
 
-                    if (newPos.distanceSquared(this) > 100) {
+                    if (dis > 100) {
                         this.sendPosition(this, movePlayerPacket.yaw, movePlayerPacket.pitch, MovePlayerPacket.MODE_RESET);
                         break;
                     }
@@ -3226,7 +3221,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                         break;
                     }
 
-                    item = Item.get(ItemID.SPAWN_EGG, entity.getNetworkId());
+                    item = entity.toItem();
 
                     if (entityPickRequestPacket.addUserData) {
                         entity.saveNBT();
@@ -3918,7 +3913,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                                     boolean spamBug = (lastRightClickPos != null && System.currentTimeMillis() - lastRightClickTime < 100.0 && blockVector.distanceSquared(lastRightClickPos) < 0.00001);
                                     lastRightClickPos = blockVector.asVector3();
                                     lastRightClickTime = System.currentTimeMillis();
-                                    if (spamBug && (this.getInventory() == null || this.getInventory().getItemInHand().getBlockId() == BlockID.AIR)) {
+                                    if (spamBug) {
                                         return;
                                     }
 
@@ -4068,7 +4063,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                             switch (type) {
                                 case InventoryTransactionPacket.USE_ITEM_ON_ENTITY_ACTION_INTERACT:
                                     PlayerInteractEntityEvent playerInteractEntityEvent = new PlayerInteractEntityEvent(this, target, item, useItemOnEntityData.clickPos);
-                                    if (this.isSpectator()) playerInteractEntityEvent.setCancelled();
+                                    if (this.isSpectator() && (!(target instanceof InventoryHolder) || target instanceof EntityHumanType)) playerInteractEntityEvent.setCancelled();
                                     getServer().getPluginManager().callEvent(playerInteractEntityEvent);
 
                                     if (playerInteractEntityEvent.isCancelled()) {
@@ -4382,7 +4377,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         }
 
         for (String msg : message.split("\n")) {
-            if (!msg.trim().isEmpty() && msg.length() <= 255 && this.messageCounter-- > 0) {
+            if (!msg.trim().isEmpty() && msg.length() <= 512 && this.messageCounter-- > 0) {
                 PlayerChatEvent chatEvent = new PlayerChatEvent(this, msg);
                 this.server.getPluginManager().callEvent(chatEvent);
                 if (!chatEvent.isCancelled()) {
@@ -6497,13 +6492,13 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     }
     
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public boolean isIgnoringMobEquipmentPacket() {
         return this.isIgnoringMobEquipmentPacket;
     }
     
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public void setIgnoringMobEquipmentPacket(boolean isIgnoringMobEquipmentPacket) {
         this.isIgnoringMobEquipmentPacket = isIgnoringMobEquipmentPacket;
     }

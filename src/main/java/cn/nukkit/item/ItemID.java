@@ -268,6 +268,8 @@ public interface ItemID {
 
     int SHIELD = 513;
 
+    int RECORD_OTHERSIDE = 627;
+
     @PowerNukkitOnly int CAMPFIRE = 720;
 
     int SUSPICIOUS_STEW = 734;

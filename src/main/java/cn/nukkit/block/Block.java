@@ -1072,7 +1072,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     //</editor-fold>
 
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     @SuppressWarnings("java:S1874")
     public static boolean isSolid(int blockId) {
         if (blockId < 0 || blockId >= solid.length) {
@@ -1082,7 +1082,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     }
 
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     public static boolean diffusesSkyLight(int blockId) {
         if (blockId < 0 || blockId >= diffusesSkyLight.length) {
             return false;
@@ -1091,7 +1091,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     }
 
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     @SuppressWarnings("java:S1874")
     public static double getHardness(int blockId) {
         if (blockId < 0 || blockId >= hardness.length) {
@@ -1101,7 +1101,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     }
 
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     @SuppressWarnings("java:S1874")
     public static int getLightLevel(int blockId) {
         if (blockId < 0 || blockId >= light.length) {
@@ -1111,7 +1111,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     }
 
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     @SuppressWarnings("java:S1874")
     public static int getLightFilter(int blockId) {
         if (blockId < 0 || blockId >= lightFilter.length) {
@@ -1121,7 +1121,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     }
 
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.6.0.0-PN")
     @SuppressWarnings("java:S1874")
     public static boolean isTransparent(int blockId) {
         if (blockId < 0 || blockId >= transparent.length) {

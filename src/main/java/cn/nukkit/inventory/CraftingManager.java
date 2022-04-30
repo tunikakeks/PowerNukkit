@@ -791,7 +791,7 @@ public class CraftingManager {
 
             CartographyRecipe recipe = recipes.get(inputHash);
 
-            if (recipe != null && recipe.matchItems(inputList, extraOutputList) || matchItemsAccumulation(recipe, inputList, primaryOutput, extraOutputList)) {
+            if (recipe != null && (recipe.matchItems(inputList, extraOutputList) || matchItemsAccumulation(recipe, inputList, primaryOutput, extraOutputList))) {
                 return recipe;
             }
 

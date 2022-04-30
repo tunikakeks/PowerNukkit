@@ -1,5 +1,6 @@
 package cn.nukkit.level.format.generic.serializer;
 
+import cn.nukkit.api.Since;
 import cn.nukkit.blockentity.BlockEntity;
 import cn.nukkit.blockentity.BlockEntitySpawnable;
 import cn.nukkit.level.DimensionData;
@@ -20,6 +21,7 @@ import java.nio.ByteOrder;
 import java.util.List;
 import java.util.function.BiConsumer;
 
+@Since("1.6.0.0-PN")
 public class NetworkChunkSerializer {
 
     private static final int EXTENDED_NEGATIVE_SUB_CHUNKS = 4;
@@ -36,6 +38,7 @@ public class NetworkChunkSerializer {
         negativeSubChunks = stream.getBuffer();
     }
 
+    @Since("1.6.0.0-PN")
     public static void serialize(BaseChunk chunk, BiConsumer<BinaryStream, Integer> callback, DimensionData dimensionData) {
         byte[] blockEntities;
         if (chunk.getBlockEntities().isEmpty()) {

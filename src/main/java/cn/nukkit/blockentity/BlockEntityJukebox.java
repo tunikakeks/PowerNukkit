@@ -1,5 +1,7 @@
 package cn.nukkit.blockentity;
 
+import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.api.PowerNukkitDifference;
 import cn.nukkit.block.Block;
 import cn.nukkit.item.Item;
@@ -9,6 +11,7 @@ import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.network.protocol.LevelSoundEventPacket;
+import cn.nukkit.network.protocol.StopSoundPacket;
 
 import java.util.Objects;
 
@@ -91,13 +94,19 @@ public class BlockEntityJukebox extends BlockEntitySpawnable {
                 case Item.RECORD_PIGSTEP:
                     this.getLevel().addSound(this, Sound.RECORD_PIGSTEP);
                     break;
+                case Item.RECORD_OTHERSIDE:
+                    this.getLevel().addSound(this, Sound.RECORD_OTHERSIDE);
+                    break;
             }
         }
     }
 
-    //TODO: Transfer the stop sound to the new sound method
     public void stop() {
-        this.getLevel().addLevelSoundEvent(this, LevelSoundEventPacket.SOUND_STOP_RECORD);
+        if (this.recordItem instanceof ItemRecord) {
+            StopSoundPacket stopSoundPacket = new StopSoundPacket();
+            stopSoundPacket.name = ((ItemRecord) this.recordItem).getSoundId();
+            this.getLevel().addChunkPacket(this.getChunkX(), this.getChunkZ(), stopSoundPacket);
+        }
     }
 
     public void dropItem() {

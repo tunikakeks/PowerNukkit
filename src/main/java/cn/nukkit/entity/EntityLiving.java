@@ -339,6 +339,11 @@ public abstract class EntityLiving extends Entity implements EntityDamageable {
         return hasUpdate;
     }
 
+    @Override
+    public Item toItem() {
+        return Item.get(Item.SPAWN_EGG, this.getNetworkId());
+    }
+
     public Item[] getDrops() {
         return Item.EMPTY_ARRAY;
     }

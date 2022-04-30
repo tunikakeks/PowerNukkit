@@ -147,6 +147,11 @@ public abstract class EntityHumanType extends EntityCreature implements Inventor
     }
 
     @Override
+    public Item toItem() {
+        return Item.get(Item.AIR);
+    }
+
+    @Override
     public Item[] getDrops() {
         if (this.inventory != null) {
             List<Item> drops = new ArrayList<>(this.inventory.getContents().values());

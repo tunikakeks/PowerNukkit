@@ -1880,14 +1880,6 @@
         "id" : 513
     },
     {
-        "name" : "minecraft:frog_spawn",
-        "id" : -468
-    },
-    {
-        "name" : "minecraft:frog_spawn_egg",
-        "id" : 627
-    },
-    {
         "name" : "minecraft:frosted_ice",
         "id" : 207
     },
@@ -2280,7 +2272,7 @@
         "id" : 194
     },
     {
-        "name" : "minecraft:item.brewing_stand",
+        "name" : "minecraft:brewingstandblock",
         "id" : 117
     },
     {
@@ -2736,30 +2728,6 @@
         "id" : 250
     },
     {
-        "name" : "minecraft:mud",
-        "id" : -473
-    },
-    {
-        "name" : "minecraft:mud_brick_double_slab",
-        "id" : -479
-    },
-    {
-        "name" : "minecraft:mud_brick_slab",
-        "id" : -478
-    },
-    {
-        "name" : "minecraft:mud_brick_stairs",
-        "id" : -480
-    },
-    {
-        "name" : "minecraft:mud_brick_wall",
-        "id" : -481
-    },
-    {
-        "name" : "minecraft:mud_bricks",
-        "id" : -475
-    },
-    {
         "name" : "minecraft:mule_spawn_egg",
         "id" : 466
     },
@@ -2976,10 +2944,6 @@
         "id" : 451
     },
     {
-        "name" : "minecraft:ochre_froglight",
-        "id" : -471
-    },
-    {
         "name" : "minecraft:orange_candle",
         "id" : -414
     },
@@ -3020,10 +2984,6 @@
         "id" : 174
     },
     {
-        "name" : "minecraft:packed_mud",
-        "id" : -477
-    },
-    {
         "name" : "minecraft:painting",
         "id" : 357
     },
@@ -3038,10 +2998,6 @@
     {
         "name" : "minecraft:parrot_spawn_egg",
         "id" : 478
-    },
-    {
-        "name" : "minecraft:pearlescent_froglight",
-        "id" : -469
     },
     {
         "name" : "minecraft:phantom_membrane",
@@ -4058,10 +4014,6 @@
     {
         "name" : "minecraft:unpowered_repeater",
         "id" : 93
-    },
-    {
-        "name" : "minecraft:verdant_froglight",
-        "id" : -470
     },
     {
         "name" : "minecraft:vex_spawn_egg",

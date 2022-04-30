@@ -6,6 +6,7 @@ import cn.nukkit.api.Since;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.EntityLiving;
 import cn.nukkit.entity.passive.EntityWaterAnimal;
+import cn.nukkit.item.Item;
 import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.utils.MinecartType;
@@ -25,6 +26,11 @@ public class EntityMinecartEmpty extends EntityMinecartAbstract {
 
     public EntityMinecartEmpty(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
+    }
+
+    @Override
+    public Item toItem() {
+        return Item.get(Item.MINECART);
     }
 
     @PowerNukkitOnly

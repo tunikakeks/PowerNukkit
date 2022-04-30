@@ -228,6 +228,11 @@ public class EntityArmorStand extends Entity implements InventoryHolder, EntityI
         return false; // Returning true would consume the item but tryChangeEquipment already manages the inventory
     }
 
+    @Override
+    public Item toItem() {
+        return Item.get(Item.ARMOR_STAND);
+    }
+
     private boolean tryChangeEquipment(Player player, Item handItem, int slot, boolean isArmorSlot) {
         BaseInventory inventory = isArmorSlot? armorInventory : equipmentInventory;
         Item item = inventory.getItem(slot);

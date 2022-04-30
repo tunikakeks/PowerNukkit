@@ -1,6 +1,7 @@
 package cn.nukkit.network.protocol;
 
 import cn.nukkit.Server;
+import cn.nukkit.api.Since;
 import cn.nukkit.entity.data.EntityMetadata;
 import cn.nukkit.item.Item;
 import cn.nukkit.utils.Binary;
@@ -34,7 +35,7 @@ public class AddPlayerPacket extends DataPacket {
     public float pitch;
     public float yaw;
     public Item item;
-    public int gameType = Server.getInstance().getGamemode();
+    @Since("1.6.0.0-PN") public int gameType = Server.getInstance().getGamemode();
     public EntityMetadata metadata = new EntityMetadata();
     //public EntityLink links = new EntityLink[0];
     public String deviceId = "";

@@ -19,6 +19,11 @@ public class ItemRecordChirp extends ItemRecord {
     }
 
     @Override
+    public String getDiscName() {
+        return "C418 - chirp";
+    }
+
+    @Override
     public String getSoundId() {
         return "record.chirp";
     }

@@ -42,6 +42,11 @@ public class BlockPointedDripstone extends BlockFallableMeta {
     }
 
     @Override
+    public boolean isSolid() {
+        return false;
+    }
+
+    @Override
     public double getHardness() {
         return 1.5;
     }

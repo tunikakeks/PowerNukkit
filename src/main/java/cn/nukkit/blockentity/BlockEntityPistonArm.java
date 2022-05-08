@@ -208,6 +208,10 @@ public class BlockEntityPistonArm extends BlockEntitySpawnable {
 
                     CompoundTag blockEntity = ((BlockEntityMovingBlock) movingBlock).getMovingBlockEntityCompound();
 
+                    if (!this.level.getBlock(pos.getX(), pos.getY(), pos.getZ()).toString().equals(moved.toString())) {
+                        break;
+                    }
+
                     if (blockEntity != null) {
                         blockEntity.putInt("x", movingBlock.getFloorX());
                         blockEntity.putInt("y", movingBlock.getFloorY());

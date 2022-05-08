@@ -169,4 +169,29 @@ public class BlockAnvil extends BlockFallableMeta implements Faceable {
         double zOffset = Math.abs(face.getZOffset()) * (2/16.0);
         return new SimpleAxisAlignedBB(x + xOffset, y, z + zOffset, x + 1 - xOffset, y + 1, z + 1 - zOffset);
     }
+
+    @Override
+    public double getMinX() {
+        return this.x + (this.getBlockFace().getAxis() == BlockFace.Axis.X ? 0 : 2 / 16.0);
+    }
+
+    @Override
+    public double getMinZ() {
+        return this.z + (this.getBlockFace().getAxis() == BlockFace.Axis.Z ? 0 : 2 / 16.0);
+    }
+
+    @Override
+    public double getMaxX() {
+        return this.x + (this.getBlockFace().getAxis() == BlockFace.Axis.X ? 1 : 1 - 2 / 16.0);
+    }
+
+    @Override
+    public double getMaxZ() {
+        return this.z + (this.getBlockFace().getAxis() == BlockFace.Axis.Z ? 1 : 1 - 2 / 16.0);
+    }
+
+    @Override
+    public boolean isSolid() {
+        return false;
+    }
 }

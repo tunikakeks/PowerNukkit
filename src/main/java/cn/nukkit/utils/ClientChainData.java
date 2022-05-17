@@ -109,7 +109,7 @@ public final class ClientChainData implements LoginChainData {
 
     @Override
     public String getXUID() {
-        if (Server.getInstance().getConfig("waterdogpe", false) && Waterdog_XUID != null) {
+        if (this.isWaterdog()) {
             return Waterdog_XUID;
         } else {
             return xuid;
@@ -154,6 +154,14 @@ public final class ClientChainData implements LoginChainData {
     @Override
     public JsonObject getRawData() {
         return rawData;
+    }
+
+    private boolean isWaterdog() {
+        if (Server.getInstance() != null) {
+            return Server.getInstance().getConfig("settings.waterdogpe", false) && Waterdog_XUID != null;
+        } else {
+            return false;
+        }
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -234,9 +242,7 @@ public final class ClientChainData implements LoginChainData {
         if (skinToken.has("Waterdog_IP")) this.Waterdog_IP = skinToken.get("Waterdog_IP").getAsString();
         if (skinToken.has("Waterdog_XUID")) this.Waterdog_XUID = skinToken.get("Waterdog_XUID").getAsString();
 
-        boolean useWaterdog = Server.getInstance().getConfig("settings.waterdogpe", false);
-
-        if (useWaterdog && this.Waterdog_XUID != null) {
+        if (this.isWaterdog()) {
             xboxAuthed = true;
         }
 

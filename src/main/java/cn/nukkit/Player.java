@@ -201,7 +201,8 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     protected Vector3 teleportPosition = null;
 
     protected boolean connected = true;
-    protected final InetSocketAddress socketAddress;
+    protected final InetSocketAddress rawSocketAddress;
+    protected InetSocketAddress socketAddress;
     protected boolean removeFormat = true;
 
     protected String username;
@@ -679,6 +680,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         this.perm = new PermissibleBase(this);
         this.server = Server.getInstance();
         this.lastBreak = -1;
+        this.rawSocketAddress = socketAddress;
         this.socketAddress = socketAddress;
         this.clientID = clientID;
         this.loaderId = Level.generateChunkLoaderId(this);
@@ -740,6 +742,18 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         if (this.spawned) {
             this.server.updatePlayerListData(this.getUniqueId(), this.getId(), this.getDisplayName(), skin, this.getLoginChainData().getXUID());
         }
+    }
+
+    public String getRawAddress() {
+        return this.rawSocketAddress.getAddress().getHostAddress();
+    }
+
+    public int getRawPort() {
+        return this.rawSocketAddress.getPort();
+    }
+
+    public InetSocketAddress getRawSocketAddress() {
+        return this.rawSocketAddress;
     }
 
     public String getAddress() {
@@ -2388,6 +2402,10 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
                     if (this.server.getOnlinePlayers().size() >= this.server.getMaxPlayers() && this.kick(PlayerKickEvent.Reason.SERVER_FULL, "disconnectionScreen.serverFull", false)) {
                         break;
+                    }
+
+                    if (this.server.getConfig("settings.waterdogpe", false) && loginChainData.getWaterdogIP() != null) {
+                        this.socketAddress = new InetSocketAddress(this.loginChainData.getWaterdogIP(), this.getRawPort());
                     }
 
                     this.randomClientId = loginPacket.clientId;

@@ -191,6 +191,7 @@ public interface ProtocolInfo {
     @Since("1.5.2.0-PN") @PowerNukkitOnly byte SIMULATION_TYPE_PACKET = (byte) 0xa8;
     @Since("1.5.2.0-PN") @PowerNukkitOnly byte NPC_DIALOGUE_PACKET = (byte) 0xa9;
     @Since("FUTURE") @PowerNukkitOnly byte CREATE_PHOTO_PACKET = (byte) 0xab;
+    @Since("FUTURE") byte TOAST_REQUEST_PACKET = (byte) 0xba;
 
     byte BATCH_PACKET = (byte) 0xff;
 }

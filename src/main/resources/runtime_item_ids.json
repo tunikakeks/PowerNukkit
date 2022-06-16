@@ -3362,6 +3362,86 @@
     "oldData": 42
   },
   {
+    "name" : "minecraft:mangrove_boat",
+    "id" : 635
+  },
+  {
+    "name" : "minecraft:mangrove_button",
+    "id" : -487
+  },
+  {
+    "name" : "minecraft:mangrove_chest_boat",
+    "id" : 644
+  },
+  {
+    "name" : "minecraft:mangrove_door",
+    "id" : 633
+  },
+  {
+    "name" : "minecraft:mangrove_double_slab",
+    "id" : -499
+  },
+  {
+    "name" : "minecraft:mangrove_fence",
+    "id" : -491
+  },
+  {
+    "name" : "minecraft:mangrove_fence_gate",
+    "id" : -492
+  },
+  {
+    "name" : "minecraft:mangrove_leaves",
+    "id" : -472
+  },
+  {
+    "name" : "minecraft:mangrove_log",
+    "id" : -484
+  },
+  {
+    "name" : "minecraft:mangrove_planks",
+    "id" : -486
+  },
+  {
+    "name" : "minecraft:mangrove_pressure_plate",
+    "id" : -490
+  },
+  {
+    "name" : "minecraft:mangrove_propagule",
+    "id" : -474
+  },
+  {
+    "name" : "minecraft:mangrove_roots",
+    "id" : -482
+  },
+  {
+    "name" : "minecraft:mangrove_sign",
+    "id" : 634
+  },
+  {
+    "name" : "minecraft:mangrove_slab",
+    "id" : -489
+  },
+  {
+    "name" : "minecraft:mangrove_stairs",
+    "id" : -488
+  },
+  {
+    "name" : "minecraft:mangrove_standing_sign",
+    "id" : -494
+  },
+  {
+    "name" : "minecraft:mangrove_trapdoor",
+    "id" : -496
+  },
+  {
+    "name" : "minecraft:mangrove_wall_sign",
+    "id" : -495
+  },
+  {
+    "name" : "minecraft:mangrove_wood",
+    "id" : -497
+  },
+  {
     "name": "minecraft:medicine",
     "id": 599,
     "oldId": 447

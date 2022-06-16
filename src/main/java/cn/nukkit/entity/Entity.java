@@ -224,6 +224,12 @@ public abstract class Entity extends Location implements Metadatable {
     @Since("1.3.0.0-PN") public static final int DATA_BUOYANCY_DATA = dynamic(122); //string
     @Since("1.4.0.0-PN") public static final int DATA_GOAT_HORN_COUNT = dynamic(123); // ???
     @Since("1.5.0.0-PN") public static final int DATA_UPDATE_PROPERTIES = dynamic(124); // ???
+    public static final int DATA_MOVEMENT_SOUND_DISTANCE_OFFSET = dynamic(125);
+    public static final int DATA_HEARTBEAT_INTERVAL_TICKS = dynamic(126);
+    public static final int DATA_HEARTBEAT_SOUND_EVENT = dynamic(127);
+    public static final int DATA_PLAYER_LAST_DEATH_POS = dynamic(128);
+    public static final int DATA_PLAYER_LAST_DEATH_DIMENSION = dynamic(129);
+    public static final int DATA_PLAYER_HAS_DIED = dynamic(130);
 
     // Flags
     public static final int DATA_FLAG_ONFIRE = dynamic(0);
@@ -339,6 +345,11 @@ public abstract class Entity extends Location implements Metadatable {
     @Since("1.6.0.0-PN") public static final int DATA_FLAG_OVER_DESCENDABLE_BLOCK = dynamic(99);
     public static final int DATA_FLAG_CROAKING = 100;
     public static final int DATA_FLAG_EAT_MOB = 101;
+    public static final int DATA_FLAG_JUMP_GOAL_JUMP = 102;
+    public static final int DATA_FLAG_EMERGING = 103;
+    public static final int DATA_FLAG_SNIFFING = 104;
+    public static final int DATA_FLAG_DIGGING = 105;
+    public static final int DATA_FLAG_SONIC_BOOM = 106;
 
     public static long entityCount = 1;
 
@@ -1326,7 +1337,6 @@ public abstract class Entity extends Location implements Metadatable {
                 }
                 if (totem) {
                     this.getLevel().addLevelEvent(this, LevelEventPacket.EVENT_SOUND_TOTEM);
-                    this.getLevel().addParticleEffect(this, ParticleEffect.TOTEM);
 
                     this.extinguish();
                     this.removeAllEffects();

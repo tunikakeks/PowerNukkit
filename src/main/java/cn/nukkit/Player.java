@@ -1378,8 +1378,12 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
             newSettings.set(Type.BUILD_AND_MINE, (gamemode & 0x02) <= 0);
             newSettings.set(Type.WORLD_BUILDER, (gamemode & 0x02) <= 0);
             newSettings.set(Type.ALLOW_FLIGHT, (gamemode & 0x01) > 0);
-            newSettings.set(Type.NO_CLIP, gamemode == 0x03);
-            newSettings.set(Type.FLYING, gamemode == 0x03);
+            newSettings.set(Type.NO_CLIP, gamemode == SPECTATOR);
+            if (gamemode == SPECTATOR) {
+                newSettings.set(Type.FLYING, true);
+            } else if ((gamemode & 0x1) == 0) {
+                newSettings.set(Type.FLYING, false);
+            }
         }
 
         PlayerGameModeChangeEvent ev;
@@ -1393,6 +1397,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
         if (this.isSpectator()) {
             this.keepMovement = true;
+            this.onGround = false;
             this.despawnFromAll();
         } else {
             this.keepMovement = false;
@@ -1410,16 +1415,15 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         this.setAdventureSettings(ev.getNewAdventureSettings());
 
         if (this.isSpectator()) {
-            this.getAdventureSettings().set(Type.FLYING, true);
-            this.teleport(this.temporalVector.setComponents(this.x, this.y + 0.1, this.z));
-
+            this.teleport(this, null);
+            this.setDataFlag(DATA_FLAGS, DATA_FLAG_SILENT, true);
+            this.setDataFlag(DATA_FLAGS, DATA_FLAG_HAS_COLLISION, false);
             /*InventoryContentPacket inventoryContentPacket = new InventoryContentPacket();
             inventoryContentPacket.inventoryId = InventoryContentPacket.SPECIAL_CREATIVE;
             this.dataPacket(inventoryContentPacket);*/
         } else {
-            if (this.isSurvival()) {
-                this.getAdventureSettings().set(Type.FLYING, false);
-            }
+            this.setDataFlag(DATA_FLAGS, DATA_FLAG_SILENT, false);
+            this.setDataFlag(DATA_FLAGS, DATA_FLAG_HAS_COLLISION, true);
             /*InventoryContentPacket inventoryContentPacket = new InventoryContentPacket();
             inventoryContentPacket.inventoryId = InventoryContentPacket.SPECIAL_CREATIVE;
             inventoryContentPacket.slots = Item.getCreativeItems().toArray(new Item[0]);
@@ -1468,6 +1472,41 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
     }
 
     @Override
+    public boolean fastMove(double dx, double dy, double dz) {
+        if (dx == 0 && dy == 0 && dz == 0) {
+            return true;
+        }
+
+        Timings.entityMoveTimer.startTiming();
+
+        AxisAlignedBB newBB = this.boundingBox.getOffsetBoundingBox(dx, dy, dz);
+
+        if (this.isSpectator() || server.getAllowFlight() || !this.level.hasCollision(this, newBB, false)) {
+            this.boundingBox = newBB;
+        }
+
+        this.x = (this.boundingBox.getMinX() + this.boundingBox.getMaxX()) / 2;
+        this.y = this.boundingBox.getMinY() - this.ySize;
+        this.z = (this.boundingBox.getMinZ() + this.boundingBox.getMaxZ()) / 2;
+
+        this.checkChunks();
+
+        if (!this.isSpectator()) {
+            if (!this.onGround || dy != 0) {
+                AxisAlignedBB bb = this.boundingBox.clone();
+                bb.setMinY(bb.getMinY() - 0.75);
+
+                this.onGround = this.level.getCollisionBlocks(bb).length > 0;
+            }
+            this.isCollided = this.onGround;
+            this.updateFallState(this.onGround);
+        }
+
+        Timings.entityMoveTimer.stopTiming();
+        return true;
+    }
+
+    @Override
     protected void checkGroundState(double movX, double movY, double movZ, double dx, double dy, double dz) {
         if (!this.onGround || movX != 0 || movY != 0 || movZ != 0) {
             boolean onGround = false;
@@ -1508,6 +1547,16 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
     @Override
     protected void checkBlockCollision() {
+        if (this.isSpectator()) {
+            if (this.blocksAround == null) {
+                this.blocksAround = new ArrayList<>();
+            }
+            if (this.collisionBlocks == null) {
+                this.collisionBlocks = new ArrayList<>();
+            }
+            return;
+        }
+
         boolean portal = false;
         boolean scaffolding = false;
         boolean endPortal = false;
@@ -1765,14 +1814,14 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                 if (swimming != 0) distance = 0;
                 if (this.isSprinting()) {  //Running
                     if (this.inAirTicks == 3 && swimming == 0) {
-                        jump = 0.7;
+                        jump = 0.2;
                     }
                     this.getFoodData().updateFoodExpLevel(0.06 * distance + jump + swimming);
                 } else {
                     if (this.inAirTicks == 3 && swimming == 0) {
-                        jump = 0.2;
+                        jump = 0.05;
                     }
-                    this.getFoodData().updateFoodExpLevel(0.01 * distance + jump + swimming);
+                    this.getFoodData().updateFoodExpLevel(jump + swimming);
                 }
             }
         }
@@ -2223,8 +2272,9 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                 .set(Type.WORLD_IMMUTABLE, isAdventure() || isSpectator())
                 .set(Type.WORLD_BUILDER, !isAdventure() && !isSpectator())
                 .set(Type.AUTO_JUMP, true)
-                .set(Type.ALLOW_FLIGHT, isCreative())
-                .set(Type.NO_CLIP, isSpectator());
+                .set(Type.ALLOW_FLIGHT, isCreative() || isSpectator())
+                .set(Type.NO_CLIP, isSpectator())
+                .set(Type.FLYING, isSpectator());
 
         Level level;
         if ((level = this.server.getLevelByName(nbt.getString("Level"))) == null) {
@@ -2276,7 +2326,10 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         float foodSaturationLevel = this.namedTag.getFloat("foodSaturationLevel");
         this.foodData = new PlayerFood(this, foodLevel, foodSaturationLevel);
 
-        if (this.isSpectator()) this.keepMovement = true;
+        if (this.isSpectator()) {
+            this.keepMovement = true;
+            this.onGround = false;
+        }
 
         this.forceMovement = this.teleportPosition = this.getPosition();
 
@@ -2363,6 +2416,11 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         this.sendAttributes();
 
         this.sendPotionEffects(this);
+
+        if (this.isSpectator()) {
+            this.setDataFlag(DATA_FLAGS, DATA_FLAG_SILENT, true);
+            this.setDataFlag(DATA_FLAGS, DATA_FLAG_HAS_COLLISION, false);
+        }
         this.sendData(this);
 
         this.loggedIn = true;
@@ -2811,7 +2869,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     break;
                 case ProtocolInfo.PLAYER_ACTION_PACKET:
                     PlayerActionPacket playerActionPacket = (PlayerActionPacket) packet;
-                    if (!this.spawned || (!this.isAlive() && playerActionPacket.action != PlayerActionPacket.ACTION_RESPAWN && playerActionPacket.action != PlayerActionPacket.ACTION_DIMENSION_CHANGE_REQUEST)) {
+                    if (!this.spawned || !this.isAlive() && playerActionPacket.action != PlayerActionPacket.ACTION_RESPAWN) {
                         break;
                     }
 
@@ -2852,7 +2910,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                                 Item oldItem = playerInteractEvent.getItem();
                                 Item i = this.level.useBreakOn(block, oldItem, this, true);
                                 if (this.isSurvival() || this.isAdventure()) {
-                                    this.getFoodData().updateFoodExpLevel(0.025);
+                                    this.getFoodData().updateFoodExpLevel(0.005);
                                     if (!i.equals(oldItem) || i.getCount() != oldItem.getCount()) {
                                         inventory.setItemInHand(i);
                                         inventory.sendHeldItem(this.getViewers().values());
@@ -3567,7 +3625,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                 case ProtocolInfo.LEVEL_SOUND_EVENT_PACKET_V1:
                 case ProtocolInfo.LEVEL_SOUND_EVENT_PACKET_V2:
                 case ProtocolInfo.LEVEL_SOUND_EVENT_PACKET:
-                    if (!this.isSpectator() || (((LevelSoundEventPacket) packet).sound != LevelSoundEventPacket.SOUND_HIT && ((LevelSoundEventPacket) packet).sound != LevelSoundEventPacket.SOUND_ATTACK_NODAMAGE)) {
+                    if (!this.isSpectator()) {
                         this.level.addChunkPacket(this.getChunkX(), this.getChunkZ(), packet);
                     }
                     break;
@@ -3968,7 +4026,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
                                     if (this.canInteract(blockVector.add(0.5, 0.5, 0.5), this.isCreative() ? 13 : 7) && (i = this.level.useBreakOn(blockVector.asVector3(), face, i, this, true)) != null) {
                                         if (this.isSurvival() || this.isAdventure()) {
-                                            this.getFoodData().updateFoodExpLevel(0.025);
+                                            this.getFoodData().updateFoodExpLevel(0.005);
                                             if (!i.equals(oldItem) || i.getCount() != oldItem.getCount()) {
                                                 if (oldItem.getId() == i.getId() || i.getId() == 0) {
                                                     inventory.setItemInHand(i);
@@ -4589,6 +4647,13 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         pk.fadeInTime = fadein;
         pk.stayTime = duration;
         pk.fadeOutTime = fadeout;
+        this.dataPacket(pk);
+    }
+
+    public void sendToast(String title, String content) {
+        ToastRequestPacket pk = new ToastRequestPacket();
+        pk.title = title;
+        pk.content = content;
         this.dataPacket(pk);
     }
 
@@ -5270,7 +5335,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                 if (source instanceof EntityDamageByEntityEvent) {
                     Entity damager = ((EntityDamageByEntityEvent) source).getDamager();
                     if (damager instanceof Player) {
-                        ((Player) damager).getFoodData().updateFoodExpLevel(0.3);
+                        ((Player) damager).getFoodData().updateFoodExpLevel(0.1);
                     }
                 }
                 EntityEventPacket pk = new EntityEventPacket();

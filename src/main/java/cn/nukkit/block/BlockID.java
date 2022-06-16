@@ -934,4 +934,34 @@ public interface BlockID {
     @Since("FUTURE") @PowerNukkitOnly int RAW_COPPER_BLOCK = 707;
     @Since("FUTURE") @PowerNukkitOnly int RAW_GOLD_BLOCK = 708;
     @Since("FUTURE") @PowerNukkitOnly int INFESTED_DEEPSLATE = 709;
+
+    @Since("FUTURE") @PowerNukkitOnly int SCULK = 713;
+    @Since("FUTURE") @PowerNukkitOnly int SCULK_VEIN = 714;
+    @Since("FUTURE") @PowerNukkitOnly int SCULK_CATALYST = 715;
+    @Since("FUTURE") @PowerNukkitOnly int SCULK_SHRIEKER = 716;
+    @Since("FUTURE") @PowerNukkitOnly int REINFORCED_DEEPSLATE = 721;
+    @Since("FUTURE") @PowerNukkitOnly int FROG_SPAWN = 723;
+    @Since("FUTURE") @PowerNukkitOnly int PEARLSCENT_FROGLIGHT = 724;
+    @Since("FUTURE") @PowerNukkitOnly int VERDANT_FROGLIGHT = 725;
+    @Since("FUTURE") @PowerNukkitOnly int OCHRE_FROGLIGHT = 726;
+    @Since("FUTURE") @PowerNukkitOnly int MANGROVE_LEAVES = 727;
+    @Since("FUTURE") @PowerNukkitOnly int MUD = 728;
+    @Since("FUTURE") @PowerNukkitOnly int MANGROVE_PROPAGULE = 729;
+    @Since("FUTURE") @PowerNukkitOnly int MUD_BRICKS = 730;
+    @Since("FUTURE") @PowerNukkitOnly int PACKED_MUD = 732;
+    @Since("FUTURE") @PowerNukkitOnly int MUD_BRICK_SLAB = 733;
+    @Since("FUTURE") @PowerNukkitOnly int MUD_BRICK_DOUBLE_SLAB = 734;
+    @Since("FUTURE") @PowerNukkitOnly int MUD_BRICK_STAIRS = 735;
+    @Since("FUTURE") @PowerNukkitOnly int MUD_BRICK_WALL = 736;
+    @Since("FUTURE") @PowerNukkitOnly int MANGROVE_ROOTS = 737;
+    @Since("FUTURE") @PowerNukkitOnly int MUDDY_MANGROVE_ROOTS = 738;
+    @Since("FUTURE") @PowerNukkitOnly int MANGROVE_LOG = 739;
+    @Since("FUTURE") @PowerNukkitOnly int MANGROVE_PLANKS = 741;
+    @Since("FUTURE") @PowerNukkitOnly int MANGROVE_SLAB = 744;
+    @Since("FUTURE") @PowerNukkitOnly int MANGROVE_STAIRS = 743;
+    @Since("FUTURE") @PowerNukkitOnly int MANGROVE_PRESSURE_PLATE = 745;
+    @Since("FUTURE") @PowerNukkitOnly int MANGROVE_STANDING_SIGN = 749;
+    @Since("FUTURE") @PowerNukkitOnly int MANGROVE_WALL_SIGN = 750;
+    @Since("FUTURE") @PowerNukkitOnly int MANGROVE_TRAPDOOR = 751;
+    @Since("FUTURE") @PowerNukkitOnly int MANGROVE_WOOD = 752;
 }

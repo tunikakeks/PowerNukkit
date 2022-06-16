@@ -18,7 +18,9 @@ import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemSkull;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.level.Level;
+import cn.nukkit.math.AxisAlignedBB;
 import cn.nukkit.math.BlockFace;
+import cn.nukkit.math.SimpleAxisAlignedBB;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.Tag;
 import cn.nukkit.utils.BlockColor;
@@ -216,5 +218,25 @@ public class BlockSkull extends BlockTransparentMeta implements RedstoneComponen
     @PowerNukkitOnly
     public  boolean sticksToPiston() {
         return false;
+    }
+
+    public BlockFace getBlockFace() {
+        return getPropertyValue(FACING_DIRECTION);
+    }
+
+    @Override
+    protected AxisAlignedBB recalculateBoundingBox() {
+        AxisAlignedBB bb = new SimpleAxisAlignedBB(this.x + 0.25, this.y, this.z + 0.25, this.x + 1 - 0.25, this.y + 0.5, this.z + 1 - 0.25);
+        switch (this.getBlockFace()) {
+            case NORTH:
+                return bb.offset(0, 0.25, 0.25);
+            case SOUTH:
+                return bb.offset(0, 0.25, -0.25);
+            case WEST:
+                return bb.offset(0.25, 0.25, 0);
+            case EAST:
+                return bb.offset(-0.25, 0.25, 0);
+        }
+        return bb;
     }
 }

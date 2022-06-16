@@ -171,4 +171,13 @@ public class BlockDaylightDetector extends BlockTransparentMeta implements Redst
             updateAroundRedstone();
         }
     }
+    @Override
+    public boolean isSolid() {
+        return false;
+    }
+
+    @Override
+    public double getMaxY() {
+        return this.y + 0.625;
+    }
 }

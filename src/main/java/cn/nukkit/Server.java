@@ -2568,6 +2568,7 @@ public class Server {
         Entity.registerEntity("ZombiePigman", EntityZombiePigman.class);
         Entity.registerEntity("ZombieVillager", EntityZombieVillager.class);
         Entity.registerEntity("ZombieVillagerV1", EntityZombieVillagerV1.class);
+        Entity.registerEntity("Warden", EntityWarden.class);
         //Passive
         Entity.registerEntity("Agent", EntityAgent.class);
         Entity.registerEntity("Axolotl", EntityAxolotl.class);
@@ -2606,6 +2607,9 @@ public class Server {
         Entity.registerEntity("Wolf", EntityWolf.class);
         Entity.registerEntity("ZombieHorse", EntityZombieHorse.class);
         Entity.registerEntity("NPC", EntityNPCEntity.class);
+        Entity.registerEntity("Frog", EntityFrog.class);
+        Entity.registerEntity("Tadpole", EntityTadpole.class);
+        Entity.registerEntity("Allay", EntityAllay.class);
         //Projectile
         Entity.registerEntity("AreaEffectCloud", EntityAreaEffectCloud.class);
         Entity.registerEntity("Egg", EntityEgg.class);
@@ -2624,6 +2628,7 @@ public class Server {
         Entity.registerEntity("MinecartHopper", EntityMinecartHopper.class);
         Entity.registerEntity("MinecartRideable", EntityMinecartEmpty.class);
         Entity.registerEntity("MinecartTnt", EntityMinecartTNT.class);
+        Entity.registerEntity("ChestBoat", EntityChestBoat.class);
 
         Entity.registerEntity("EndCrystal", EntityEndCrystal.class);
         Entity.registerEntity("FishingHook", EntityFishingHook.class);

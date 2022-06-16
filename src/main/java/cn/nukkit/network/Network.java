@@ -488,5 +488,7 @@ public class Network {
         this.registerPacket(ProtocolInfo.NPC_DIALOGUE_PACKET, NPCDialoguePacket.class);
         this.registerPacket(ProtocolInfo.SIMULATION_TYPE_PACKET, SimulationTypePacket.class);
         this.registerPacket(ProtocolInfo.CREATE_PHOTO_PACKET, CreatePhotoPacket.class);
+        this.registerPacket(ProtocolInfo.CAMERA_SHAKE_PACKET, CameraShakePacket.class);
+        this.registerPacket(ProtocolInfo.TOAST_REQUEST_PACKET, ToastRequestPacket.class);
     }
 }

@@ -133,6 +133,11 @@ public class AddEntityPacket extends DataPacket {
             .put(EntityGoat.NETWORK_ID, "minecraft:goat")
             .put(EntityAxolotl.NETWORK_ID, "minecraft:axolotl")
             .put(EntityGlowSquid.NETWORK_ID, "minecraft:glow_squid")
+            .put(EntityWarden.NETWORK_ID, "minecraft:warden")
+            .put(EntityFrog.NETWORK_ID, "minecraft:frog")
+            .put(EntityTadpole.NETWORK_ID, "minecraft:tadpole")
+            .put(EntityAllay.NETWORK_ID, "minecraft:allay")
+            .put(EntityChestBoat.NETWORK_ID, "minecraft:chest_boat")
             .build();
 
     @Override

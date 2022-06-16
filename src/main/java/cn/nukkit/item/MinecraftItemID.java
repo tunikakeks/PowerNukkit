@@ -1116,7 +1116,7 @@ public enum MinecraftItemID {
     @PowerNukkitOnly @Since("FUTURE") PEARLSCENT_FROGLIGHT,
     @PowerNukkitOnly @Since("FUTURE") VERDANT_FROGLIGHT,
     @PowerNukkitOnly @Since("FUTURE") OCHRE_FROGLIGHT,
-    @PowerNukkitOnly @Since("FUTURE") FROGSPAWN,
+    @PowerNukkitOnly @Since("FUTURE") FROG_SPAWN,
     @PowerNukkitOnly @Since("FUTURE") MANGROVE_LEAVES,
     @PowerNukkitOnly @Since("FUTURE") MANGROVE_LOG,
     @PowerNukkitOnly @Since("FUTURE") MANGROVE_PLANKS,

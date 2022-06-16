@@ -4846,6 +4846,22 @@
     "oldId": 275
   },
   {
+    "name" : "minecraft:stone_block_slab",
+    "id" : 44
+  },
+  {
+    "name" : "minecraft:stone_block_slab2",
+    "id" : 182
+  },
+  {
+    "name" : "minecraft:stone_block_slab3",
+    "id" : -162
+  },
+  {
+    "name" : "minecraft:stone_block_slab4",
+    "id" : -166
+  },
+  {
     "name": "minecraft:stone_brick_stairs",
     "id": 109,
     "oldId": 109

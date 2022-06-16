@@ -883,6 +883,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[RAW_COPPER_BLOCK] = BlockRawCopper.class; //707
             list[RAW_GOLD_BLOCK] = BlockRawGold.class; //708
             list[INFESTED_DEEPSLATE] = BlockDeepslateInfested.class; //709
+            list[MANGROVE_PLANKS] = BlockPlanksMangrove.class; //741
 
             initializing = true;
             

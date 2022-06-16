@@ -70,11 +70,11 @@ public class RuntimeItems {
                 int fullId = getFullId(entry.oldId, hasData ? entry.oldData : 0);
                 if (entry.deprecated != Boolean.TRUE) {
                     verify(legacyNetworkMap.put(fullId, (entry.id << 1) | (hasData ? 1 : 0)) == 0,
-                            "Conflict while registering an item runtime id!"
+                            "Conflict while registering an item runtime id! (ID=" + entry.id + ")"
                     );
                 }
                 verify(networkLegacyMap.put(entry.id, fullId | (hasData ? 1 : 0)) == 0,
-                        "Conflict while registering an item runtime id!"
+                        "Conflict while registering an item runtime id! (ID=" + entry.id + ")"
                 );
             }
         }

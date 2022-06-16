@@ -36,15 +36,11 @@ public class PlayerActionPacket extends DataPacket {
     public static final int ACTION_STOP_SWIMMING = 22;
     public static final int ACTION_START_SPIN_ATTACK = 23;
     public static final int ACTION_STOP_SPIN_ATTACK = 24;
-<<<<<<< HEAD
     @PowerNukkitOnly public static final int ACTION_INTERACT_BLOCK = 25;
-=======
-    public static final int ACTION_INTERACT_BLOCK = 25;
     public static final int ACTION_PREDICT_DESTROY_BLOCK = 26;
     public static final int ACTION_CONTINUE_DESTROY_BLOCK = 27;
     public static final int ACTION_START_ITEM_USE_ON = 28;
     public static final int ACTION_STOP_ITEM_USE_ON = 29;
->>>>>>> 7d45415c89 (Update data and magic numbers (#2015))
 
     public long entityId;
     public int action;

@@ -71,11 +71,12 @@ public class EnchantTransaction extends InventoryTransaction {
             // Plugin changed item, so the previous slot change is going to be invalid
             // Send the replaced item to the enchant inventory manually
             inv.setItem(0, ev.getNewItem(), true);
+
+            if (!source.isCreative()) {
+                source.setExperience(source.getExperience(), source.getExperienceLevel() - ev.getXpCost());
+            }
         }
 
-        if (!source.isCreative()) {
-            source.setExperience(source.getExperience(), source.getExperienceLevel() - ev.getXpCost());
-        }
         return true;
     }
 

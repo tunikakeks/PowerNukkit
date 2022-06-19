@@ -178,7 +178,7 @@
   {
     "name": "minecraft:banner_pattern",
     "id": 650,
-    "oldId": 642,
+    "oldId": 434,
     "deprecated": true
   },
   {
@@ -418,7 +418,7 @@
   },
   {
     "name": "minecraft:boat",
-    "id": 645,
+    "id": 648,
     "oldId": 640,
     "deprecated": true
   },
@@ -1515,7 +1515,7 @@
   {
     "name": "minecraft:dye",
     "id": 649,
-    "oldId": 641,
+    "oldId": 351,
     "deprecated": true
   },
   {
@@ -2181,7 +2181,7 @@
   {
     "name": "minecraft:end_crystal",
     "id": 652,
-    "oldId": 644
+    "oldId": 426
   },
   {
     "name": "minecraft:end_gateway",
@@ -4702,7 +4702,7 @@
   {
     "name": "minecraft:spawn_egg",
     "id": 651,
-    "oldId": 643
+    "oldId": 383
   },
   {
     "name": "minecraft:spider_eye",

@@ -110,7 +110,7 @@ public final class ClientChainData implements LoginChainData {
     @Override
     public String getXUID() {
         if (this.isWaterdog()) {
-            return Waterdog_XUID;
+            return waterdogXUID;
         } else {
             return xuid;
         }
@@ -143,12 +143,12 @@ public final class ClientChainData implements LoginChainData {
 
     @Override
     public String getWaterdogXUID() {
-        return Waterdog_XUID;
+        return waterdogXUID;
     }
 
     @Override
     public String getWaterdogIP() {
-        return Waterdog_IP;
+        return waterdogIP;
     }
 
     @Override
@@ -158,7 +158,7 @@ public final class ClientChainData implements LoginChainData {
 
     private boolean isWaterdog() {
         if (Server.getInstance() != null) {
-            return Server.getInstance().getConfig("settings.waterdogpe", false) && Waterdog_XUID != null;
+            return Server.getInstance().getConfig("settings.waterdogpe", false) && waterdogXUID != null;
         } else {
             return false;
         }
@@ -202,8 +202,8 @@ public final class ClientChainData implements LoginChainData {
     private String languageCode;
     private int currentInputMode;
     private int defaultInputMode;
-    private String Waterdog_IP;
-    private String Waterdog_XUID;
+    private String waterdogIP;
+    private String waterdogXUID;
 
     private int UIProfile;
 
@@ -239,8 +239,8 @@ public final class ClientChainData implements LoginChainData {
         if (skinToken.has("DefaultInputMode")) this.defaultInputMode = skinToken.get("DefaultInputMode").getAsInt();
         if (skinToken.has("UIProfile")) this.UIProfile = skinToken.get("UIProfile").getAsInt();
         if (skinToken.has("CapeData")) this.capeData = skinToken.get("CapeData").getAsString();
-        if (skinToken.has("Waterdog_IP")) this.Waterdog_IP = skinToken.get("Waterdog_IP").getAsString();
-        if (skinToken.has("Waterdog_XUID")) this.Waterdog_XUID = skinToken.get("Waterdog_XUID").getAsString();
+        if (skinToken.has("Waterdog_IP")) this.waterdogIP = skinToken.get("Waterdog_IP").getAsString();
+        if (skinToken.has("Waterdog_XUID")) this.waterdogXUID = skinToken.get("Waterdog_XUID").getAsString();
 
         if (this.isWaterdog()) {
             xboxAuthed = true;

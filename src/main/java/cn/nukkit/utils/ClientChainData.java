@@ -161,7 +161,7 @@ public final class ClientChainData implements LoginChainData {
             return false;
         }
 
-        return Server.getInstance().isWaterdog();
+        return Server.getInstance().isWaterdogCapable();
     }
 
     ///////////////////////////////////////////////////////////////////////////

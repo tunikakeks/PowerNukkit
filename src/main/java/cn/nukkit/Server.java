@@ -2420,7 +2420,7 @@ public class Server {
 
     @PowerNukkitOnly
     @Since("FUTURE")
-    public boolean isWaterdog() {
+    public boolean isWaterdogCapable() {
         return this.getConfig("settings.waterdogpe", false);
     }
 

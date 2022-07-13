@@ -73,6 +73,7 @@ public class EntityEventPacket extends DataPacket {
     @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int LANDED_ON_GROUND = 75;
     @Since("FUTURE") public static final int GROW_UP = 76;
     @Since("FUTURE") public static final int VIBRATION_DETECTED = 77;
+    public static final int DRINK_MILK = 78;
 
     @Override
     public byte pid() {

@@ -138,6 +138,7 @@ public class AddEntityPacket extends DataPacket {
             .put(EntityTadpole.NETWORK_ID, "minecraft:tadpole")
             .put(EntityAllay.NETWORK_ID, "minecraft:allay")
             .put(EntityChestBoat.NETWORK_ID, "minecraft:chest_boat")
+            .put(157, "minecraft:trader_llama")
             .build();
 
     @Override
@@ -158,6 +159,7 @@ public class AddEntityPacket extends DataPacket {
     public float yaw;
     public float pitch;
     public float headYaw;
+    public float bodyYaw = -1;
     public EntityMetadata metadata = new EntityMetadata();
     public Attribute[] attributes = Attribute.EMPTY_ARRAY;
     public EntityLink[] links = EntityLink.EMPTY_ARRAY;
@@ -181,6 +183,7 @@ public class AddEntityPacket extends DataPacket {
         this.putLFloat(this.pitch);
         this.putLFloat(this.yaw);
         this.putLFloat(this.headYaw);
+        this.putLFloat(this.bodyYaw == -1 ? this.yaw : this.bodyYaw);
         this.putAttributeList(this.attributes);
         this.put(Binary.writeMetadata(this.metadata));
         this.putUnsignedVarInt(this.links.length);

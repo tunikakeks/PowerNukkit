@@ -1,5 +1,6 @@
 package cn.nukkit.network.protocol;
 
+import cn.nukkit.api.DeprecationDetails;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
 import cn.nukkit.math.Vector3f;
@@ -232,13 +233,13 @@ public class LevelSoundEventPacket extends DataPacket {
     public static final int SOUND_DEATH_BABY = 220;
     public static final int SOUND_STEP_BABY = 221;
     public static final int SOUND_SPAWN_BABY = 222;
-    @Deprecated @PowerNukkitOnly @Since("1.6.0.0-PN") public static final int SOUND_BABY_SPAWN = SOUND_SPAWN_BABY;
+    @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "SOUND_SPAWN_BABY") @PowerNukkitOnly @Since("1.6.0.0-PN") public static final int SOUND_BABY_SPAWN = SOUND_SPAWN_BABY;
     public static final int SOUND_BORN = 223;
     public static final int SOUND_BLOCK_TURTLE_EGG_BREAK = 224;
     public static final int SOUND_BLOCK_TURTLE_EGG_CRACK = 225;
     public static final int SOUND_BLOCK_TURTLE_EGG_HATCH = 226;
     public static final int SOUND_LAY_EGG = 227;
-    @Deprecated @PowerNukkitOnly @Since("1.6.0.0-PN") public static final int SOUND_TURTLE_LAY_EGG = SOUND_LAY_EGG;
+    @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "SOUND_LAY_EGG") @PowerNukkitOnly @Since("1.6.0.0-PN") public static final int SOUND_TURTLE_LAY_EGG = SOUND_LAY_EGG;
     public static final int SOUND_BLOCK_TURTLE_EGG_ATTACK = 228;
     public static final int SOUND_BEACON_ACTIVATE = 229;
     public static final int SOUND_BEACON_AMBIENT = 230;

@@ -1,5 +1,6 @@
 package cn.nukkit.network.protocol;
 
+import cn.nukkit.api.DeprecationDetails;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
 
@@ -18,7 +19,7 @@ public class EntityEventPacket extends DataPacket {
     public static final int DEATH_ANIMATION = 3;
     public static final int ARM_SWING = 4;
     public static final int STOP_ATTACK = 5;
-    @Deprecated @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int ATTACK_STOP = STOP_ATTACK;
+    @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "STOP_ATTACK") @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int ATTACK_STOP = STOP_ATTACK;
     public static final int TAME_FAIL = 6;
     public static final int TAME_SUCCESS = 7;
     public static final int SHAKE_WET = 8;
@@ -40,17 +41,17 @@ public class EntityEventPacket extends DataPacket {
     public static final int WITCH_SPELL_PARTICLES = 24;
     public static final int FIREWORK_EXPLOSION = 25;
     public static final int IN_LOVE_PARTICLES = 26;
-    @Deprecated @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int IN_LOVE_HEARTS = IN_LOVE_PARTICLES;
+    @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "IN_LOVE_PARTICLES") @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int IN_LOVE_HEARTS = IN_LOVE_PARTICLES;
     public static final int SILVERFISH_SPAWN_ANIMATION = 27;
     public static final int GUARDIAN_ATTACK = 28;
-    @Deprecated @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int GUARDIAN_ATTACK_ANIMATION = GUARDIAN_ATTACK;
+    @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "GUARDIAN_ATTACK") @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int GUARDIAN_ATTACK_ANIMATION = GUARDIAN_ATTACK;
     public static final int WITCH_DRINK_POTION = 29;
     public static final int WITCH_THROW_POTION = 30;
     public static final int MINECART_TNT_PRIME_FUSE = 31;
     public static final int CREEPER_PRIME_FUSE = 32;
-    @Deprecated @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int PRIME_CREEPER = CREEPER_PRIME_FUSE;
+    @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "CREEPER_PRIME_FUSE") @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int PRIME_CREEPER = CREEPER_PRIME_FUSE;
     public static final int AIR_SUPPLY_EXPIRED = 33;
-    @Deprecated @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int AIR_SUPPLY = AIR_SUPPLY_EXPIRED;
+    @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "AIR_SUPPLY_EXPIRED") @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int AIR_SUPPLY = AIR_SUPPLY_EXPIRED;
     public static final int ENCHANT = 34;
     public static final int ELDER_GUARDIAN_CURSE = 35;
     public static final int AGENT_ARM_SWING = 36;
@@ -65,22 +66,22 @@ public class EntityEventPacket extends DataPacket {
     public static final int COMPLETE_TRADE = 62;
     public static final int REMOVE_LEASH = 63;
     public static final int CARAVAN_UPDATED = 64;
-    @Deprecated @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int CARAVAN = CARAVAN_UPDATED;
+    @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "CARAVAN_UPDATED") @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int CARAVAN = CARAVAN_UPDATED;
     public static final int CONSUME_TOTEM = 65;
     public static final int PLAYER_CHECK_TREASURE_HUNTER_ACHIEVEMENT = 66;
     public static final int ENTITY_SPAWN = 67;
     public static final int DRAGON_PUKE = 68;
     public static final int MERGE_ITEMS = 69;
     public static final int START_SWIM = 70;
-    @Deprecated @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int START_SWIMMING = START_SWIM;
+    @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "START_SWIM") @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int START_SWIMMING = START_SWIM;
     public static final int BALLOON_POP = 71;
     public static final int TREASURE_HUNT = 72;
     public static final int AGENT_SUMMON = 73;
-    @Deprecated @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int SUMMON_AGENT = AGENT_SUMMON;
+    @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "AGENT_SUMMON") @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int SUMMON_AGENT = AGENT_SUMMON;
     public static final int CHARGED_CROSSBOW = 74;
-    @Deprecated @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int FINISHED_CHARGING_CROSSBOW = CHARGED_CROSSBOW;
+    @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "CHARGED_CROSSBOW") @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int FINISHED_CHARGING_CROSSBOW = CHARGED_CROSSBOW;
     public static final int FALL = 75;
-    @Deprecated @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int LANDED_ON_GROUND = FALL;
+    @Deprecated @DeprecationDetails(since = "FUTURE", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "FALL") @PowerNukkitOnly @Since("1.4.0.0-PN") public static final int LANDED_ON_GROUND = FALL;
     public static final int GROW_UP = 76;
     public static final int VIBRATION_DETECTED = 77;
     public static final int DRINK_MILK = 78;

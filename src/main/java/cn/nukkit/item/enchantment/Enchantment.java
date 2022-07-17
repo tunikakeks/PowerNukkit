@@ -186,7 +186,7 @@ public abstract class Enchantment implements Cloneable {
     }
 
     public static boolean registerEnchantment(Enchantment enchantment) {
-        if (isIDOccupied(enchantment.getId())) {
+        if (isIDOccupied(enchantment.getId()) || enchantment.getId() < Short.MIN_VALUE || enchantment.getId() > Short.MAX_VALUE) {
             return false;
         }
 

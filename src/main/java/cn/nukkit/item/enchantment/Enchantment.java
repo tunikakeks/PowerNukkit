@@ -194,6 +194,15 @@ public abstract class Enchantment implements Cloneable {
         return true;
     }
 
+    public static boolean unregisterEnchantment(int id) {
+        if (!isIDOccupied(id)) {
+            return false;
+        }
+
+        enchantments.remove(id);
+        return true;
+    }
+
     /**
      * The internal ID which this enchantment got registered.
      */

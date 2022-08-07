@@ -49,6 +49,6 @@ public class BlockLeavesAzalea extends BlockLeaves {
 
     @Override
     public Item toItem() {
-        return MinecraftItemID.AZALEA.get(1);
+        return MinecraftItemID.AZALEA_LEAVES.get(1);
     }
 }

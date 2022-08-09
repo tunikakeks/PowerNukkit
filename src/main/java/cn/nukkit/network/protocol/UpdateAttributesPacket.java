@@ -2,6 +2,7 @@ package cn.nukkit.network.protocol;
 
 import cn.nukkit.api.Since;
 import cn.nukkit.entity.Attribute;
+import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.CompoundTag;
 import lombok.ToString;
 
@@ -46,7 +47,11 @@ public class UpdateAttributesPacket extends DataPacket {
             }
         }
         this.putUnsignedVarInt(this.frame);
-        this.putTag(new CompoundTag(""));
+        try {
+            this.put(NBTIO.writeNetwork(new CompoundTag("")));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

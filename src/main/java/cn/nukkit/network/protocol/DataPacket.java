@@ -14,6 +14,8 @@ public abstract class DataPacket extends BinaryStream implements Cloneable {
     @PowerNukkitOnly
     public static final DataPacket[] EMPTY_ARRAY = new DataPacket[0];
 
+    protected static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
+
     public volatile boolean isEncoded = false;
     private int channel = 0;
 

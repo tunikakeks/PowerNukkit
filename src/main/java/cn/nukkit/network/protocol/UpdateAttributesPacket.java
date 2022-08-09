@@ -45,6 +45,7 @@ public class UpdateAttributesPacket extends DataPacket {
             }
         }
         this.putUnsignedVarInt(this.frame);
+        this.putByteArray(EMPTY_BYTE_ARRAY);
     }
 
 }

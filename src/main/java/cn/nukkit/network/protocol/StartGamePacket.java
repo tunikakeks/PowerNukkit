@@ -6,6 +6,7 @@ import cn.nukkit.item.RuntimeItems;
 import cn.nukkit.level.GameRules;
 import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.CompoundTag;
+import cn.nukkit.network.protocol.types.ChatRestrictionLevel;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
@@ -143,6 +144,8 @@ public class StartGamePacket extends DataPacket {
         this.putBoolean(this.isFromWorldTemplate);
         this.putBoolean(this.isWorldTemplateOptionLocked);
         this.putBoolean(this.isOnlySpawningV1Villagers);
+        this.putBoolean(false); // disabling persona skins
+        this.putBoolean(false); // disabling custom skins
         this.putString(this.vanillaVersion);
         this.putLInt(16); // Limited world width
         this.putLInt(16); // Limited world height
@@ -150,6 +153,8 @@ public class StartGamePacket extends DataPacket {
         this.putString(""); // EduSharedUriResource buttonName
         this.putString(""); // EduSharedUriResource linkUri
         this.putBoolean(false); // Experimental Gameplay
+        this.putInt(ChatRestrictionLevel.DISABLED.ordinal());
+        this.putBoolean(false); // disables player interactions
 
         this.putString(this.levelId);
         this.putString(this.worldName);

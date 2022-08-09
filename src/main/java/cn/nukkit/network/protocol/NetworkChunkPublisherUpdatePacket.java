@@ -1,6 +1,7 @@
 package cn.nukkit.network.protocol;
 
 import cn.nukkit.math.BlockVector3;
+import cn.nukkit.nbt.tag.CompoundTag;
 import lombok.ToString;
 
 @ToString
@@ -25,6 +26,6 @@ public class NetworkChunkPublisherUpdatePacket extends DataPacket {
         this.reset();
         this.putSignedBlockPosition(position);
         this.putUnsignedVarInt(radius);
-        this.putByteArray(EMPTY_BYTE_ARRAY);
+        this.putTag(new CompoundTag(""));
     }
 }

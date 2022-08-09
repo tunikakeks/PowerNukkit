@@ -2,6 +2,7 @@ package cn.nukkit.network.protocol;
 
 import cn.nukkit.api.Since;
 import cn.nukkit.entity.Attribute;
+import cn.nukkit.nbt.tag.CompoundTag;
 import lombok.ToString;
 
 /**
@@ -45,7 +46,7 @@ public class UpdateAttributesPacket extends DataPacket {
             }
         }
         this.putUnsignedVarInt(this.frame);
-        this.putByteArray(EMPTY_BYTE_ARRAY);
+        this.putTag(new CompoundTag(""));
     }
 
 }

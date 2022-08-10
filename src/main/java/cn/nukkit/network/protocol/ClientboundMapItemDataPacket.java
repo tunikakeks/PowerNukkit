@@ -1,5 +1,6 @@
 package cn.nukkit.network.protocol;
 
+import cn.nukkit.math.BlockVector3;
 import cn.nukkit.utils.Utils;
 import lombok.ToString;
 
@@ -13,9 +14,9 @@ import java.awt.image.BufferedImage;
 public class ClientboundMapItemDataPacket extends DataPacket {
 
     public static final byte NETWORK_ID = ProtocolInfo.CLIENTBOUND_MAP_ITEM_DATA_PACKET;
-    public static final int TEXTURE_UPDATE = 2;
-    public static final int DECORATIONS_UPDATE = 4;
-    public static final int ENTITIES_UPDATE = 8;
+    public static final int TEXTURE_UPDATE = 0x02;
+    public static final int DECORATIONS_UPDATE = 0x04;
+    public static final int ENTITIES_UPDATE = 0x08;
     public int[] eids = new int[0];
     public long mapId;
     public int update;
@@ -26,6 +27,7 @@ public class ClientboundMapItemDataPacket extends DataPacket {
     public int offsetX;
     public int offsetZ;
     public byte dimensionId;
+    public BlockVector3 origin = new BlockVector3();
     public MapDecorator[] decorators = new MapDecorator[0];
     public MapTrackedObject[] trackedEntities = new MapTrackedObject[0];
     public int[] colors = new int[0];
@@ -48,7 +50,7 @@ public class ClientboundMapItemDataPacket extends DataPacket {
 
         int update = 0;
         if (eids.length > 0) {
-            update |= 0x08;
+            update |= ENTITIES_UPDATE;
         }
         if (decorators.length > 0) {
             update |= DECORATIONS_UPDATE;
@@ -62,7 +64,7 @@ public class ClientboundMapItemDataPacket extends DataPacket {
         this.putByte(this.dimensionId);
         this.putBoolean(this.isLocked);
 
-        if ((update & 0x08) != 0) {
+        if ((update & ENTITIES_UPDATE) != 0) {
             this.putUnsignedVarInt(eids.length);
             for (int eid : eids) {
                 this.putEntityUniqueId(eid);

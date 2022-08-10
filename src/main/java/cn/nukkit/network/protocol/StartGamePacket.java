@@ -91,6 +91,7 @@ public class StartGamePacket extends DataPacket {
     public int enchantmentSeed;
 
     public String multiplayerCorrelationId = "";
+    public byte chatRestrictionLevel;
 
     @Override
     public void decode() {
@@ -153,7 +154,7 @@ public class StartGamePacket extends DataPacket {
         this.putString(""); // EduSharedUriResource buttonName
         this.putString(""); // EduSharedUriResource linkUri
         this.putBoolean(false); // Experimental Gameplay
-        this.putInt(ChatRestrictionLevel.DISABLED.ordinal());
+        this.putByte(this.chatRestrictionLevel);
         this.putBoolean(false); // disables player interactions
 
         this.putString(this.levelId);
@@ -177,5 +178,6 @@ public class StartGamePacket extends DataPacket {
         }
         this.putLLong(0L); // BlockRegistryChecksum
         this.putUUID(UUID.randomUUID()); // WorldTemplateId
+        this.putBoolean(false);
     }
 }

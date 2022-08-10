@@ -47,11 +47,7 @@ public class UpdateAttributesPacket extends DataPacket {
             }
         }
         this.putUnsignedVarInt(this.frame);
-        try {
-            this.put(NBTIO.writeNetwork(new CompoundTag("")));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.putUnsignedVarInt(0);
     }
 
 }

@@ -27,10 +27,6 @@ public class NetworkChunkPublisherUpdatePacket extends DataPacket {
         this.reset();
         this.putSignedBlockPosition(position);
         this.putUnsignedVarInt(radius);
-        try {
-            this.put(NBTIO.writeNetwork(new CompoundTag("")));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.putInt(0);
     }
 }

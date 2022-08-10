@@ -2,6 +2,8 @@ package cn.nukkit.network.protocol;
 
 import cn.nukkit.api.Since;
 import cn.nukkit.entity.Attribute;
+import cn.nukkit.nbt.NBTIO;
+import cn.nukkit.nbt.tag.CompoundTag;
 import lombok.ToString;
 
 /**
@@ -42,6 +44,7 @@ public class UpdateAttributesPacket extends DataPacket {
                 this.putLFloat(entry.getValue());
                 this.putLFloat(entry.getDefaultValue());
                 this.putString(entry.getName());
+                this.putUnsignedVarInt(0);
             }
         }
         this.putUnsignedVarInt(this.frame);

@@ -2080,19 +2080,20 @@ public class Level implements ChunkManager, Metadatable {
         }
     }
 
-    public void dropItem(Vector3 source, Item item) {
-        this.dropItem(source, item, null);
+    public EntityItem dropItem(Vector3 source, Item item) {
+        return this.dropItem(source, item, null);
     }
 
-    public void dropItem(Vector3 source, Item item, Vector3 motion) {
-        this.dropItem(source, item, motion, 10);
+    public EntityItem dropItem(Vector3 source, Item item, Vector3 motion) {
+        return this.dropItem(source, item, motion, 10);
     }
 
-    public void dropItem(Vector3 source, Item item, Vector3 motion, int delay) {
-        this.dropItem(source, item, motion, false, delay);
+    public EntityItem dropItem(Vector3 source, Item item, Vector3 motion, int delay) {
+        return this.dropItem(source, item, motion, false, delay);
     }
 
-    public void dropItem(Vector3 source, Item item, Vector3 motion, boolean dropAround, int delay) {
+    public EntityItem dropItem(Vector3 source, Item item, Vector3 motion, boolean dropAround, int delay) {
+        EntityItem itemEntity = null;
         if (item.getId() != 0 && item.getCount() > 0) {
             if (motion == null) {
                 if (dropAround) {
@@ -2106,7 +2107,7 @@ public class Level implements ChunkManager, Metadatable {
                 }
             }
 
-            EntityItem itemEntity = (EntityItem) Entity.createEntity("Item",
+            itemEntity = (EntityItem) Entity.createEntity("Item",
                     this.getChunk((int) source.getX() >> 4, (int) source.getZ() >> 4, true),
                     Entity.getDefaultNBT(source, motion, new Random().nextFloat() * 360, 0)
                             .putShort("Health", 5)
@@ -2117,6 +2118,7 @@ public class Level implements ChunkManager, Metadatable {
                 itemEntity.spawnToAll();
             }
         }
+        return itemEntity;
     }
 
     @Since("1.4.0.0-PN")

@@ -2093,19 +2093,19 @@ public class Level implements ChunkManager, Metadatable {
     }
 
     public void dropItem(Vector3 source, Item item, Vector3 motion, boolean dropAround, int delay) {
-        if (motion == null) {
-            if (dropAround) {
-                float f = ThreadLocalRandom.current().nextFloat() * 0.5f;
-                float f1 = ThreadLocalRandom.current().nextFloat() * ((float) Math.PI * 2);
-
-                motion = new Vector3(-MathHelper.sin(f1) * f, 0.20000000298023224, MathHelper.cos(f1) * f);
-            } else {
-                motion = new Vector3(new java.util.Random().nextDouble() * 0.2 - 0.1, 0.2,
-                        new java.util.Random().nextDouble() * 0.2 - 0.1);
-            }
-        }
-
         if (item.getId() != 0 && item.getCount() > 0) {
+            if (motion == null) {
+                if (dropAround) {
+                    float f = ThreadLocalRandom.current().nextFloat() * 0.5f;
+                    float f1 = ThreadLocalRandom.current().nextFloat() * ((float) Math.PI * 2);
+
+                    motion = new Vector3(-MathHelper.sin(f1) * f, 0.20000000298023224, MathHelper.cos(f1) * f);
+                } else {
+                    motion = new Vector3(new java.util.Random().nextDouble() * 0.2 - 0.1, 0.2,
+                            new java.util.Random().nextDouble() * 0.2 - 0.1);
+                }
+            }
+
             EntityItem itemEntity = (EntityItem) Entity.createEntity("Item",
                     this.getChunk((int) source.getX() >> 4, (int) source.getZ() >> 4, true),
                     Entity.getDefaultNBT(source, motion, new Random().nextFloat() * 360, 0)

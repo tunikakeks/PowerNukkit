@@ -188,16 +188,11 @@ public interface ProtocolInfo {
     @Since("1.5.0.0-PN") @PowerNukkitOnly @Deprecated @DeprecationDetails(since = "1.5.2.0-PN", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "SYNC_ENTITY_PROPERTY_PACKET") byte SYNC_ENTITY_PROPERTY = SYNC_ENTITY_PROPERTY_PACKET;
     @Since("1.5.0.0-PN") @PowerNukkitOnly @Deprecated @DeprecationDetails(since = "1.5.2.0-PN", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "ADD_VOLUME_ENTITY_PACKET") byte ADD_VOLUME_ENTITY = ADD_VOLUME_ENTITY_PACKET;
     @Since("1.5.0.0-PN") @PowerNukkitOnly @Deprecated @DeprecationDetails(since = "1.5.2.0-PN", reason = "Incorrect naming convention", by = "PowerNukkit", replaceWith = "REMOVE_VOLUME_ENTITY_PACKET") byte REMOVE_VOLUME_ENTITY = REMOVE_VOLUME_ENTITY_PACKET;
-<<<<<<< HEAD
     @Since("1.5.2.0-PN") @PowerNukkitOnly byte SIMULATION_TYPE_PACKET = (byte) 0xa8;
     @Since("1.5.2.0-PN") @PowerNukkitOnly byte NPC_DIALOGUE_PACKET = (byte) 0xa9;
     @Since("FUTURE") @PowerNukkitOnly byte CREATE_PHOTO_PACKET = (byte) 0xab;
     @Since("FUTURE") byte TOAST_REQUEST_PACKET = (byte) 0xba;
-=======
-    @Since("1.5.2.0-PN") byte SIMULATION_TYPE_PACKET = (byte) 0xa8;
-    @Since("1.5.2.0-PN") byte NPC_DIALOGUE_PACKET = (byte) 0xa9;
     byte EDU_URI_RESOURCE_PACKET = (byte) 0xaa;
-    byte CREATE_PHOTO_PACKET = (byte) 0xab;
     byte UPDATE_SUB_CHUNK_BLOCKS_PACKET = (byte) 0xac;
     byte PHOTO_INFO_REQUEST_PACKET = (byte) 0xad;
     byte SUB_CHUNK_PACKET = (byte) 0xae;
@@ -212,11 +207,9 @@ public interface ProtocolInfo {
     byte LESSON_PROGRESS_PACKET = (byte) 0xb7;
     byte REQUEST_ABILITY_PACKET = (byte) 0xb8;
     byte REQUEST_PERMISSIONS_PACKET = (byte) 0xb9;
-    byte TOAST_REQUEST_PACKET = (byte) 0xba;
     @Since("FUTURE") byte UPDATE_ABILITIES_PACKET = (byte) 0xbb;
     @Since("FUTURE") byte UPDATE_ADVENTURE_SETTINGS_PACKET = (byte) 0xbc;
     @Since("FUTURE") byte REQUEST_NETWORK_SETTINGS_PACKET = (byte) 0xc1;
->>>>>>> 407422c8c7 (Update protocol related things to 1.19.30)
 
     byte BATCH_PACKET = (byte) 0xff;
 }

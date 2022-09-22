@@ -231,7 +231,7 @@ public class RakNetInterface implements RakNetServerListener, AdvancedSourceInte
     @DeprecationDetails(since = "FUTURE", reason = "New Player method for sending the packet immediately has added by Cloudburst Nukkit", replaceWith = "Player.forceDataPacket(DataPacket, Runnable)")
     @Override
     public Integer putResourcePacket(Player player, DataPacket packet) {
-        RakNetPlayerSession session = this.sessions.get(player.getRawSocketAddress());
+        RakNetPlayerSession session = this.sessions.get(player.getSocketAddress());
         if (session != null) {
             session.sendImmediatePacket(packet, () -> {});
         }

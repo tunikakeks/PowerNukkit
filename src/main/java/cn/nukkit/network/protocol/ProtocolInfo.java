@@ -17,11 +17,11 @@ public interface ProtocolInfo {
     /**
      * Actual Minecraft: PE protocol version
      */
-    int CURRENT_PROTOCOL = dynamic(545);
+    int CURRENT_PROTOCOL = dynamic(554);
 
-    List<Integer> SUPPORTED_PROTOCOLS = Ints.asList(CURRENT_PROTOCOL, 544);
+    List<Integer> SUPPORTED_PROTOCOLS = Ints.asList(CURRENT_PROTOCOL);
 
-    String MINECRAFT_VERSION_NETWORK = dynamic("1.19.20");
+    String MINECRAFT_VERSION_NETWORK = dynamic("1.19.30");
     String MINECRAFT_VERSION = dynamic("v" + MINECRAFT_VERSION_NETWORK);
 
     byte LOGIN_PACKET = 0x01;
@@ -192,6 +192,24 @@ public interface ProtocolInfo {
     @Since("1.5.2.0-PN") @PowerNukkitOnly byte NPC_DIALOGUE_PACKET = (byte) 0xa9;
     @Since("FUTURE") @PowerNukkitOnly byte CREATE_PHOTO_PACKET = (byte) 0xab;
     @Since("FUTURE") byte TOAST_REQUEST_PACKET = (byte) 0xba;
+    byte EDU_URI_RESOURCE_PACKET = (byte) 0xaa;
+    byte UPDATE_SUB_CHUNK_BLOCKS_PACKET = (byte) 0xac;
+    byte PHOTO_INFO_REQUEST_PACKET = (byte) 0xad;
+    byte SUB_CHUNK_PACKET = (byte) 0xae;
+    byte SUB_CHUNK_REQUEST_PACKET = (byte) 0xaf;
+    byte PLAYER_START_ITEM_COOLDOWN_PACKET = (byte) 0xb0;
+    byte SCRIPT_MESSAGE_PACKET = (byte) 0xb1;
+    byte CODE_BUILDER_SOURCE_PACKET = (byte) 0xb2;
+    byte TICKING_AREAS_LOAD_STATUS_PACKET = (byte) 0xb3;
+    byte DIMENSION_DATA_PACKET = (byte) 0xb4;
+    byte AGENT_ACTION_EVENT_PACKET = (byte) 0xb5;
+    byte CHANGE_MOB_PROPERTY_PACKET = (byte) 0xb6;
+    byte LESSON_PROGRESS_PACKET = (byte) 0xb7;
+    byte REQUEST_ABILITY_PACKET = (byte) 0xb8;
+    byte REQUEST_PERMISSIONS_PACKET = (byte) 0xb9;
+    @Since("FUTURE") byte UPDATE_ABILITIES_PACKET = (byte) 0xbb;
+    @Since("FUTURE") byte UPDATE_ADVENTURE_SETTINGS_PACKET = (byte) 0xbc;
+    @Since("FUTURE") byte REQUEST_NETWORK_SETTINGS_PACKET = (byte) 0xc1;
 
     byte BATCH_PACKET = (byte) 0xff;
 }

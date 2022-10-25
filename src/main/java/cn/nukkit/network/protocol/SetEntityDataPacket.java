@@ -31,6 +31,7 @@ public class SetEntityDataPacket extends DataPacket {
         this.reset();
         this.putEntityRuntimeId(this.eid);
         this.put(Binary.writeMetadata(this.metadata));
+        this.put(Binary.writeMetadata(new EntityMetadata()));
         this.putUnsignedVarLong(this.frame);
     }
 }

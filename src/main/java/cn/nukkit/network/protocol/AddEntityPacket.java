@@ -8,6 +8,7 @@ import cn.nukkit.entity.passive.*;
 import cn.nukkit.entity.projectile.*;
 import cn.nukkit.entity.weather.EntityLightning;
 import cn.nukkit.network.protocol.types.EntityLink;
+import cn.nukkit.network.protocol.types.PropertyData;
 import cn.nukkit.utils.Binary;
 import com.google.common.collect.ImmutableMap;
 import lombok.ToString;
@@ -161,6 +162,7 @@ public class AddEntityPacket extends DataPacket {
     public float headYaw;
     public float bodyYaw = -1;
     public EntityMetadata metadata = new EntityMetadata();
+    public PropertyData properties = new PropertyData(new int[0], new float[0]);
     public Attribute[] attributes = Attribute.EMPTY_ARRAY;
     public EntityLink[] links = EntityLink.EMPTY_ARRAY;
 
@@ -186,6 +188,18 @@ public class AddEntityPacket extends DataPacket {
         this.putLFloat(this.bodyYaw == -1 ? this.yaw : this.bodyYaw);
         this.putAttributeList(this.attributes);
         this.put(Binary.writeMetadata(this.metadata));
+        this.putUnsignedVarInt(this.properties.getIntProperties().length);
+        int intLength = this.properties.getIntProperties().length;
+        for (int i = 0; i < intLength; i++) {
+            this.putUnsignedVarInt(i);
+            this.putVarInt(this.properties.getIntProperties()[i]);
+        }
+        this.putUnsignedVarInt(this.properties.getFloatProperties().length);
+        int floatLength = this.properties.getFloatProperties().length;
+        for (int i = 0; i < floatLength; i++) {
+            this.putUnsignedVarInt(i);
+            this.putLFloat(this.properties.getFloatProperties()[i]);
+        }
         this.putUnsignedVarInt(this.links.length);
         for (EntityLink link : links) {
             putEntityLink(link);

@@ -18,7 +18,6 @@ public class AbilityLayer {
         BASE,
         SPECTATOR,
         COMMANDS,
-
         EDITOR
     }
 }

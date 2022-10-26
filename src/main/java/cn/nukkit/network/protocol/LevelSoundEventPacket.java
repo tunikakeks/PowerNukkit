@@ -443,9 +443,10 @@ public class LevelSoundEventPacket extends DataPacket {
     @Since("FUTURE") public static final int SOUND_ITEM_THROWN = 438;
     @Since("FUTURE") public static final int SOUND_RECORD_5 = 439;
     @Since("FUTURE") public static final int SOUND_CONVERT_TO_FROG = 440;
-    @Since("FUTURE") public static final int SOUND_UNDEFINED = 441;
-    public static final int SOUND_MILK_DRINK = 432;
     public static final int SOUND_RECORD_PLAYING = 441;
+    @Since("FUTURE") public static final int SOUND_ENCHANTING_TABLE_USE = 442;
+    @Since("FUTURE") public static final int SOUND_UNDEFINED = 443;
+    public static final int SOUND_MILK_DRINK = 432;
 
     public int sound;
     public float x;

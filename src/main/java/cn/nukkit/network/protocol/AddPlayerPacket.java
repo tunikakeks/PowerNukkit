@@ -4,6 +4,7 @@ import cn.nukkit.Server;
 import cn.nukkit.api.Since;
 import cn.nukkit.entity.data.EntityMetadata;
 import cn.nukkit.item.Item;
+import cn.nukkit.network.protocol.types.PropertyData;
 import cn.nukkit.utils.Binary;
 import lombok.ToString;
 
@@ -37,6 +38,7 @@ public class AddPlayerPacket extends DataPacket {
     public Item item;
     @Since("1.6.0.0-PN") public int gameType = Server.getInstance().getGamemode();
     public EntityMetadata metadata = new EntityMetadata();
+    public PropertyData properties = new PropertyData(new int[0], new float[0]);
     //public EntityLink links = new EntityLink[0];
     public String deviceId = "";
     public int buildPlatform = -1;
@@ -62,7 +64,18 @@ public class AddPlayerPacket extends DataPacket {
         this.putSlot(this.item);
         this.putVarInt(this.gameType);
         this.put(Binary.writeMetadata(this.metadata));
-        this.put(Binary.writeMetadata(new EntityMetadata()));
+        this.putUnsignedVarInt(this.properties.getIntProperties().length);
+        int intLength = this.properties.getIntProperties().length;
+        for (int i = 0; i < intLength; i++) {
+            this.putUnsignedVarInt(i);
+            this.putVarInt(this.properties.getIntProperties()[i]);
+        }
+        this.putUnsignedVarInt(this.properties.getFloatProperties().length);
+        int floatLength = this.properties.getFloatProperties().length;
+        for (int i = 0; i < floatLength; i++) {
+            this.putUnsignedVarInt(i);
+            this.putLFloat(this.properties.getFloatProperties()[i]);
+        }
 
         // other stuff
         this.putLLong(entityUniqueId);

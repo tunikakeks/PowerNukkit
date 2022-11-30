@@ -17,11 +17,11 @@ public interface ProtocolInfo {
     /**
      * Actual Minecraft: PE protocol version
      */
-    int CURRENT_PROTOCOL = dynamic(557);
+    int CURRENT_PROTOCOL = dynamic(560);
 
     List<Integer> SUPPORTED_PROTOCOLS = Ints.asList(CURRENT_PROTOCOL);
 
-    String MINECRAFT_VERSION_NETWORK = dynamic("1.19.40");
+    String MINECRAFT_VERSION_NETWORK = dynamic("1.19.50");
     String MINECRAFT_VERSION = dynamic("v" + MINECRAFT_VERSION_NETWORK);
 
     byte LOGIN_PACKET = 0x01;
@@ -210,6 +210,7 @@ public interface ProtocolInfo {
     @Since("FUTURE") byte UPDATE_ABILITIES_PACKET = (byte) 0xbb;
     @Since("FUTURE") byte UPDATE_ADVENTURE_SETTINGS_PACKET = (byte) 0xbc;
     @Since("FUTURE") byte REQUEST_NETWORK_SETTINGS_PACKET = (byte) 0xc1;
+    byte UPDATE_CLIENT_INPUT_LOCKS_PACKET = (byte) 0xc4;
 
     byte BATCH_PACKET = (byte) 0xff;
 }

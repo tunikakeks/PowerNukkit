@@ -40,7 +40,7 @@ public class StartGamePacket extends DataPacket {
     public float z;
     public float yaw;
     public float pitch;
-    public long seed;
+    public int seed;
     public byte dimension;
     public int generator = 1;
     public int worldGamemode;
@@ -49,11 +49,10 @@ public class StartGamePacket extends DataPacket {
     public int spawnY;
     public int spawnZ;
     public boolean hasAchievementsDisabled = true;
-
     public boolean worldEditor;
     public int dayCycleStopTime = -1; //-1 = not stopped, any positive value = stopped at that time
     public int eduEditionOffer = 0;
-    public boolean hasEduFeaturesEnabled = false;
+    public boolean hasEduFeaturesEnabled = Server.getInstance().isEducationEditionEnabled();
     public float rainLevel;
     public float lightningLevel;
     public boolean hasConfirmedPlatformLockedContent = false;
@@ -63,11 +62,11 @@ public class StartGamePacket extends DataPacket {
     public int platformBroadcastIntent = GAME_PUBLISH_SETTING_PUBLIC;
     public boolean commandsEnabled;
     public boolean isTexturePacksRequired = false;
-
     public GameRules gameRules;
     public boolean bonusChest = false;
     public boolean hasStartWithMapEnabled = false;
-
+    @Since("1.3.0.0-PN")
+    public boolean trustingPlayers;
     public int permissionLevel = 1;
     public int serverChunkTickRange = 4;
     public boolean hasLockedBehaviorPack = false;
@@ -77,41 +76,21 @@ public class StartGamePacket extends DataPacket {
     public boolean isFromWorldTemplate = false;
     public boolean isWorldTemplateOptionLocked = false;
     public boolean isOnlySpawningV1Villagers = false;
-
     public String vanillaVersion = ProtocolInfo.MINECRAFT_VERSION_NETWORK;
-    //HACK: For now we can specify this version, since the new chunk changes are not relevant for our Anvil format.
-    //However, it could be that Microsoft will prevent this in a new update.
-
     public String levelId = ""; //base64 string, usually the same as world folder name in vanilla
     public String worldName;
     public String premiumWorldTemplateId = "";
     public boolean isTrial = false;
-    @Deprecated
     public boolean isMovementServerAuthoritative;
-    @Since("1.19.40-r3")
-    public Integer serverAuthoritativeMovement;
     @Since("1.3.0.0-PN")
     public boolean isInventoryServerAuthoritative;
-
     public long currentTick;
+    public long blockRegistryChecksum = 0;
 
     public int enchantmentSeed;
 
     public String multiplayerCorrelationId = "";
-
-    public boolean isDisablingPersonas;
-
-    public boolean isDisablingCustomSkins;
-
-    public boolean clientSideGenerationEnabled;
-    /**
-     * @since v567
-     */
-    public boolean emoteChatMuted;
-
     public byte chatRestrictionLevel;
-
-    public boolean disablePlayerInteractions;
 
     @Override
     public void decode() {
@@ -127,7 +106,7 @@ public class StartGamePacket extends DataPacket {
         this.putVector3f(this.x, this.y, this.z);
         this.putLFloat(this.yaw);
         this.putLFloat(this.pitch);
-        /* Level settings start */
+
         this.putLLong(this.seed);
         this.putLShort(0x00); // SpawnBiomeType - Default
         this.putString("plains"); // UserDefinedBiomeName
@@ -152,7 +131,7 @@ public class StartGamePacket extends DataPacket {
         this.putBoolean(this.commandsEnabled);
         this.putBoolean(this.isTexturePacksRequired);
         this.putGameRules(this.gameRules);
-        this.putLInt(0);
+        this.putLInt(0); // Experiment count
         this.putBoolean(false); // Were experiments previously toggled
         this.putBoolean(this.bonusChest);
         this.putBoolean(this.hasStartWithMapEnabled);
@@ -165,48 +144,40 @@ public class StartGamePacket extends DataPacket {
         this.putBoolean(this.isFromWorldTemplate);
         this.putBoolean(this.isWorldTemplateOptionLocked);
         this.putBoolean(this.isOnlySpawningV1Villagers);
-        this.putBoolean(this.isDisablingPersonas);
-        this.putBoolean(this.isDisablingCustomSkins);
-        this.putBoolean(this.emoteChatMuted);
-        this.putString("*"); // vanillaVersion
+        this.putBoolean(false); // disabling persona skins
+        this.putBoolean(false); // disabling custom skins
+        this.putBoolean(false); // emoteChatMuted
+        this.putString(this.vanillaVersion);
         this.putLInt(16); // Limited world width
         this.putLInt(16); // Limited world height
         this.putBoolean(false); // Nether type
         this.putString(""); // EduSharedUriResource buttonName
         this.putString(""); // EduSharedUriResource linkUri
-        this.putBoolean(!Server.getInstance().getConfig("settings.waterdogpe", false)); // Why WaterDogPE require an extra optional boolean if this is set to true? I don't know.
-        this.putBoolean(false);
+        this.putBoolean(false); // Experimental Gameplay
         this.putByte(this.chatRestrictionLevel);
-        this.putBoolean(this.disablePlayerInteractions);
-        /* Level settings end */
+        this.putBoolean(false); // disables player interactions
+
         this.putString(this.levelId);
         this.putString(this.worldName);
         this.putString(this.premiumWorldTemplateId);
         this.putBoolean(this.isTrial);
-        this.putVarInt(0);// 2 - rewind
+        this.putUnsignedVarInt(this.isMovementServerAuthoritative ? 1 : 0); // 2 - rewind
         this.putVarInt(0); // RewindHistorySize
-        if (this.serverAuthoritativeMovement != null) {
-            this.putBoolean(this.serverAuthoritativeMovement > 0); // isServerAuthoritativeBlockBreaking
-        } else {//兼容nkx旧插件
-            this.putBoolean(this.isMovementServerAuthoritative); // isServerAuthoritativeBlockBreaking
-        }
+        this.putBoolean(false); // isServerAuthoritativeBlockBreaking
         this.putLLong(this.currentTick);
         this.putVarInt(this.enchantmentSeed);
-
-        // Custom blocks
-        this.putUnsignedVarInt(0);
-
+        this.putUnsignedVarInt(0); // Custom blocks
         this.put(RuntimeItems.getRuntimeMapping().getItemDataPalette());
         this.putString(this.multiplayerCorrelationId);
         this.putBoolean(this.isInventoryServerAuthoritative);
-        this.putString(vanillaVersion); // Server Engine
+        this.putString(""); // Server Engine
         try {
-            this.put(NBTIO.writeNetwork(new CompoundTag(""))); // playerPropertyData
+            this.put(NBTIO.writeNetwork(new CompoundTag(""))); // PlayerPropertyData
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-        this.putLLong(0); // blockRegistryChecksum
-        this.putUUID(new UUID(0, 0)); // worldTemplateId
-        this.putBoolean(this.clientSideGenerationEnabled);
+        this.putLLong(0L); // BlockRegistryChecksum
+        this.putUUID(UUID.randomUUID()); // WorldTemplateId
+        this.putBoolean(false);
     }
 }

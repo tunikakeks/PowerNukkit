@@ -1,9 +1,7 @@
 package cn.nukkit.network.protocol;
 
 import cn.nukkit.Server;
-import cn.nukkit.api.PowerNukkitXOnly;
 import cn.nukkit.api.Since;
-import cn.nukkit.block.customblock.CustomBlockDefinition;
 import cn.nukkit.item.RuntimeItems;
 import cn.nukkit.level.GameRules;
 import cn.nukkit.nbt.NBTIO;
@@ -12,10 +10,6 @@ import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
-import java.nio.ByteOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -94,7 +88,6 @@ public class StartGamePacket extends DataPacket {
     public boolean isTrial = false;
     @Deprecated
     public boolean isMovementServerAuthoritative;
-    @PowerNukkitXOnly
     @Since("1.19.40-r3")
     public Integer serverAuthoritativeMovement;
     @Since("1.3.0.0-PN")
@@ -103,8 +96,6 @@ public class StartGamePacket extends DataPacket {
     public long currentTick;
 
     public int enchantmentSeed;
-
-    public final List<CustomBlockDefinition> blockProperties = new ArrayList<>();
 
     public String multiplayerCorrelationId = "";
 
@@ -161,25 +152,8 @@ public class StartGamePacket extends DataPacket {
         this.putBoolean(this.commandsEnabled);
         this.putBoolean(this.isTexturePacksRequired);
         this.putGameRules(this.gameRules);
-        if (Server.getInstance().isEnableExperimentMode() && !Server.getInstance().getConfig("settings.waterdogpe", false)) {
-            this.putLInt(3); // Experiment count
-            {
-                this.putString("data_driven_items");
-                this.putBoolean(true);
-                //this.putString("data_driven_biomes");
-                //this.putBoolean(true);
-                this.putString("upcoming_creator_features");
-                this.putBoolean(true);
-                //this.putString("gametest");
-                //this.putBoolean(true);
-                this.putString("experimental_molang_features");
-                this.putBoolean(true);
-            }
-            this.putBoolean(true); // Were experiments previously toggled
-        } else {
-            this.putLInt(0);
-            this.putBoolean(false); // Were experiments previously toggled
-        }
+        this.putLInt(0);
+        this.putBoolean(false); // Were experiments previously toggled
         this.putBoolean(this.bonusChest);
         this.putBoolean(this.hasStartWithMapEnabled);
         this.putVarInt(this.permissionLevel);
@@ -200,11 +174,8 @@ public class StartGamePacket extends DataPacket {
         this.putBoolean(false); // Nether type
         this.putString(""); // EduSharedUriResource buttonName
         this.putString(""); // EduSharedUriResource linkUri
-        if (Server.getInstance().isEnableExperimentMode()) { // force Experimental Gameplay
-            this.putBoolean(!Server.getInstance().getConfig("settings.waterdogpe", false)); // Why WaterDogPE require an extra optional boolean if this is set to true? I don't know.
-        } else {
-            this.putBoolean(false);
-        }
+        this.putBoolean(!Server.getInstance().getConfig("settings.waterdogpe", false)); // Why WaterDogPE require an extra optional boolean if this is set to true? I don't know.
+        this.putBoolean(false);
         this.putByte(this.chatRestrictionLevel);
         this.putBoolean(this.disablePlayerInteractions);
         /* Level settings end */
@@ -212,7 +183,7 @@ public class StartGamePacket extends DataPacket {
         this.putString(this.worldName);
         this.putString(this.premiumWorldTemplateId);
         this.putBoolean(this.isTrial);
-        this.putVarInt(Objects.requireNonNullElseGet(this.serverAuthoritativeMovement, () -> this.isMovementServerAuthoritative ? 1 : 0));// 2 - rewind
+        this.putVarInt(0);// 2 - rewind
         this.putVarInt(0); // RewindHistorySize
         if (this.serverAuthoritativeMovement != null) {
             this.putBoolean(this.serverAuthoritativeMovement > 0); // isServerAuthoritativeBlockBreaking
@@ -223,15 +194,7 @@ public class StartGamePacket extends DataPacket {
         this.putVarInt(this.enchantmentSeed);
 
         // Custom blocks
-        this.putUnsignedVarInt(this.blockProperties.size());
-        try {
-            for (CustomBlockDefinition customBlockDefinition : this.blockProperties) {
-                this.putString(customBlockDefinition.identifier());
-                this.put(NBTIO.write(customBlockDefinition.nbt(), ByteOrder.LITTLE_ENDIAN, true));
-            }
-        } catch (IOException e) {
-            log.error("Error while encoding NBT data of BlockPropertyData", e);
-        }
+        this.putUnsignedVarInt(0);
 
         this.put(RuntimeItems.getRuntimeMapping().getItemDataPalette());
         this.putString(this.multiplayerCorrelationId);

@@ -13,7 +13,6 @@ import static cn.nukkit.utils.Utils.dynamic;
  * @author MagicDroidX &amp; iNevet (Nukkit Project)
  */
 public interface ProtocolInfo {
-
     /**
      * Actual Minecraft: PE protocol version
      */

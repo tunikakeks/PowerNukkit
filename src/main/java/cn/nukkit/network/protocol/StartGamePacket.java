@@ -91,6 +91,22 @@ public class StartGamePacket extends DataPacket {
 
     public String multiplayerCorrelationId = "";
     public byte chatRestrictionLevel;
+    
+    /**
+     * Whether block runtime IDs should be replaced by 32-bit integer hashes of the NBT block state.
+     * Unlike runtime IDs, this hashes should be persistent across versions and should make support for data-driven/custom blocks easier.
+     *
+     * @since v582
+     */
+    public boolean blockNetworkIdsHashed;
+    /**
+     * @since v582
+     */
+    public boolean createdInEditor;
+    /**
+     * @since v582
+     */
+    public boolean exportedFromEditor;
 
     @Override
     public void decode() {
@@ -117,6 +133,8 @@ public class StartGamePacket extends DataPacket {
         this.putBlockVector3(this.spawnX, this.spawnY, this.spawnZ);
         this.putBoolean(this.hasAchievementsDisabled);
         this.putBoolean(this.worldEditor);
+        this.putBoolean(this.createdInEditor);
+        this.putBoolean(this.exportedFromEditor);
         this.putVarInt(this.dayCycleStopTime);
         this.putVarInt(this.eduEditionOffer);
         this.putBoolean(this.hasEduFeaturesEnabled);
@@ -178,6 +196,7 @@ public class StartGamePacket extends DataPacket {
         }
         this.putLLong(0L); // BlockRegistryChecksum
         this.putUUID(UUID.randomUUID()); // WorldTemplateId
+        this.putBoolean(this.blockNetworkIdsHashed);
         this.putBoolean(false);
     }
 }

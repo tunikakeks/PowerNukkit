@@ -197,6 +197,6 @@ public class StartGamePacket extends DataPacket {
         this.putLLong(0L); // BlockRegistryChecksum
         this.putUUID(UUID.randomUUID()); // WorldTemplateId
         this.putBoolean(true);
-        this.putBoolean(true);
+        this.putBoolean(false);
     }
 }

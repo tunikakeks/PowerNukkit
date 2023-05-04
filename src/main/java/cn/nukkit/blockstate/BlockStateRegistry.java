@@ -167,17 +167,22 @@ public class BlockStateRegistry {
                 states.putByte("new_log_type", (byte) 1);
             }
 
-            state.putCompound("states", states);
+            CompoundTag newState = new CompoundTag();
+            newState.putString("name", name);
+            newState.putCompound("states", states);
+            newState.putInt("blockId", blockId);
+            newState.putInt("runtimeId", runtimeId);
+            newState.putInt("version", state.getInt("version"));
             
             if (isNameOwnerOfId(name, blockId)) {
                 registerPersistenceName(blockId, name);
-                registerStateId(state, runtimeId);
+                registerStateId(newState, runtimeId);
             } else if (blockId == -1) {if (blockId == -1) {
                 if (warned.add(name)) {
                     log.warn("Unknown block id for the block named {}", name);
                 }
-                log.info("Block {} - {}", state, runtimeId);
-                registerStateId(state, runtimeId);
+                log.info("Block {} - {}", newState, runtimeId);
+                registerStateId(newState, runtimeId);
             }
         }
 

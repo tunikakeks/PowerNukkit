@@ -103,6 +103,6 @@ public class RuntimeItems {
         return legacyString2LegacyInt.getOrDefault(identifier, -1);
     }
 
-    public record MappingEntry(String legacyName, int damage) {
+    public class MappingEntry(String legacyName, int damage) {
     }
 }

@@ -167,8 +167,8 @@ public class BlockStateRegistry {
                 states.putByte("new_log_type", (byte) 1);
             }
 
-            state.putCompound("states", states)
-                
+            state.putCompound("states", states);
+            
             if (isNameOwnerOfId(name, blockId)) {
                 registerPersistenceName(blockId, name);
                 registerStateId(state, runtimeId);

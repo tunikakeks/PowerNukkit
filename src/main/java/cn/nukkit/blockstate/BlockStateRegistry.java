@@ -134,7 +134,17 @@ public class BlockStateRegistry {
             
             // Special condition: minecraft:wood maps 3 blocks, minecraft:wood, minecraft:log and minecraft:log2
             // All other cases, register the name normally
-            if (isNameOwnerOfId(name, blockId)) {
+
+            // minecraft:oak_log is the canonical name for minecraft:log
+            // minecraft:birch_log is the canonical name for minecraft:log2
+            
+            if (name.equals("minecraft:oak_log")) {
+                registerPersistenceName(blockId, "minecraft:log");
+                registerStateId(state, runtimeId);
+            } else if (name.equals("minecraft:birch_log")) {
+                registerPersistenceName(blockId, "minecraft:log2");
+                registerStateId(state, runtimeId);
+            } else if (isNameOwnerOfId(name, blockId)) {
                 registerPersistenceName(blockId, name);
                 registerStateId(state, runtimeId);
             } else if (blockId == -1) {

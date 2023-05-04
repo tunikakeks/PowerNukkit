@@ -177,7 +177,7 @@ public class BlockStateRegistry {
             if (isNameOwnerOfId(newState.getString("name"), blockId)) {
                 registerPersistenceName(blockId, newState.getString("name"));
                 registerStateId(newState, runtimeId);
-            } else if (blockId == -1) {if (blockId == -1) {
+            } else if (blockId == -1) {
                 if (warned.add(name)) {
                     log.warn("Unknown block id for the block named {}", newState.getString("name"));
                 }

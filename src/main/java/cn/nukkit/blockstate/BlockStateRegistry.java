@@ -38,6 +38,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import cn.nukkit.item.RuntimeItems;
 
 @PowerNukkitOnly
 @Since("1.4.0.0-PN")

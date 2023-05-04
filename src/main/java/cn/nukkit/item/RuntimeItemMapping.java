@@ -1,7 +1,6 @@
 package cn.nukkit.item;
 
 import cn.nukkit.Server;
-import cn.nukkit.api.DoNotModify;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
 import cn.nukkit.item.RuntimeItems.MappingEntry;
@@ -341,7 +340,7 @@ public class RuntimeItemMapping {
         this.namespacedIdItem.put(namespacedId.toLowerCase(Locale.ENGLISH), constructor);
     }
 
-    @DoNotModify
+    
     public static Int2ObjectOpenHashMap<String> getBlockMapping() {
         return mappingEntries;
     }

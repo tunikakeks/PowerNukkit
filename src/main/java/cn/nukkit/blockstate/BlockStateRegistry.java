@@ -94,7 +94,7 @@ public class BlockStateRegistry {
 
     private void init() {
         //<editor-fold desc="Loading block_ids.csv" defaultstate="collapsed">
-        try (InputStream stream = Server.class.getModule().getResourceAsStream("block_ids.csv")) {
+        try (InputStream stream = Server.class.getClassLoader().getResourceAsStream("block_ids.csv")) {
             if (stream == null) {
                 throw new AssertionError("Unable to locate block_ids.csv");
             }
@@ -128,7 +128,7 @@ public class BlockStateRegistry {
         //<editor-fold desc="Loading canonical_block_states.nbt" defaultstate="collapsed">
         List<CompoundTag> tags = new ArrayList<>();
         List<String> loadingKnownStateIds = new ArrayList<>();
-        try (InputStream stream = Server.class.getModule().getResourceAsStream("canonical_block_states.nbt")) {
+        try (InputStream stream = Server.class.getClassLoader().getResourceAsStream("canonical_block_states.nbt")) {
             if (stream == null) {
                 throw new AssertionError("Unable to locate block state nbt");
             }
@@ -552,9 +552,6 @@ public class BlockStateRegistry {
      
     public BlockProperties getProperties(int blockId) {
         int fullId = blockId << Block.DATA_BITS;
-        if (blockId > Block.MAX_BLOCK_ID) {
-            return block1.getProperties();
-        }
         Block block;
         if (fullId >= Block.fullList.length || fullId < 0 || (block = Block.fullList[fullId]) == null) {
             return BlockUnknown.PROPERTIES;
@@ -631,10 +628,6 @@ public class BlockStateRegistry {
     @Since("1.19.50-r1")
     public static void close() {
         asyncStateRemover.shutdownNow();
-    }
-
-    private Comparator<String> getBlockIdComparator() {
-        return MinecraftNamespaceComparator::compareFNV;
     }
 
     @AllArgsConstructor

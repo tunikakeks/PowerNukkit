@@ -120,4 +120,12 @@ public class RuntimeItems {
             return damage;
         }
     }
+
+    public static int getNetworkId(int networkFullId) {
+        return networkFullId >> 1;
+    }
+
+    public static boolean hasData(int id) {
+        return (id & 0x1) != 0;
+    }
 }

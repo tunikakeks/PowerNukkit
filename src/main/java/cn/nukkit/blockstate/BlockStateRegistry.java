@@ -141,6 +141,7 @@ public class BlockStateRegistry {
                 if (warned.add(name)) {
                     log.warn("Unknown block id for the block named {}", name);
                 }
+                log.info("Block {} - {}", state, runtimeId);
                 registerStateId(state, runtimeId);
             }
         }

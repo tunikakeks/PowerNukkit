@@ -16,6 +16,8 @@ import cn.nukkit.nbt.tag.Tag;
 import cn.nukkit.utils.BinaryStream;
 import cn.nukkit.utils.HumanStringComparator;
 import com.google.common.base.Preconditions;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import io.netty.util.internal.EmptyArrays;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -55,7 +57,7 @@ public class BlockStateRegistry {
     private final Map<String, Registration> stateIdRegistration = new ConcurrentHashMap<>();
     private final Int2ObjectMap<Registration> runtimeIdRegistration = new Int2ObjectOpenHashMap<>();
 
-    private final Int2ObjectMap<String> blockIdToPersistenceName = new Int2ObjectOpenHashMap<>();
+    private final Int2ObjectOpenHashMap<String> blockIdToPersistenceName = new Int2ObjectOpenHashMap<>();
     private final Map<String, Integer> persistenceNameToBlockId = new LinkedHashMap<>();
     
     private final byte[] blockPaletteBytes;
@@ -112,7 +114,6 @@ public class BlockStateRegistry {
                     blockIdToPersistenceName.put(RuntimeItems.getFullId(id, damage), identifier);
                 }
             }
-            blockIdToPersistenceName.trim();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

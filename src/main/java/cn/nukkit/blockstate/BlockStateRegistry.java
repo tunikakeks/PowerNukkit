@@ -149,32 +149,25 @@ public class BlockStateRegistry {
 
             if(name.equals("minecraft:oak_log")) {
                 name = "minecraft:log";
-                states = new CompoundTag();
                 states.putByte("old_log_type", (byte) 0);
             } else if(name.equals("minecraft:birch_log")) {
                 name = "minecraft:log";
-                states = new CompoundTag();
                 states.putByte("old_log_type", (byte) 2);
             } else if(name.equals("minecraft:spruce_log")) {
                 name = "minecraft:log";
-                states = new CompoundTag();
                 states.putByte("old_log_type", (byte) 1);
             } else if(name.equals("minecraft:jungle_log")) {
                 name = "minecraft:log";
-                states = new CompoundTag();
                 states.putByte("old_log_type", (byte) 3);
             } else if(name.equals("minecraft:acacia_log")) {
                 name = "minecraft:log2";
-                states = new CompoundTag();
                 states.putByte("new_log_type", (byte) 0);
             } else if(name.equals("minecraft:dark_oak_log")) {
                 name = "minecraft:log2";
-                states = new CompoundTag();
                 states.putByte("new_log_type", (byte) 1);
             }
 
-            //merge states back to state
-            state.put("states", states);
+            state.putCompound("states", states)
                 
             if (isNameOwnerOfId(name, blockId)) {
                 registerPersistenceName(blockId, name);

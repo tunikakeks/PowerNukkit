@@ -321,7 +321,7 @@ public class RuntimeItemMapping {
     @Since("1.19.70-r2")
     public void registerNamespacedIdItem( Class<? extends StringItem> item) {
         Constructor<? extends StringItem> declaredConstructor = item.getDeclaredConstructor();
-        const Item = declaredConstructor.newInstance();
+        var Item = declaredConstructor.newInstance();
         registerNamespacedIdItem(Item.getNamespaceId(), stringItemSupplier(declaredConstructor));
     }
 

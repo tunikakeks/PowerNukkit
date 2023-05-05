@@ -216,7 +216,8 @@ public class RuntimeItemMapping {
             runtimeEntry = legacy2Runtime.get(RuntimeItems.getFullId(item.getId(), 0));
         }
         if (runtimeEntry == null) {
-            throw new IllegalArgumentException("Unknown item mapping " + item);
+            //throw new IllegalArgumentException("Unknown item mapping " + item);
+            return -1;
         }
         return runtimeEntry.runtimeId();
     }

@@ -217,7 +217,7 @@ public class RuntimeItemMapping {
         if (runtimeEntry == null) {
             throw new IllegalArgumentException("Unknown item mapping " + item);
         }
-        return runtimeEntry.runtimeId;
+        return runtimeEntry.runtimeId();
     }
 
 
@@ -321,7 +321,7 @@ public class RuntimeItemMapping {
     @Since("1.19.70-r2")
     public void registerNamespacedIdItem( Class<? extends StringItem> item) {
         Constructor<? extends StringItem> declaredConstructor = item.getDeclaredConstructor();
-        var Item = declaredConstructor.newInstance();
+        const Item = declaredConstructor.newInstance();
         registerNamespacedIdItem(Item.getNamespaceId(), stringItemSupplier(declaredConstructor));
     }
 
@@ -369,6 +369,10 @@ public class RuntimeItemMapping {
     }
 
     public class LegacyEntry {
+        public final int legacyId;
+        public final boolean hasDamage;
+        public final int damage;
+
         public LegacyEntry(int legacyId, boolean hasDamage, int damage) {
             this.legacyId = legacyId;
             this.hasDamage = hasDamage;
@@ -393,6 +397,11 @@ public class RuntimeItemMapping {
     }
 
     public class RuntimeEntry {
+        public final String identifier;
+        public final int runtimeId;
+        public final boolean hasDamage;
+        public final boolean isComponent;
+
         public RuntimeEntry(String identifier, int runtimeId, boolean hasDamage, boolean isComponent) {
             this.identifier = identifier;
             this.runtimeId = runtimeId;

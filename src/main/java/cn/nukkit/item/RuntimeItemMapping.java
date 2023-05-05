@@ -284,7 +284,7 @@ public class RuntimeItemMapping {
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     
-    public Item getItemByNamespaceId(@Nonnull String namespaceId, int amount, int runtimeBlockId) {
+    public Item getItemByNamespaceId(String namespaceId, int amount, int runtimeBlockId) {
         int legacyFullId = getLegacyFullId(
                 getNetworkIdByNamespaceId(namespaceId)
                         .orElseThrow(()-> new IllegalArgumentException("The network id of \""+namespaceId+"\" is unknown"))

@@ -206,15 +206,9 @@ public class RuntimeItemMapping {
         int networkFullId = this.legacyNetworkMap.get(fullId);
         if (networkFullId == -1 && !item.hasMeta() && item.getDamage() != 0) { // Fuzzy crafting recipe of a remapped item, like charcoal
             networkFullId = this.legacyNetworkMap.get(RuntimeItems.getFullId(item.getId(), item.getDamage()));
-
-
-        if (networkFullId == -1) {
-            networkFullId = this.legacyNetworkMap.get(RuntimeItems.getFullId(item.getId(), 0));
-
-            if (networkFullId == -1) {
-                return networkFullId;
-            }
         }
+        
+        return networkFullId;
     }
 
     /**

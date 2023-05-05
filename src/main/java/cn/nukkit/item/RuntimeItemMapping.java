@@ -3,6 +3,7 @@ package cn.nukkit.item;
 import cn.nukkit.Server;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.blockstate.BlockStateRegistry;
 import cn.nukkit.item.RuntimeItems.MappingEntry;
 import cn.nukkit.utils.BinaryStream;
 import com.google.common.base.Preconditions;

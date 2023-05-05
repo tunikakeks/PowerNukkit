@@ -3,7 +3,6 @@ package cn.nukkit.item;
 import cn.nukkit.Server;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
-import cn.nukkit.blockstate.BlockStateRegistry;
 import cn.nukkit.item.RuntimeItems.MappingEntry;
 import cn.nukkit.utils.BinaryStream;
 import com.google.common.base.Preconditions;
@@ -207,18 +206,17 @@ public class RuntimeItemMapping {
             fullId = RuntimeItems.getFullId(item.getId(), item.getDamage());
         }
         RuntimeEntry runtimeEntry = legacy2Runtime.get(fullId);
-        if (runtimeEntry == null) {
+        /*if (runtimeEntry == null) {
             String id = BlockStateRegistry.getBlockMapping(fullId);
             if (id != null) {
                 return getNetworkIdByNamespaceId(id.split(";")[0]).orElse(0);
             }
-        }
+        }*/
         if (runtimeEntry == null) {
             runtimeEntry = legacy2Runtime.get(RuntimeItems.getFullId(item.getId(), 0));
         }
         if (runtimeEntry == null) {
-            //throw new IllegalArgumentException("Unknown item mapping " + item);
-            return 0;
+            throw new IllegalArgumentException("Unknown item mapping " + item);
         }
         return runtimeEntry.runtimeId();
     }

@@ -217,7 +217,7 @@ public class RuntimeItemMapping {
         }
         if (runtimeEntry == null) {
             //throw new IllegalArgumentException("Unknown item mapping " + item);
-            return -1;
+            return 0;
         }
         return runtimeEntry.runtimeId();
     }

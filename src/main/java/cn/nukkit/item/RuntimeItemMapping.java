@@ -16,6 +16,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
+import lombok.var;
 
 import javax.annotation.Nullable;
 import java.io.IOException;

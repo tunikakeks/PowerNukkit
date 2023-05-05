@@ -112,11 +112,11 @@ public class RuntimeItems {
             this.damage = damage;
         }
 
-        public String getLegacyName() {
+        public String legacyName() {
             return legacyName;
         }
 
-        public int getDamage() {
+        public int damage() {
             return damage;
         }
     }

@@ -196,20 +196,30 @@ public class RuntimeItemMapping {
      */
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
-    public int getNetworkId(Item item) {
+    public int getNetworkFullId(Item item) {
         if (item instanceof StringItem) {
-            return namespaceNetworkMap.getOrDefault(item.getNamespaceId(), OptionalInt.empty())
-                    .orElseThrow(()-> new IllegalArgumentException("Unknown item mapping " + item)) << 1;
+            return name2RuntimeId.getInt(item.getNamespaceId());
         }
-
-        int fullId = RuntimeItems.getFullId(item.getId(), item.hasMeta() ? item.getDamage() : -1);
-        int networkFullId = this.legacyNetworkMap.get(fullId);
-        if (networkFullId == -1 && !item.hasMeta() && item.getDamage() != 0) { // Fuzzy crafting recipe of a remapped item, like charcoal
-            networkFullId = this.legacyNetworkMap.get(RuntimeItems.getFullId(item.getId(), item.getDamage()));
+        int fullId = RuntimeItems.getFullId(item.getId(), item.getDamage());
+        if (!item.hasMeta() && item.getDamage() != 0) { // Fuzzy crafting recipe of a remapped item, like charcoal
+            fullId = RuntimeItems.getFullId(item.getId(), item.getDamage());
         }
-        
-        return networkFullId;
+        RuntimeEntry runtimeEntry = legacy2Runtime.get(fullId);
+        /*if (runtimeEntry == null) {
+            String id = BlockStateRegistry.getBlockMapping(fullId);
+            if (id != null) {
+                return getNetworkIdByNamespaceId(id.split(";")[0]).orElse(0);
+            }
+        }*/
+        if (runtimeEntry == null) {
+            runtimeEntry = legacy2Runtime.get(RuntimeItems.getFullId(item.getId(), 0));
+        }
+        if (runtimeEntry == null) {
+            throw new IllegalArgumentException("Unknown item mapping " + item);
+        }
+        return runtimeEntry.runtimeId;
     }
+
 
     /**
      * Returns the <b>full id</b> of a given <b>network id</b>.
@@ -365,12 +375,20 @@ public class RuntimeItemMapping {
             this.damage = damage;
         }
 
-        public int getDamage() {
+        public int damage() {
             return this.hasDamage ? this.damage : 0;
         }
 
         public int fullID() {
             return RuntimeItems.getFullId(legacyId, damage);
+        }
+
+        public int legacyId() {
+            return legacyId;
+        }
+
+        public boolean hasDamage() {
+            return hasDamage;
         }
     }
 
@@ -380,6 +398,22 @@ public class RuntimeItemMapping {
             this.runtimeId = runtimeId;
             this.hasDamage = hasDamage;
             this.isComponent = isComponent;
+        }
+
+        public String identifier() {
+            return identifier;
+        }
+
+        public int runtimeId() {
+            return runtimeId;
+        }
+
+        public boolean hasDamage() {
+            return hasDamage;
+        }
+
+        public boolean isComponent() {
+            return isComponent;
         }
     }
 }

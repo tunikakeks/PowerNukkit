@@ -290,9 +290,9 @@ public class RuntimeItemMapping {
                         .orElseThrow(()-> new IllegalArgumentException("The network id of \""+namespaceId+"\" is unknown"))
         );
         if (RuntimeItems.hasData(legacyFullId)) {
-            return Item.get(RuntimeItems.getId(legacyFullId), RuntimeItems.getData(legacyFullId), amount, EmptyArrays.EMPTY_BYTES, runtimeBlockId);
+            return Item.get(RuntimeItems.getId(legacyFullId), RuntimeItems.getData(legacyFullId), amount);
         } else {
-            Item item = Item.get(RuntimeItems.getId(legacyFullId), 0, amount, EmptyArrays.EMPTY_BYTES, runtimeBlockId);
+            Item item = Item.get(RuntimeItems.getId(legacyFullId), 0, amount);
             return item;
         }
     }

@@ -284,6 +284,19 @@ public class RuntimeItemMapping {
     @PowerNukkitOnly
     @Since("1.4.0.0-PN")
     
+    public Item getItemByNamespaceId(String namespaceId, int amount) {
+        int legacyFullId = getLegacyFullId(
+                getNetworkIdByNamespaceId(namespaceId)
+                        .orElseThrow(()-> new IllegalArgumentException("The network id of \""+namespaceId+"\" is unknown"))
+        );
+        if (RuntimeItems.hasData(legacyFullId)) {
+            return Item.get(RuntimeItems.getId(legacyFullId), RuntimeItems.getData(legacyFullId), amount);
+        } else {
+            Item item = Item.get(RuntimeItems.getId(legacyFullId), 0, amount);
+            return item;
+        }
+    }
+
     public Item getItemByNamespaceId(String namespaceId, int amount, int runtimeBlockId) {
         int legacyFullId = getLegacyFullId(
                 getNetworkIdByNamespaceId(namespaceId)

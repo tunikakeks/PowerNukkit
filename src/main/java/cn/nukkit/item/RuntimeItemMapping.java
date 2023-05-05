@@ -206,12 +206,12 @@ public class RuntimeItemMapping {
             fullId = RuntimeItems.getFullId(item.getId(), item.getDamage());
         }
         RuntimeEntry runtimeEntry = legacy2Runtime.get(fullId);
-        /*if (runtimeEntry == null) {
+        if (runtimeEntry == null) {
             String id = BlockStateRegistry.getBlockMapping(fullId);
             if (id != null) {
                 return getNetworkIdByNamespaceId(id.split(";")[0]).orElse(0);
             }
-        }*/
+        }
         if (runtimeEntry == null) {
             runtimeEntry = legacy2Runtime.get(RuntimeItems.getFullId(item.getId(), 0));
         }

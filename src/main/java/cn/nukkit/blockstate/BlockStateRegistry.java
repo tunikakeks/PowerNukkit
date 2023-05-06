@@ -55,6 +55,8 @@ public class BlockStateRegistry {
     private final Map<String, Registration> stateIdRegistration = new ConcurrentHashMap<>();
     private final Int2ObjectMap<Registration> runtimeIdRegistration = new Int2ObjectOpenHashMap<>();
 
+    private final Map<String, BlockState> mappedBlocks = new LinkedHashMap<>();
+
     private final Int2ObjectMap<String> blockIdToPersistenceName = new Int2ObjectOpenHashMap<>();
     private final Map<String, Integer> persistenceNameToBlockId = new LinkedHashMap<>();
     
@@ -172,43 +174,82 @@ public class BlockStateRegistry {
             }
             */
 
-            if (name.equals("minecraft:oak_log")) {
-                registerPersistenceName(17, "minecraft:log:0");
+           if(name.equals("minecraft:oak_log")) {
+                mappedBlocks.put(17, 0, runtimeId);
                 registerStateId(state, runtimeId);
-            } else if (name.equals("minecraft:spruce_log")) {
-                registerPersistenceName(17, "minecraft:log:1");
+                continue;
+           }
+
+           if(name.equals("minecraft:spruce_log")) {
+                mappedBlocks.put(17, 1, runtimeId);
                 registerStateId(state, runtimeId);
-            } else if (name.equals("minecraft:birch_log")) {
-                registerPersistenceName(17, "minecraft:log:2");
+                continue;
+            }
+
+            if(name.equals("minecraft:birch_log")) {
+                mappedBlocks.put(17, 2, runtimeId);
                 registerStateId(state, runtimeId);
-            } else if (name.equals("minecraft:jungle_log")) {
-                registerPersistenceName(17, "minecraft:log:3");
+                continue;
+            }
+
+            if(name.equals("minecraft:jungle_log")) {
+                mappedBlocks.put(17, 3, runtimeId);
                 registerStateId(state, runtimeId);
-            } else if (name.equals("minecraft:acacia_log")) {
-                registerPersistenceName(162, "minecraft:log2:0");
+                continue;
+            }
+
+            if(name.equals("minecraft:acacia_log")) {
+                mappedBlocks.put(162, 0, runtimeId);
                 registerStateId(state, runtimeId);
-            } else if (name.equals("minecraft:dark_oak_log")) {
-                registerPersistenceName(162, "minecraft:log2:1");
+                continue;
+            }
+
+            if(name.equals("minecraft:dark_oak_log")) {
+                mappedBlocks.put(162, 1, runtimeId);
                 registerStateId(state, runtimeId);
-            } else if (name.equals("minecraft:oak_fence")) {
-                registerPersistenceName(85, "minecraft:fence:0");
+                continue;
+            }
+
+            if(name.equals("minecraft:oak_fence")) {
+                mappedBlocks.put(85, 0, runtimeId);
                 registerStateId(state, runtimeId);
-            } else if (name.equals("minecraft:spruce_fence")) {
-                registerPersistenceName(85, "minecraft:fence:1");
+                continue;
+            }
+
+            if(name.equals("minecraft:spruce_fence")) {
+                mappedBlocks.put(85, 1, runtimeId);
                 registerStateId(state, runtimeId);
-            } else if (name.equals("minecraft:birch_fence")) {
-                registerPersistenceName(85, "minecraft:fence:2");
+                continue;
+            }
+
+            if(name.equals("minecraft:birch_fence")) {
+                mappedBlocks.put(85, 2, runtimeId);
                 registerStateId(state, runtimeId);
-            } else if (name.equals("minecraft:jungle_fence")) {
-                registerPersistenceName(85, "minecraft:fence:3");
+                continue;
+            }
+
+            if(name.equals("minecraft:jungle_fence")) {
+                mappedBlocks.put(85, 3, runtimeId);
                 registerStateId(state, runtimeId);
-            } else if (name.equals("minecraft:acacia_fence")) {
-                registerPersistenceName(85, "minecraft:fence:4");
+                continue;
+            }
+
+            if(name.equals("minecraft:acacia_fence")) {
+                mappedBlocks.put(85, 4, runtimeId);
                 registerStateId(state, runtimeId);
-            } else if (name.equals("minecraft:dark_oak_fence")) {
-                registerPersistenceName(85, "minecraft:fence:5");
+                continue;
+            }
+
+            if(name.equals("minecraft:dark_oak_fence")) {
+                mappedBlocks.put(85, 5, runtimeId);
                 registerStateId(state, runtimeId);
-            } else if (isNameOwnerOfId(state.getString("name"), blockId)) {
+                continue;
+            }
+
+            
+
+            
+            if (isNameOwnerOfId(state.getString("name"), blockId)) {
                 registerPersistenceName(blockId, state.getString("name"));
                 registerStateId(state, runtimeId);
             } else if (blockId == -1) {

@@ -175,73 +175,61 @@ public class BlockStateRegistry {
             */
 
            if(name.equals("minecraft:oak_log")) {
-                mappedBlocks.put(17, 0, runtimeId);
                 registerStateId(state, runtimeId);
                 continue;
            }
 
            if(name.equals("minecraft:spruce_log")) {
-                mappedBlocks.put(17, 1, runtimeId);
                 registerStateId(state, runtimeId);
                 continue;
             }
 
             if(name.equals("minecraft:birch_log")) {
-                mappedBlocks.put(17, 2, runtimeId);
                 registerStateId(state, runtimeId);
                 continue;
             }
 
             if(name.equals("minecraft:jungle_log")) {
-                mappedBlocks.put(17, 3, runtimeId);
                 registerStateId(state, runtimeId);
                 continue;
             }
 
             if(name.equals("minecraft:acacia_log")) {
-                mappedBlocks.put(162, 0, runtimeId);
                 registerStateId(state, runtimeId);
                 continue;
             }
 
             if(name.equals("minecraft:dark_oak_log")) {
-                mappedBlocks.put(162, 1, runtimeId);
                 registerStateId(state, runtimeId);
                 continue;
             }
 
             if(name.equals("minecraft:oak_fence")) {
-                mappedBlocks.put(85, 0, runtimeId);
                 registerStateId(state, runtimeId);
                 continue;
             }
 
             if(name.equals("minecraft:spruce_fence")) {
-                mappedBlocks.put(85, 1, runtimeId);
                 registerStateId(state, runtimeId);
                 continue;
             }
 
             if(name.equals("minecraft:birch_fence")) {
-                mappedBlocks.put(85, 2, runtimeId);
                 registerStateId(state, runtimeId);
                 continue;
             }
 
             if(name.equals("minecraft:jungle_fence")) {
-                mappedBlocks.put(85, 3, runtimeId);
                 registerStateId(state, runtimeId);
                 continue;
             }
 
             if(name.equals("minecraft:acacia_fence")) {
-                mappedBlocks.put(85, 4, runtimeId);
                 registerStateId(state, runtimeId);
                 continue;
             }
 
             if(name.equals("minecraft:dark_oak_fence")) {
-                mappedBlocks.put(85, 5, runtimeId);
                 registerStateId(state, runtimeId);
                 continue;
             }

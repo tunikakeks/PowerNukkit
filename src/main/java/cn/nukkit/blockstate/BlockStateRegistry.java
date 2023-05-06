@@ -173,71 +173,59 @@ public class BlockStateRegistry {
                 }
             }
             */
+            // that means, if the name is for example minecraft:oak_log, we need to register the runtime id for minecraft:log with id 17:0
 
-           if(name.equals("minecraft:oak_log")) {
-                registerStateId(state, runtimeId);
-                continue;
-           }
+            var jsonMap = gson.fromJson(`{
+                "85": {
+                    "0": "minecraft:oak_fence",
+                    "1": "minecraft:spruce_fence",
+                    "2": "minecraft:birch_fence",
+                    "3": "minecraft:jungle_fence",
+                    "4": "minecraft:acacia_fence",
+                    "5": "minecraft:dark_oak_fence"
+                },
+                "17": {
+                    "0": "minecraft:oak_log;pillar_axis=y",
+                    "1": "minecraft:spruce_log;pillar_axis=y",
+                    "2": "minecraft:birch_log;pillar_axis=y",
+                    "3": "minecraft:jungle_log;pillar_axis=y",
+                    "4": "minecraft:oak_log;pillar_axis=x",
+                    "5": "minecraft:spruce_log;pillar_axis=x",
+                    "6": "minecraft:birch_log;pillar_axis=x",
+                    "7": "minecraft:jungle_log;pillar_axis=x",
+                    "8": "minecraft:oak_log;pillar_axis=z",
+                    "9": "minecraft:spruce_log;pillar_axis=z",
+                    "10": "minecraft:birch_log;pillar_axis=z",
+                    "11": "minecraft:jungle_log;pillar_axis=z"
+                },
+                "162": {
+                    "0": "minecraft:acacia_log;pillar_axis=y",
+                    "1": "minecraft:dark_oak_log;pillar_axis=y",
+                    "4": "minecraft:acacia_log;pillar_axis=x",
+                    "5": "minecraft:dark_oak_log;pillar_axis=x",
+                    "8": "minecraft:acacia_log;pillar_axis=z",
+                    "9": "minecraft:dark_oak_log;pillar_axis=z"
+                }
+            }`, JsonObject.class);
 
-           if(name.equals("minecraft:spruce_log")) {
-                registerStateId(state, runtimeId);
-                continue;
-            }
-
-            if(name.equals("minecraft:birch_log")) {
-                registerStateId(state, runtimeId);
-                continue;
-            }
-
-            if(name.equals("minecraft:jungle_log")) {
-                registerStateId(state, runtimeId);
-                continue;
-            }
-
-            if(name.equals("minecraft:acacia_log")) {
-                registerStateId(state, runtimeId);
-                continue;
-            }
-
-            if(name.equals("minecraft:dark_oak_log")) {
-                registerStateId(state, runtimeId);
-                continue;
-            }
-
-            if(name.equals("minecraft:oak_fence")) {
-                registerStateId(state, runtimeId);
-                continue;
-            }
-
-            if(name.equals("minecraft:spruce_fence")) {
-                registerStateId(state, runtimeId);
-                continue;
-            }
-
-            if(name.equals("minecraft:birch_fence")) {
-                registerStateId(state, runtimeId);
-                continue;
-            }
-
-            if(name.equals("minecraft:jungle_fence")) {
-                registerStateId(state, runtimeId);
-                continue;
-            }
-
-            if(name.equals("minecraft:acacia_fence")) {
-                registerStateId(state, runtimeId);
-                continue;
-            }
-
-            if(name.equals("minecraft:dark_oak_fence")) {
-                registerStateId(state, runtimeId);
-                continue;
-            }
-
-
-
-            
-            if (isNameOwnerOfId(state.getString("name"), blockId)) {
+            if (jsonMap.has(name)) {
+                var subMap = jsonMap.get(name);
+                if (subMap.isJsonObject()) {
+                    var subMapObj = subMap.getAsJsonObject();
+                    for (var entry : subMapObj.entrySet()) {
+                        var subName = entry.getValue().getAsString();
+                        var subRuntimeId = findRuntimeIdByName(subName);
+                        if (subRuntimeId == -1) {
+                            if (warned.add(subName)) {
+                                log.warn("Unknown block id for the block named {}", subName);
+                            }
+                            log.info("Block {} - {}", subName, subRuntimeId);
+                        } else {
+                            registerStateId(state, subRuntimeId);
+                        }
+                    }
+                }
+            } else if (isNameOwnerOfId(state.getString("name"), blockId)) {
                 registerPersistenceName(blockId, state.getString("name"));
                 registerStateId(state, runtimeId);
             } else if (blockId == -1) {

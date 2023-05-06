@@ -128,10 +128,6 @@ public class BlockStateRegistry {
             int blockId = state.getInt("blockId");
             int runtimeId = state.getInt("runtimeId");
             String name = state.getString("name").toLowerCase();
-            CompoundTag states = state.getCompound("states");
-            if (states == null) {
-                states = new CompoundTag();
-            }
 
             if (name.equals("minecraft:unknown")) {
                 infoUpdateRuntimeId = runtimeId;
@@ -140,49 +136,65 @@ public class BlockStateRegistry {
             // Special condition: minecraft:wood maps 3 blocks, minecraft:wood, minecraft:log and minecraft:log2
             // All other cases, register the name normally
 
-            // minecraft:oak_log is the canonical name for minecraft:log meta 0
-            // minecraft:birch_log is the canonical name for minecraft:log meta 2
-            // minecraft:spruce_log is the canonical name for minecraft:log meta 1
-            // minecraft:jungle_log is the canonical name for minecraft:log meta 3
-            // minecraft:acacia_log is the canonical name for minecraft:log2 meta 0
-            // minecraft:dark_oak_log is the canonical name for minecraft:log2 meta 1
+            // map the following json:
+            /*
+            {
+                "85": {
+                    "0": "minecraft:oak_fence",
+                    "1": "minecraft:spruce_fence",
+                    "2": "minecraft:birch_fence",
+                    "3": "minecraft:jungle_fence",
+                    "4": "minecraft:acacia_fence",
+                    "5": "minecraft:dark_oak_fence"
+                },
+                "17": {
+                    "0": "minecraft:oak_log;pillar_axis=y",
+                    "1": "minecraft:spruce_log;pillar_axis=y",
+                    "2": "minecraft:birch_log;pillar_axis=y",
+                    "3": "minecraft:jungle_log;pillar_axis=y",
+                    "4": "minecraft:oak_log;pillar_axis=x",
+                    "5": "minecraft:spruce_log;pillar_axis=x",
+                    "6": "minecraft:birch_log;pillar_axis=x",
+                    "7": "minecraft:jungle_log;pillar_axis=x",
+                    "8": "minecraft:oak_log;pillar_axis=z",
+                    "9": "minecraft:spruce_log;pillar_axis=z",
+                    "10": "minecraft:birch_log;pillar_axis=z",
+                    "11": "minecraft:jungle_log;pillar_axis=z"
+                },
+                "162": {
+                    "0": "minecraft:acacia_log;pillar_axis=y",
+                    "1": "minecraft:dark_oak_log;pillar_axis=y",
+                    "4": "minecraft:acacia_log;pillar_axis=x",
+                    "5": "minecraft:dark_oak_log;pillar_axis=x",
+                    "8": "minecraft:acacia_log;pillar_axis=z",
+                    "9": "minecraft:dark_oak_log;pillar_axis=z"
+                }
+            }
+            */
 
-            if(name.equals("minecraft:oak_log")) {
-                name = "minecraft:log";
-                states.putByte("old_log_type", (byte) 0);
-            } else if(name.equals("minecraft:birch_log")) {
-                name = "minecraft:log";
-                states.putByte("old_log_type", (byte) 2);
-            } else if(name.equals("minecraft:spruce_log")) {
-                name = "minecraft:log";
-                states.putByte("old_log_type", (byte) 1);
-            } else if(name.equals("minecraft:jungle_log")) {
-                name = "minecraft:log";
-                states.putByte("old_log_type", (byte) 3);
-            } else if(name.equals("minecraft:acacia_log")) {
-                name = "minecraft:log2";
-                states.putByte("new_log_type", (byte) 0);
-            } else if(name.equals("minecraft:dark_oak_log")) {
-                name = "minecraft:log2";
-                states.putByte("new_log_type", (byte) 1);
+            if (blockId == 17 || blockId == 162) {
+                String[] parts = name.split(";");
+                String baseName = parts[0];
+                String axis = parts[1].split("=")[1];
+                String newName = baseName + ";pillar_axis=" + axis;
+                if (isNameOwnerOfId(newName, blockId)) {
+                    registerPersistenceName(blockId, newName);
+                    registerStateId(state, runtimeId);
+                } else if (warned.add(name)) {
+                    log.warn("Unknown block id for the block named {}", state.getString("name"));
+                }
             }
 
-            CompoundTag newState = new CompoundTag();
-            newState.putString("name", name);
-            newState.putCompound("states", states);
-            newState.putInt("blockId", blockId);
-            newState.putInt("runtimeId", runtimeId);
-            newState.putInt("version", state.getInt("version"));
             
-            if (isNameOwnerOfId(newState.getString("name"), blockId)) {
-                registerPersistenceName(blockId, newState.getString("name"));
-                registerStateId(newState, runtimeId);
+            if (isNameOwnerOfId(state.getString("name"), blockId)) {
+                registerPersistenceName(blockId, state.getString("name"));
+                registerStateId(state, runtimeId);
             } else if (blockId == -1) {
                 if (warned.add(name)) {
-                    log.warn("Unknown block id for the block named {}", newState.getString("name"));
+                    log.warn("Unknown block id for the block named {}", state.getString("name"));
                 }
-                log.info("Block {} - {}", newState, runtimeId);
-                registerStateId(newState, runtimeId);
+                log.info("Block {} - {}", state, runtimeId);
+                registerStateId(state, runtimeId);
             }
         }
 

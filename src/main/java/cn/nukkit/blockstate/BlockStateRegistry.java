@@ -10,6 +10,8 @@ import cn.nukkit.block.BlockUnknown;
 import cn.nukkit.blockproperty.BlockProperties;
 import cn.nukkit.blockproperty.exception.BlockPropertyNotFoundException;
 import cn.nukkit.blockstate.exception.InvalidBlockStateException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.Tag;
@@ -174,6 +176,10 @@ public class BlockStateRegistry {
             }
             */
             // that means, if the name is for example minecraft:oak_log, we need to register the runtime id for minecraft:log with id 17:0
+            
+            GsonBuilder builder = new GsonBuilder();
+            Gson gson = builder.create();
+
 
             var jsonMap = gson.fromJson(`{
                 "85": {
@@ -211,18 +217,16 @@ public class BlockStateRegistry {
             if (jsonMap.has(name)) {
                 var subMap = jsonMap.get(name);
                 if (subMap.isJsonObject()) {
-                    var subMapObj = subMap.getAsJsonObject();
-                    for (var entry : subMapObj.entrySet()) {
+                    // we have a submap, so we need to register all the submap entries
+                    //if name is minecraft:oak_log, we need to register a redirect for 17:0
+                    for (var entry : subMap.entrySet()) {
                         var subName = entry.getValue().getAsString();
-                        var subRuntimeId = findRuntimeIdByName(subName);
-                        if (subRuntimeId == -1) {
-                            if (warned.add(subName)) {
-                                log.warn("Unknown block id for the block named {}", subName);
-                            }
-                            log.info("Block {} - {}", subName, subRuntimeId);
-                        } else {
-                            registerStateId(state, subRuntimeId);
-                        }
+                        var subRuntimeId = entry.getKey().getAsInt();
+                        
+                        //fullBlockId is for example 17:0 or 162:0
+                        var fullBlockId = subRuntimeId + ":" + subName.split(";")[0];
+                        state.put("blockId", fullBlockId);
+                        registerStateId(state, runtimeId);
                     }
                 }
             } else if (isNameOwnerOfId(state.getString("name"), blockId)) {

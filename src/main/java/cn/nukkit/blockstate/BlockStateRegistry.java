@@ -55,7 +55,7 @@ public class BlockStateRegistry {
     private final Map<String, Registration> stateIdRegistration = new ConcurrentHashMap<>();
     private final Int2ObjectMap<Registration> runtimeIdRegistration = new Int2ObjectOpenHashMap<>();
 
-    private final Map<String, BlockState> mappedBlocks = new LinkedHashMap<>();
+    private final Map<String, BlockState> mappedBlocks = new ConcurrentHashMap<>();
 
     private final Int2ObjectMap<String> blockIdToPersistenceName = new Int2ObjectOpenHashMap<>();
     private final Map<String, Integer> persistenceNameToBlockId = new LinkedHashMap<>();
@@ -246,7 +246,7 @@ public class BlockStateRegistry {
                 continue;
             }
 
-            
+
 
             
             if (isNameOwnerOfId(state.getString("name"), blockId)) {

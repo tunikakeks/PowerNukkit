@@ -172,21 +172,43 @@ public class BlockStateRegistry {
             }
             */
 
-            if (blockId == 17 || blockId == 162) {
-                String[] parts = name.split(";");
-                String baseName = parts[0];
-                String axis = parts[1].split("=")[1];
-                String newName = baseName + ";pillar_axis=" + axis;
-                if (isNameOwnerOfId(newName, blockId)) {
-                    registerPersistenceName(blockId, newName);
-                    registerStateId(state, runtimeId);
-                } else if (warned.add(name)) {
-                    log.warn("Unknown block id for the block named {}", state.getString("name"));
-                }
-            }
-
-            
-            if (isNameOwnerOfId(state.getString("name"), blockId)) {
+            if (name.equals("minecraft:oak_log")) {
+                registerPersistenceName(17, "minecraft:log:0");
+                registerStateId(state, runtimeId);
+            } else if (name.equals("minecraft:spruce_log")) {
+                registerPersistenceName(17, "minecraft:log:1");
+                registerStateId(state, runtimeId);
+            } else if (name.equals("minecraft:birch_log")) {
+                registerPersistenceName(17, "minecraft:log:2");
+                registerStateId(state, runtimeId);
+            } else if (name.equals("minecraft:jungle_log")) {
+                registerPersistenceName(17, "minecraft:log:3");
+                registerStateId(state, runtimeId);
+            } else if (name.equals("minecraft:acacia_log")) {
+                registerPersistenceName(162, "minecraft:log2:0");
+                registerStateId(state, runtimeId);
+            } else if (name.equals("minecraft:dark_oak_log")) {
+                registerPersistenceName(162, "minecraft:log2:1");
+                registerStateId(state, runtimeId);
+            } else if (name.equals("minecraft:oak_fence")) {
+                registerPersistenceName(85, "minecraft:fence:0");
+                registerStateId(state, runtimeId);
+            } else if (name.equals("minecraft:spruce_fence")) {
+                registerPersistenceName(85, "minecraft:fence:1");
+                registerStateId(state, runtimeId);
+            } else if (name.equals("minecraft:birch_fence")) {
+                registerPersistenceName(85, "minecraft:fence:2");
+                registerStateId(state, runtimeId);
+            } else if (name.equals("minecraft:jungle_fence")) {
+                registerPersistenceName(85, "minecraft:fence:3");
+                registerStateId(state, runtimeId);
+            } else if (name.equals("minecraft:acacia_fence")) {
+                registerPersistenceName(85, "minecraft:fence:4");
+                registerStateId(state, runtimeId);
+            } else if (name.equals("minecraft:dark_oak_fence")) {
+                registerPersistenceName(85, "minecraft:fence:5");
+                registerStateId(state, runtimeId);
+            } else if (isNameOwnerOfId(state.getString("name"), blockId)) {
                 registerPersistenceName(blockId, state.getString("name"));
                 registerStateId(state, runtimeId);
             } else if (blockId == -1) {

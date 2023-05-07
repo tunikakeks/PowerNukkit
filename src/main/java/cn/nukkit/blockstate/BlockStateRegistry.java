@@ -203,7 +203,7 @@ public class BlockStateRegistry {
                 }
             } else */
             
-            for(var entry : cfg.entrySet()) {
+            for(var entry : cfg.config.entrySet()) {
                 var subMap = entry.getValue().getAsJsonObject();
                 if (subMap.has(name)) {
                     // we have a submap, so we need to register all the submap entries

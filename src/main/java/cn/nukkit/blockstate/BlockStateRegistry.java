@@ -39,6 +39,7 @@ import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 @PowerNukkitOnly
 @Since("1.4.0.0-PN")
 @UtilityClass
@@ -180,8 +181,8 @@ public class BlockStateRegistry {
             GsonBuilder builder = new GsonBuilder();
             Gson gson = builder.create();
 
-            JsonElement jsonElement = gson.fromJson(new InputStreamReader(Server.class.getClassLoader().getResourceAsStream("block_map.json")), JsonElement.class);
-            JsonObject jsonMap = jsonElement.getAsJsonObject();
+            var jsonElement = gson.fromJson(new InputStreamReader(Server.class.getClassLoader().getResourceAsStream("block_map.json")), JsonElement.class);
+            var jsonMap = jsonElement.getAsJsonObject();
 
             if (jsonMap.has(name)) {
                 var subMap = jsonMap.get(name);

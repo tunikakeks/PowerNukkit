@@ -181,7 +181,7 @@ public class BlockStateRegistry {
             Gson gson = builder.create();
 
 
-            var jsonMap = gson.fromJson(`{
+            var jsonMap = gson.fromJson('''{
                 "85": {
                     "0": "minecraft:oak_fence",
                     "1": "minecraft:spruce_fence",
@@ -212,7 +212,7 @@ public class BlockStateRegistry {
                     "8": "minecraft:acacia_log;pillar_axis=z",
                     "9": "minecraft:dark_oak_log;pillar_axis=z"
                 }
-            }`, JsonObject.class);
+            }''', JsonObject.class);
 
             if (jsonMap.has(name)) {
                 var subMap = jsonMap.get(name);

@@ -186,7 +186,7 @@ public class BlockStateRegistry {
                 throw new UncheckedIOException(e);
             }
 
-            if (cfg.has(name)) {
+            /*if (cfg.has(name)) {
                 var subMap = jsonMap.get(name);
                 if (subMap.isJsonObject()) {
                     // we have a submap, so we need to register all the submap entries
@@ -201,7 +201,26 @@ public class BlockStateRegistry {
                         registerStateId(state, runtimeId);
                     }
                 }
-            } else if (isNameOwnerOfId(state.getString("name"), blockId)) {
+            } else */
+            
+            for(var entry : cfg.entrySet()) {
+                var subMap = entry.getValue().getAsJsonObject();
+                if (subMap.has(name)) {
+                    // we have a submap, so we need to register all the submap entries
+                    //if name is minecraft:oak_log, we need to register a redirect for 17:0
+                    for (var subEntry : subMap.entrySet()) {
+                        var subName = subEntry.getValue().getAsString();
+                        var subRuntimeId = subEntry.getKey().getAsInt();
+                        
+                        //fullBlockId is for example 17:0 or 162:0
+                        var fullBlockId = subRuntimeId + ":" + subName.split(";")[0];
+                        state.put("blockId", fullBlockId);
+                        registerStateId(state, runtimeId);
+                    }
+                }
+            }
+
+            if (isNameOwnerOfId(state.getString("name"), blockId)) {
                 registerPersistenceName(blockId, state.getString("name"));
                 registerStateId(state, runtimeId);
             } else if (blockId == -1) {

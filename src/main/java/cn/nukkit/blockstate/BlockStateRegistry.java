@@ -209,11 +209,11 @@ public class BlockStateRegistry {
                     // we have a submap, so we need to register all the submap entries
                     //if name is minecraft:oak_log, we need to register a redirect for 17:0
                     for (var subEntry : subMap.entrySet()) {
-                        var subName = subEntry.getValue().getAsString();
-                        var subRuntimeId = subEntry.getKey().getAsInt();
+                        String subName = subEntry.getValue().getAsString();
+                        int subRuntimeId = subEntry.getKey().getAsInt();
                         
                         //fullBlockId is for example 17:0 or 162:0
-                        var fullBlockId = subRuntimeId + ":" + subName.split(";")[0];
+                        String fullBlockId = subRuntimeId + ":" + subName.split(";")[0];
                         state.put("blockId", fullBlockId);
                         registerStateId(state, runtimeId);
                     }

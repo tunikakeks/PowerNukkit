@@ -16,6 +16,7 @@ import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.nbt.tag.Tag;
 import cn.nukkit.utils.BinaryStream;
+import cn.nukkit.utils.Config;
 import cn.nukkit.utils.HumanStringComparator;
 import com.google.common.base.Preconditions;
 import io.netty.util.internal.EmptyArrays;
@@ -178,13 +179,14 @@ public class BlockStateRegistry {
             */
             // that means, if the name is for example minecraft:oak_log, we need to register the runtime id for minecraft:log with id 17:0
             
-            GsonBuilder builder = new GsonBuilder();
-            Gson gson = builder.create();
+            Config cfg = new Config(Config.JSON);
+            try (InputStream recipesStream = Server.class.getClassLoader().getResourceAsStream("block_map.json")) {
+                cfg.load(Objects.requireNonNull(recipesStream, "Unable to find block_map.json"));
+            } catch (IOException e) {
+                throw new UncheckedIOException(e);
+            }
 
-            var jsonElement = gson.fromJson(new InputStreamReader(Server.class.getClassLoader().getResourceAsStream("block_map.json")), JsonElement.class);
-            var jsonMap = jsonElement.getAsJsonObject();
-
-            if (jsonMap.has(name)) {
+            if (cfg.has(name)) {
                 var subMap = jsonMap.get(name);
                 if (subMap.isJsonObject()) {
                     // we have a submap, so we need to register all the submap entries

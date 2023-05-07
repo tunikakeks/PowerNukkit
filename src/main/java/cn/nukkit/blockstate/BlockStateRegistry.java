@@ -180,39 +180,8 @@ public class BlockStateRegistry {
             GsonBuilder builder = new GsonBuilder();
             Gson gson = builder.create();
 
-
-            var jsonMap = gson.fromJson('''{
-                "85": {
-                    "0": "minecraft:oak_fence",
-                    "1": "minecraft:spruce_fence",
-                    "2": "minecraft:birch_fence",
-                    "3": "minecraft:jungle_fence",
-                    "4": "minecraft:acacia_fence",
-                    "5": "minecraft:dark_oak_fence"
-                },
-                "17": {
-                    "0": "minecraft:oak_log;pillar_axis=y",
-                    "1": "minecraft:spruce_log;pillar_axis=y",
-                    "2": "minecraft:birch_log;pillar_axis=y",
-                    "3": "minecraft:jungle_log;pillar_axis=y",
-                    "4": "minecraft:oak_log;pillar_axis=x",
-                    "5": "minecraft:spruce_log;pillar_axis=x",
-                    "6": "minecraft:birch_log;pillar_axis=x",
-                    "7": "minecraft:jungle_log;pillar_axis=x",
-                    "8": "minecraft:oak_log;pillar_axis=z",
-                    "9": "minecraft:spruce_log;pillar_axis=z",
-                    "10": "minecraft:birch_log;pillar_axis=z",
-                    "11": "minecraft:jungle_log;pillar_axis=z"
-                },
-                "162": {
-                    "0": "minecraft:acacia_log;pillar_axis=y",
-                    "1": "minecraft:dark_oak_log;pillar_axis=y",
-                    "4": "minecraft:acacia_log;pillar_axis=x",
-                    "5": "minecraft:dark_oak_log;pillar_axis=x",
-                    "8": "minecraft:acacia_log;pillar_axis=z",
-                    "9": "minecraft:dark_oak_log;pillar_axis=z"
-                }
-            }''', JsonObject.class);
+            JsonElement jsonElement = gson.fromJson(new InputStreamReader(Server.class.getClassLoader().getResourceAsStream("block_map.json")), JsonElement.class);
+            JsonObject jsonMap = jsonElement.getAsJsonObject();
 
             if (jsonMap.has(name)) {
                 var subMap = jsonMap.get(name);
